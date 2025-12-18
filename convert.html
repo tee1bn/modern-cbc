@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <style>
+        /* Custom scrollbar for mobile tabs */
+        .tab-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        .tab-scroll {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Active tab indicator */
+        .tab-active {
+            background: #1e3a8a;
+            color: white;
+        }
+        
+        /* Content sections - hide by default */
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+        
+        /* Desktop segment control */
+        @media (min-width: 768px) {
+            .desktop-segment-btn {
+                background: transparent;
+                color: #6b7280;
+            }
+            .desktop-segment-btn.segment-active {
+                background: white;
+                color: #1e40af;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            }
+        }
+    </style>
+    <title>Bet Converter - ConvertBetCodes</title>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div id="desktop-nav"></div>
+
+    <main class="container mx-auto px-4 py-6 max-w-4xl">
+
+        <!-- mobile horizontal scrolable tabs -->
+        <div class="md:hidden mb-6">
+            <div class="flex gap-2 overflow-auto tab-scroll pb-2">
+                <button onclick="switchTab('betting-code')" data-tab="betting-code" class="btn tab-btn tab-active px-6 py-2.5 rounded-full font-semibold whitespace-nowrap text-sm transition-all">
+                    Betting Code
+                </button>
+                <button onclick="switchTab('ticket-code')" data-tab="ticket-code" class="tab-btn bg-white px-6 py-2.5 rounded-full font-semibold whitespace-nowrap text-sm transition-all">
+                    Ticket Code
+                </button>
+                <button onclick="switchTab('bet-link')" data-tab="bet-link" class="tab-btn bg-white px-6 py-2.5 rounded-full font-semibold whitespace-nowrap text-sm transition-all">
+                    Bet Link
+                </button>
+                <button onclick="switchTab('upload-file')" data-tab="upload-file" class="tab-btn bg-white px-6 py-2.5 rounded-full font-semibold whitespace-nowrap text-sm transition-all">
+                    Upload File
+                </button>
+            </div>
+        </div>
+
+        <!-- desktop -->
+        <div class="hidden md:block mb-6">
+            <div class="flex gap-0 border border-gray-300 rounded-lg overflow-hidden p-1 bg-gray-200">
+                <button onclick="switchTab('betting-code')" data-tab-desktop="betting-code" class="desktop-segment-btn segment-active flex-1 py-3 px-4 rounded-md font-semibold transition-all">
+                    Betting Code
+                </button>
+                <button onclick="switchTab('ticket-code')" data-tab-desktop="ticket-code" class="desktop-segment-btn flex-1 py-3 px-4 rounded-md font-semibold transition-all">
+                    Ticket Code
+                </button>
+                <button onclick="switchTab('bet-link')" data-tab-desktop="bet-link" class="desktop-segment-btn flex-1 py-3 px-4 rounded-md font-semibold transition-all">
+                    Bet Link
+                </button>
+                <button onclick="switchTab('upload-file')" data-tab-desktop="upload-file" class="desktop-segment-btn flex-1 py-3 px-4 rounded-md font-semibold transition-all">
+                    Upload File
+                </button>
+            </div>
+        </div>
+
+        <!-- content -->
+         <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+            
+            <!-- Betting Code Section -->
+            <div id="betting-code-content" class="content-section active">
+                <h2 class="text-xl md:text-2xl font-bold mb-4 text-gray-800">Betting Code</h2>
+                <p class="text-gray-600 mb-6 text-sm md:text-base">Enter your betting code to convert</p>
+                
+                <div class="space-y-4">
+                    <!-- Betting Code Input -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Betting code</label>
+                        <div class="relative">
+                            <input type="text" placeholder="Enter betting code" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
+                            <button class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-icon lucide-clipboard"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Source Bookie -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Source Bookie</label>
+                        <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
+                            <option>Enter source bookie</option>
+                            <option>Bet9ja</option>
+                            <option>1xBet</option>
+                            <option>SportyBet</option>
+                        </select>
+                    </div>
+
+                    <!-- Target Bookie -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Target Bookie</label>
+                        <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
+                            <option>Enter target bookie</option>
+                            <option>Bet9ja</option>
+                            <option>1xBet</option>
+                            <option>SportyBet</option>
+                        </select>
+                    </div>
+
+                    <!-- Convert Button -->
+                    <button class="w-full bg-gray-900 hover:bg-gray-800 text-white font-bold py-3.5 rounded-lg transition-colors mt-6">
+                        Convert
+                    </button>
+                </div>
+            </div>
+
+            <!-- Ticket Code Section -->
+            <div id="ticket-code-content" class="content-section">
+                <h2 class="text-xl md:text-2xl font-bold mb-4 text-gray-800">Ticket Code</h2>
+                <p class="text-gray-600 mb-6 text-sm md:text-base">Enter your ticket code to convert</p>
+                
+                <div class="space-y-4">
+                    <!-- Ticket Code Input -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Ticket code</label>
+                        <div class="relative">
+                            <input type="text" placeholder="Enter ticket code" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
+                            <button class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-icon lucide-clipboard"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Source Bookie -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Source Bookie</label>
+                        <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
+                            <option>Enter source bookie</option>
+                            <option>Bet9ja</option>
+                            <option>1xBet</option>
+                            <option>SportyBet</option>
+                        </select>
+                    </div>
+
+                    <!-- Target Bookie -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Target Bookie</label>
+                        <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
+                            <option>Enter target bookie</option>
+                            <option>Bet9ja</option>
+                            <option>1xBet</option>
+                            <option>SportyBet</option>
+                        </select>
+                    </div>
+
+                    <!-- Convert Button -->
+                    <button class="w-full bg-gray-900 hover:bg-gray-800 text-white font-bold py-3.5 rounded-lg transition-colors mt-6">
+                        Convert
+                    </button>
+                </div>
+            </div>
+
+            <!-- Bet Link Section -->
+            <div id="bet-link-content" class="content-section">
+                <h2 class="text-xl md:text-2xl font-bold mb-4 text-gray-800">Bet Link</h2>
+                <p class="text-gray-600 mb-6 text-sm md:text-base">Enter your bet link to convert</p>
+                
+                <div class="space-y-4">
+                    <!-- Bet Link Input -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Bet Link</label>
+                        <div class="relative">
+                            <input type="url" placeholder="Enter bet link" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
+                            <button class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-icon lucide-clipboard"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg> 
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Source Bookie -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Source Bookie</label>
+                        <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
+                            <option>Enter source bookie</option>
+                            <option>Bet9ja</option>
+                            <option>1xBet</option>
+                            <option>SportyBet</option>
+                        </select>
+                    </div>
+
+                    <!-- Target Bookie -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Target Bookie</label>
+                        <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
+                            <option>Enter target bookie</option>
+                            <option>Bet9ja</option>
+                            <option>1xBet</option>
+                            <option>SportyBet</option>
+                        </select>
+                    </div>
+
+                    <!-- Convert Button -->
+                    <button class="w-full bg-gray-900 hover:bg-gray-800 text-white font-bold py-3.5 rounded-lg transition-colors mt-6">
+                        Convert
+                    </button>
+                </div>
+            </div>
+
+            <!-- Upload File Section -->
+            <div id="upload-file-content" class="content-section">
+                <h2 class="text-xl md:text-2xl font-bold mb-4 text-gray-800">Upload File</h2>
+                <p class="text-gray-600 mb-6 text-sm md:text-base">Upload your betting slip image</p>
+                
+                <div class="space-y-4">
+                    <!-- Upload Area -->
+                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 md:p-12 text-center hover:border-blue-500 transition-colors cursor-pointer">
+                        <div class="text-gray-400 mb-4">
+                            <svg class="mx-auto h-12 w-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                            </svg>
+                        </div>
+                        <p class="text-gray-700 font-medium mb-2">Browse Files or drag & drop here</p>
+                        <p class="text-sm text-gray-500">JPEG, PNG, and CSV formats up to 2MB</p>
+                        <input type="file" class="hidden" accept=".jpg,.jpeg,.png,.csv">
+                        <button class="mt-4 px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors">
+                            Browse Files
+                        </button>
+                    </div>
+
+                    <!-- Source Bookie -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Source Bookie</label>
+                        <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
+                            <option>Enter source bookie</option>
+                            <option>Bet9ja</option>
+                            <option>1xBet</option>
+                            <option>SportyBet</option>
+                        </select>
+                    </div>
+
+                    <!-- Target Bookie -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Target Bookie</label>
+                        <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
+                            <option>Enter target bookie</option>
+                            <option>Bet9ja</option>
+                            <option>1xBet</option>
+                            <option>SportyBet</option>
+                        </select>
+                    </div>
+
+                    <!-- Convert Button -->
+                    <button class="w-full bg-gray-900 hover:bg-gray-800 text-white font-bold py-3.5 rounded-lg transition-colors mt-6">
+                        Convert
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="bottom-nav"></div>
+
+    <div id="expandable-menu"></div>
+
+    <div id="side-menu"></div>
+
+    <script type="" src="./components/layout.js"></script>
+    <script>
+        function switchTab(tabName) {
+            // Hide all content sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all mobile tabs
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('tab-active');
+                btn.classList.add('bg-white');
+            });
+            
+            // Remove active class from all desktop tabs
+            document.querySelectorAll('.desktop-segment-btn').forEach(btn => {
+                btn.classList.remove('segment-active');
+            });
+            
+            // Show selected content
+            document.getElementById(tabName + '-content').classList.add('active');
+            
+            // Add active class to selected mobile tab
+            const mobileTab = document.querySelector(`.tab-btn[data-tab="${tabName}"]`);
+            if (mobileTab) {
+                mobileTab.classList.add('tab-active');
+                mobileTab.classList.remove('bg-white');
+            }
+            
+            // Add active class to selected desktop tab
+            const desktopTab = document.querySelector(`.desktop-segment-btn[data-tab-desktop="${tabName}"]`);
+            if (desktopTab) {
+                desktopTab.classList.add('segment-active');
+            }
+        }
+    </script>
+</body>
+</html>
