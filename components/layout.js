@@ -68,11 +68,11 @@ const AppLayout = {
                             <div class="hidden md:flex items-center space-x-4">
                                 <a href="#" class="flex items-center space-x-1 hover:text-primary">
                                     <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
-                                    <span>Live In-Play</span>
+                                    <span>Bet Converter</span>
                                 </a>
                                 <a href="#" class="flex items-center space-x-1 hover:text-primary">
                                      <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5-3.5a2.5 2.5 0 113.536 3.536L6.5 17.5 2 19l1.5-4.5 8-8z"></path></svg>
-                                    <span>Promotions</span>
+                                    <span>Hot pPre</span>
                                 </a>
                                  <a href="#" class="flex items-center space-x-1">
                                      <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
