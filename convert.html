@@ -46,233 +46,200 @@
 <body class="bg-gray-100 min-h-screen">
     <div id="desktop-nav"></div>
 
-    <main class="container mx-auto px-4 py-6 pb-24 max-w-4xl">
-
-        <!-- mobile horizontal scrolable tabs -->
-        <div class="md:hidden mb-6">
-            <div class="flex gap-2 overflow-auto tab-scroll pb-2">
-                <button onclick="switchTab('betting-code')" data-tab="betting-code" class="btn tab-btn tab-active px-6 py-2.5 rounded-full font-semibold whitespace-nowrap text-sm transition-all">
-                    Betting Code
-                </button>
-                <button onclick="switchTab('ticket-code')" data-tab="ticket-code" class="tab-btn bg-white px-6 py-2.5 rounded-full font-semibold whitespace-nowrap text-sm transition-all">
-                    Ticket Code
-                </button>
-                <button onclick="switchTab('bet-link')" data-tab="bet-link" class="tab-btn bg-white px-6 py-2.5 rounded-full font-semibold whitespace-nowrap text-sm transition-all">
-                    Bet Link
-                </button>
-                <button onclick="switchTab('upload-file')" data-tab="upload-file" class="tab-btn bg-white px-6 py-2.5 rounded-full font-semibold whitespace-nowrap text-sm transition-all">
-                    Upload File
-                </button>
-            </div>
+    <main class="main-content">
+        <!-- Mobile Tabs -->
+        <div class="tabs-mobile">
+            <button class="tab-btn  active" onclick="switchTab('betting-code')">Betting Code</button>
+            <button class="tab-btn" onclick="switchTab('ticket-code')">Ticket Code</button>
+            <button class="tab-btn" onclick="switchTab('bet-link')">Bet Link</button>
+            <button class="tab-btn" onclick="switchTab('upload-file')">Upload File</button>
         </div>
 
-        <!-- desktop -->
-        <div class="hidden md:block mb-6">
-            <div class="flex gap-0 border border-gray-300 rounded-lg overflow-hidden p-1 bg-gray-200">
-                <button onclick="switchTab('betting-code')" data-tab-desktop="betting-code" class="desktop-segment-btn segment-active flex-1 py-3 px-4 rounded-md font-semibold transition-all">
-                    Betting Code
-                </button>
-                <button onclick="switchTab('ticket-code')" data-tab-desktop="ticket-code" class="desktop-segment-btn flex-1 py-3 px-4 rounded-md font-semibold transition-all">
-                    Ticket Code
-                </button>
-                <button onclick="switchTab('bet-link')" data-tab-desktop="bet-link" class="desktop-segment-btn flex-1 py-3 px-4 rounded-md font-semibold transition-all">
-                    Bet Link
-                </button>
-                <button onclick="switchTab('upload-file')" data-tab-desktop="upload-file" class="desktop-segment-btn flex-1 py-3 px-4 rounded-md font-semibold transition-all">
-                    Upload File
-                </button>
-            </div>
+        <!-- Desktop Tabs -->
+        <div class="tabs-desktop">
+            <button class="tab-btn-desktop active" onclick="switchTab('betting-code')">Betting Code</button>
+            <button class="tab-btn-desktop" onclick="switchTab('ticket-code')">Ticket Code</button>
+            <button class="tab-btn-desktop" onclick="switchTab('bet-link')">Bet Link</button>
+            <button class="tab-btn-desktop" onclick="switchTab('upload-file')">Upload File</button>
         </div>
 
-        <!-- content -->
-         <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
-            
+        <!-- Content Card -->
+        <div class="content-card">
             <!-- Betting Code Section -->
-            <div id="betting-code-content" class="content-section active">
-                <h2 class="text-xl md:text-2xl font-bold mb-4 text-gray-800">Betting Code</h2>
-                <p class="text-gray-600 mb-6 text-sm md:text-base">Enter your betting code to convert</p>
+            <div id="betting-code" class="content-section active">
+                <h2>Betting Code</h2>
+                <p>Enter your betting code to convert</p>
                 
-                <div class="space-y-4">
-                    <!-- Betting Code Input -->
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Betting code</label>
-                        <div class="relative">
-                            <input type="text" placeholder="Enter betting code" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
-                            <button class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-icon lucide-clipboard"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg>
+                <form>
+                    <div class="form-group">
+                        <label>Betting code</label>
+                        <div class="input-wrapper">
+                            <input type="text" placeholder="Enter betting code">
+                            <button type="button" class="paste-btn" title="Paste">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <rect width="8" height="4" x="8" y="2" rx="1" stroke-width="2"/>
+                                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" stroke-width="2"/>
+                                </svg>
                             </button>
                         </div>
                     </div>
 
-                    <!-- Source Bookie -->
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Source Bookie</label>
-                        <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
-                            <option>Enter source bookie</option>
+                    <div class="form-group">
+                        <label>Source Bookie</label>
+                        <select>
+                            <option>Select source bookie</option>
                             <option>Bet9ja</option>
                             <option>1xBet</option>
                             <option>SportyBet</option>
+                            <option>NairaBet</option>
                         </select>
                     </div>
 
-                    <!-- Target Bookie -->
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Target Bookie</label>
-                        <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
-                            <option>Enter target bookie</option>
+                    <div class="form-group">
+                        <label>Target Bookie</label>
+                        <select>
+                            <option>Select target bookie</option>
                             <option>Bet9ja</option>
                             <option>1xBet</option>
                             <option>SportyBet</option>
+                            <option>NairaBet</option>
                         </select>
                     </div>
 
-                    <!-- Convert Button -->
-                    <button class="btn w-full bg-primary-light hover:bg-primary text-white font-bold py-3.5 rounded-lg transition-colors mt-6">
-                        Convert
-                    </button>
-                </div>
+                    <button type="submit" class="convert-btn">Convert</button>
+                </form>
             </div>
 
             <!-- Ticket Code Section -->
-            <div id="ticket-code-content" class="content-section">
-                <h2 class="text-xl md:text-2xl font-bold mb-4 text-gray-800">Ticket Code</h2>
-                <p class="text-gray-600 mb-6 text-sm md:text-base">Enter your ticket code to convert</p>
+            <div id="ticket-code" class="content-section">
+                <h2>Ticket Code</h2>
+                <p>Enter your ticket code to convert</p>
                 
-                <div class="space-y-4">
-                    <!-- Ticket Code Input -->
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Ticket code</label>
-                        <div class="relative">
-                            <input type="text" placeholder="Enter ticket code" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
-                            <button class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-icon lucide-clipboard"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg>
+                <form>
+                    <div class="form-group">
+                        <label>Ticket code</label>
+                        <div class="input-wrapper">
+                            <input type="text" placeholder="Enter ticket code">
+                            <button type="button" class="paste-btn" title="Paste">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <rect width="8" height="4" x="8" y="2" rx="1" stroke-width="2"/>
+                                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" stroke-width="2"/>
+                                </svg>
                             </button>
                         </div>
                     </div>
 
-                    <!-- Source Bookie -->
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Source Bookie</label>
-                        <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
-                            <option>Enter source bookie</option>
+                    <div class="form-group">
+                        <label>Source Bookie</label>
+                        <select>
+                            <option>Select source bookie</option>
                             <option>Bet9ja</option>
                             <option>1xBet</option>
                             <option>SportyBet</option>
+                            <option>NairaBet</option>
                         </select>
                     </div>
 
-                    <!-- Target Bookie -->
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Target Bookie</label>
-                        <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
-                            <option>Enter target bookie</option>
+                    <div class="form-group">
+                        <label>Target Bookie</label>
+                        <select>
+                            <option>Select target bookie</option>
                             <option>Bet9ja</option>
                             <option>1xBet</option>
                             <option>SportyBet</option>
+                            <option>NairaBet</option>
                         </select>
                     </div>
 
-                    <!-- Convert Button -->
-                    <button class="btn w-full bg-primary-light hover:bg-primary text-white font-bold py-3.5 rounded-lg transition-colors mt-6">
-                        Convert
-                    </button>
-                </div>
+                    <button type="submit" class="convert-btn">Convert</button>
+                </form>
             </div>
 
             <!-- Bet Link Section -->
-            <div id="bet-link-content" class="content-section">
-                <h2 class="text-xl md:text-2xl font-bold mb-4 text-gray-800">Bet Link</h2>
-                <p class="text-gray-600 mb-6 text-sm md:text-base">Enter your bet link to convert</p>
+            <div id="bet-link" class="content-section">
+                <h2>Bet Link</h2>
+                <p>Enter your bet link to convert</p>
                 
-                <div class="space-y-4">
-                    <!-- Bet Link Input -->
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Bet Link</label>
-                        <div class="relative">
-                            <input type="url" placeholder="Enter bet link" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
-                            <button class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-icon lucide-clipboard"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg> 
+                <form>
+                    <div class="form-group">
+                        <label>Bet Link</label>
+                        <div class="input-wrapper">
+                            <input type="url" placeholder="https://example.com/bet/123456">
+                            <button type="button" class="paste-btn" title="Paste">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <rect width="8" height="4" x="8" y="2" rx="1" stroke-width="2"/>
+                                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" stroke-width="2"/>
+                                </svg>
                             </button>
                         </div>
                     </div>
 
-                    <!-- Source Bookie -->
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Source Bookie</label>
-                        <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
-                            <option>Enter source bookie</option>
+                    <div class="form-group">
+                        <label>Source Bookie</label>
+                        <select>
+                            <option>Select source bookie</option>
                             <option>Bet9ja</option>
                             <option>1xBet</option>
                             <option>SportyBet</option>
+                            <option>NairaBet</option>
                         </select>
                     </div>
 
-                    <!-- Target Bookie -->
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Target Bookie</label>
-                        <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
-                            <option>Enter target bookie</option>
+                    <div class="form-group">
+                        <label>Target Bookie</label>
+                        <select>
+                            <option>Select target bookie</option>
                             <option>Bet9ja</option>
                             <option>1xBet</option>
                             <option>SportyBet</option>
+                            <option>NairaBet</option>
                         </select>
                     </div>
 
-                    <!-- Convert Button -->
-                    <button class="btn w-full bg-primary-light hover:bg-primary text-white font-bold py-3.5 rounded-lg transition-colors mt-6">
-                        Convert
-                    </button>
-                </div>
+                    <button type="submit" class="convert-btn">Convert</button>
+                </form>
             </div>
 
             <!-- Upload File Section -->
-            <div id="upload-file-content" class="content-section">
-                <h2 class="text-xl md:text-2xl font-bold mb-4 text-gray-800">Upload File</h2>
-                <p class="text-gray-600 mb-6 text-sm md:text-base">Upload your betting slip image</p>
+            <div id="upload-file" class="content-section">
+                <h2>Upload File</h2>
+                <p>Upload your betting slip image</p>
                 
-                <div class="space-y-4">
-                    <!-- Upload Area -->
-                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 md:p-12 text-center hover:border-blue-500 transition-colors cursor-pointer">
-                        <div class="text-gray-400 mb-4">
-                            <svg class="mx-auto h-12 w-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
-                            </svg>
-                        </div>
-                        <p class="text-gray-700 font-medium mb-2">Browse Files or drag & drop here</p>
-                        <p class="text-sm text-gray-500">JPEG, PNG, and CSV formats up to 2MB</p>
-                        <input type="file" class="hidden" accept=".jpg,.jpeg,.png,.csv">
-                        <button class="mt-4 px-6 py-2 bg-primary-light hover:bg-primary text-white rounded-lg transition-colors">
-                            Browse Files
-                        </button>
+                <form>
+                    <div class="upload-area">
+                        <svg class="upload-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                        </svg>
+                        <h3>Browse Files or drag & drop here</h3>
+                        <p>JPEG, PNG, and CSV formats up to 2MB</p>
+                        <input type="file" style="display: none;" id="fileInput" accept=".jpg,.jpeg,.png,.csv">
+                        <label for="fileInput" class="browse-btn">Browse Files</label>
                     </div>
 
-                    <!-- Source Bookie -->
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Source Bookie</label>
-                        <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
-                            <option>Enter source bookie</option>
+                    <div class="form-group">
+                        <label>Source Bookie</label>
+                        <select>
+                            <option>Select source bookie</option>
                             <option>Bet9ja</option>
                             <option>1xBet</option>
                             <option>SportyBet</option>
+                            <option>NairaBet</option>
                         </select>
                     </div>
 
-                    <!-- Target Bookie -->
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Target Bookie</label>
-                        <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none">
-                            <option>Enter target bookie</option>
+                    <div class="form-group">
+                        <label>Target Bookie</label>
+                        <select>
+                            <option>Select target bookie</option>
                             <option>Bet9ja</option>
                             <option>1xBet</option>
                             <option>SportyBet</option>
+                            <option>NairaBet</option>
                         </select>
                     </div>
 
-                    <!-- Convert Button -->
-                    <button class="w-full bg-primary-light hover:bg-primary text-white font-bold py-3.5 rounded-lg transition-colors mt-6">
-                        Convert
-                    </button>
-                </div>
+                    <button type="submit" class="convert-btn">Convert</button>
+                </form>
             </div>
         </div>
     </main>
@@ -285,6 +252,7 @@
 
     <script type="" src="./components/layout.js"></script>
     <script>
+        // Tab Switching Function
         function switchTab(tabName) {
             // Hide all content sections
             document.querySelectorAll('.content-section').forEach(section => {
@@ -293,31 +261,107 @@
             
             // Remove active class from all mobile tabs
             document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('tab-active');
-                btn.classList.add('bg-white');
+                btn.classList.remove('active');
             });
             
             // Remove active class from all desktop tabs
-            document.querySelectorAll('.desktop-segment-btn').forEach(btn => {
-                btn.classList.remove('segment-active');
+            document.querySelectorAll('.tab-btn-desktop').forEach(btn => {
+                btn.classList.remove('active');
             });
             
             // Show selected content
-            document.getElementById(tabName + '-content').classList.add('active');
+            document.getElementById(tabName).classList.add('active');
             
-            // Add active class to selected mobile tab
-            const mobileTab = document.querySelector(`.tab-btn[data-tab="${tabName}"]`);
-            if (mobileTab) {
-                mobileTab.classList.add('tab-active');
-                mobileTab.classList.remove('bg-white');
-            }
-            
-            // Add active class to selected desktop tab
-            const desktopTab = document.querySelector(`.desktop-segment-btn[data-tab-desktop="${tabName}"]`);
-            if (desktopTab) {
-                desktopTab.classList.add('segment-active');
-            }
+            // Add active class to clicked button
+            event.target.classList.add('active');
         }
+
+        // Toggle Expandable Menu (FAB Button)
+        function toggleExpandableMenu() {
+            const menu = document.getElementById('expandableMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Toggle Side Menu
+        function toggleSideMenu() {
+            const sideMenu = document.getElementById('sideMenu');
+            const overlay = document.getElementById('menuOverlay');
+            
+            sideMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        // Paste Button Functionality
+        document.querySelectorAll('.paste-btn').forEach(btn => {
+            btn.addEventListener('click', async function() {
+                try {
+                    const text = await navigator.clipboard.readText();
+                    const input = this.parentElement.querySelector('input');
+                    if (input) {
+                        input.value = text;
+                        input.focus();
+                    }
+                } catch (err) {
+                    console.log('Failed to read clipboard:', err);
+                    alert('Please paste manually (Ctrl+V or Cmd+V)');
+                }
+            });
+        });
+
+        // File Upload Display
+        const fileInput = document.getElementById('fileInput');
+        if (fileInput) {
+            fileInput.addEventListener('change', function(e) {
+                const fileName = e.target.files[0]?.name;
+                if (fileName) {
+                    const uploadArea = document.querySelector('.upload-area h3');
+                    uploadArea.textContent = `Selected: ${fileName}`;
+                }
+            });
+        }
+
+        // Form Submit Prevention (for demo)
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Conversion feature will be implemented in production!');
+            });
+        });
+
+        // Close menus when clicking outside
+        document.addEventListener('click', function(e) {
+            const expandableMenu = document.getElementById('expandableMenu');
+            const fabBtn = document.querySelector('.fab-btn');
+            
+            if (expandableMenu.classList.contains('active') && 
+                !expandableMenu.contains(e.target) && 
+                e.target !== fabBtn) {
+                toggleExpandableMenu();
+            }
+        });
+
+        // Prevent body scroll when menu is open
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                const sideMenu = document.getElementById('sideMenu');
+                if (sideMenu.classList.contains('active')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        // Start observing side menu
+        const sideMenuElement = document.getElementById('sideMenu');
+        if (sideMenuElement) {
+            observer.observe(sideMenuElement, { attributes: true, attributeFilter: ['class'] });
+        }
+
+        // Initialize: Set first tab as active
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Bet Converter loaded successfully!');
+        });
     </script>
 </body>
 </html>
