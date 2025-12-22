@@ -26,6 +26,24 @@
     display: none;
 }
 
+input[type="text"],
+input[type="url"],
+select {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid #e5e5e5;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="url"]:focus,
+select:focus {
+  outline: none;
+  border-color: #1a1a1a;
+}
+
 @media (min-width: 992px) {
     .convert-page .convert-columns {
         display: grid;

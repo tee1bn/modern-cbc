@@ -1,0 +1,190 @@
+/* Convert page specific styles */
+.tab-scroll::-webkit-scrollbar {
+  display: none;
+}
+.tab-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.tab-active {
+  background: #1e3a8a;
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .desktop-segment-btn {
+    background: transparent;
+    color: #6b7280;
+  }
+  .desktop-segment-btn.segment-active {
+    background: white;
+    color: #1e40af;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Convert Page Layout */
+.icon-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: #666;
+    font-size: 0.75rem;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.icon svg{
+    display: inline-flex;
+    align-items: center;
+    width: 16px;
+    height: 16px;
+}
+
+.icon-back svg {
+    width: 16px;
+    height: 16px;
+}
+
+.convert-right {
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .convert-page .convert-columns {
+        display: grid;
+        grid-template-columns: 60% 40%;
+        gap: 1.5rem;
+        align-items: start;
+    }
+
+    .convert-page .convert-right {
+        display: block;
+    }
+
+    .convert-page .convert-left .convert-btn {
+        width: auto;
+        padding: 0.75rem 1.25rem;
+        display: inline-block;
+    }
+}
+
+/* Convert Button (moved from main.css) */
+.convert-btn {
+  width: 100%;
+  padding: 1rem;
+  background: #1a1a1a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 1rem;
+}
+.convert-btn:hover { background: #333; }
+.convert-btn:active { transform: scale(0.98); }
+
+/* Upload Area */
+.upload-area {
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  padding: 3rem 2rem;
+  text-align: center;
+  transition: border-color 0.2s;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+}
+
+.upload-area:hover {
+  border-color: #1a1a1a;
+}
+
+.upload-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 1rem;
+  color: #ccc;
+}
+
+.upload-area h3 {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.upload-area p {
+  color: #666;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.browse-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: #1a1a1a;
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.browse-btn:hover {
+  background: #333;
+}
+
+
+/* Form Elements */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+input[type="text"],
+input[type="url"],
+select {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid #e5e5e5;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="url"]:focus,
+select:focus {
+  outline: none;
+  border-color: #1a1a1a;
+}
+
+.paste-btn {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: #666;
+  transition: color 0.2s;
+}
+
+.paste-btn:hover {
+  color: #1a1a1a;
+}
+
