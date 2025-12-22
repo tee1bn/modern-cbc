@@ -1,0 +1,207 @@
+
+.icon-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: #666;
+    font-size: 0.75rem;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.icon svg{
+    display: inline-flex;
+    align-items: center;
+    width: 16px;
+    height: 16px;
+}
+
+.icon-back svg {
+    width: 16px;
+    height: 16px;
+}
+
+.convert-right {
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .convert-page .convert-columns {
+        display: grid;
+        grid-template-columns: 60% 40%;
+        gap: 1.5rem;
+        align-items: start;
+    }
+
+    .convert-page .convert-right {
+        display: block;
+    }
+
+    .convert-page .convert-left .convert-btn {
+        width: auto;
+        padding: 0.75rem 1.25rem;
+        display: inline-block;
+    }
+}
+
+/* Result page specific styles (black & white only) */
+.convert-result-page .content-card {
+    max-width: 760px;
+    margin: 1.25rem auto;
+    padding: 1rem;
+    background: #fff;
+    border: 1px solid #000;
+    color: #000;
+}
+
+.convert-result-page .result-hero {
+    text-align: center;
+    padding-bottom: 0.5rem;
+}
+
+.convert-result-page .result-circle {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 2px solid #0000003e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.convert-result-page .result-code {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin: 0.5rem 0;
+}
+
+.convert-result-page .result-sub {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.convert-result-page .result-meta {
+    font-size: 0.9rem;
+    color: #000;
+    margin-top: 0.25rem;
+}
+
+.convert-result-page .conversion-summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    margin-top: 0.5rem;
+}
+
+.convert-result-page .conversion-summary .summary-left,
+.convert-result-page .conversion-summary .summary-right {
+    text-align: center;
+}
+
+.convert-result-page .conversion-summary .summary-count {
+    font-size: 0.9rem;
+}
+
+.convert-result-page .conversion-summary .summary-code {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-top: 0.25rem;
+}
+
+.convert-result-page .summary-arrow {
+    font-size: 1.25rem;
+}
+
+.convert-result-page .filter-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 0;
+}
+
+.convert-result-page .game-filter {
+    padding: 0.5rem;
+    border: 1px solid #000;
+    background: #fff;
+    color: #000;
+}
+
+.convert-result-page .total-games {
+    color: #000;
+    font-weight: 700;
+}
+
+.convert-result-page .games-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.convert-result-page .game-card {
+    border: 1px solid #000;
+    padding: 0.75rem;
+    margin-top: 0.75rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+    .convert-result-page .games-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .convert-result-page .game-card {
+        margin-top: 0;
+    }
+}
+
+.convert-result-page .game-info {
+    max-width: calc(100% - 54px);
+}
+
+.convert-result-page .game-league {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.convert-result-page .game-title {
+    font-weight: 700;
+    margin-top: 0.2rem;
+}
+
+.convert-result-page .game-meta {
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    color: #000;
+}
+
+.convert-result-page .game-status {
+    font-weight: 800;
+    font-size: 1.25rem;
+    align-self: center;
+}
+
+@media (min-width: 768px) {
+    .convert-result-page .content-card {
+        padding: 1.5rem;
+    }
+
+    .convert-result-page .result-code {
+        font-size: 2.25rem;
+    }
+
+    .convert-result-page .game-card {
+        padding: 1rem;
+    }
+}

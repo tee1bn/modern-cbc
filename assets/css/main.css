@@ -301,9 +301,9 @@ select:focus {
   .bottom-nav {
     display: none;
   }
-  .content-card {
+  /* .content-card {
     display: none;
-  }
+  } */
 }
 
 .nav-item {

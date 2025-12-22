@@ -1,6 +1,5 @@
 const AppLayout = {
-
-    bottomNav: `
+  bottomNav: `
         <nav class="bottom-nav">
         <a onclick="navigateTo('index.html')"class="nav-item">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -14,11 +13,13 @@ const AppLayout = {
             </svg>
             <span>Convert</span>
         </a>
-        <button class="fab-btn" onclick="toggleExpandableMenu()">
-            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-width="2" d="M12 4v16m8-8H4"/>
+        <a onclick="navigateTo('betviewer.html')" class="nav-item">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
             </svg>
-        </button>
+            <span>View Bet</span>
+        </a>
         <a onclick="navigateTo('edit-bet.html')" class="nav-item">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
@@ -34,8 +35,8 @@ const AppLayout = {
     </nav>
     `,
 
-    // Expandable Menu (+ button popup)
-    expandableMenu: `
+  // Expandable Menu (+ button popup)
+  expandableMenu: `
         <div class="expandable-menu" id="expandableMenu">
         <div class="expandable-menu-overlay" onclick="toggleExpandableMenu()"></div>
         <div class="expandable-menu-content">
@@ -70,8 +71,8 @@ const AppLayout = {
     </div>
     `,
 
-    // Desktop Navbar
-    desktopNav: `
+  // Desktop Navbar
+  desktopNav: `
                 <nav class="desktop-nav">
         <div class="container">
             <div class="logo">CONVERT.io</div>
@@ -84,8 +85,8 @@ const AppLayout = {
     </nav>
     `,
 
-    // Side Menu 
-    sideMenu: `
+  // Side Menu
+  sideMenu: `
         <div class="side-menu hidden">
             <div class="menu-overlay" id="menuOverlay" onclick="toggleSideMenu()"></div>
             <div class="side-menu" id="sideMenu">
@@ -115,60 +116,58 @@ const AppLayout = {
         </div>
     `,
 
-    // Initialize layout
-    init() {
-        document.getElementById('bottom-nav').innerHTML = this.bottomNav;
-        document.getElementById('expandable-menu').innerHTML = this.expandableMenu;
-        document.getElementById('desktop-nav').innerHTML = this.desktopNav;
-        document.getElementById('side-menu').innerHTML = this.sideMenu;
-        this.setActiveNav();
-    },
+  // Initialize layout
+  init() {
+    document.getElementById("bottom-nav").innerHTML = this.bottomNav;
+    document.getElementById("expandable-menu").innerHTML = this.expandableMenu;
+    document.getElementById("desktop-nav").innerHTML = this.desktopNav;
+    document.getElementById("side-menu").innerHTML = this.sideMenu;
+    this.setActiveNav();
+  },
 
-    // Set active navigation state
-    setActiveNav() {
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-        document.querySelectorAll('.nav-item, .nav-link').forEach(link => {
-            if (link.getAttribute('href') === currentPage) {
-                link.classList.add('active');
-            }
-        });
-    },
-    
+  // Set active navigation state
+  setActiveNav() {
+    const currentPage =
+      window.location.pathname.split("/").pop() || "index.html";
+    document.querySelectorAll(".nav-item, .nav-link").forEach((link) => {
+      if (link.getAttribute("href") === currentPage) {
+        link.classList.add("active");
+      }
+    });
+  },
 };
 
 const state = {
-    expandableMenuOpen: false,
-    sideMenuOpen: false
-}
-
+  expandableMenuOpen: false,
+  sideMenuOpen: false,
+};
 
 // Menu toggle functions
 function toggleExpandableMenu() {
-    state.expandableMenuOpen = !state.expandableMenuOpen
-     const menu = document.querySelector('#expandable-menu > .menu-overlay')
+  state.expandableMenuOpen = !state.expandableMenuOpen;
+  const menu = document.querySelector("#expandable-menu > .menu-overlay");
 
-    if(state.expandableMenuOpen) {
-        menu.classList.remove('hidden')
-    }else {
-        menu.classList.add('hidden')
-    }
+  if (state.expandableMenuOpen) {
+    menu.classList.remove("hidden");
+  } else {
+    menu.classList.add("hidden");
+  }
 }
 
 function toggleSideMenu() {
-    state.sideMenuOpen = !state.sideMenuOpen;
-   const menu = document.querySelector('#side-menu > .side-menu');
-    
-    if (state.sideMenuOpen) {
-        menu.classList.remove('hidden');
-    } else {
-        setTimeout(() => menu.classList.add('hidden'), 300);
-    }
+  state.sideMenuOpen = !state.sideMenuOpen;
+  const menu = document.querySelector("#side-menu > .side-menu");
+
+  if (state.sideMenuOpen) {
+    menu.classList.remove("hidden");
+  } else {
+    setTimeout(() => menu.classList.add("hidden"), 300);
+  }
 }
 
 function navigateTo(page) {
-    window.location.href = page
+  window.location.href = page;
 }
 
-
 // Initialize on page load
-document.addEventListener('DOMContentLoaded', () => AppLayout.init());
+document.addEventListener("DOMContentLoaded", () => AppLayout.init());
