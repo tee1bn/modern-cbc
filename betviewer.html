@@ -1,29 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/main.css">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
 
-    <title>Bet - ConvertBetCodes</title>
-</head>
-<body>
+    <title>Convertbetcodes</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&amp;family=SUSE:wght@100..800&amp;display=swap"
+      rel="stylesheet"/>
+    <style>
+      :root {
+        --adminuiux-content-font: "Open Sans", sans-serif;
+        --adminuiux-content-font-weight: 400;
+        --adminuiux-title-font: "SUSE", sans-serif;
+        --adminuiux-title-font-weight: 600;
+      }
+    </style>
+
+    <script defer src="assets/js/app8051.js?bd1e16b080f637e63a80"></script>
+    <link href="assets/css/app8051.css?bd1e16b080f637e63a80" rel="stylesheet" />
+    <link href="assets/css/betviewer.css" rel="stylesheet" />
+  </head>
+
+  <body
+    class="main-bg main-bg-opac adminuiux-header-standard theme-blue adminuiux-header-transparent adminuiux-sidebar-fill-white adminuiux-sidebar-standard bg-r-gradient scrollup"
+    data-theme="theme-blue"
+    data-sidebarfill="adminuiux-sidebar-fill-white"
+    data-sidebarlayout="adminuiux-sidebar-standard"
+    data-bs-spy="scroll"
+    data-bs-target="#list-example"
+    data-bs-smooth-scroll="true"
+    tabindex="0"
+    data-headerlayout="adminuiux-header-standard"
+    data-bggradient="bg-r-gradient"
+    data-headerfill="adminuiux-header-transparent"
+  >
+
+    <!-- standard header -->
     <div id="desktop-nav"></div>
 
-    <main class="container">
-        <h1 class="text-6xl">Home Page</h1>
-    </main>
-
-    <div id="bottom-nav"></div>
-
-    <div id="expandable-menu"></div>
-
+    <!-- Standard sidebar -->
     <div id="side-menu"></div>
 
-    <script type="" src="./components/layout.js"></script>
-<script type="module">
+    <!-- main content -->
+    <div class="adminuiux-wrap">
 
-</script>
+      <main class="adminuiux-content has-sidebar" onclick="contentClick()">
 
-</body>
+        <!-- page title -->
+        <div class="container-fluid py-1 py-lg-3">
+          <div class="row gx-3 gx-lg-4 align-items-center page-title">
+            <div class="col col-sm">
+              <h6 class="mb-0">Bet Viewer</h6>
+              <p class="text-secondary small">This is personal intranet</p>
+            </div>
+            <div class="col-auto position-relative">
+              <button
+                class="btn btn-link btn-square"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#filter"
+                data-bs-placement="end"
+              >
+                <i class="bi bi-filter"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- content -->
+        <div class="container mt-3" id="main-content">
+          <div class="betviewer">
+            <div class="card p-4">
+              <div class="betviewer-columns">
+                
+                <!-- Left column: form -->
+                <div class="btv-form p-3">
+                  <h5 class="mb-3">Bet Code Form</h5>
+                  <label for="bet-code" class="form-label small">Enter Bet Code</label>
+                  <div class="input-group mb-3">
+                    <input id="bet-code" class="form-control" placeholder="Enter bet code (e.g. PYDFRC)" aria-label="Bet code" />
+                    <button id="paste-code" class="btn btn-outline-secondary" type="button" title="Paste from clipboard" aria-label="Paste from clipboard">
+                      <i class="bi bi-clipboard"></i>
+                    </button>
+                    <button id="view-bet" class="btn btn-dark" type="button">Load</button>
+                  </div>
+
+                  <label for="btv-bookie" class="form-label small">Select Bookie</label>
+                  <select id="btv-bookie" class="form-select mb-3"><option>Sportybet</option></select>
+
+                  <p class="text-muted small">Additional info, instructions, or ads can go here.</p>
+                </div>
+
+                <!-- Right column: results -->
+                <div class="btv-results p-3" role="region" aria-label="Bet details and results">
+
+                  <!-- Mobile header card (blue) -->
+                  <div class="btv-header d-lg-none p-3 mb-3">
+                    <div class="d-flex justify-content-between align-items-start">
+                      <div>
+                        <div id="btv-code-mobile" class="fw-bold h5 mb-0">PYDFRC</div>
+                        <div class="small">Sportybet Nigeria NG • 2 Events</div>
+                      </div>
+                      <div class="text-end">
+                        <div id="btv-odds-mobile" class="h4 mb-0">4.39</div>
+                        <div class="small">Total Odds</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Desktop header -->
+                  <div class="btv-desktop-header d-none d-lg-block p-3 mb-3">
+                    <div class="d-flex justify-content-between align-items-start">
+                      <div>
+                        <div id="btv-code" class="fw-bold h6 mb-1">PYDFRC NG</div>
+                        <div id="btv-meta" class="small text-muted">2 events • Sportybet</div>
+                      </div>
+                      <div class="text-end">
+                        <div id="btv-odds" class="h4 mb-0">4.39</div>
+                        <div class="small">Total Odds</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Events list -->
+                  <div id="bet-list" class="mt-2">
+                    <div class="game-card" role="article" aria-label="Event 1">
+                      <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                          <div class="small text-muted">International Africa Cup of Nations</div>
+                          <div class="fw-semibold">Morocco vs Comoros</div>
+                          <div class="small text-muted">1X2 • Home Win • Dec 21, 20:00 UTC</div>
+                        </div>
+                        <div class="text-end">
+                          <div class="odds-badge">1.15</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="game-card" role="article" aria-label="Event 2">
+                      <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                          <div class="small text-muted">International Africa Cup of Nations</div>
+                          <div class="fw-semibold">Mali vs Zambia</div>
+                          <div class="small text-muted">1X2 • Draw • Dec 22, 15:00 UTC</div>
+                        </div>
+                        <div class="text-end">
+                          <div class="odds-badge">3.82</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div id="no-results" class="d-none mt-2 text-muted p-3">No results found for this code.</div>
+                  </div>
+
+                  <div class="mt-3 d-grid gap-2">
+                    <button id="load-betslip" class="btn btn-outline-dark">Load Code to Betslip</button>
+                    <button id="share-code" class="btn btn-outline-secondary">Share Code</button>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+
+    <!-- global filter -->
+    <div id="filter-canvas"></div>
+
+    <!-- footer -->
+    <!-- <div id="footer"></div> -->
+  
+    <!-- mobile navigation -->
+    <div id="mobile-nav"></div>
+
+    <!-- Page Level js -->
+    <script src="assets/js/adminux/adminux-dashboard.js"></script>
+    <script src="assets/js/betviewer.js"></script>
+    <script src="./components/AppLayout.js"></script>
+  </body>
 </html>

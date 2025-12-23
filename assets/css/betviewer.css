@@ -1,0 +1,82 @@
+
+.betviewer {
+  --btv-bg: #ffffff;
+  --btv-surface: #ffffff;
+  --btv-text: #000000;
+  --btv-muted: #6c6c6c;
+  --btv-border: #000000;
+
+  --btv-mobile-header-bg: #1763d8; /* blue for mobile header */
+  --btv-mobile-header-text: #ffffff;
+  --btv-mobile-card-bg: #f7fbff;
+
+  font-family: var(--adminuiux-content-font, 'Open Sans', sans-serif);
+}
+
+/* Page background & base */
+#main-content .betviewer { background: var(--btv-bg); color: var(--btv-text); }
+
+/* Forms */
+.btv-form .form-control,
+.btv-form .form-select {
+  background: var(--btv-surface);
+  color: var(--btv-text);
+  border: 1px solid var(--btv-border);
+  border-radius: .5rem;
+}
+.btv-form .btn-dark { color: #fff; background: #111; border-color: #111; }
+
+/* Results panel */
+.btv-results { background: var(--btv-surface); border: 1px solid var(--btv-border); border-radius: .5rem; }
+
+/* Mobile header card */
+.btv-header {
+  background: var(--btv-mobile-header-bg);
+  color: var(--btv-mobile-header-text);
+  border-radius: .5rem;
+}
+.btv-header .h4, .btv-header .h5, .btv-header .h6 { color: var(--btv-mobile-header-text); }
+.btv-header .small { color: rgba(255,255,255,0.85); }
+
+/* Desktop header */
+.btv-desktop-header { background: var(--btv-surface); border: 1px solid rgba(0,0,0,0.06); border-radius: .4rem; }
+.btv-desktop-header .h4, .btv-desktop-header .fw-bold { color: var(--btv-text); }
+
+/* Game card list */
+#bet-list .game-card { background: var(--btv-surface); border: 1px solid rgba(0,0,0,0.06); border-radius: .5rem; padding: .9rem; margin-bottom: .75rem; }
+#bet-list .game-card .small { color: var(--btv-muted); }
+#bet-list .odds-badge { background: #e9f8ef; color: #0b8a58; font-weight:700; padding: .45rem .6rem; border-radius: .4rem; }
+
+/* Buttons */
+.btv-results .btn-outline-dark { border-color: #111; color: #111; }
+
+/* Input group paste button styling */
+.input-group .btn[title="Paste from clipboard"] { display:flex; align-items:center; justify-content:center; }
+.input-group .btn[title="Paste from clipboard"] i { font-size: 1.05rem; }
+
+
+/* Two-column layout on desktop */
+@media (min-width: 992px) {
+  .betviewer-columns { display: grid; grid-template-columns: 40% 60%; gap: 1.5rem; }
+  .btv-header { display: none; }
+}
+
+/* Mobile: header visible on small screens */
+@media (max-width: 991.98px) {
+  .btv-desktop-header { display: none; }
+  .btv-header { display: block; }
+}
+
+/* Accessibility & Focus */
+.btv-form .form-control:focus, .btv-form .form-select:focus, .btv-form .btn:focus {
+  outline: 3px solid rgba(0,0,0,0.12);
+  outline-offset: 2px;
+}
+
+/* Ensure touch targets */
+.btv-results .btn { min-height: 44px; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

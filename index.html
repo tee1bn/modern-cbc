@@ -1,29 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/main.css">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Bet Converter - ConvertBetCodes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&amp;family=SUSE:wght@100..800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --adminuiux-content-font: "Open Sans", sans-serif;
+        --adminuiux-content-font-weight: 400;
+        --adminuiux-title-font: "SUSE", sans-serif;
+        --adminuiux-title-font-weight: 600;
+      }
+    </style>
+    <script defer src="assets/js/app8051.js?bd1e16b080f637e63a80"></script>
+    <link href="assets/css/app8051.css?bd1e16b080f637e63a80" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/convert/convert.css" />
+  </head>
 
-    <title>Home - ConvertBetCodes</title>
-</head>
-<body>
+  <body
+    class="main-bg main-bg-opac adminuiux-header-standard theme-blue adminuiux-header-transparent adminuiux-sidebar-fill-white adminuiux-sidebar-standard bg-r-gradient scrollup"
+    data-theme="theme-blue"
+    data-sidebarfill="adminuiux-sidebar-fill-white"
+    data-sidebarlayout="adminuiux-sidebar-standard"
+    data-bs-spy="scroll"
+    data-bs-target="#list-example"
+    data-bs-smooth-scroll="true"
+    tabindex="0"
+    data-headerlayout="adminuiux-header-standard"
+    data-bggradient="bg-r-gradient"
+    data-headerfill="adminuiux-header-transparent"
+  >
+    <!-- standard header -->
     <div id="desktop-nav"></div>
 
-    <main class="container">
-        <h1 class="text-6xl">Home Page</h1>
-    </main>
-
-    <div id="bottom-nav"></div>
-
-    <div id="expandable-menu"></div>
-
+    <!-- Standard sidebar -->
     <div id="side-menu"></div>
 
-    <script type="" src="./components/layout.js"></script>
-<!-- <script type="module"> -->
+    <!-- main content -->
+    <div class="adminuiux-wrap">
+      <main class="adminuiux-content has-sidebar" onclick="contentClick()">
 
-</script>
+        <!-- page title -->
+        <div class="container-fluid py-1 py-lg-3">
+          <div class="row gx-3 gx-lg-4 align-items-center page-title">
+            <div class="col col-sm">
+              <h6 class="mb-0">Home Page</h6>
+              <p class="text-secondary small">This is the homepage</p>
+            </div>
+            <div class="col-auto position-relative">
+              <button
+                class="btn btn-link btn-square"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#filter"
+                data-bs-placement="end"
+              >
+                <i class="bi bi-filter"></i>
+              </button>
+            </div>
+          </div>
+        </div>
 
-</body>
+        <!-- content -->
+        <div class="main-content mt-3">
+
+        </div>
+
+      </main>
+    </div>
+
+    <!-- global filter -->
+    <div id="filter-canvas"></div>
+
+    <!-- footer -->
+    <!-- <div id="footer"></div> -->
+
+    <!-- mobile navigation -->
+    <div id="mobile-nav"></div>
+
+    <!-- Page Level js -->
+    <script src="assets/js/adminux/adminux-dashboard.js"></script>
+    <script src="./components/AppLayout.js"></script>
+  </body>
 </html>

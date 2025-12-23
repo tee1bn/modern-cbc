@@ -1,316 +1,394 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Bet Converter - ConvertBetCodes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&amp;family=SUSE:wght@100..800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --adminuiux-content-font: "Open Sans", sans-serif;
+        --adminuiux-content-font-weight: 400;
+        --adminuiux-title-font: "SUSE", sans-serif;
+        --adminuiux-title-font-weight: 600;
+      }
+    </style>
+    <script defer src="assets/js/app8051.js?bd1e16b080f637e63a80"></script>
+    <link href="assets/css/app8051.css?bd1e16b080f637e63a80" rel="stylesheet" />
     <link rel="stylesheet" href="./assets/css/main.css" />
     <link rel="stylesheet" href="./assets/css/convert/convert.css" />
-    <title>Bet Converter - ConvertBetCodes</title>
   </head>
-  <body class="bg-gray-100 min-h-screen">
+
+  <body
+    class="main-bg main-bg-opac adminuiux-header-standard theme-blue adminuiux-header-transparent adminuiux-sidebar-fill-white adminuiux-sidebar-standard bg-r-gradient scrollup"
+    data-theme="theme-blue"
+    data-sidebarfill="adminuiux-sidebar-fill-white"
+    data-sidebarlayout="adminuiux-sidebar-standard"
+    data-bs-spy="scroll"
+    data-bs-target="#list-example"
+    data-bs-smooth-scroll="true"
+    tabindex="0"
+    data-headerlayout="adminuiux-header-standard"
+    data-bggradient="bg-r-gradient"
+    data-headerfill="adminuiux-header-transparent"
+  >
+    <!-- standard header -->
     <div id="desktop-nav"></div>
 
-    <main class="main-content">
-      <!-- Mobile Tabs -->
-      <div class="tabs-mobile">
-        <button class="tab-btn active" onclick="switchTab('betting-code')">
-          Betting Code
-        </button>
-        <button class="tab-btn" onclick="switchTab('ticket-code')">
-          Ticket Code
-        </button>
-        <button class="tab-btn" onclick="switchTab('bet-link')">
-          Bet Link
-        </button>
-        <button class="tab-btn" onclick="switchTab('upload-file')">
-          Upload File
-        </button>
-      </div>
-
-      <!-- Content Card -->
-      <div class="content-card">
-        <div class="tabs-desktop">
-          <button
-            class="tab-btn-desktop active"
-            onclick="switchTab('betting-code')"
-          >
-            Betting Code
-          </button>
-          <button class="tab-btn-desktop" onclick="switchTab('ticket-code')">
-            Ticket Code
-          </button>
-          <button class="tab-btn-desktop" onclick="switchTab('bet-link')">
-            Bet Link
-          </button>
-          <button class="tab-btn-desktop" onclick="switchTab('upload-file')">
-            Upload File
-          </button>
-        </div>
-
-        <!-- Betting Code Section -->
-        <div id="betting-code" class="content-section active">
-          <h2>Betting Code</h2>
-          <p>Enter your betting code to convert</p>
-
-          <form>
-            <div class="form-group">
-              <label>Betting code</label>
-              <div class="input-wrapper">
-                <input type="text" placeholder="Enter betting code" />
-                <button type="button" class="paste-btn" title="Paste">
-                  <svg
-                    width="20"
-                    height="20"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <rect
-                      width="8"
-                      height="4"
-                      x="8"
-                      y="2"
-                      rx="1"
-                      stroke-width="2"
-                    />
-                    <path
-                      d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
-                      stroke-width="2"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label>Source Bookie</label>
-              <select>
-                <option>Select source bookie</option>
-                <option>Bet9ja</option>
-                <option>1xBet</option>
-                <option>SportyBet</option>
-                <option>NairaBet</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label>Target Bookie</label>
-              <select>
-                <option>Select target bookie</option>
-                <option>Bet9ja</option>
-                <option>1xBet</option>
-                <option>SportyBet</option>
-                <option>NairaBet</option>
-              </select>
-            </div>
-
-            <button
-              type="button"
-              onclick="navigateTo('convertresult-success.html')"
-              class="convert-btn"
-            >
-              Convert
-            </button>
-          </form>
-        </div>
-
-        <!-- Ticket Code Section -->
-        <div id="ticket-code" class="content-section">
-          <h2>Ticket Code</h2>
-          <p>Enter your ticket code to convert</p>
-
-          <form>
-            <div class="form-group">
-              <label>Ticket code</label>
-              <div class="input-wrapper">
-                <input type="text" placeholder="Enter ticket code" />
-                <button type="button" class="paste-btn" title="Paste">
-                  <svg
-                    width="20"
-                    height="20"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <rect
-                      width="8"
-                      height="4"
-                      x="8"
-                      y="2"
-                      rx="1"
-                      stroke-width="2"
-                    />
-                    <path
-                      d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
-                      stroke-width="2"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label>Source Bookie</label>
-              <select>
-                <option>Select source bookie</option>
-                <option>Bet9ja</option>
-                <option>1xBet</option>
-                <option>SportyBet</option>
-                <option>NairaBet</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label>Target Bookie</label>
-              <select>
-                <option>Select target bookie</option>
-                <option>Bet9ja</option>
-                <option>1xBet</option>
-                <option>SportyBet</option>
-                <option>NairaBet</option>
-              </select>
-            </div>
-
-            <button
-              type="button"
-              onclick="navigateTo('convertresult-success.html')"
-              class="convert-btn"
-            >
-              Convert
-            </button>
-          </form>
-        </div>
-
-        <!-- Bet Link Section -->
-        <div id="bet-link" class="content-section">
-          <h2>Bet Link</h2>
-          <p>Enter your bet link to convert</p>
-
-          <form>
-            <div class="form-group">
-              <label>Bet Link</label>
-              <div class="input-wrapper">
-                <input
-                  type="url"
-                  placeholder="https://example.com/bet/123456"
-                />
-                <button type="button" class="paste-btn" title="Paste">
-                  <svg
-                    width="20"
-                    height="20"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <rect
-                      width="8"
-                      height="4"
-                      x="8"
-                      y="2"
-                      rx="1"
-                      stroke-width="2"
-                    />
-                    <path
-                      d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
-                      stroke-width="2"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label>Source Bookie</label>
-              <select>
-                <option>Select source bookie</option>
-                <option>Bet9ja</option>
-                <option>1xBet</option>
-                <option>SportyBet</option>
-                <option>NairaBet</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label>Target Bookie</label>
-              <select>
-                <option>Select target bookie</option>
-                <option>Bet9ja</option>
-                <option>1xBet</option>
-                <option>SportyBet</option>
-                <option>NairaBet</option>
-              </select>
-            </div>
-
-            <button type="submit" class="convert-btn">Convert</button>
-          </form>
-        </div>
-
-        <!-- Upload File Section -->
-        <div id="upload-file" class="content-section">
-          <h2>Upload File</h2>
-          <p>Upload your betting slip image</p>
-
-          <form>
-            <div class="upload-area">
-              <svg
-                class="upload-icon"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
-                />
-              </svg>
-              <h3>Browse Files or drag & drop here</h3>
-              <p>JPEG, PNG, and CSV formats up to 2MB</p>
-              <input
-                type="file"
-                style="display: none"
-                id="fileInput"
-                accept=".jpg,.jpeg,.png,.csv"
-              />
-              <label for="fileInput" class="browse-btn">Browse Files</label>
-            </div>
-
-            <div class="form-group">
-              <label>Source Bookie</label>
-              <select>
-                <option>Select source bookie</option>
-                <option>Bet9ja</option>
-                <option>1xBet</option>
-                <option>SportyBet</option>
-                <option>NairaBet</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label>Target Bookie</label>
-              <select>
-                <option>Select target bookie</option>
-                <option>Bet9ja</option>
-                <option>1xBet</option>
-                <option>SportyBet</option>
-                <option>NairaBet</option>
-              </select>
-            </div>
-
-            <button type="submit" class="convert-btn">Convert</button>
-          </form>
-        </div>
-      </div>
-    </main>
-
-    <div id="bottom-nav"></div>
-
-    <div id="expandable-menu"></div>
-
+    <!-- Standard sidebar -->
     <div id="side-menu"></div>
 
-    <script type="" src="../components/layout.js"></script>
+    <!-- main content -->
+    <div class="adminuiux-wrap">
+      <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+
+        <!-- page title -->
+        <div class="container-fluid py-1 py-lg-3">
+          <div class="row gx-3 gx-lg-4 align-items-center page-title">
+            <div class="col col-sm">
+              <h6 class="mb-0">Bet Converter</h6>
+              <p class="text-secondary small">This is the bet converter page</p>
+            </div>
+            <div class="col-auto position-relative">
+              <button
+                class="btn btn-link btn-square"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#filter"
+                data-bs-placement="end"
+              >
+                <i class="bi bi-filter"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- content -->
+        <div class="main-content ">
+
+          <!-- Mobile Tabs -->
+          <div class="tabs-mobile">
+            <button class="tab-btn active" onclick="switchTab('betting-code')">
+              Betting Code
+            </button>
+            <button class="tab-btn" onclick="switchTab('ticket-code')">
+              Ticket Code
+            </button>
+            <button class="tab-btn" onclick="switchTab('bet-link')">
+              Bet Link
+            </button>
+            <button class="tab-btn" onclick="switchTab('upload-file')">
+              Upload File
+            </button>
+          </div>
+
+          <!-- Content Card -->
+          <div class="content-card">
+            <div class="tabs-desktop">
+              <button
+                class="tab-btn-desktop active"
+                onclick="switchTab('betting-code')"
+              >
+                Betting Code
+              </button>
+              <button
+                class="tab-btn-desktop"
+                onclick="switchTab('ticket-code')"
+              >
+                Ticket Code
+              </button>
+              <button class="tab-btn-desktop" onclick="switchTab('bet-link')">
+                Bet Link
+              </button>
+              <button
+                class="tab-btn-desktop"
+                onclick="switchTab('upload-file')"
+              >
+                Upload File
+              </button>
+            </div>
+
+            <!-- Betting Code Section -->
+            <div id="betting-code" class="content-section active">
+              <h2>Betting Code</h2>
+              <p>Enter your betting code to convert</p>
+
+              <form>
+                <div class="form-group">
+                  <label>Betting code</label>
+                  <div class="input-wrapper">
+                    <input type="text" placeholder="Enter betting code" />
+                    <button type="button" class="paste-btn" title="Paste">
+                      <svg
+                        width="20"
+                        height="20"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <rect
+                          width="8"
+                          height="4"
+                          x="8"
+                          y="2"
+                          rx="1"
+                          stroke-width="2"
+                        />
+                        <path
+                          d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                          stroke-width="2"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Source Bookie</label>
+                  <select>
+                    <option>Select source bookie</option>
+                    <option>Bet9ja</option>
+                    <option>1xBet</option>
+                    <option>SportyBet</option>
+                    <option>NairaBet</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label>Target Bookie</label>
+                  <select>
+                    <option>Select target bookie</option>
+                    <option>Bet9ja</option>
+                    <option>1xBet</option>
+                    <option>SportyBet</option>
+                    <option>NairaBet</option>
+                  </select>
+                </div>
+
+                <button
+                  type="button"
+                  onclick="navigateTo('convertresult-success.html')"
+                  class="convert-btn"
+                >
+                  Convert
+                </button>
+              </form>
+            </div>
+
+            <!-- Ticket Code Section -->
+            <div id="ticket-code" class="content-section">
+              <h2>Ticket Code</h2>
+              <p>Enter your ticket code to convert</p>
+
+              <form>
+                <div class="form-group">
+                  <label>Ticket code</label>
+                  <div class="input-wrapper">
+                    <input type="text" placeholder="Enter ticket code" />
+                    <button type="button" class="paste-btn" title="Paste">
+                      <svg
+                        width="20"
+                        height="20"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <rect
+                          width="8"
+                          height="4"
+                          x="8"
+                          y="2"
+                          rx="1"
+                          stroke-width="2"
+                        />
+                        <path
+                          d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                          stroke-width="2"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Source Bookie</label>
+                  <select>
+                    <option>Select source bookie</option>
+                    <option>Bet9ja</option>
+                    <option>1xBet</option>
+                    <option>SportyBet</option>
+                    <option>NairaBet</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label>Target Bookie</label>
+                  <select>
+                    <option>Select target bookie</option>
+                    <option>Bet9ja</option>
+                    <option>1xBet</option>
+                    <option>SportyBet</option>
+                    <option>NairaBet</option>
+                  </select>
+                </div>
+
+                <button
+                  type="button"
+                  onclick="navigateTo('convertresult-success.html')"
+                  class="convert-btn"
+                >
+                  Convert
+                </button>
+              </form>
+            </div>
+
+            <!-- Bet Link Section -->
+            <div id="bet-link" class="content-section">
+              <h2>Bet Link</h2>
+              <p>Enter your bet link to convert</p>
+
+              <form>
+                <div class="form-group">
+                  <label>Bet Link</label>
+                  <div class="input-wrapper">
+                    <input
+                      type="url"
+                      placeholder="https://example.com/bet/123456"
+                    />
+                    <button type="button" class="paste-btn" title="Paste">
+                      <svg
+                        width="20"
+                        height="20"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <rect
+                          width="8"
+                          height="4"
+                          x="8"
+                          y="2"
+                          rx="1"
+                          stroke-width="2"
+                        />
+                        <path
+                          d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                          stroke-width="2"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Source Bookie</label>
+                  <select>
+                    <option>Select source bookie</option>
+                    <option>Bet9ja</option>
+                    <option>1xBet</option>
+                    <option>SportyBet</option>
+                    <option>NairaBet</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label>Target Bookie</label>
+                  <select>
+                    <option>Select target bookie</option>
+                    <option>Bet9ja</option>
+                    <option>1xBet</option>
+                    <option>SportyBet</option>
+                    <option>NairaBet</option>
+                  </select>
+                </div>
+
+                <button type="submit" class="convert-btn">Convert</button>
+              </form>
+            </div>
+
+            <!-- Upload File Section -->
+            <div id="upload-file" class="content-section">
+              <h2>Upload File</h2>
+              <p>Upload your betting slip image</p>
+
+              <form>
+                <div class="upload-area">
+                  <svg
+                    class="upload-icon"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                    />
+                  </svg>
+                  <h3>Browse Files or drag & drop here</h3>
+                  <p>JPEG, PNG, and CSV formats up to 2MB</p>
+                  <input
+                    type="file"
+                    style="display: none"
+                    id="fileInput"
+                    accept=".jpg,.jpeg,.png,.csv"
+                  />
+                  <label for="fileInput" class="browse-btn">Browse Files</label>
+                </div>
+
+                <div class="form-group">
+                  <label>Source Bookie</label>
+                  <select>
+                    <option>Select source bookie</option>
+                    <option>Bet9ja</option>
+                    <option>1xBet</option>
+                    <option>SportyBet</option>
+                    <option>NairaBet</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label>Target Bookie</label>
+                  <select>
+                    <option>Select target bookie</option>
+                    <option>Bet9ja</option>
+                    <option>1xBet</option>
+                    <option>SportyBet</option>
+                    <option>NairaBet</option>
+                  </select>
+                </div>
+
+                <button type="submit" class="convert-btn">Convert</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </main>
+    </div>
+
+    <!-- global filter -->
+    <div id="filter-canvas"></div>
+
+    <!-- footer -->
+    <!-- <div id="footer"></div> -->
+
+    <!-- mobile navigation -->
+    <div id="mobile-nav"></div>
+
+    <!-- Page Level js -->
+    <script src="assets/js/adminux/adminux-dashboard.js"></script>
+    <script src="./components/AppLayout.js"></script>
     <script>
       // Tab Switching Function
       function switchTab(tabName) {
