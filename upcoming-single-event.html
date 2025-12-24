@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Odds Detail - ConvertBetCodes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&amp;family=SUSE:wght@100..800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --adminuiux-content-font: "Open Sans", sans-serif;
+        --adminuiux-content-font-weight: 400;
+        --adminuiux-title-font: "SUSE", sans-serif;
+        --adminuiux-title-font-weight: 600;
+      }
+    </style>
+    <script defer src="assets/js/app8051.js?bd1e16b080f637e63a80"></script>
+    <link href="assets/css/app8051.css?bd1e16b080f637e63a80" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/upcoming-single-event.css" />
+  </head>
+
+  <body
+    class="main-bg main-bg-opac adminuiux-header-standard theme-blue adminuiux-header-transparent adminuiux-sidebar-fill-white adminuiux-sidebar-standard bg-r-gradient scrollup"
+    data-theme="theme-blue"
+    data-sidebarfill="adminuiux-sidebar-fill-white"
+    data-sidebarlayout="adminuiux-sidebar-standard"
+    data-bs-spy="scroll"
+    data-bs-target="#list-example"
+    data-bs-smooth-scroll="true"
+    tabindex="0"
+    data-headerlayout="adminuiux-header-standard"
+    data-bggradient="bg-r-gradient"
+    data-headerfill="adminuiux-header-transparent"
+  >
+    <!-- standard header -->
+    <div id="desktop-nav"></div>
+
+    <!-- Standard sidebar -->
+    <div id="side-menu"></div>
+
+    <!-- main content -->
+    <div class="adminuiux-wrap">
+      <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+        <!-- page title -->
+        <div class="container-fluid py-1 py-lg-3">
+          <div class="row gx-3 gx-lg-4 align-items-center page-title">
+            <div class="col col-sm">
+              <h6 class="mb-0">Events Detail Page</h6>
+              <p class="text-secondary small">Compare odds across bookies</p>
+            </div>
+            <div class="col-auto position-relative">
+              <button
+                class="btn btn-link btn-square"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#filter"
+                data-bs-placement="end"
+              >
+                <i class="bi bi-filter"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- content -->
+        <div class="main-content mt-3">
+          <div class="card p-0">
+            <!-- Back Button -->
+            <div class="back-header" onclick="history.back()">
+              <i class="bi bi-chevron-left back-icon"></i>
+              <span>Events Detail Page</span>
+            </div>
+
+            <!-- Match Header -->
+            <div class="match-header">
+              <div class="match-competition">
+                Football - International Clubs - AFC Champions League Two
+              </div>
+
+              <div class="match-teams">
+                <div>
+                  <div class="team-logo">
+                    <i class="bi bi-shield-fill"></i>
+                  </div>
+                  <div class="team-name">Hamburger SV</div>
+                </div>
+
+                <div class="vs">—</div>
+
+                <div>
+                  <div class="team-logo">
+                    <i class="bi bi-shield-fill" ></i>
+                  </div>
+                  <div class="team-name">Muskertie FC</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="action-tabs">
+              <button class="action-tab active">
+                <i class="bi bi-list-ul"></i>
+                Markets
+              </button>
+              <button class="action-tab">
+                <i class="bi bi-graph-up"></i>
+                Stats
+              </button>
+              <button class="action-tab">
+                <i class="bi bi-chat-dots"></i>
+                Comments
+              </button>
+            </div>
+
+            <!-- Market Filter & Search -->
+            <div class="market-filter-bar">
+              <button class="filter-btn">
+                <i class="bi bi-funnel"></i>
+              </button>
+
+              <div class="market-search-tabs">
+                <button class="market-search-tab">
+                  <i class="bi bi-star"></i>
+                </button>
+                <button class="market-search-tab active">All</button>
+                <button class="market-search-tab">Main</button>
+                <button class="market-search-tab">Goals</button>
+                <button class="market-search-tab">Corners</button>
+                <button class="market-search-tab">Half</button>
+              </div>
+            </div>
+
+            <!-- Market Tabs -->
+            <div class="market-tabs">
+              <div class="market-tab active">1X2</div>
+              <div class="market-tab">Over/Under</div>
+              <div class="market-tab">Asian Handicap</div>
+              <div class="market-tab">Double Chance</div>
+              <div class="market-tab">+25 more</div>
+            </div>
+
+            <!-- Odds Section -->
+            <div class="odds-section">
+
+              <!-- Full Time Market -->
+              <div class="market-group">
+                <div class="market-header">Full time (4)</div>
+
+                <div class="bookie-row">
+                  <div class="bookie-info">
+                    <div class="bookie-logo black">1XBET</div>
+                  </div>
+                  <div class="bookie-odds">
+                    <div class="odd-value">2.65</div>
+                    <div class="odd-value">1.56</div>
+                    <div class="odd-value">2.55</div>
+                  </div>
+                </div>
+
+                <div class="bookie-row">
+                  <div class="bookie-info">
+                    <div class="bookie-logo black">Betano</div>
+                  </div>
+                  <div class="bookie-odds">
+                    <div class="odd-value">2.65</div>
+                    <div class="odd-dash">-</div>
+                    <div class="odd-value">2.55</div>
+                  </div>
+                </div>
+
+                <div class="bookie-row">
+                  <div class="bookie-info">
+                    <div class="bookie-logo black">betway</div>
+                  </div>
+                  <div class="bookie-odds">
+                    <div class="odd-value">2.55</div>
+                    <div class="odd-value">2.65</div>
+                    <div class="odd-dash">-</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- First Half Market -->
+              <div class="market-group">
+                <div class="market-header">First half (3)</div>
+
+                <div class="bookie-row">
+                  <div class="bookie-info">
+                    <div class="bookie-logo black">1XBET</div>
+                  </div>
+                  <div class="bookie-odds">
+                    <div class="odd-value">2.65</div>
+                    <div class="odd-value">1.56</div>
+                    <div class="odd-value">2.55</div>
+                  </div>
+                </div>
+
+                <div class="bookie-row">
+                  <div class="bookie-info">
+                    <div class="bookie-logo black">Betano</div>
+                  </div>
+                  <div class="bookie-odds">
+                    <div class="odd-value">2.65</div>
+                    <div class="odd-dash">-</div>
+                    <div class="odd-value">2.55</div>
+                  </div>
+                </div>
+
+                <div class="bookie-row">
+                  <div class="bookie-info">
+                    <div class="bookie-logo black">betway</div>
+                  </div>
+                  <div class="bookie-odds">
+                    <div class="odd-value">2.55</div>
+                    <div class="odd-value">2.65</div>
+                    <div class="odd-dash">-</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Second Half Market -->
+              <div class="market-group">
+                <div class="market-header">Second half (3)</div>
+
+                <div class="bookie-row">
+                  <div class="bookie-info">
+                    <div class="bookie-logo black">1XBET</div>
+                  </div>
+                  <div class="bookie-odds">
+                    <div class="odd-value">2.65</div>
+                    <div class="odd-value">1.56</div>
+                    <div class="odd-value">2.55</div>
+                  </div>
+                </div>
+
+                <div class="bookie-row">
+                  <div class="bookie-info">
+                    <div class="bookie-logo black">Betano</div>
+                  </div>
+                  <div class="bookie-odds">
+                    <div class="odd-dash">-</div>
+                    <div class="odd-value">1.56</div>
+                    <div class="odd-value">2.55</div>
+                  </div>
+                </div>
+
+                <div class="bookie-row">
+                  <div class="bookie-info">
+                    <div class="bookie-logo black">betway</div>
+                  </div>
+                  <div class="bookie-odds">
+                    <div class="odd-value">2.55</div>
+                    <div class="odd-dash">-</div>
+                    <div class="odd-value">1.56</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- More Link -->
+              <div class="more-link">
+                Load More
+                <i class="bi bi-chevron-right"></i>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- global filter -->
+    <div id="filter-canvas"></div>
+
+    <!-- mobile navigation -->
+    <div id="mobile-nav"></div>
+
+    <!-- Page Level js -->
+    <script src="assets/js/adminux/adminux-dashboard.js"></script>
+    <script src="./components/AppLayout.js"></script>
+    <script>
+      // Market tabs interaction
+      document.querySelectorAll(".market-tab").forEach((tab) => {
+        tab.addEventListener("click", function () {
+          document
+            .querySelectorAll(".market-tab")
+            .forEach((t) => t.classList.remove("active"));
+          this.classList.add("active");
+        });
+      });
+
+      // Odd value click
+      document.querySelectorAll(".odd-value").forEach((odd) => {
+        odd.addEventListener("click", function () {
+          console.log("Odd clicked:", this.textContent);
+        });
+      });
+    </script>
+  </body>
+</html>

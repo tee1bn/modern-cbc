@@ -73,92 +73,108 @@
         <!-- content -->
         <div class="container mt-3" id="main-content">
           <div class="betviewer">
-            <div class="card p-4">
+            <div class="card">
               <div class="betviewer-columns">
                 
                 <!-- Left column: form -->
-                <div class="btv-form p-3">
-                  <h5 class="mb-3">Bet Code Form</h5>
-                  <label for="bet-code" class="form-label small">Enter Bet Code</label>
-                  <div class="input-group mb-3">
+                <div class="btv-form">
+                  <h5>Bet Code Form</h5>
+                  
+                  <label for="bet-code">Enter Bet Code</label>
+                  <div class="input-group">
                     <input id="bet-code" class="form-control" placeholder="Enter bet code (e.g. PYDFRC)" aria-label="Bet code" />
-                    <button id="paste-code" class="btn btn-outline-secondary" type="button" title="Paste from clipboard" aria-label="Paste from clipboard">
+                    <button 
+                      id="paste-code" 
+                      class="btn btn-outline-secondary" 
+                      type="button" 
+                      title="Paste from clipboard" 
+                      aria-label="Paste from clipboard"
+                    >
                       <i class="bi bi-clipboard"></i>
                     </button>
-                    <button id="view-bet" class="btn btn-dark" type="button">Load</button>
                   </div>
 
-                  <label for="btv-bookie" class="form-label small">Select Bookie</label>
-                  <select id="btv-bookie" class="form-select mb-3"><option>Sportybet</option></select>
 
-                  <p class="text-muted small">Additional info, instructions, or ads can go here.</p>
+                  <label for="btv-bookie">Select Bookie</label>
+                  <select id="btv-bookie" class="form-select">
+                    <option>Sportybet</option>
+                    <option value="">Bet9ja</option>
+                    <option value="">1Xbet</option>
+                  </select>
+                  
+                  <div>
+                    <button id="view-bet" class="btn mt-3 mb-2 w-50" type="button">Load</button>
+                  </div>
+
+                  <p class="text-muted">Additional info, instructions, or ads can go here.</p>
                 </div>
 
                 <!-- Right column: results -->
-                <div class="btv-results p-3" role="region" aria-label="Bet details and results">
+                <div class="btv-results" role="region" aria-label="Bet details and results">
 
-                  <!-- Mobile header card (blue) -->
-                  <div class="btv-header d-lg-none p-3 mb-3">
-                    <div class="d-flex justify-content-between align-items-start">
-                      <div>
-                        <div id="btv-code-mobile" class="fw-bold h5 mb-0">PYDFRC</div>
-                        <div class="small">Sportybet Nigeria NG • 2 Events</div>
+                  <!-- Mobile header card -->
+                  <div class="btv-header d-lg-none">
+                    <div class="btv-header-content">
+                      <div class="btv-header-left">
+                        <h5 id="btv-code-mobile">PYDFRC</h5>
+                        <div class="small">Sportybet NG . 2 Events</div>
                       </div>
-                      <div class="text-end">
-                        <div id="btv-odds-mobile" class="h4 mb-0">4.39</div>
+                      <div class="btv-header-right">
+                        <div class="h4" id="btv-odds-mobile">4.39</div>
                         <div class="small">Total Odds</div>
                       </div>
                     </div>
                   </div>
 
                   <!-- Desktop header -->
-                  <div class="btv-desktop-header d-none d-lg-block p-3 mb-3">
-                    <div class="d-flex justify-content-between align-items-start">
-                      <div>
-                        <div id="btv-code" class="fw-bold h6 mb-1">PYDFRC NG</div>
-                        <div id="btv-meta" class="small text-muted">2 events • Sportybet</div>
+                  <div class="btv-desktop-header d-none d-lg-block">
+                    <div class="btv-header-content">
+                      <div class="btv-header-left">
+                        <h5 id="btv-code">PYDFRC</h5>
+                        <div class="btv-header-meta">2 events . Sportybet</div>
                       </div>
-                      <div class="text-end">
-                        <div id="btv-odds" class="h4 mb-0">4.39</div>
+                      <div class="btv-header-right">
+                        <div class="h4" id="btv-odds">4.39</div>
                         <div class="small">Total Odds</div>
                       </div>
                     </div>
                   </div>
 
                   <!-- Events list -->
-                  <div id="bet-list" class="mt-2">
+                  <div id="bet-list">
                     <div class="game-card" role="article" aria-label="Event 1">
-                      <div class="d-flex justify-content-between align-items-start">
-                        <div>
-                          <div class="small text-muted">International Africa Cup of Nations</div>
+                      <div class="game-card-content">
+                        <div class="game-card-left">
+                          <div class="small">International Africa Cup of Nations</div>
                           <div class="fw-semibold">Morocco vs Comoros</div>
-                          <div class="small text-muted">1X2 • Home Win • Dec 21, 20:00 UTC</div>
+                          <div class="game-details">1X2 . Home Win . Dec 21, 20:00 utc</div>
                         </div>
-                        <div class="text-end">
+                        <div class="game-card-right">
                           <div class="odds-badge">1.15</div>
                         </div>
                       </div>
                     </div>
 
                     <div class="game-card" role="article" aria-label="Event 2">
-                      <div class="d-flex justify-content-between align-items-start">
-                        <div>
-                          <div class="small text-muted">International Africa Cup of Nations</div>
+                      <div class="game-card-content">
+                        <div class="game-card-left">
+                          <div class="small">International Africa Cup of Nations</div>
                           <div class="fw-semibold">Mali vs Zambia</div>
-                          <div class="small text-muted">1X2 • Draw • Dec 22, 15:00 UTC</div>
+                          <div class="game-details">1X2 . Draw . Dec 22, 15:00 utc</div>
                         </div>
-                        <div class="text-end">
+                        <div class="game-card-right">
                           <div class="odds-badge">3.82</div>
                         </div>
                       </div>
                     </div>
 
-                    <div id="no-results" class="d-none mt-2 text-muted p-3">No results found for this code.</div>
+                    <div id="no-results" class="d-none">
+                      No results found for this code.
+                    </div>
                   </div>
 
-                  <div class="mt-3 d-grid gap-2">
-                    <button id="load-betslip" class="btn btn-outline-dark">Load Code to Betslip</button>
-                    <button id="share-code" class="btn btn-outline-secondary">Share Code</button>
+                  <div class="btv-actions">
+                    <div class="icon-section"></div>
                   </div>
 
                 </div>

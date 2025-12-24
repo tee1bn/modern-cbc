@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Bet Converter - ConvertBetCodes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&amp;family=SUSE:wght@100..800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --adminuiux-content-font: "Open Sans", sans-serif;
+        --adminuiux-content-font-weight: 400;
+        --adminuiux-title-font: "SUSE", sans-serif;
+        --adminuiux-title-font-weight: 600;
+      }
+    </style>
+    <script defer src="assets/js/app8051.js?bd1e16b080f637e63a80"></script>
+    <link href="assets/css/app8051.css?bd1e16b080f637e63a80" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/upcoming-events.css" />
+  </head>
+
+  <body
+    class="main-bg main-bg-opac adminuiux-header-standard theme-blue adminuiux-header-transparent adminuiux-sidebar-fill-white adminuiux-sidebar-standard bg-r-gradient scrollup"
+    data-theme="theme-blue"
+    data-sidebarfill="adminuiux-sidebar-fill-white"
+    data-sidebarlayout="adminuiux-sidebar-standard"
+    data-bs-spy="scroll"
+    data-bs-target="#list-example"
+    data-bs-smooth-scroll="true"
+    tabindex="0"
+    data-headerlayout="adminuiux-header-standard"
+    data-bggradient="bg-r-gradient"
+    data-headerfill="adminuiux-header-transparent"
+  >
+    <!-- standard header -->
+    <div id="desktop-nav"></div>
+
+    <!-- Standard sidebar -->
+    <div id="side-menu"></div>
+
+    <!-- main content -->
+    <div class="adminuiux-wrap">
+      <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+        <!-- page title -->
+        <div class="container-fluid py-1 py-lg-3">
+          <div class="row gx-3 gx-lg-4 align-items-center page-title">
+            <div class="col col-sm">
+              <h6 class="mb-0">Upcoming Events</h6>
+              <p class="text-secondary small">This is the upcoming events</p>
+            </div>
+            <div class="col-auto position-relative">
+              <button
+                class="btn btn-link btn-square"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#filter"
+                data-bs-placement="end"
+              >
+                <i class="bi bi-filter"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- content -->
+        <div class="main-content mt-3">
+          <div class="card p-2">
+            <div class="top">
+              <div class="top-item active">Sports</div>
+              <div class="sports-tabs">
+                <div class="sport active">Football</div>
+                <div class="sport">Basketball</div>
+                <div class="sport">Tennis</div>
+              </div>
+            </div>
+
+            <section class="markets">
+              <button class="active">1 X 2</button>
+              <button>Double Chance</button>
+              <button>Handicap</button>
+              <button>Over / Under</button>
+            </section>
+
+            <section class="matches">
+              <div class="match-info-header">
+                <div class="date">24/12 Wednesday</div>
+                <div class="selected-market">
+                  <div>1</div>
+                  <div>X</div>
+                  <div>2</div>
+                </div>
+              </div>
+
+              <div>
+                <div class="match-meta">
+                  <span>13:30 </span>
+                  <span>International - Africa Cup of Nations</span>
+                </div>
+                <div class="match">
+                  <div
+                    class="match-info open-single"
+                    onclick="navigateTo('upcoming-single-event.html')"
+                  >
+                    <div class="teams">
+                      <span>Burkina Faso</span>
+                      <span>Equatorial Guinea</span>
+                    </div>
+
+                    <div class="match-icons">
+                      <div class="match-icon icon-stats">
+                        <i class="bi bi-graph-down"></i>
+                      </div>
+                      <span class="more">+38</span>
+                    </div>
+                  </div>
+
+                  <div class="odds">
+                    <div class="best-odd">1.89</div>
+                    <div>3.16</div>
+                    <div>5.44</div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="match-meta">
+                  <span>13:30 </span>
+                  <span>International - Africa Cup of Nations</span>
+                </div>
+                <div class="match">
+                  <div
+                    class="match-info open-single"
+                    onclick="navigateTo('upcoming-single-event.html')"
+                  >
+                    <div class="teams">
+                      <span>Burkina Faso</span>
+                      <span>Equatorial Guinea</span>
+                    </div>
+
+                    <div class="match-icons">
+                      <div class="match-icon icon-stats">
+                        <i class="bi bi-graph-down"></i>
+                      </div>
+                      <span class="more">+38</span>
+                    </div>
+                  </div>
+
+                  <div class="odds">
+                    <div class="best-odd">1.89</div>
+                    <div>3.16</div>
+                    <div>5.44</div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="match-meta">
+                  <span>13:30 </span>
+                  <span>International - Africa Cup of Nations</span>
+                </div>
+                <div class="match">
+                  <div
+                    class="match-info open-single"
+                    onclick="navigateTo('upcoming-single-event.html')"
+                  >
+                    <div class="teams">
+                      <span>Burkina Faso</span>
+                      <span>Equatorial Guinea</span>
+                    </div>
+
+                    <div class="match-icons">
+                      <div class="match-icon icon-stats">
+                        <i class="bi bi-graph-down"></i>
+                      </div>
+                      <span class="more">+38</span>
+                    </div>
+                  </div>
+
+                  <div class="odds">
+                    <div class="best-odd">1.89</div>
+                    <div>3.16</div>
+                    <div>5.44</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- global filter -->
+    <div id="filter-canvas"></div>
+
+    <!-- footer -->
+    <!-- <div id="footer"></div> -->
+
+    <!-- mobile navigation -->
+    <div id="mobile-nav"></div>
+
+    <!-- Page Level js -->
+    <script src="assets/js/adminux/adminux-dashboard.js"></script>
+    <script src="./components/AppLayout.js"></script>
+    <script>
+      // Add click handlers for interactive elements
+      document.querySelectorAll(".sport").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          document
+            .querySelectorAll(".sport")
+            .forEach((b) => b.classList.remove("active"));
+          this.classList.add("active");
+        });
+      });
+
+      document.querySelectorAll(".markets button").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          document
+            .querySelectorAll(".markets button")
+            .forEach((b) => b.classList.remove("active"));
+          this.classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>

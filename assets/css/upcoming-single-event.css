@@ -1,0 +1,394 @@
+.back-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  cursor: pointer;
+}
+
+.back-header:hover {
+  background: #fafafa;
+}
+
+.back-icon {
+  font-size: 18px;
+}
+
+.back-header span {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* MATCH HEADER */
+.match-header {
+  padding: 16px;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.match-competition {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 8px;
+  text-decoration: underline;
+}
+
+.match-teams {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 12px 0;
+}
+
+.team-logo {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #333;
+  border-radius: 50%;
+  font-size: 24px;
+}
+
+.team-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.vs {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* MARKETS TABS */
+.market-tabs {
+  display: flex;
+  overflow-x: auto;
+  border-bottom: 1px solid #e0e0e0;
+  background: white;
+}
+
+.market-tab {
+  padding: 12px 16px;
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 600;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.market-tab:hover {
+  background: #fafafa;
+}
+
+.market-tab.active {
+  border-bottom-color: black;
+}
+
+/* ODDS SECTION */
+.odds-section {
+  padding: 0;
+}
+
+.market-group {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.market-header {
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  background: #fafafa;
+}
+
+/* BOOKIE ROW */
+.bookie-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.2s;
+}
+
+.bookie-row:hover {
+  background: #fafafa;
+}
+
+.bookie-row:last-child {
+  border-bottom: none;
+}
+
+.bookie-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bookie-logo {
+  width: 60px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: bold;
+  color: white;
+  border-radius: 3px;
+  padding: 4px 8px;
+}
+
+.bookie-logo.blue {
+  background: #1763d8;
+}
+
+.bookie-logo.red {
+  background: #e11b1b;
+}
+
+.bookie-logo.black {
+  background: #000;
+}
+
+.bookie-logo.purple {
+  background: #6b46c1;
+}
+
+.bookie-odds {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.odd-value {
+  min-width: 60px;
+  padding: 8px 10px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.odd-value:hover {
+  background: #000;
+  color: white;
+  border-color: #000;
+}
+
+.odd-value.best {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border-color: #2e7d32;
+}
+
+.odd-value.worst {
+  background: #ffebee;
+  color: #c62828;
+  border-color: #c62828;
+}
+
+.odd-dash {
+  min-width: 60px;
+  padding: 8px 10px;
+  text-align: center;
+  font-size: 13px;
+  color: #999;
+}
+
+/* BEST INDICATOR */
+.best-indicator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #2e7d32;
+}
+
+.arrow-up {
+  font-size: 14px;
+}
+
+.arrow-down {
+  font-size: 14px;
+  color: #c62828;
+}
+
+/* MORE LINK */
+.more-link {
+  padding: 12px 16px;
+  text-align: right;
+  font-size: 13px;
+  color: #666;
+  cursor: pointer;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.more-link:hover {
+  background: #fafafa;
+}
+
+.more-link i {
+  margin-left: 4px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .bookie-row {
+    grid-template-columns: 80px 1fr;
+    padding: 10px 12px;
+  }
+
+  .bookie-logo {
+    width: 50px;
+    font-size: 10px;
+  }
+
+  .odd-value,
+  .odd-dash {
+    min-width: 50px;
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  .match-teams {
+    gap: 16px;
+  }
+
+  .team-logo {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .team-name {
+    font-size: 14px;
+  }
+}
+
+/* ACTION TABS (Markets/Stats/Comments) */
+.action-tabs {
+  display: flex;
+  border-bottom: 1px solid #e0e0e0;
+  background: white;
+}
+
+.action-tab {
+  flex: 1;
+  padding: 14px 16px;
+  background: white;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.action-tab:hover {
+  background: #fafafa;
+}
+
+.action-tab.active {
+  color: #000;
+  border-bottom-color: #000;
+}
+
+.action-tab i {
+  font-size: 16px;
+}
+
+/* MARKET FILTER BAR */
+.market-filter-bar {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  border-bottom: 1px solid #e0e0e0;
+  background: white;
+  overflow-x: auto;
+}
+
+.filter-btn {
+  padding: 8px 12px;
+  background: white;
+  border: 1px solid #333;
+  border-radius: 4px;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  background: #000;
+  color: white;
+}
+
+.filter-btn i {
+  font-size: 16px;
+}
+
+.market-search-tabs {
+  display: flex;
+  gap: 6px;
+  flex: 1;
+  overflow-x: auto;
+}
+
+.market-search-tab {
+  padding: 8px 14px;
+  background: white;
+  border: 1px solid #333;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.market-search-tab:hover {
+  background: #fafafa;
+}
+
+.market-search-tab.active {
+  background: #000;
+  color: white;
+  border-color: #000;
+}
+
+.market-search-tab i {
+  font-size: 14px;
+}
+
+@media (max-width: 480px) {
+  .action-tab {
+    padding: 12px 10px;
+    font-size: 13px;
+  }
+  
+  .action-tab i {
+    font-size: 14px;
+  }
+  
+  .market-search-tab {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
