@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Pools Bet Code</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&amp;family=SUSE:wght@100..800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --adminuiux-content-font: "Open Sans", sans-serif;
+        --adminuiux-content-font-weight: 400;
+        --adminuiux-title-font: "SUSE", sans-serif;
+        --adminuiux-title-font-weight: 600;
+      }
+    </style>
+    <script defer src="assets/js/app8051.js?bd1e16b080f637e63a80"></script>
+    <link href="assets/css/app8051.css?bd1e16b080f637e63a80" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/pools-bet-code.css" />
+  </head>
+
+  <body
+    class="main-bg main-bg-opac adminuiux-header-standard theme-blue adminuiux-header-transparent adminuiux-sidebar-fill-white adminuiux-sidebar-standard bg-r-gradient scrollup"
+    data-theme="theme-blue"
+    data-sidebarfill="adminuiux-sidebar-fill-white"
+    data-sidebarlayout="adminuiux-sidebar-standard"
+    data-bs-spy="scroll"
+    data-bs-target="#list-example"
+    data-bs-smooth-scroll="true"
+    tabindex="0"
+    data-headerlayout="adminuiux-header-standard"
+    data-bggradient="bg-r-gradient"
+    data-headerfill="adminuiux-header-transparent"
+  >
+    <!-- standard header -->
+    <div id="desktop-nav"></div>
+
+    <!-- Standard sidebar -->
+    <div id="side-menu"></div>
+
+    <!-- main content -->
+    <div class="adminuiux-wrap">
+      <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+        <!-- page title -->
+        <div class="container-fluid py-1 py-lg-3">
+          <div class="row gx-3 gx-lg-4 align-items-center page-title">
+            <div class="col col-sm">
+              <h6 class="mb-0">Pools bet code</h6>
+              <p class="text-secondary small">
+                Create pools by selecting markets across matches
+              </p>
+            </div>
+            <div class="col-auto position-relative">
+              <button
+                class="btn btn-link btn-square"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#filter"
+                data-bs-placement="end"
+              >
+                <i class="bi bi-filter"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- content -->
+        <div class="mt-3 p-1">
+          <div class="pools-screen">
+            <!-- Header -->
+            <div class="pools-header">
+              <button class="pools-back" id="back-btn" onclick="navigateTo('index.html')">
+                <i class="bi bi-chevron-left"></i>
+                Back
+              </button>
+              <!-- <h1 class="pools-title">Pools bet code</h1> -->
+            </div>
+
+            <!-- Week Selector -->
+            <div class="pools-week-selector">
+              <span class="week-label">Wk:</span>
+              <button class="week-nav-btn" id="prev-week">
+                <i class="bi bi-chevron-left"></i>
+              </button>
+              <span class="week-value" id="current-week">27, 2026</span>
+              <button class="week-nav-btn" id="next-week">
+                <i class="bi bi-chevron-right"></i>
+              </button>
+            </div>
+
+            <!-- Market Filter Tabs -->
+            <div class="pools-market-tabs">
+              <button class="pools-market-tab active" data-market="1x2">
+                1x2
+              </button>
+              <button class="pools-market-tab" data-market="double-chance">
+                double chance
+              </button>
+              <button class="pools-market-tab" data-market="over-under">
+                over/under
+              </button>
+              <button class="pools-market-tab" data-market="gg-ng">
+                gg/ng
+              </button>
+            </div>
+
+            <!-- Match List -->
+            <div class="pools-matches-container" id="matches-container">
+              <!-- Match 1 -->
+              <div class="match-row">
+                <div class="match-info">
+                  <div class="match-teams">
+                    Aston Villa vs Nottingham Forest
+                  </div>
+                  <div class="match-meta">
+                    <span class="match-handicap">+70</span>
+                    <span class="match-date">1- 2026-01-03</span>
+                  </div>
+                </div>
+                <div class="match-options">
+                  <button
+                    class="match-option"
+                    data-match-id="1"
+                    data-option="home"
+                  >
+                    <span class="option-label">1</span>
+                  </button>
+                  <button
+                    class="match-option"
+                    data-match-id="1"
+                    data-option="draw"
+                  >
+                    <span class="option-label">x</span>
+                  </button>
+                  <button
+                    class="match-option"
+                    data-match-id="1"
+                    data-option="away"
+                  >
+                    <span class="option-label">2</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Match 2 -->
+              <div class="match-row">
+                <div class="match-info">
+                  <div class="match-teams">Liverpool vs Man City</div>
+                  <div class="match-meta">
+                    <span class="match-handicap">+65</span>
+                    <span class="match-date">1- 2026-01-03</span>
+                  </div>
+                </div>
+                <div class="match-options">
+                  <button
+                    class="match-option"
+                    data-match-id="2"
+                    data-option="home"
+                  >
+                    <span class="option-label">1</span>
+                  </button>
+                  <button
+                    class="match-option"
+                    data-match-id="2"
+                    data-option="draw"
+                  >
+                    <span class="option-label">x</span>
+                  </button>
+                  <button
+                    class="match-option"
+                    data-match-id="2"
+                    data-option="away"
+                  >
+                    <span class="option-label">2</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Match 3 -->
+              <div class="match-row">
+                <div class="match-info">
+                  <div class="match-teams">Chelsea vs Arsenal</div>
+                  <div class="match-meta">
+                    <span class="match-handicap">+55</span>
+                    <span class="match-date">1- 2026-01-03</span>
+                  </div>
+                </div>
+                <div class="match-options">
+                  <button
+                    class="match-option selected"
+                    data-match-id="3"
+                    data-option="home"
+                  >
+                    <span class="option-label">1</span>
+                  </button>
+                  <button
+                    class="match-option"
+                    data-match-id="3"
+                    data-option="draw"
+                  >
+                    <span class="option-label">x</span>
+                  </button>
+                  <button
+                    class="match-option"
+                    data-match-id="3"
+                    data-option="away"
+                  >
+                    <span class="option-label">2</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Match 4 -->
+              <div class="match-row">
+                <div class="match-info">
+                  <div class="match-teams">Real Madrid vs Barcelona</div>
+                  <div class="match-meta">
+                    <span class="match-handicap">+80</span>
+                    <span class="match-date">1- 2026-01-03</span>
+                  </div>
+                </div>
+                <div class="match-options">
+                  <button
+                    class="match-option"
+                    data-match-id="4"
+                    data-option="home"
+                  >
+                    <span class="option-label">1</span>
+                  </button>
+                  <button
+                    class="match-option"
+                    data-match-id="4"
+                    data-option="draw"
+                  >
+                    <span class="option-label">x</span>
+                  </button>
+                  <button
+                    class="match-option"
+                    data-match-id="4"
+                    data-option="away"
+                  >
+                    <span class="option-label">2</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Match 5 -->
+              <div class="match-row">
+                <div class="match-info">
+                  <div class="match-teams">Bayern Munich vs Dortmund</div>
+                  <div class="match-meta">
+                    <span class="match-handicap">+75</span>
+                    <span class="match-date">1- 2026-01-04</span>
+                  </div>
+                </div>
+                <div class="match-options">
+                  <button
+                    class="match-option"
+                    data-match-id="5"
+                    data-option="home"
+                  >
+                    <span class="option-label">1</span>
+                  </button>
+                  <button
+                    class="match-option"
+                    data-match-id="5"
+                    data-option="draw"
+                  >
+                    <span class="option-label">x</span>
+                  </button>
+                  <button
+                    class="match-option"
+                    data-match-id="5"
+                    data-option="away"
+                  >
+                    <span class="option-label">2</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Betslip Badge (Floating) -->
+            <div class="betslip-badge" id="betslip-badge" style="display: none">
+              <span class="betslip-count" id="betslip-count">1</span>
+              <span class="betslip-label">slip</span>
+            </div>
+
+            <!-- Betslip Bottom Sheet -->
+            <div class="betslip-overlay" id="betslip-overlay"></div>
+            <div class="betslip-sheet" id="betslip-sheet">
+              <!-- Handle -->
+              <div class="betslip-handle"></div>
+
+              <!-- Header -->
+              <div class="betslip-header">
+                <h2 class="betslip-title">
+                  Betslip <span id="betslip-header-count">1</span>
+                </h2>
+                <button class="betslip-close" id="close-betslip">
+                  <i class="bi bi-x-lg"></i>
+                </button>
+              </div>
+
+              <!-- Selections List -->
+              <div class="betslip-selections" id="betslip-selections">
+                <!-- Selection Item -->
+                <div class="betslip-selection" data-selection-id="3">
+                  <div class="selection-content">
+                    <div class="selection-info">
+                      <div class="selection-teams">Chelsea vs Arsenal</div>
+                      <div class="selection-market">1x2 : home</div>
+                    </div>
+                    <div class="selection-odd"><div class="odd-value">1.85</div></div>
+                    <button class="selection-edit" data-match-id="3">
+                      <i class="bi bi-pencil"></i>
+                    </button>
+                  </div>
+                  <label class="selection-checkbox">
+                    <input type="checkbox" />
+                    <span class="checkbox-custom"></span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Clear All -->
+              <div class="betslip-clear">
+                <button class="clear-all-btn" id="clear-all-btn">
+                  Clear all
+                </button>
+              </div>
+
+              <!-- Bookie Selector -->
+              <div class="betslip-bookie">
+                <label class="bookie-label">Select Bookie</label>
+                <select class="bookie-select" id="bookie-select">
+                  <option value="bet9ja">Bet9ja</option>
+                  <option value="sportybet">Sportybet</option>
+                  <option value="betking">BetKing</option>
+                  <option value="1xbet">1xBet</option>
+                  <option value="22bet">22bet</option>
+                </select>
+              </div>
+
+              <!-- Book Button -->
+              <div class="betslip-footer">
+                <button class="book-bet-btn" id="book-bet-btn">
+                  Book (<span id="book-count">1</span>)
+                </button>
+              </div>
+
+              <!-- Generated Code (Hidden Initially) -->
+              <div class="betslip-code" id="betslip-code" style="display: none">
+                <div class="code-header">Booking Code</div>
+                <div class="code-display">
+                  <input
+                    type="text"
+                    class="code-input"
+                    value="XYZ789ABC"
+                    readonly
+                    id="generated-code"
+                  />
+                  <button class="code-copy-btn" id="copy-code-btn">
+                    <i class="bi bi-clipboard"></i>
+                  </button>
+                  <button class="code-share-btn" id="share-code-btn">
+                    <i class="bi bi-share"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Error Message -->
+              <div
+                class="betslip-error"
+                id="betslip-error"
+                style="display: none"
+              >
+                <i class="bi bi-exclamation-circle"></i>
+                <span>Something went wrong. Please try again.</span>
+              </div>
+            </div>
+
+            <!-- Market Editor Modal -->
+            <div class="market-modal-overlay" id="market-modal-overlay"></div>
+            <div class="market-modal" id="market-modal">
+              <!-- Modal Header -->
+              <div class="market-modal-header">
+                <button class="market-modal-back" id="close-market-modal">
+                  <i class="bi bi-chevron-left"></i>
+                </button>
+                <div class="market-modal-info">
+                  <div class="modal-teams" id="modal-teams">
+                    Chelsea vs Arsenal
+                  </div>
+                  <div class="modal-date" id="modal-date">1- 2026-01-03</div>
+                </div>
+              </div>
+
+              <!-- Market Tabs -->
+              <div class="market-modal-tabs">
+                <button class="market-modal-tab active">All</button>
+                <button class="market-modal-tab">Popular</button>
+                <button class="market-modal-tab">1st Half</button>
+              </div>
+
+              <!-- Markets Container -->
+              <div class="market-modal-content">
+                <!-- 1x2 Market -->
+                <div class="market-group">
+                  <div class="market-group-header">1x2</div>
+                  <div class="market-options">
+                    <div class="market-option three-col">
+                      <div
+                        class="option-choice selected"
+                        data-market="1x2"
+                        data-value="home"
+                      >
+                        <span class="option-label">home</span>
+                      </div>
+                      <div
+                        class="option-choice"
+                        data-market="1x2"
+                        data-value="draw"
+                      >
+                        <span class="option-label">draw</span>
+                      </div>
+                      <div
+                        class="option-choice"
+                        data-market="1x2"
+                        data-value="away"
+                      >
+                        <span class="option-label">away</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Over/Under 0.5 -->
+                <div class="market-group">
+                  <div class="market-group-header">over/under 0.5</div>
+                  <div class="market-options">
+                    <div class="market-option two-col">
+                      <div
+                        class="option-choice"
+                        data-market="ou05"
+                        data-value="over"
+                      >
+                        <span class="option-label">over</span>
+                      </div>
+                      <div
+                        class="option-choice"
+                        data-market="ou05"
+                        data-value="under"
+                      >
+                        <span class="option-label">under</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Over/Under 1.5 -->
+                <div class="market-group">
+                  <div class="market-group-header">over/under 1.5</div>
+                  <div class="market-options">
+                    <div class="market-option two-col">
+                      <div
+                        class="option-choice"
+                        data-market="ou15"
+                        data-value="over"
+                      >
+                        <span class="option-label">over</span>
+                      </div>
+                      <div
+                        class="option-choice"
+                        data-market="ou15"
+                        data-value="under"
+                      >
+                        <span class="option-label">under</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Double Chance -->
+                <div class="market-group">
+                  <div class="market-group-header">double chance</div>
+                  <div class="market-options">
+                    <div class="market-option three-col">
+                      <div
+                        class="option-choice"
+                        data-market="dc"
+                        data-value="1x"
+                      >
+                        <span class="option-label">1x</span>
+                      </div>
+                      <div
+                        class="option-choice"
+                        data-market="dc"
+                        data-value="x2"
+                      >
+                        <span class="option-label">x2</span>
+                      </div>
+                      <div
+                        class="option-choice"
+                        data-market="dc"
+                        data-value="12"
+                      >
+                        <span class="option-label">12</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- GG/NG -->
+                <div class="market-group">
+                  <div class="market-group-header">gg/ng</div>
+                  <div class="market-options">
+                    <div class="market-option two-col">
+                      <div
+                        class="option-choice"
+                        data-market="gg"
+                        data-value="yes"
+                      >
+                        <span class="option-label">yes</span>
+                      </div>
+                      <div
+                        class="option-choice"
+                        data-market="gg"
+                        data-value="no"
+                      >
+                        <span class="option-label">no</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- BTTS -->
+                <div class="market-group">
+                  <div class="market-group-header">btts</div>
+                  <div class="market-options">
+                    <div class="market-option two-col">
+                      <div
+                        class="option-choice"
+                        data-market="btts"
+                        data-value="yes"
+                      >
+                        <span class="option-label">yes</span>
+                      </div>
+                      <div
+                        class="option-choice"
+                        data-market="btts"
+                        data-value="no"
+                      >
+                        <span class="option-label">no</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Odd/Even -->
+                <div class="market-group">
+                  <div class="market-group-header">odd/even</div>
+                  <div class="market-options">
+                    <div class="market-option two-col">
+                      <div
+                        class="option-choice"
+                        data-market="oddeven"
+                        data-value="odd"
+                      >
+                        <span class="option-label">odd</span>
+                      </div>
+                      <div
+                        class="option-choice"
+                        data-market="oddeven"
+                        data-value="even"
+                      >
+                        <span class="option-label">even</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Correct Score -->
+                <div class="market-group">
+                  <div class="market-group-header">correct score</div>
+                  <div class="market-options">
+                    <div class="market-option three-col">
+                      <div
+                        class="option-choice"
+                        data-market="cs"
+                        data-value="0:0"
+                      >
+                        <span class="option-label">0:0</span>
+                      </div>
+                      <div
+                        class="option-choice"
+                        data-market="cs"
+                        data-value="0:1"
+                      >
+                        <span class="option-label">0:1</span>
+                      </div>
+                      <div
+                        class="option-choice"
+                        data-market="cs"
+                        data-value="any"
+                      >
+                        <span class="option-label">any other</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Save Button -->
+              <div class="market-modal-footer">
+                <button class="market-save-btn" id="save-market-btn">
+                  Save Selection
+                </button>
+              </div>
+            </div>
+
+    
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- global filter -->
+    <div id="filter-canvas"></div>
+
+    <!-- footer -->
+    <!-- <div id="footer"></div> -->
+
+    <!-- mobile navigation -->
+    <div id="mobile-nav"></div>
+
+    <!-- Page Level js -->
+
+    <script src="assets/js/adminux/adminux-dashboard.js"></script>
+    <script src="./components/AppLayout.js"></script>
+    <script src="./assets/js/pools-bet-code.js"></script>
+
+  </body>
+</html>
