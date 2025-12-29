@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Edit Market - ConvertBetCodes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com/" />
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&family=SUSE:wght@100..800&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --adminuiux-content-font: "Open Sans", sans-serif;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background: white;
+    }
+  </style>
+  <script defer src="assets/js/app8051.js?bd1e16b080f637e63a80"></script>
+  <link href="assets/css/app8051.css?bd1e16b080f637e63a80" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/bet-editor-edit.css" />
+ 
+</head>
+
+<body class="edit-screen">
+  
+  <!-- Header -->
+  <div class="edit-header">
+    <button class="edit-back" id="back-btn">
+      <i class="bi bi-chevron-left"></i>
+      Convert
+    </button>
+  </div>
+
+  <!-- Match Info -->
+  <div class="edit-match-info">
+    <div class="edit-league">Football - International Clubs - AFC Champions League Two</div>
+    
+    <div class="edit-teams-container">
+      <div>
+        <div class="edit-team-logo">
+          <i class="bi bi-shield-fill" style="color: #333;"></i>
+        </div>
+        <div class="edit-team-name">Hamburger SV</div>
+      </div>
+      
+      <div class="edit-vs">—</div>
+      
+      <div>
+        <div class="edit-team-logo">
+          <i class="bi bi-shield-fill" style="color: #666;"></i>
+        </div>
+        <div class="edit-team-name">Muskertie FC</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Action Tabs (Markets/Stats/Comments) -->
+  <div class="edit-action-tabs">
+    <button class="edit-action-tab active">
+      <i class="bi bi-list-ul"></i>
+      Markets
+    </button>
+    <button class="edit-action-tab">
+      <i class="bi bi-graph-up"></i>
+      Stats
+    </button>
+    <button class="edit-action-tab">
+      <i class="bi bi-chat-dots"></i>
+      Comments
+    </button>
+  </div>
+
+  <!-- Market Filter Tabs -->
+  <div class="edit-market-tabs">
+    <button class="edit-market-tab"><i class="bi bi-funnel"></i></button>
+    <button class="edit-market-tab"><i class="bi bi-star"></i></button>
+    <button class="edit-market-tab active">All</button>
+    <button class="edit-market-tab">Main</button>
+    <button class="edit-market-tab">Goals</button>
+    <button class="edit-market-tab">Corners</button>
+    <button class="edit-market-tab">Half</button>
+  </div>
+
+  <!-- Markets Container -->
+  <div class="edit-markets-container">
+    
+    <!-- 1x2 Market -->
+    <div class="market-group">
+      <div class="market-group-header">1x2</div>
+      <div class="market-options">
+        <div class="market-option three-special">
+          <div class="option-choice" data-market="1x2" data-value="home">
+            <span class="option-label">home</span>
+          </div>
+          <div class="option-choice selected" data-market="1x2" data-value="away">
+            <span class="option-label">away</span>
+          </div>
+          <div class="option-choice" data-market="1x2" data-value="draw">
+            <span class="option-label">draw</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Over/Under 0.5 -->
+    <div class="market-group">
+      <div class="market-group-header">over/under 0.5</div>
+      <div class="market-options">
+        <div class="market-option two-col">
+          <div class="option-choice" data-market="ou05" data-value="over">
+            <span class="option-label">over</span>
+          </div>
+          <div class="option-choice" data-market="ou05" data-value="under">
+            <span class="option-label">under</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Over/Under 1.5 -->
+    <div class="market-group">
+      <div class="market-group-header">over/under 1.5</div>
+      <div class="market-options">
+        <div class="market-option two-col">
+          <div class="option-choice" data-market="ou15" data-value="over">
+            <span class="option-label">over</span>
+          </div>
+          <div class="option-choice" data-market="ou15" data-value="under">
+            <span class="option-label">under</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Double Chance -->
+    <div class="market-group">
+      <div class="market-group-header">double chance</div>
+      <div class="market-options">
+        <div class="market-option three-special">
+          <div class="option-choice" data-market="dc" data-value="1x">
+            <span class="option-label">1x</span>
+          </div>
+          <div class="option-choice" data-market="dc" data-value="x2">
+            <span class="option-label">x2</span>
+          </div>
+          <div class="option-choice" data-market="dc" data-value="12">
+            <span class="option-label">12</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GG/NG -->
+    <div class="market-group">
+      <div class="market-group-header">gg/ng</div>
+      <div class="market-options">
+        <div class="market-option two-col">
+          <div class="option-choice" data-market="gg" data-value="yes">
+            <span class="option-label">yes</span>
+          </div>
+          <div class="option-choice" data-market="gg" data-value="no">
+            <span class="option-label">no</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Odd/Even -->
+    <div class="market-group">
+      <div class="market-group-header">odd/even</div>
+      <div class="market-options">
+        <div class="market-option two-col">
+          <div class="option-choice" data-market="oddeven" data-value="odd">
+            <span class="option-label">odd</span>
+          </div>
+          <div class="option-choice" data-market="oddeven" data-value="even">
+            <span class="option-label">even</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Correct Score -->
+    <div class="market-group">
+      <div class="market-group-header">correct score</div>
+      <div class="market-options">
+        <div class="market-option three-special">
+          <div class="option-choice" data-market="cs" data-value="0:0">
+            <span class="option-label">0:0</span>
+          </div>
+          <div class="option-choice" data-market="cs" data-value="0:1">
+            <span class="option-label">0:1</span>
+          </div>
+          <div class="option-choice" data-market="cs" data-value="any">
+            <span class="option-label">any other score</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Total Goals (Exact) -->
+    <div class="market-group">
+      <div class="market-group-header">total goals (exact)</div>
+      <div class="market-options">
+        <div class="market-option three-special">
+          <div class="option-choice" data-market="tg" data-value="0-1">
+            <span class="option-label">0 - 1</span>
+          </div>
+          <div class="option-choice" data-market="tg" data-value="2-3">
+            <span class="option-label">2 - 3</span>
+          </div>
+          <div class="option-choice" data-market="tg" data-value="4+">
+            <span class="option-label">4 +</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Save Button -->
+  <div class="edit-save-container">
+    <button class="edit-save-btn" id="save-btn">Save Changes</button>
+  </div>
+
+  <script>
+    let selectedMarket = '1x2';
+    let selectedValue = 'away';
+
+    // Action tabs
+    document.querySelectorAll('.edit-action-tab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.edit-action-tab').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    // Market tabs
+    document.querySelectorAll('.edit-market-tab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.edit-market-tab').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    // Market options selection
+    document.querySelectorAll('.option-choice').forEach(choice => {
+      choice.addEventListener('click', function() {
+        const market = this.dataset.market;
+        const value = this.dataset.value;
+        
+        // Remove selected from same market group
+        const marketGroup = this.closest('.market-option');
+        marketGroup.querySelectorAll('.option-choice').forEach(opt => {
+          opt.classList.remove('selected');
+        });
+        
+        // Add selected to clicked option
+        this.classList.add('selected');
+        
+        // Update selection
+        selectedMarket = market;
+        selectedValue = value;
+      });
+    });
+
+    // Back button
+    document.getElementById('back-btn').addEventListener('click', () => {
+      window.location.href = 'bet-editor.html';
+    });
+
+    // Save button
+    document.getElementById('save-btn').addEventListener('click', () => {
+      // Get URL parameter to identify which bet to update
+      const urlParams = new URLSearchParams(window.location.search);
+      const betId = parseInt(urlParams.get('id') || 0);
+      
+      // Update bet in localStorage
+      const bets = JSON.parse(localStorage.getItem('editorBets') || '[]');
+      if (bets[betId]) {
+        bets[betId].market = `${selectedMarket}: ${selectedValue} @1.62`;
+      }
+      localStorage.setItem('editorBets', JSON.stringify(bets));
+      
+      // Redirect back to editor
+      window.location.href = 'bet-editor.html';
+    });
+
+    // Load bet data from URL parameter
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const betId = parseInt(urlParams.get('id') || 0);
+      
+      const bets = JSON.parse(localStorage.getItem('editorBets') || '[]');
+      if (bets[betId]) {
+        const bet = bets[betId];
+        document.querySelector('.edit-league').textContent = bet.league;
+        document.querySelector('.edit-teams').textContent = bet.teams;
+        document.querySelector('.edit-market-selected').textContent = bet.market;
+      }
+    });
+  </script>
+</body>
+</html>

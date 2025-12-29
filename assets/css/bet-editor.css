@@ -1,0 +1,351 @@
+/* BET EDITOR MAIN */
+.bet-editor {
+  font-family: var(--adminuiux-content-font, 'Open Sans', sans-serif);
+  font-size: 14px;
+}
+
+.editor-header {
+  padding: 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.editor-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+  color: #000;
+}
+
+.editor-subtitle {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+}
+
+/* EDITOR CONTROLS */
+.editor-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.editor-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.badge-count {
+  background: #333;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.editor-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.editor-actions button {
+  padding: 8px 12px;
+  background: white;
+  border: 1px solid #333;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.editor-actions button:hover {
+  background: #fafafa;
+}
+
+.editor-actions i {
+  font-size: 14px;
+}
+
+/* ACTION BUTTONS */
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  padding: 16px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.action-btn {
+  flex: 1;
+  padding: 5px;
+  background: white;
+  border: 2px solid #333;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.action-btn:hover {
+  background: #000;
+  color: white;
+}
+
+.action-btn i {
+  font-size: 16px;
+}
+
+/* EMPTY STATE */
+.empty-state {
+  padding: 40px 16px;
+  text-align: center;
+  color: #666;
+}
+
+.empty-state-text {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* BET LIST */
+.bet-list {
+  padding: 0;
+}
+
+.bet-item {
+  padding: 16px;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  gap: 12px;
+}
+
+.bet-item:hover {
+  background: #fafafa;
+}
+
+.bet-checkbox {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #333;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.bet-checkbox.checked {
+  background: #000;
+  position: relative;
+}
+
+.bet-checkbox.checked::after {
+  content: '';
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.bet-content {
+  flex: 1;
+}
+
+.bet-market {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.bet-league {
+  font-size: 11px;
+  color: #999;
+  margin-bottom: 6px;
+}
+
+.bet-teams {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 4px;
+}
+
+.bet-datetime {
+  font-size: 12px;
+  color: #666;
+}
+
+.bet-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.bet-remove {
+  background: none;
+  border: none;
+  color: #444;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px;
+}
+
+.bet-edit {
+  color: #444;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.bet-edit:hover {
+  text-decoration: underline;
+}
+
+/* FOOTER */
+.editor-footer {
+  padding: 16px;
+  border-top: 2px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+}
+
+.total-odds {
+  font-size: 14px;
+  color: #333;
+}
+
+.total-odds strong {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+}
+
+.book-btn {
+  padding: 12px 24px;
+  background: #444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* .book-btn:hover {
+  background: #444;
+  color: #fff;
+} */
+
+.book-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* LOAD CODE MODAL */
+.load-code-section {
+  padding: 20px 16px;
+}
+
+.load-code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.load-code-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.form-input,
+.form-select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  font-size: 14px;
+  background: white;
+}
+
+.form-input:focus,
+.form-select:focus {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
+.load-btn {
+  width: 100%;
+  padding: 12px;
+  background: #000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.load-btn:hover {
+  background: #333;
+}
+
+@media (max-width: 480px) {
+  .editor-controls {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .action-buttons {
+    flex-direction: row;
+  }
+  
+  .editor-footer {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+  
+  .book-btn {
+    width: 100%;
+  }
+}

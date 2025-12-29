@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Load Code - ConvertBetCodes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com/" />
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&family=SUSE:wght@100..800&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --adminuiux-content-font: "Open Sans", sans-serif;
+      --adminuiux-title-font: "SUSE", sans-serif;
+    }
+  </style>
+  <script defer src="assets/js/app8051.js?bd1e16b080f637e63a80"></script>
+  <link href="assets/css/app8051.css?bd1e16b080f637e63a80" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/main.css" />
+  <link rel="stylesheet" href="./assets/css/bet-editor.css" />
+</head>
+
+<body class="main-bg main-bg-opac adminuiux-header-standard theme-blue adminuiux-header-transparent adminuiux-sidebar-fill-white adminuiux-sidebar-standard bg-r-gradient scrollup">
+  
+  <div id="desktop-nav"></div>
+  <div id="side-menu"></div>
+
+  <div class="adminuiux-wrap">
+    <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+      
+      <div class="container-fluid py-1 py-lg-3">
+        <div class="row gx-3 gx-lg-4 align-items-center page-title">
+          <div class="col col-sm">
+            <h6 class="mb-0">Multi Bet Editor</h6>
+            <p class="text-secondary small">Universal Edit My Bet Feature</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-content mt-3">
+        <div class="card p-0 bet-editor">
+          
+          <!-- Editor Controls -->
+          <div class="editor-controls">
+            <div class="editor-badge">
+              <span>Editor</span>
+              <span class="badge-count" id="bet-count">0</span>
+            </div>
+            <div class="editor-actions">
+              <button id="trash-btn" title="Clear all">
+                <i class="bi bi-trash"></i>
+              </button>
+              <button id="bulk-btn" title="Bulk actions">
+                <i class="bi bi-list-ul"></i> Bulk
+              </button>
+              <button id="select-all-btn" title="Select all">
+                <i class="bi bi-check-square"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Load Code Section -->
+          <div class="load-code-section">
+            <div class="load-code-header">
+              <h3 class="load-code-title">Bet code</h3>
+              <button class="close-btn" id="close-btn">
+                <i class="bi bi-x-lg"></i>
+              </button>
+            </div>
+
+            <form id="load-code-form">
+              <div class="form-group">
+                <label for="bet-code" class="form-label">Bet code</label>
+                <input 
+                  type="text" 
+                  id="bet-code" 
+                  class="form-input" 
+                  placeholder="M8BULE"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="origin-bookie" class="form-label">Select origin bookie</label>
+                <select id="origin-bookie" class="form-select" required>
+                  <option value="">Choose a bookie</option>
+                  <option value="sportybet-nigeria">sportybet -Nigeria</option>
+                  <option value="sportybet-ghana">sportybet -Ghana</option>
+                  <option value="sportybet-kenya">sportybet -Kenya</option>
+                  <option value="bet9ja-nigeria">Bet9ja -Nigeria</option>
+                  <option value="betking-nigeria">BetKing -Nigeria</option>
+                  <option value="1xbet-nigeria">1xBet -Nigeria</option>
+                </select>
+              </div>
+
+              <button type="submit" class="load-btn">Load</button>
+            </form>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="action-buttons">
+            <button class="action-btn" id="load-code-btn">
+              <i class="bi bi-plus-circle"></i>
+              Load Code
+            </button>
+            <button class="action-btn" id="add-game-btn">
+              <i class="bi bi-plus-circle"></i>
+              Add Game
+            </button>
+          </div>
+
+          <!-- Footer -->
+          <div class="editor-footer">
+            <div class="total-odds">
+              Total odds: <strong id="total-odds">...</strong>
+            </div>
+            <button class="book-btn" id="book-btn" disabled>Book (0)</button>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <div id="filter-canvas"></div>
+  <div id="mobile-nav"></div>
+
+  <script src="assets/js/adminux/adminux-dashboard.js"></script>
+  <script src="./components/AppLayout.js"></script>
+  <script>
+    // Close button
+    document.getElementById('close-btn').addEventListener('click', () => {
+      window.location.href = 'bet-editor.html';
+    });
+
+    // Form submission
+    document.getElementById('load-code-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const betCode = document.getElementById('bet-code').value.trim();
+      const bookie = document.getElementById('origin-bookie').value;
+
+      if (!betCode || !bookie) {
+        alert('Please fill in all fields');
+        return;
+      }
+
+      // Simulate loading (replace with actual API call)
+      const loadBtn = e.target.querySelector('.load-btn');
+      loadBtn.textContent = 'Loading...';
+      loadBtn.disabled = true;
+
+      // Simulate API delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      // Mock data (replace with actual API response)
+      const mockBets = [
+        {
+          market: '1x2: away @1.62',
+          league: 'soccer, Premier League',
+          teams: 'Nottingham Forest vs. Man City',
+          datetime: 'Sat December.27.25, 13:30',
+          odds: '1.62',
+          selected: true
+        },
+        {
+          market: '1x2: home @1.39',
+          league: 'soccer, Serie A',
+          teams: 'AC Milan vs. Verona',
+          datetime: 'Sun December.28.25, 12:30',
+          odds: '1.39',
+          selected: true
+        },
+        {
+          market: '1x2: home @1.26',
+          league: 'soccer, Premier League',
+          teams: 'Liverpool vs. Wolves',
+          datetime: 'Sat December.27.25, 16:00',
+          odds: '1.26',
+          selected: true
+        },
+        {
+          market: '1x2: home @2.17',
+          league: 'soccer, Africa Cup of Nations',
+          teams: 'Zambia vs. Comoros',
+          datetime: 'Fri December.26.25, 18:30',
+          odds: '2.17',
+          selected: true
+        }
+      ];
+
+      // Save to localStorage
+      const existingBets = JSON.parse(localStorage.getItem('editorBets') || '[]');
+      const updatedBets = [...existingBets, ...mockBets];
+      localStorage.setItem('editorBets', JSON.stringify(updatedBets));
+
+      // Redirect back to main editor
+      window.location.href = 'bet-editor.html';
+    });
+
+    // Navigation
+    document.getElementById('add-game-btn').addEventListener('click', () => {
+      window.location.href = 'bet-editor-add.html';
+    });
+
+    // Load existing bet count
+    window.addEventListener('DOMContentLoaded', () => {
+      const bets = JSON.parse(localStorage.getItem('editorBets') || '[]');
+      document.getElementById('bet-count').textContent = bets.length;
+      
+      if (bets.length > 0) {
+        const totalOdds = bets.reduce((acc, bet) => acc * parseFloat(bet.odds), 1).toFixed(2);
+        document.getElementById('total-odds').textContent = totalOdds;
+        document.getElementById('book-btn').disabled = false;
+        document.getElementById('book-btn').textContent = `Book (${bets.length})`;
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,346 @@
+
+.add-game-screen {
+  background: #fff;
+  color: #000;
+  min-height: 100vh;
+  font-size: 10px;
+}
+
+/* HEADER */
+.add-game-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: rgba(128, 128, 128, 0.166);
+  color: #000;
+  border-bottom: 2px solid #000;
+}
+
+.add-game-back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add-game-back i {
+  font-size: 11px;
+}
+
+.add-game-home {
+  background: none;
+  border: none;
+  color: #000;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* SPORT TABS */
+.sport-tabs-container {
+  display: flex;
+  overflow-x: auto;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.sport-tab-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: #666;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.sport-tab-item:hover {
+  background: #fafafa;
+}
+
+.sport-tab-item.active {
+  color: #000;
+  border-bottom-color: #000;
+}
+
+.sport-tab-icon {
+  font-size: 28px;
+}
+
+.sport-tab-label {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* FILTERS */
+.filters-bar {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  overflow-x: auto;
+}
+
+.filter-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: #fff;
+  border: 1px solid #333;
+  border-radius: 4px;
+  color: #000;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.filter-dropdown:hover {
+  background: #fafafa;
+}
+
+.filter-dropdown i {
+  font-size: 12px;
+}
+
+/* MATCHES LIST */
+.matches-container {
+  padding: 0;
+  background: #fff;
+}
+
+.match-item {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.match-header-row {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  background: #f9f9f9;
+}
+
+.match-selection {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+  flex: 1;
+}
+
+.match-odds-label {
+  font-size: 12px;
+  color: #666;
+}
+
+.match-content-row {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.match-content-row:hover {
+  background: #fafafa;
+}
+
+.match-remove {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.match-remove:hover {
+  color: #000;
+}
+
+.match-details {
+  flex: 1;
+}
+
+.match-teams-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.match-outcome {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #000;
+}
+
+.outcome-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #333;
+}
+
+.match-teams {
+  font-size: 13px;
+  color: #000;
+}
+
+.match-info-row {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.match-odds-value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  background: #fff;
+  border: 1px solid #333;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+  min-width: 60px;
+}
+
+.match-lock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  color: #999;
+  font-size: 16px;
+}
+
+/* BOTTOM BAR */
+.add-game-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-top: 2px solid #e0e0e0;
+  padding: 12px 16px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  z-index: 100;
+}
+
+.selections-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.selections-count {
+  font-size: 12px;
+  color: #666;
+}
+
+.selections-count strong {
+  color: #000;
+  font-weight: 700;
+}
+
+.total-odds-display {
+  font-size: 12px;
+  color: #000;
+}
+
+.total-odds-display strong {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.add-selections-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #000;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.add-to-betslip-btn {
+  padding: 9px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.add-to-betslip-btn:hover {
+  background: #333;
+}
+
+.add-to-betslip-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* SCROLLBAR */
+.sport-tabs-container::-webkit-scrollbar,
+.filters-bar::-webkit-scrollbar {
+  height: 4px;
+}
+
+.sport-tabs-container::-webkit-scrollbar-track,
+.filters-bar::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+.sport-tabs-container::-webkit-scrollbar-thumb,
+.filters-bar::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 2px;
+}
+
+@media (max-width: 480px) {
+  .match-content-row {
+    padding: 10px;
+  }
+  
+  .match-odds-value {
+    min-width: 50px;
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+  
+  .add-game-footer {
+    padding: 10px 12px;
+  }
+}

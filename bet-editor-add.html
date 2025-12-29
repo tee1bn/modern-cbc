@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Multi Maker - ConvertBetCodes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com/" />
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&family=SUSE:wght@100..800&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --adminuiux-content-font: "Open Sans", sans-serif;
+      --adminuiux-title-font: "SUSE", sans-serif;
+    }
+  </style>
+  <script defer src="assets/js/app8051.js?bd1e16b080f637e63a80"></script>
+  <link href="assets/css/app8051.css?bd1e16b080f637e63a80" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/bet-editor-add.css" />
+</head>
+
+<body class="add-game-screen">
+  
+  <!-- Header -->
+  <div class="add-game-header">
+    <button class="add-game-back" id="back-btn">
+      <i class="bi bi-chevron-left"></i>
+      Multi Maker
+    </button>
+    <button class="add-game-home" id="home-btn">
+      <i class="bi bi-house-fill"></i>
+    </button>
+  </div>
+
+  <!-- Sport Tabs -->
+  <div class="sport-tabs-container">
+    <button class="sport-tab-item active" data-sport="football">
+      <div class="sport-tab-icon"></div>
+      <div class="sport-tab-label">Football</div>
+    </button>
+    <button class="sport-tab-item" data-sport="basketball">
+      <div class="sport-tab-icon"></div>
+      <div class="sport-tab-label">Basketball</div>
+    </button>
+    <button class="sport-tab-item" data-sport="tennis">
+      <div class="sport-tab-icon"></div>
+      <div class="sport-tab-label">Tennis</div>
+    </button>
+    <button class="sport-tab-item" data-sport="cs">
+      <div class="sport-tab-icon"></div>
+      <div class="sport-tab-label">Counter-Strike</div>
+    </button>
+    <button class="sport-tab-item" data-sport="dota">
+      <div class="sport-tab-icon"></div>
+      <div class="sport-tab-label">Dota 2</div>
+    </button>
+  </div>
+
+  <!-- Filters -->
+  <div class="filters-bar">
+    <button class="filter-dropdown" id="time-filter">
+      Time <i class="bi bi-chevron-down"></i>
+    </button>
+    <button class="filter-dropdown" id="market-filter">
+      1X2 <i class="bi bi-chevron-down"></i>
+    </button>
+    <button class="filter-dropdown" id="league-filter">
+      Leagues <i class="bi bi-chevron-down"></i>
+    </button>
+    <button class="filter-dropdown" id="odds-filter">
+      Odds <i class="bi bi-chevron-down"></i>
+    </button>
+  </div>
+
+  <!-- Matches List -->
+  <div class="matches-container" id="matches-list">
+    
+    <!-- Match 1 -->
+    <div class="match-item">
+      <div class="match-header-row">
+        <div class="match-selection">
+          <i class="bi bi-circle"></i> Home | 1X2
+        </div>
+        <div class="match-odds-label">1.54</div>
+      </div>
+      <div class="match-content-row" data-match="1">
+        <button class="match-remove">
+          <i class="bi bi-x-lg"></i>
+        </button>
+        <div class="match-details">
+          <div class="match-teams-row">
+            <div class="match-outcome">
+              <i class="bi bi-record-circle-fill"></i>
+              Home
+            </div>
+            <div class="match-teams">Morocco vs Mali</div>
+          </div>
+          <div class="match-info-row">26/12 Fri 21:00</div>
+        </div>
+        <div class="match-odds-value">1.54</div>
+      </div>
+    </div>
+
+    <!-- Match 2 -->
+    <div class="match-item">
+      <div class="match-header-row">
+        <div class="match-selection">
+          <i class="bi bi-circle"></i> Away | 1X2
+        </div>
+        <div class="match-odds-label">1.62</div>
+      </div>
+      <div class="match-content-row" data-match="2">
+        <button class="match-remove">
+          <i class="bi bi-x-lg"></i>
+        </button>
+        <div class="match-details">
+          <div class="match-teams-row">
+            <div class="match-outcome">
+              <i class="bi bi-record-circle-fill"></i>
+              Away
+            </div>
+            <div class="match-teams">Nottingham Forest vs Man City</div>
+          </div>
+          <div class="match-info-row">27/12 Sat 13:30</div>
+        </div>
+        <div class="match-odds-value">1.62</div>
+      </div>
+    </div>
+
+    <!-- Match 3 -->
+    <div class="match-item">
+      <div class="match-header-row">
+        <div class="match-selection">
+          <i class="bi bi-circle"></i> Home | 1X2
+        </div>
+        <div class="match-odds-label">1.39</div>
+      </div>
+      <div class="match-content-row" data-match="3">
+        <button class="match-remove">
+          <i class="bi bi-x-lg"></i>
+        </button>
+        <div class="match-details">
+          <div class="match-teams-row">
+            <div class="match-outcome">
+              <i class="bi bi-record-circle-fill"></i>
+              Home
+            </div>
+            <div class="match-teams">AC Milan vs Verona</div>
+          </div>
+          <div class="match-info-row">28/12 Sun 12:30</div>
+        </div>
+        <div class="match-odds-value">1.39</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="add-game-footer">
+    <div class="selections-info">
+      <div class="selections-count">Selections <strong id="selection-count">5</strong></div>
+      <div class="total-odds-display">Total Odds <strong id="footer-total-odds">9.48</strong></div>
+    </div>
+    <button class="add-selections-badge" id="selections-badge">2</button>
+    <button class="add-to-betslip-btn" id="add-to-betslip">Add to Betslip</button>
+  </div>
+
+  <script>
+    let selectedMatches = new Set([1, 2, 3, 4]);
+
+    // Sport tabs
+    document.querySelectorAll('.sport-tab-item').forEach(tab => {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.sport-tab-item').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    // Back button
+    document.getElementById('back-btn').addEventListener('click', () => {
+      window.location.href = 'bet-editor.html';
+    });
+
+    // Home button
+    document.getElementById('home-btn').addEventListener('click', () => {
+      window.location.href = 'bet-editor.html';
+    });
+
+    // Remove match
+    document.querySelectorAll('.match-remove').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const matchRow = this.closest('.match-item');
+        const matchId = parseInt(this.nextElementSibling.dataset.match);
+        selectedMatches.delete(matchId);
+        matchRow.remove();
+        updateFooter();
+      });
+    });
+
+    // Add to betslip
+    document.getElementById('add-to-betslip').addEventListener('click', () => {
+      // Get selected matches data
+      const matches = Array.from(selectedMatches).map(id => {
+        const matchEl = document.querySelector(`[data-match="${id}"]`);
+        const teams = matchEl.querySelector('.match-teams').textContent;
+        const odds = matchEl.querySelector('.match-odds-value').textContent;
+        const datetime = matchEl.querySelector('.match-info-row').textContent;
+        const outcome = matchEl.querySelector('.match-outcome').textContent.trim();
+        
+        return {
+          market: `1x2: ${outcome.toLowerCase()} @${odds}`,
+          league: 'soccer, Premier League',
+          teams: teams,
+          datetime: datetime,
+          odds: odds,
+          selected: true
+        };
+      });
+
+      // Add to existing bets
+      const existingBets = JSON.parse(localStorage.getItem('editorBets') || '[]');
+      const updatedBets = [...existingBets, ...matches];
+      localStorage.setItem('editorBets', JSON.stringify(updatedBets));
+
+      // Redirect to editor
+      window.location.href = 'bet-editor.html';
+    });
+
+    function updateFooter() {
+      document.getElementById('selection-count').textContent = selectedMatches.size;
+      document.getElementById('selections-badge').textContent = selectedMatches.size > 9 ? '9+' : selectedMatches.size;
+      
+      // Calculate total odds (mock calculation)
+      const totalOdds = Array.from(selectedMatches).reduce((acc, id) => {
+        const matchEl = document.querySelector(`[data-match="${id}"]`);
+        if (matchEl) {
+          const odds = parseFloat(matchEl.querySelector('.match-odds-value').textContent);
+          return acc * odds;
+        }
+        return acc;
+      }, 1).toFixed(2);
+      
+      document.getElementById('footer-total-odds').textContent = totalOdds;
+    }
+  </script>
+</body>
+</html>

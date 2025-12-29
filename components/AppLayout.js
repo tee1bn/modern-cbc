@@ -991,6 +991,45 @@ const AppLayout = {
               </ul>
             </li>
 
+            <!-- Bet Editor Events -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                role="button"
+              >
+                <i class="menu-icon bi bi-hdd-network"></i>
+                <div class="col menu-name">Bet Editor</div>
+              </a>
+              <ul class="dropdown-menu">
+                <li class="nav-item">
+                  <a class="nav-link" onclick="navigateTo('bet-editor.html')">
+                    <i class="menu-icon bi bi-grid"></i>
+                    <div class="col align-self-center menu-name">
+                      Edit bet Screen
+                    </div>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" onclick="navigateTo('bet-editor-load.html')">
+                    <i class="menu-icon bi bi-speedometer"></i>
+                    <div class="col align-self-center menu-name">
+                      Load Bet Screen
+                    </div>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" onclick="navigateTo('addgame.html')">
+                    <i class="menu-icon bi bi-speedometer"></i>
+                    <div class="col align-self-center menu-name">
+                      Add Game/Selection Screnn
+                    </div>
+                  </a>
+                </li>
+                </ul>
+            </li>
+
           </ul>
 
           <div class="mt-auto"></div>

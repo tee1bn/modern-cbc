@@ -1,0 +1,301 @@
+/* EDIT MARKET SCREEN */
+.edit-screen {
+  font-family: var(--adminuiux-content-font, 'Open Sans', sans-serif);
+  background: white;
+}
+
+/* HEADER */
+.edit-header {
+  padding: 16px;
+  background: #80808054;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.edit-back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333333;
+  cursor: pointer;
+  padding: 0;
+}
+
+.edit-back i {
+  font-size: 16px;
+}
+
+/* MATCH INFO */
+.edit-match-info {
+  padding: 16px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: center;
+}
+
+.edit-league {
+  font-size: 11px;
+  color: #999;
+  margin-bottom: 8px;
+  text-decoration: underline;
+  letter-spacing: 0.3px;
+}
+
+.edit-teams-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.edit-team-logo {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #333;
+  border-radius: 50%;
+  font-size: 20px;
+}
+
+.edit-team-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.edit-vs {
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+}
+
+/* MARKET TABS */
+.edit-action-tabs {
+  display: flex;
+  border-bottom: 1px solid #e0e0e0;
+  background: white;
+}
+
+.edit-action-tab {
+  flex: 1;
+  padding: 14px 16px;
+  background: white;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.edit-action-tab:hover {
+  background: #fafafa;
+}
+
+.edit-action-tab.active {
+  color: #000;
+  border-bottom-color: #000;
+}
+
+.edit-action-tab i {
+  font-size: 16px;
+}
+
+.edit-market-tabs {
+  display: flex;
+  overflow-x: auto;
+  border-bottom: 1px solid #e0e0e0;
+  background: white;
+  padding: 0 12px;
+}
+
+.edit-market-tab {
+  padding: 10px 16px;
+  background: white;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin: 8px 4px;
+}
+
+.edit-market-tab:hover {
+  background: #fafafa;
+}
+
+.edit-market-tab.active {
+  background: #000;
+  color: white;
+  border-color: #000;
+}
+
+/* MARKET GROUPS */
+.edit-markets-container {
+  padding-bottom: 80px;
+}
+
+.market-group {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.market-group-header {
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+  background: white;
+}
+
+/* MARKET OPTIONS */
+.market-options {
+  padding: 0;
+}
+
+.market-option {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.market-option:last-child {
+  border-bottom: none;
+}
+
+.option-choice {
+  padding: 14px 16px;
+  text-align: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: white;
+  position: relative;
+}
+
+.option-choice:not(:last-child) {
+  border-right: 1px solid #f0f0f0;
+}
+
+.option-choice:hover {
+  background: #fafafa;
+}
+
+.option-choice.selected {
+  background: #000;
+  color: white;
+  border-color: #000;
+}
+
+.option-choice.selected .option-label {
+  color: white;
+}
+
+.option-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.option-sublabel {
+  font-size: 11px;
+  color: #999;
+  display: block;
+}
+
+.option-choice.selected .option-sublabel {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* TWO COLUMN LAYOUT */
+.market-option.two-col {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* SINGLE COLUMN LAYOUT */
+.market-option.single-col {
+  grid-template-columns: 1fr;
+}
+
+/* THREE COLUMN SPECIAL */
+.market-option.three-special .option-choice {
+  padding: 18px 16px;
+}
+
+/* SAVE BUTTON */
+.edit-save-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  background: white;
+  border-top: 2px solid #e0e0e0;
+  z-index: 100;
+}
+
+.edit-save-btn {
+  width: 100%;
+  padding: 14px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* .edit-save-btn:hover {
+  background: #fff;
+  color: #333;
+} */
+
+.edit-save-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* SCROLLBAR */
+.edit-market-tabs::-webkit-scrollbar {
+  height: 4px;
+}
+
+.edit-market-tabs::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+.edit-market-tabs::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 2px;
+}
+
+@media (max-width: 480px) {
+  .option-choice {
+    padding: 12px 10px;
+  }
+  
+  .option-label {
+    font-size: 12px;
+  }
+  
+  .option-sublabel {
+    font-size: 10px;
+  }
+}

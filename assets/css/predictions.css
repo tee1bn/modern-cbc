@@ -1,0 +1,575 @@
+/* PREDICTIONS PAGE */
+.predictions-page {
+  font-family: var(--adminuiux-content-font, 'Open Sans', sans-serif);
+  background: #fff;
+}
+
+/* HEADER */
+.predictions-header {
+  padding: 16px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.predictions-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+  color: #000;
+}
+
+.predictions-subtitle {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+}
+
+/* FILTER BAR */
+.predictions-filters {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  overflow-x: auto;
+}
+
+.filter-btn {
+  padding: 8px 14px;
+  background: #fff;
+  border: 1px solid #333;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #000;
+  cursor: pointer;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.filter-btn:hover {
+  background: #fafafa;
+}
+
+.filter-btn.active {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.filter-btn i {
+  font-size: 14px;
+}
+
+/* SPORT TABS */
+.sport-filter-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  overflow-x: auto;
+}
+
+.sport-filter-tab {
+  padding: 8px 16px;
+  background: #fff;
+  border: 1px solid #333;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #000;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.sport-filter-tab:hover {
+  background: #fafafa;
+}
+
+.sport-filter-tab.active {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+/* MARKET TABS */
+.market-filter-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 2px 8px;
+  border-bottom: 1px solid #e0e0e0;
+  overflow-x: auto;
+  position: relative;
+}
+
+.market-filter-tab {
+  padding: 4px 16px;
+  background: #fff;
+  border: 2px solid #333;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #000;
+  cursor: pointer;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.market-filter-tab:hover {
+  background: #fafafa;
+}
+
+.market-filter-tab.active {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.market-filter-tab.hidden {
+  display: none;
+}
+
+.market-count {
+  display: inline-block;
+  padding: 2px 6px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.market-filter-tab.active .market-count {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.show-more-btn {
+  padding: 10px 16px;
+  background: #fff;
+  border: 2px solid #333;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 50px;
+}
+
+.show-more-btn:hover {
+  background: #fafafa;
+}
+
+.show-more-btn i {
+  transition: transform 0.2s;
+}
+
+.show-more-btn.expanded i {
+  transform: rotate(180deg);
+}
+
+/* PAGE INFO */
+.predictions-page-info {
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #666;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* EMPTY STATE */
+.predictions-empty {
+  padding: 40px 16px;
+  text-align: center;
+}
+
+.predictions-empty-text {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* PREDICTIONS LIST */
+.predictions-list {
+  padding: 0;
+}
+
+/* LEAGUE GROUP */
+.league-group {
+  margin-bottom: 16px;
+}
+
+.league-header {
+  padding: 10px 16px;
+  background: #f9f9f9;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 13px;
+  font-weight: 700;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* PREDICTION CARD */
+.prediction-card {
+  padding: 14px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.2s;
+}
+
+.prediction-card:hover {
+  background: #fafafa;
+}
+
+.prediction-number {
+  font-size: 11px;
+  color: #999;
+  margin-bottom: 6px;
+}
+
+.prediction-match {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 8px;
+}
+
+.prediction-teams {
+  flex: 1;
+}
+
+.prediction-team-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+}
+
+.prediction-vs {
+  font-size: 13px;
+  color: #666;
+  margin: 2px 0;
+}
+
+.prediction-icons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.prediction-icon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #333;
+  border-radius: 50%;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+.prediction-icon:hover {
+  background: #000;
+  color: #fff;
+}
+
+.prediction-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.prediction-market {
+  font-size: 12px;
+  color: #666;
+}
+
+.prediction-datetime {
+  font-size: 11px;
+  color: #999;
+}
+
+.prediction-odds {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.prediction-odds-label {
+  font-size: 11px;
+  color: #666;
+}
+
+.prediction-odds-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+}
+
+/* BOTTOM LINKS */
+.predictions-bottom-links {
+  display: flex;
+  padding: 10px;
+  border-top: 2px solid #e0e0e0;
+  text-align: center;
+  font-size: 14px;
+}
+
+.predictions-link-group {
+    display: flex;  
+    flex-direction: column;
+    flex: 1;
+}
+
+.predictions-bottom-text {
+  font-size: 13px;
+  color: #666;
+}
+
+/* PAGINATION */
+.predictions-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 20px 16px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.pagination-btn {
+  min-width: 40px;
+  height: 40px;
+  padding: 8px 12px;
+  background: #fff;
+  border: 1px solid #333;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background: #fafafa;
+}
+
+.pagination-btn.active {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.pagination-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  background: #f5f5f5;
+}
+
+@media (max-width: 480px) {
+  .predictions-pagination {
+    gap: 4px;
+    padding: 16px 12px;
+  }
+  
+  .pagination-btn {
+    min-width: 36px;
+    height: 36px;
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+  
+  .pagination-text {
+    display: none;
+  }
+}
+
+/* FILTER MODAL */
+.filter-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 12000;
+  padding: 20px;
+}
+
+.filter-modal.hidden {
+  display: none;
+}
+
+.filter-modal-content {
+  background: #fff;
+  border: 2px solid #333;
+  border-radius: 0;
+  width: 100%;
+  max-width: 400px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.filter-modal-header {
+  padding: 16px;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filter-modal-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+}
+
+.filter-modal-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #666;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.filter-modal-close:hover {
+  color: #000;
+}
+
+.filter-modal-body {
+  padding: 20px 16px;
+}
+
+.filter-group {
+  margin-bottom: 20px;
+}
+
+.filter-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.filter-input,
+.filter-select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  font-size: 14px;
+  background: #fff;
+}
+
+.filter-input:focus,
+.filter-select:focus {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
+.filter-odds-range {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-odds-range input {
+  flex: 1;
+}
+
+.filter-checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #333;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.filter-checkbox-label {
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+.filter-modal-footer {
+  padding: 16px;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  gap: 10px;
+}
+
+.filter-submit-btn {
+  flex: 1;
+  padding: 12px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.filter-submit-btn:hover {
+  background: #333;
+}
+
+.filter-reset-btn {
+  padding: 12px 20px;
+  background: #fff;
+  color: #000;
+  border: 1px solid #333;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.filter-reset-btn:hover {
+  background: #fafafa;
+}
+
+@media (max-width: 480px) {
+  .predictions-title {
+    font-size: 20px;
+  }
+  
+  .predictions-filters,
+  .sport-filter-tabs,
+  .market-filter-tabs {
+    padding: 10px 12px;
+  }
+  
+  .prediction-card {
+    padding: 12px;
+  }
+  
+  .filter-modal {
+    padding: 0;
+  }
+  
+  .filter-modal-content {
+    max-height: 100vh;
+    border-radius: 0;
+  }
+}

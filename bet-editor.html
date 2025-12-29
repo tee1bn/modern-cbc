@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Multi bet editor - ConvertBetCodes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com/" />
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&family=SUSE:wght@100..800&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --adminuiux-content-font: "Open Sans", sans-serif;
+      --adminuiux-title-font: "SUSE", sans-serif;
+    }
+  </style>
+  <script defer src="assets/js/app8051.js?bd1e16b080f637e63a80"></script>
+  <link href="assets/css/app8051.css?bd1e16b080f637e63a80" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/bet-editor.css" />
+</head>
+
+<body class="main-bg main-bg-opac adminuiux-header-standard theme-blue adminuiux-header-transparent adminuiux-sidebar-fill-white adminuiux-sidebar-standard bg-r-gradient scrollup">
+  
+  <div id="desktop-nav"></div>
+  <div id="side-menu"></div>
+
+  <div class="adminuiux-wrap">
+    <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+      
+      <div class="container-fluid py-1 py-lg-3">
+        <div class="row gx-3 gx-lg-4 align-items-center page-title">
+          <div class="col col-sm">
+            <h6 class="mb-0">Multi Bet Editor</h6>
+            <p class="text-secondary small">Universal Edit My Bet Feature</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-3 p-1">
+        <div class="card p-0 bet-editor">
+          
+          <!-- Editor Controls -->
+          <div class="editor-controls">
+            <div class="editor-badge">
+              <span>Editor</span>
+              <span class="badge-count" id="bet-count">0</span>
+            </div>
+            <div class="editor-actions">
+              <button id="trash-btn" title="Clear all">
+                <i class="bi bi-trash"></i>
+              </button>
+              <button id="bulk-btn" title="Bulk actions">
+                <i class="bi bi-list-ul"></i> Bulk
+              </button>
+              <button id="select-all-btn" title="Select all">
+                <i class="bi bi-check-square"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="action-buttons">
+            <button class="action-btn" id="load-code-btn">
+              <i class="bi bi-plus-circle"></i>
+              Load Code
+            </button>
+            <button class="action-btn" id="add-game-btn">
+              <i class="bi bi-plus-circle"></i>
+              Add Game
+            </button>
+          </div>
+
+          <!-- Empty State / Bet List -->
+          <div id="bet-container">
+            <div class="empty-state" id="empty-state">
+              <p class="empty-state-text">No bets added yet. Load a code or add games to get started.</p>
+            </div>
+
+            <div class="bet-list" id="bet-list" style="display: none;">
+              <!-- Bet items will be inserted here -->
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <div class="editor-footer">
+            <div class="total-odds">
+              Total odds: <strong id="total-odds">...</strong>
+            </div>
+            <button class="book-btn" id="book-btn" disabled>Book (0)</button>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <div id="filter-canvas"></div>
+
+  <div id="mobile-nav"></div>
+
+  <script src="assets/js/adminux/adminux-dashboard.js"></script>
+  <script src="./components/AppLayout.js"></script>
+  <script>
+    // Navigation handlers
+    document.getElementById('load-code-btn').addEventListener('click', () => {
+      window.location.href = 'bet-editor-load.html';
+    });
+
+    document.getElementById('add-game-btn').addEventListener('click', () => {
+      window.location.href = 'bet-editor-add.html';
+    });
+
+    // Load bet data if coming from other pages
+    window.addEventListener('DOMContentLoaded', () => {
+      const bets = JSON.parse(localStorage.getItem('editorBets') || '[]');
+      if (bets.length > 0) {
+        displayBets(bets);
+      }
+    });
+
+    function displayBets(bets) {
+      const emptyState = document.getElementById('empty-state');
+      const betList = document.getElementById('bet-list');
+      const betCount = document.getElementById('bet-count');
+      const totalOddsEl = document.getElementById('total-odds');
+      const bookBtn = document.getElementById('book-btn');
+
+      if (bets.length === 0) {
+        emptyState.style.display = 'block';
+        betList.style.display = 'none';
+        betCount.textContent = '0';
+        totalOddsEl.textContent = '...';
+        bookBtn.disabled = true;
+        bookBtn.textContent = 'Book (0)';
+        return;
+      }
+
+      emptyState.style.display = 'none';
+      betList.style.display = 'block';
+      betCount.textContent = bets.length;
+
+      // Calculate total odds
+      const totalOdds = bets.reduce((acc, bet) => acc * parseFloat(bet.odds), 1).toFixed(2);
+      totalOddsEl.textContent = totalOdds;
+      bookBtn.disabled = false;
+      bookBtn.textContent = `Book (${bets.length})`;
+
+      // Render bets
+      betList.innerHTML = bets.map((bet, index) => `
+        <div class="bet-item">
+          <div class="bet-checkbox ${bet.selected ? 'checked' : ''}" data-index="${index}"></div>
+          <div class="bet-content">
+            <div class="bet-market">${bet.market} @${bet.odds}</div>
+            <div class="bet-league">${bet.league}</div>
+            <div class="bet-teams">${bet.teams}</div>
+            <div class="bet-datetime">${bet.datetime}</div>
+          </div>
+          <div class="bet-actions">
+            <button class="bet-remove" data-index="${index}">
+              <i class="bi bi-x-lg"></i>
+            </button>
+            <a class="bet-edit" href="bet-editor-edit.html?id=${index}">Edit</a>
+          </div>
+        </div>
+      `).join('');
+
+      // Add event listeners
+      document.querySelectorAll('.bet-checkbox').forEach(cb => {
+        cb.addEventListener('click', function() {
+          const index = parseInt(this.dataset.index);
+          bets[index].selected = !bets[index].selected;
+          this.classList.toggle('checked');
+          localStorage.setItem('editorBets', JSON.stringify(bets));
+        });
+      });
+
+      document.querySelectorAll('.bet-remove').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const index = parseInt(this.dataset.index);
+          bets.splice(index, 1);
+          localStorage.setItem('editorBets', JSON.stringify(bets));
+          displayBets(bets);
+        });
+      });
+    }
+  </script>
+</body>
+</html>
