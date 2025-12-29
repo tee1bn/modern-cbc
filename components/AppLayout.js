@@ -21,7 +21,7 @@ const AppLayout = {
             </a>
           </li>
           <li class="nav-item">
-            <a onclick="navigateTo('beteditor.html')" class="nav-link">
+            <a onclick="navigateTo('bet-editor.html')" class="nav-link">
               <span>
                 <i class="bi bi-credit-card-2-front"></i>
                 <span class="nav-text">Bet Editor</span>
@@ -863,7 +863,7 @@ const AppLayout = {
     `,
 
   // Side Menu
-  sideMenu: `
+sideMenu: `
     <div id="side-menu" class="adminuiux-wrap">
       <div class="adminuiux-sidebar shadow-sm">
         <div class="adminuiux-sidebar-inner">
@@ -1020,15 +1020,87 @@ const AppLayout = {
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" onclick="navigateTo('addgame.html')">
+                  <a class="nav-link" onclick="navigateTo('bet-editor-add.html')">
                     <i class="menu-icon bi bi-speedometer"></i>
                     <div class="col align-self-center menu-name">
-                      Add Game/Selection Screnn
+                      Add Game/Selection Screen
                     </div>
                   </a>
                 </li>
                 </ul>
             </li>
+
+            <!-- Free Bet Codes -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                role="button"
+              >
+                <i class="menu-icon bi bi-hdd-network"></i>
+                <div class="col menu-name">Free Bet Codes</div>
+              </a>
+              <ul class="dropdown-menu">
+                <li class="nav-item">
+                  <a class="nav-link" onclick="navigateTo('free-bet-codes.html')">
+                    <i class="menu-icon bi bi-grid"></i>
+                    <div class="col align-self-center menu-name">
+                      Free Bet Codes Screen
+                    </div>
+                  </a>
+                </li>
+                </ul>
+            </li>
+
+            
+            <!-- Free Prediction -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                role="button"
+              >
+                <i class="menu-icon bi bi-hdd-network"></i>
+                <div class="col menu-name">Free Predictions</div>
+              </a>
+              <ul class="dropdown-menu">
+                <li class="nav-item">
+                  <a class="nav-link" onclick="navigateTo('free-prediction.html')">
+                    <i class="menu-icon bi bi-grid"></i>
+                    <div class="col align-self-center menu-name">
+                      Free Prediction
+                    </div>
+                  </a>
+                </li>
+                </ul>
+            </li>
+
+
+            <!-- Bet Safer -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                role="button"
+              >
+                <i class="menu-icon bi bi-hdd-network"></i>
+                <div class="col menu-name">Bet Safer</div>
+              </a>
+              <ul class="dropdown-menu">
+                <li class="nav-item">
+                  <a class="nav-link" onclick="navigateTo('bet-safer.html')">
+                    <i class="menu-icon bi bi-grid"></i>
+                    <div class="col align-self-center menu-name">
+                      Bet Safer Screen
+                    </div>
+                  </a>
+                </li>
+                </ul>
+            </li>
+
 
           </ul>
 
@@ -1106,7 +1178,7 @@ const AppLayout = {
         </div>
       </div>
     </div>
-    `,
+`,
 
   filterCanvas: `
       <div

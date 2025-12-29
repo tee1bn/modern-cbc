@@ -1,225 +1,302 @@
-
-.icon-back {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    text-decoration: none;
-    color: #666;
-    font-size: 0.75rem;
-    font-weight: 600;
-    transition: color 0.2s;
+/* CONVERT RESULT PAGE - BLACK & WHITE */
+.convert-result-page {
+  font-family: var(--adminuiux-content-font, 'Open Sans', sans-serif);
+  background: #fff;
 }
 
-.icon svg{
-    display: inline-flex;
-    align-items: center;
-    width: 16px;
-    height: 16px;
+/* BACK LINK */
+.icon-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: #333;
+  font-size: 13px;
+  font-weight: 600;
+  transition: color 0.2s;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.icon-back:hover {
+  color: #000;
 }
 
 .icon-back svg {
-    width: 16px;
-    height: 16px;
+  width: 16px;
+  height: 16px;
 }
 
-.convert-right {
-    display: none;
+/* RESULT CONTAINER */
+.result-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  border: 2px solid #e0e0e0;
+  border-radius: 0;
 }
 
-input[type="text"],
-input[type="url"],
-select {
-  width: 100%;
-  padding: 0.875rem 1rem;
-  border: 2px solid #e5e5e5;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border-color 0.2s;
+/* RESULT HERO */
+.result-hero {
+  padding: 24px 20px;
+  text-align: center;
+  border-bottom: 2px solid #e0e0e0;
+  background: #fff;
 }
 
-input[type="text"]:focus,
-input[type="url"]:focus,
-select:focus {
-  outline: none;
-  border-color: #1a1a1a;
+.result-circle {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  border: 2px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+.result-circle svg {
+  width: 32px;
+  height: 32px;
+}
+
+.result-code {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.result-code .icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.result-code .icon svg {
+  width: 20px;
+  height: 20px;
+  color: #333;
+}
+
+.result-code .icon:hover svg {
+  color: #000;
+}
+
+.result-sub {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 4px 0;
+}
+
+.result-sub strong {
+  color: #000;
+  font-weight: 700;
+}
+
+.result-meta {
+  font-size: 13px;
+  color: #999;
+  margin: 0;
+}
+
+/* CONVERSION SUMMARY */
+.conversion-summary {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+  background: #fafafa;
+}
+
+.summary-left,
+.summary-right {
+  text-align: center;
+}
+
+.summary-count {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.summary-code {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 4px;
+}
+
+.summary-bookie {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+}
+
+.summary-arrow {
+  font-size: 24px;
+  color: #333;
+}
+
+@media (max-width: 480px) {
+  .conversion-summary {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .summary-arrow {
+    transform: rotate(90deg);
+  }
+}
+
+/* FILTER BAR */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid #e0e0e0;
+  background: #fff;
+}
+
+.game-filter {
+  padding: 8px 12px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background: #fff;
+  color: #000;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.game-filter:focus {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
+.total-games {
+  font-size: 13px;
+  font-weight: 600;
+  color: #000;
+}
+
+/* GAMES LIST */
+.games-list {
+  list-style: none;
+  padding: 20px;
+  margin: 0;
+}
+
+.game-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  padding: 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 0;
+  margin-bottom: 12px;
+  background: #fff;
+  transition: all 0.2s;
+}
+
+.game-card:hover {
+  border-color: #333;
+  background: #fafafa;
+}
+
+.game-card:last-child {
+  margin-bottom: 0;
+}
+
+.game-info {
+  flex: 1;
+  margin-right: 12px;
+}
+
+.game-league {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #999;
+  letter-spacing: 0.3px;
+  margin-bottom: 4px;
+}
+
+.game-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 4px;
+}
+
+.game-meta {
+  font-size: 12px;
+  color: #666;
+  margin: 0;
+}
+
+.game-status {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #333;
+  border-radius: 50%;
+}
+
+.game-status svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* DESKTOP GRID */
+@media (min-width: 768px) {
+  .games-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .game-card {
+    margin-bottom: 0;
+  }
+  
+  .result-code {
+    font-size: 32px;
+  }
 }
 
 @media (min-width: 992px) {
-    .convert-page .convert-columns {
-        display: grid;
-        grid-template-columns: 60% 40%;
-        gap: 1.5rem;
-        align-items: start;
-    }
-
-    .convert-page .convert-right {
-        display: block;
-    }
-
-    .convert-page .convert-left .convert-btn {
-        width: auto;
-        padding: 0.75rem 1.25rem;
-        display: inline-block;
-    }
-}
-
-/* Result page specific styles (black & white only) */
-.convert-result-page .content-card {
-    max-width: 760px;
-    margin: 1.25rem auto;
-    padding: 1rem;
-    background: #fff;
-    border: 1px solid #000;
-    color: #000;
-}
-
-.convert-result-page .result-hero {
-    text-align: center;
-    padding-bottom: 0.5rem;
-}
-
-.convert-result-page .result-circle {
-    width: 64px;
-    height: 64px;
-    margin: 0 auto;
-    border-radius: 50%;
-    border: 2px solid #0000003e;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.convert-result-page .result-code {
-    font-size: 1.75rem;
-    font-weight: 800;
-    margin: 0.5rem 0;
-}
-
-.convert-result-page .result-sub {
-    margin: 0;
-    font-size: 1rem;
-}
-
-.convert-result-page .result-meta {
-    font-size: 0.9rem;
-    color: #000;
-    margin-top: 0.25rem;
-}
-
-.convert-result-page .conversion-summary {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    padding: 0.75rem 0;
-    border-top: 1px solid #000;
-    border-bottom: 1px solid #000;
-    margin-top: 0.5rem;
-}
-
-.convert-result-page .conversion-summary .summary-left,
-.convert-result-page .conversion-summary .summary-right {
-    text-align: center;
-}
-
-.convert-result-page .conversion-summary .summary-count {
-    font-size: 0.9rem;
-}
-
-.convert-result-page .conversion-summary .summary-code {
-    font-weight: 700;
-    font-size: 1rem;
-    margin-top: 0.25rem;
-}
-
-.convert-result-page .summary-arrow {
-    font-size: 1.25rem;
-}
-
-.convert-result-page .filter-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 0.75rem 0;
-}
-
-.convert-result-page .game-filter {
-    padding: 0.5rem;
-    border: 1px solid #000;
-    background: #fff;
-    color: #000;
-}
-
-.convert-result-page .total-games {
-    color: #000;
-    font-weight: 700;
-}
-
-.convert-result-page .games-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.convert-result-page .game-card {
-    border: 1px solid #000;
-    padding: 0.75rem;
-    margin-top: 0.75rem;
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-    justify-content: space-between;
-}
-
-@media (min-width: 768px) {
-    .convert-result-page .games-list {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-    }
-
-    .convert-result-page .game-card {
-        margin-top: 0;
-    }
-}
-
-.convert-result-page .game-info {
-    max-width: calc(100% - 54px);
-}
-
-.convert-result-page .game-league {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-}
-
-.convert-result-page .game-title {
-    font-weight: 700;
-    margin-top: 0.2rem;
-}
-
-.convert-result-page .game-meta {
-    font-size: 0.85rem;
-    margin-top: 0.25rem;
-    color: #000;
-}
-
-.convert-result-page .game-status {
-    font-weight: 800;
-    font-size: 1.25rem;
-    align-self: center;
-}
-
-@media (min-width: 768px) {
-    .convert-result-page .content-card {
-        padding: 1.5rem;
-    }
-
-    .convert-result-page .result-code {
-        font-size: 2.25rem;
-    }
-
-    .convert-result-page .game-card {
-        padding: 1rem;
-    }
+  .result-hero {
+    padding: 32px 24px;
+  }
+  
+  .conversion-summary {
+    padding: 24px;
+  }
+  
+  .filter-bar {
+    padding: 16px 24px;
+  }
+  
+  .games-list {
+    padding: 24px;
+  }
+  
+  .game-card {
+    padding: 16px;
+  }
 }
