@@ -33,19 +33,35 @@ function initializeMatchOptions() {
       const matchId = this.dataset.matchId;
       const selectedOption = this.dataset.option;
       
-      // Remove selected from siblings
+      // Remove selected from siblings and mark
       const siblings = this.closest('.match-options').querySelectorAll('.match-option');
       siblings.forEach(sibling => sibling.classList.remove('selected'));
-      
-      // Add selected to clicked option
       this.classList.add('selected');
       
-      // Add to selections
-      addSelection(matchId, selectedOption);
-      
-      // Show betslip badge
-      updateBetslipBadge();
+      const selection = {
+        matchId: matchId,
+        teams: matches[matchId].teams,
+        date: matches[matchId].date,
+        market: '1x2',
+        value: selectedOption,
+        odd: (matches[matchId].odds && matches[matchId].odds[selectedOption]) ? matches[matchId].odds[selectedOption] : '—'
+      };
+
+      if (window.betslipRail && window.betslipRail.addSelection) {
+        // Add selection to shared rail but DO NOT open the rail modal automatically.
+        window.betslipRail.addSelection(selection);
+        // Flash the badge briefly to show feedback
+        if (window.betslipRail && window.betslipRail.flashBadge) window.betslipRail.flashBadge();
+      } else {
+        addSelection(matchId, selectedOption);
+        updateBetslipBadge();
+      }
     });
+  });
+
+  // keep local selections in sync if the rail emits updates
+  document.addEventListener('betslip:updated', (e) => {
+    selections = e.detail.bets || [];
   });
 }
 
@@ -74,9 +90,10 @@ function addSelection(matchId, option) {
 // ========== BETSLIP BADGE ========== //
 function initializeBetslipBadge() {
   const badge = document.getElementById('betslip-badge');
-  
+  if (!badge) return; // migrated to shared rail
   badge.addEventListener('click', function() {
-    openBetslip();
+    if (window.betslipRail && window.betslipRail.openRail) window.betslipRail.openRail();
+    else openBetslip();
   });
 }
 
@@ -100,22 +117,30 @@ function initializeBetslipSheet() {
   const clearAllBtn = document.getElementById('clear-all-btn');
   const bookBtn = document.getElementById('book-bet-btn');
   
-  // Close betslip
-  closeBtn.addEventListener('click', closeBetslip);
-  overlay.addEventListener('click', closeBetslip);
+  // guard: these elements may have been migrated to the shared rail
+  if (closeBtn) closeBtn.addEventListener('click', closeBetslip);
+  if (overlay) overlay.addEventListener('click', closeBetslip);
   
   // Clear all selections
-  clearAllBtn.addEventListener('click', function() {
-    selections = [];
-    updateBetslipDisplay();
-    updateBetslipBadge();
-    clearAllMatchSelections();
-  });
+  if (clearAllBtn) {
+    clearAllBtn.addEventListener('click', function() {
+      if (window.betslipRail && window.betslipRail.clearAll) window.betslipRail.clearAll();
+      else {
+        selections = [];
+        updateBetslipDisplay();
+        updateBetslipBadge();
+        clearAllMatchSelections();
+      }
+    });
+  }
   
   // Book bet
-  bookBtn.addEventListener('click', function() {
-    generateBookingCode();
-  });
+  if (bookBtn) {
+    bookBtn.addEventListener('click', function() {
+      if (window.betslipRail && window.betslipRail._bookAction) window.betslipRail._bookAction();
+      else generateBookingCode();
+    });
+  }
 }
 
 function openBetslip() {
@@ -140,6 +165,7 @@ function closeBetslip() {
 
 function updateBetslipDisplay() {
   const container = document.getElementById('betslip-selections');
+  if (!container) return; // migrated to shared rail
   const headerCount = document.getElementById('betslip-header-count');
   const bookCount = document.getElementById('book-count');
   
@@ -167,14 +193,15 @@ function createSelectionElement(selection, index) {
       <div class="selection-info">
         <div class="selection-teams">${selection.teams}</div>
         <div class="selection-market">${selection.market} : ${selection.value}</div>
-      </div>      <div class="selection-odd"><div class="odd-value">${selection.odd || '—'}</div></div>      <button class="selection-edit" data-match-id="${selection.matchId}">
-        <i class="bi bi-pencil"></i>
-      </button>
+      </div>
+      <div class="selection-odd"><div class="odd-value">${selection.odd || '—'}</div></div>
+      <div style="display:flex;align-items:center;gap:6px;margin-left:8px">
+        <button class="selection-remove" data-index="${index}" aria-label="Remove">×</button>
+        <button class="selection-edit" data-match-id="${selection.matchId}" aria-label="Edit">
+          <i class="bi bi-pencil"></i>
+        </button>
+      </div>
     </div>
-    <label class="selection-checkbox">
-      <input type="checkbox" data-index="${index}" />
-      <i class="bi bi-x-lg checkbox-custom"></i>
-    </label>
   `;
   
   // Edit button handler
@@ -184,9 +211,24 @@ function createSelectionElement(selection, index) {
     openMarketModal(matchId);
   });
   
-  // Checkbox handler (for removal)
+  // Remove button handler
+  const removeBtn = div.querySelector('.selection-remove');
+  if (removeBtn) {
+    removeBtn.addEventListener('click', function() {
+      const idx = parseInt(this.dataset.index);
+      // Remove locally
+      removeSelection(idx);
+      // Also remove from shared rail if present
+      if (window.betslipRail && window.betslipRail.removeSelection) {
+        const matchId = div.dataset.selectionId;
+        window.betslipRail.removeSelection(matchId);
+      }
+    });
+  }
+
+  // Checkbox handler (for removal) kept for backward compatibility
   const checkbox = div.querySelector('input[type="checkbox"]');
-  checkbox.addEventListener('change', function() {
+  if (checkbox) checkbox.addEventListener('change', function() {
     if (this.checked) {
       removeSelection(parseInt(this.dataset.index));
     }
@@ -319,6 +361,9 @@ function openMarketModal(matchId) {
   overlay.classList.add('active');
   modal.classList.add('active');
   document.body.style.overflow = 'hidden';
+
+  // Hide floating badge while modal is open to avoid overlap
+  if (window.betslipRail && window.betslipRail.hideBadge) window.betslipRail.hideBadge();
 }
 
 function closeMarketModal() {
@@ -330,6 +375,9 @@ function closeMarketModal() {
   document.body.style.overflow = '';
   
   currentEditingMatchId = null;
+
+  // Restore badge visibility
+  if (window.betslipRail && window.betslipRail.showBadge) window.betslipRail.showBadge();
 }
 
 function saveMarketSelection() {
@@ -341,21 +389,25 @@ function saveMarketSelection() {
   const market = selectedOption.dataset.market;
   const value = selectedOption.dataset.value;
   
-  // Update selection
+  // Update selection (local copy)
   const selectionIndex = selections.findIndex(s => s.matchId === currentEditingMatchId);
+  const oddVal = (matches[currentEditingMatchId].odds && matches[currentEditingMatchId].odds[value]) ? matches[currentEditingMatchId].odds[value] : '—';
   if (selectionIndex >= 0) {
     selections[selectionIndex].market = market;
     selections[selectionIndex].value = value;
-    selections[selectionIndex].odd = (matches[currentEditingMatchId].odds && matches[currentEditingMatchId].odds[value]) ? matches[currentEditingMatchId].odds[value] : '—';
+    selections[selectionIndex].odd = oddVal;
+  }
+
+  // Also update shared rail
+  if (window.betslipRail && window.betslipRail.addSelection) {
+    window.betslipRail.addSelection({ matchId: currentEditingMatchId, teams: matches[currentEditingMatchId].teams, date: matches[currentEditingMatchId].date, market, value, odd: oddVal });
   }
   
   // Update main match display
   updateMainMatchDisplay(currentEditingMatchId, value);
   
-  // Update betslip display
+  // Update betslip display (old sheet) and close modal
   updateBetslipDisplay();
-  
-  // Close modal
   closeMarketModal();
 }
 

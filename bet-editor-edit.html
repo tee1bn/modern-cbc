@@ -20,6 +20,8 @@
   <script defer src="assets/js/app8051.js?bd1e16b080f637e63a80"></script>
   <link href="assets/css/app8051.css?bd1e16b080f637e63a80" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/css/bet-editor-edit.css" />
+  <link rel="stylesheet" href="./assets/css/betslip-rail.css" />
+  <link rel="stylesheet" href="./assets/css/betslip-rail.css" />
  
 </head>
 
@@ -225,6 +227,10 @@
     <button class="edit-save-btn" id="save-btn">Save Changes</button>
   </div>
 
+  <!-- Shared betslip rail -->
+  <div id="betslip-rail"></div>
+
+  <script src="./components/betslip-rail.js"></script>
   <script>
     let selectedMarket = '1x2';
     let selectedValue = 'away';
@@ -283,6 +289,11 @@
         bets[betId].market = `${selectedMarket}: ${selectedValue} @1.62`;
       }
       localStorage.setItem('editorBets', JSON.stringify(bets));
+
+      // If shared rail is available, update it
+      if (window.betslipRail && window.betslipRail.update) {
+        window.betslipRail.update();
+      }
       
       // Redirect back to editor
       window.location.href = 'bet-editor.html';

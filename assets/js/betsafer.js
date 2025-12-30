@@ -199,7 +199,14 @@
         }
       ];
 
-      localStorage.setItem('editorBets', JSON.stringify(mockBets));
+      if (window.betslipRail && window.betslipRail.addSelection) {
+        mockBets.forEach((b, i) => {
+          const sel = { matchId: 'safer-'+Date.now()+'-'+i, teams: b.teams, date: b.datetime, market: (b.market||'').split(':')[0] || '1x2', value: (b.market||'').split(':')[1] ? (b.market.split(':')[1].split('@')[0].trim()) : 'home', odd: b.odds };
+          window.betslipRail.addSelection(sel);
+        });
+      } else {
+        localStorage.setItem('editorBets', JSON.stringify(mockBets));
+      }
       window.location.href = 'bet-editor.html';
     });
 

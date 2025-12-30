@@ -19,6 +19,7 @@
     }
   </style>
   <link rel="stylesheet" href="./assets/css/bet-editor-booked.css" />
+  <link rel="stylesheet" href="./assets/css/betslip-rail.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 
@@ -58,10 +59,8 @@
         </button>
       </div>
 
-      <!-- Odds Info -->
-      <div class="booked-footer">
-        <div class="booked-odds-label">Total odds</div>
-        <div class="booked-odds-value">9.48</div>
+  <!-- Shared betslip rail -->
+  <div id="betslip-rail"></div>
       </div>
 
     </div>
@@ -73,15 +72,61 @@
 
   </div>
 
+  <script src="./components/betslip-rail.js"></script>
   <script>
     // Copy code to clipboard
     document.getElementById('copy-btn').addEventListener('click', () => {
-      const code = 'MWT2UR';
+      const codeEl = document.querySelector('.booked-code');
+      const code = codeEl ? codeEl.firstChild.textContent.trim() : '';
+      if (!code) return alert('No code to copy');
       navigator.clipboard.writeText(code).then(() => {
         alert('Code copied to clipboard!');
       }).catch(() => {
         alert('Failed to copy code');
       });
+    });
+
+    // Listen for booked events from shared rail
+    document.addEventListener('betslip:booked', (e) => {
+      const d = e && e.detail ? e.detail : {};
+      const code = d.code || '';
+      const bookie = d.bookie || '';
+      if (code) {
+        document.querySelector('.booked-code').childNodes[0].textContent = code + ' ';
+      }
+      if (bookie) {
+        document.querySelector('.booked-bookie').textContent = bookie;
+      }
+      // update counts using editorBets
+      const bets = JSON.parse(localStorage.getItem('editorBets') || '[]');
+      if (bets.length > 0) {
+        bets.forEach(b => { b.odds = b.odds || b.odd || ''; });
+        const totalOdds = bets.reduce((acc, bet) => acc * (parseFloat(bet.odds) || 1), 1).toFixed(2);
+        document.querySelector('.booked-odds-value').textContent = totalOdds;
+        document.querySelector('.booked-meta').textContent = `${bets.length}events @${totalOdds}odds`;
+        document.querySelector('.booked-book-count').textContent = `(${bets.length})`;
+      }
+    });
+
+    // Keep counts updated when rail changes
+    document.addEventListener('betslip:updated', (e) => {
+      const bets = e && e.detail && e.detail.bets ? e.detail.bets : JSON.parse(localStorage.getItem('editorBets') || '[]');
+      if (bets.length > 0) {
+        bets.forEach(b => { b.odds = b.odds || b.odd || ''; });
+        const totalOdds = bets.reduce((acc, bet) => acc * (parseFloat(bet.odds) || 1), 1).toFixed(2);
+        document.querySelector('.booked-odds-value').textContent = totalOdds;
+        document.querySelector('.booked-meta').textContent = `${bets.length}events @${totalOdds}odds`;
+        document.querySelector('.booked-book-count').textContent = `(${bets.length})`;
+      } else {
+        document.querySelector('.booked-odds-value').textContent = '0';
+        document.querySelector('.booked-meta').textContent = `0events @0odds`;
+        document.querySelector('.booked-book-count').textContent = `(0)`;
+      }
+    });
+
+    // Book button uses shared rail if available
+    document.getElementById('book-btn').addEventListener('click', () => {
+      if (window.betslipRail && window.betslipRail._bookAction) window.betslipRail._bookAction();
     });
 
     // Load Code button
@@ -112,7 +157,8 @@
     window.addEventListener('DOMContentLoaded', () => {
       const bets = JSON.parse(localStorage.getItem('editorBets') || '[]');
       if (bets.length > 0) {
-        const totalOdds = bets.reduce((acc, bet) => acc * parseFloat(bet.odds), 1).toFixed(2);
+        bets.forEach(b => { b.odds = b.odds || b.odd || ''; });
+        const totalOdds = bets.reduce((acc, bet) => acc * (parseFloat(bet.odds) || 1), 1).toFixed(2);
         document.querySelector('.booked-odds-value').textContent = totalOdds;
         document.querySelector('.booked-meta').textContent = `${bets.length}events @${totalOdds}odds`;
         document.querySelector('.booked-book-count').textContent = `(${bets.length})`;
