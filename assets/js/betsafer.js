@@ -207,7 +207,7 @@
       } else {
         localStorage.setItem('editorBets', JSON.stringify(mockBets));
       }
-      window.location.href = 'bet-editor.html';
+      // window.location.href = 'bet-editor.html';
     });
 
     // Copy share link
