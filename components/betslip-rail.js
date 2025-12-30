@@ -1,6 +1,3 @@
-// BETSLIP RAIL COMPONENT - Shared across all bet pages
-// Usage: Include betslip-rail.js and <div id="betslip-rail"></div> in your HTML
-
 (function() {
   'use strict';
 
@@ -677,7 +674,7 @@
 
     // Show success message
     setTimeout(() => {
-      alert(`✅ Loaded ${mockBets.length} bets from ${code}`);
+      alert(`Loaded ${mockBets.length} bets from ${code}`);
     }, 300);
   }
 
