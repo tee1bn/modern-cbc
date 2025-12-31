@@ -195,7 +195,7 @@
 /* GAMES LIST */
 .games-list {
   list-style: none;
-  padding: 20px;
+  padding: 10px;
   margin: 0;
 }
 
@@ -226,9 +226,10 @@
 }
 
 .game-league {
-  font-size: 11px;
-  text-transform: uppercase;
-  color: #999;
+  font-size: 12px;
+  font-weight: 500;
+  /* text-transform: lowercase; */
+  color: #333;
   letter-spacing: 0.3px;
   margin-bottom: 4px;
 }

@@ -632,9 +632,9 @@
       {
         matchId: 'load-' + Date.now() + '-1',
         teams: 'Nottingham Forest vs Man City',
-        date: 'Sat December.27.25, 13:30',
+        date: 'Sat 12/27/25, 13:30',
         market: '1x2',
-        value: 'away',
+        value: 'Away',
         odd: '1.62',
         league: 'Premier League',
         selected: true
@@ -642,9 +642,9 @@
       {
         matchId: 'load-' + Date.now() + '-2',
         teams: 'AC Milan vs Verona',
-        date: 'Sun December.28.25, 12:30',
+        date: 'Sun 12/28/25, 12:30',
         market: '1x2',
-        value: 'home',
+        value: 'Home',
         odd: '1.39',
         league: 'Serie A',
         selected: true
@@ -652,9 +652,9 @@
       {
         matchId: 'load-' + Date.now() + '-3',
         teams: 'Liverpool vs Wolves',
-        date: 'Sat December.27.25, 16:00',
+        date: 'Sat 12/27/25, 16:00',
         market: '1x2',
-        value: 'home',
+        value: 'Home',
         odd: '1.26',
         league: 'Premier League',
         selected: true
@@ -882,7 +882,7 @@
       <!-- Floating Badge -->
       <div class="rail-badge ${bets.length === 0 ? 'empty' : ''}" id="rail-badge">
         <span class="rail-badge-count" id="rail-badge-count">${bets.length}</span>
-        <i class="bi bi-cart3"></i>
+        <span>Betslip</span>
       </div>
 
       <!-- Overlay -->

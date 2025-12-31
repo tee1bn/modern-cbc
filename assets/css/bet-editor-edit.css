@@ -7,7 +7,7 @@
 /* HEADER */
 .edit-header {
   padding: 16px;
-  background: #80808054;
+  background: #80808027;
   border-bottom: 1px solid #e0e0e0;
 }
 
@@ -155,7 +155,7 @@
 
 .market-group-header {
   padding: 12px 16px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   color: #000;
   background: white;
@@ -235,7 +235,7 @@
 
 /* THREE COLUMN SPECIAL */
 .market-option.three-special .option-choice {
-  padding: 18px 16px;
+  padding: 8px 12px;
 }
 
 /* SAVE BUTTON */

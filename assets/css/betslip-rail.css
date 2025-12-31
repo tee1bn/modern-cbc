@@ -17,12 +17,13 @@
 .rail-badge {
   position: fixed;
   bottom: 90px; /* Lifted up higher to avoid bottom nav */
-  right: 20px; /* Positioned in bottom-right corner */
+  right: 0px; /* Positioned in bottom-right corner */
   width: 60px;
   height: 60px;
   background: var(--rail-primary);
   color: white;
-  border-radius: 50%;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,14 +50,18 @@
 }
 
 .rail-badge-count {
-  font-size: 18px;
+  font-size: 12px;
+  background-color: #fff;
+  color: #111;
+  padding: 7px 10px;
+  border-radius: 50%;
   font-weight: 700;
   line-height: 1;
   margin-bottom: 2px;
 }
 
-.rail-badge i {
-  font-size: 16px;
+.rail-badge span {
+  font-size: 12px;
   margin-top: 2px;
 }
 
@@ -135,7 +140,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 20px;
+  padding: 16px 18px;
   border-bottom: 1px solid var(--rail-border);
   background: var(--rail-bg);
   flex-shrink: 0;
@@ -144,11 +149,11 @@
 .rail-header-left {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .rail-title {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--rail-text);
   margin: 0;
@@ -174,7 +179,7 @@
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .rail-action-btn:hover,
@@ -203,7 +208,7 @@
 
 .rail-empty p {
   margin: 0 0 20px 0;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .rail-empty-load-btn {
@@ -211,7 +216,7 @@
   color: white;
   border: none;
   border-radius: 8px;
-  padding: 12px 24px;
+  padding: 12px 20px;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
@@ -232,7 +237,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 12px 20px;
+  padding: 12px 18px;
   border-bottom: 1px solid var(--rail-border);
   background: #f9f9f9;
   flex-shrink: 0;
@@ -241,20 +246,25 @@
 .rail-checkbox-all {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 2px;
   cursor: pointer;
   user-select: none;
   flex: 1;
 }
 
 .rail-checkbox-all input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
+  width: 12px;
+  height: 12px;
   cursor: pointer;
 }
 
+.rail-checkbox-all span {
+  font-size: 13px;
+  margin-left: 2px;
+}
+
 .rail-bulk-btn {
-  padding: 8px 16px;
+  padding: 8px 12px;
   border: 1px solid var(--rail-border);
   background: white;
   color: var(--rail-text);
@@ -286,17 +296,17 @@
 .rail-bets-list {
   flex: 1;
   overflow-y: auto;
-  padding: 12px 20px;
+  padding: 2px 2px;
 }
 
 .rail-bet-item {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  padding: 16px;
-  border: 1px solid var(--rail-border);
-  border-radius: 12px;
-  margin-bottom: 12px;
+  padding: 10px;
+  /* border: 1px solid var(--rail-border); */
+  /* border-radius: 12px; */
+  margin-bottom: 1px;
   background: white;
   transition: all 0.2s ease;
 }
@@ -317,8 +327,8 @@
 }
 
 .rail-bet-checkbox input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
+  width: 12px;
+  height: 12px;
   cursor: pointer;
 }
 
@@ -328,7 +338,7 @@
 }
 
 .rail-bet-teams {
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 600;
   color: var(--rail-text);
   margin-bottom: 6px;
@@ -336,7 +346,7 @@
 }
 
 .rail-bet-market {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--rail-text-secondary);
   margin-bottom: 6px;
 }
@@ -415,7 +425,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 12px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
 }
 
@@ -425,7 +435,7 @@
 
 .rail-total-value {
   color: var(--rail-success);
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 700;
 }
 
@@ -456,7 +466,7 @@
 
 .rail-book-btn {
   width: 100%;
-  padding: 16px;
+  padding: 8px 12px;
   background: var(--rail-primary);
   color: white;
   border: none;
@@ -696,18 +706,18 @@
 }
 
 .share-social-btn.whatsapp {
-  color: #25d366;
-  border-color: #25d366;
+  color: #5555;
+  border-color: #555;
 }
 
 .share-social-btn.twitter {
-  color: #1da1f2;
-  border-color: #1da1f2;
+  color: #3333;
+  border-color: #333;
 }
 
 .share-social-btn.telegram {
-  color: #0088cc;
-  border-color: #0088cc;
+  color: #2222;
+  border-color: #222;
 }
 
 /* ==================== LOAD CODE MODAL ==================== */
@@ -782,7 +792,7 @@
 .load-cancel-btn,
 .load-submit-btn {
   flex: 1;
-  padding: 14px 20px;
+  padding: 8px 12px;
   border: 1px solid var(--rail-border);
   border-radius: 10px;
   font-size: 15px;
