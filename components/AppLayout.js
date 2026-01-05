@@ -13,6 +13,14 @@ const AppLayout = {
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" onclick="initSidebar()">
+              <span>
+                <i class="nav-icon bi bi-menu-button-wide-fill"></i>
+                <span class="nav-text">AZ Menu</span>
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" onclick="navigateTo('convert.html')">
               <span>
                 <i class="nav-icon bi bi-arrow-clockwise"></i>
@@ -25,14 +33,6 @@ const AppLayout = {
               <span>
                 <i class="bi bi-credit-card-2-front"></i>
                 <span class="nav-text">Bet Editor</span>
-              </span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="navigateTo('betviewer.html')">
-              <span>
-                <i class="nav-icon bi bi-eye"></i>
-                <span class="nav-text">Bet Viewer</span>
               </span>
             </a>
           </li>
@@ -56,17 +56,9 @@ const AppLayout = {
     <header id="desktop-nav" class="adminuiux-header">
         
       <!-- Fixed navbar -->
-      <nav class="navbar navbar-expand-lg fixed-top">
+      <nav class="navbar navbar-expand-lg fixed">
         <div class="container-fluid">
           <!-- main sidebar toggle -->
-          <button
-            class="btn btn-link btn-square sidebar-toggler"
-            type="button"
-            onclick="initSidebar()"
-          >
-            <i class="sidebar-svg" data-feather="menu"></i>
-          </button>
-
           <!-- logo -->
           <a class="navbar-brand" onclick="navigateTo('index.html')">
             <img data-bs-img="light" src="" alt="" />
@@ -75,7 +67,6 @@ const AppLayout = {
               <span class="h4 text-black"
                 >Convert<span class="fw-bold">.IO</span></span
               >
-              <p class="company-tagline">Best Converter</p>
             </div>
           </a>
 

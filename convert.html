@@ -41,38 +41,13 @@
     data-bggradient="bg-r-gradient"
     data-headerfill="adminuiux-header-transparent"
   >
-    <!-- standard header -->
-    <div id="desktop-nav"></div>
 
-    <!-- Standard sidebar -->
+    <div id="desktop-nav"></div>
     <div id="side-menu"></div>
 
     <!-- main content -->
-    <div class="adminuiux-wrap">
+    <div class="adminuiux-wrap page-wrap">
       <main class="adminuiux-content has-sidebar" onclick="contentClick()">
-        <!-- page title -->
-        <div class="container-fluid py-1 py-lg-3">
-          <div class="row gx-3 gx-lg-4 align-items-center page-title">
-            <div class="col col-sm">
-              <h6 class="mb-0">Bet Converter</h6>
-              <p class="text-secondary small">This is the bet converter page</p>
-            </div>
-            <div class="col-auto position-relative">
-              <button
-                class="btn btn-link btn-square"
-                data-bs-toggle="offcanvas"
-                data-bs-target="#filter"
-                data-bs-placement="end"
-              >
-                <i class="bi bi-filter"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- content -->
-        <div class="p-1">
-          <!-- Content Card -->
           <div class="content-card">
             <!-- Mobile Tabs -->
             <div class="tabs-mobile">
@@ -251,10 +226,10 @@
               </form>
             </div>
 
-            <!-- Bet Link Section -->
+            <!-- Bet Link Section - PHASE 1 IMPROVEMENT: Auto-detect removed Origin Bookie -->
             <div id="bet-link" class="content-section">
               <h2>Bet Link</h2>
-              <p>Enter your bet link to convert</p>
+              <p>Paste your bet link - we'll auto-detect the bookie</p>
 
               <form>
                 <div class="form-group">
@@ -262,7 +237,8 @@
                   <div class="input-wrapper">
                     <input
                       type="url"
-                      placeholder="https://example.com/bet/123456"
+                      id="betLinkInput"
+                      placeholder="https://sportybet.com/share/xyz123"
                     />
                     <button type="button" class="paste-btn" title="Paste">
                       <svg
@@ -287,18 +263,12 @@
                       </svg>
                     </button>
                   </div>
+                  <small id="detectedBookie" style="display: none; color: #666; margin-top: 4px; display: block;">
+                    <strong>Detected:</strong> <span id="bookieName"></span>
+                  </small>
                 </div>
 
-                <div class="form-group">
-                  <label>Source Bookie</label>
-                  <select>
-                    <option>Select source bookie</option>
-                    <option>Bet9ja</option>
-                    <option>1xBet</option>
-                    <option>SportyBet</option>
-                    <option>NairaBet</option>
-                  </select>
-                </div>
+                <!-- REMOVED: Origin Bookie dropdown - auto-detected now -->
 
                 <div class="form-group">
                   <label>Target Bookie</label>
@@ -372,20 +342,12 @@
               </form>
             </div>
           </div>
-        </div>
       </main>
     </div>
 
-    <!-- global filter -->
     <div id="filter-canvas"></div>
-
-    <!-- footer -->
-    <!-- <div id="footer"></div> -->
-
-    <!-- mobile navigation -->
     <div id="mobile-nav"></div>
 
-    <!-- Page Level js -->
     <script src="assets/js/adminux/adminux-dashboard.js"></script>
     <script src="./components/AppLayout.js"></script>
     <script>
@@ -413,19 +375,33 @@
         event.target.classList.add("active");
       }
 
-      // Toggle Expandable Menu (FAB Button)
-      function toggleExpandableMenu() {
-        const menu = document.getElementById("expandableMenu");
-        menu.classList.toggle("active");
-      }
-
-      // Toggle Side Menu
-      function toggleSideMenu() {
-        const sideMenu = document.getElementById("sideMenu");
-        const overlay = document.getElementById("menuOverlay");
-
-        sideMenu.classList.toggle("active");
-        overlay.classList.toggle("active");
+      // PHASE 1: Auto-detect bookie from bet link
+      const betLinkInput = document.getElementById('betLinkInput');
+      if (betLinkInput) {
+        betLinkInput.addEventListener('input', function(e) {
+          const url = e.target.value.toLowerCase();
+          const detectedElement = document.getElementById('detectedBookie');
+          const bookieNameElement = document.getElementById('bookieName');
+          
+          let detectedBookie = null;
+          
+          if (url.includes('sportybet.com')) {
+            detectedBookie = 'SportyBet';
+          } else if (url.includes('bet9ja.com')) {
+            detectedBookie = 'Bet9ja';
+          } else if (url.includes('1xbet.com')) {
+            detectedBookie = '1xBet';
+          } else if (url.includes('nairabet.com')) {
+            detectedBookie = 'NairaBet';
+          }
+          
+          if (detectedBookie) {
+            bookieNameElement.textContent = detectedBookie;
+            detectedElement.style.display = 'block';
+          } else {
+            detectedElement.style.display = 'none';
+          }
+        });
       }
 
       // Paste Button Functionality
@@ -437,9 +413,10 @@
             if (input) {
               input.value = text;
               input.focus();
+              // Trigger input event for bet link auto-detection
+              input.dispatchEvent(new Event('input'));
             }
           } catch (err) {
-            console.log("Failed to read clipboard:", err);
             alert("Please paste manually (Ctrl+V or Cmd+V)");
           }
         });
@@ -465,44 +442,9 @@
         });
       });
 
-      // Close menus when clicking outside
-      document.addEventListener("click", function (e) {
-        const expandableMenu = document.getElementById("expandableMenu");
-        const fabBtn = document.querySelector(".fab-btn");
-
-        if (
-          expandableMenu.classList.contains("active") &&
-          !expandableMenu.contains(e.target) &&
-          e.target !== fabBtn
-        ) {
-          toggleExpandableMenu();
-        }
-      });
-
-      // Prevent body scroll when menu is open
-      const observer = new MutationObserver(function (mutations) {
-        mutations.forEach(function (mutation) {
-          const sideMenu = document.getElementById("sideMenu");
-          if (sideMenu.classList.contains("active")) {
-            document.body.style.overflow = "hidden";
-          } else {
-            document.body.style.overflow = "";
-          }
-        });
-      });
-
-      // Start observing side menu
-      const sideMenuElement = document.getElementById("sideMenu");
-      if (sideMenuElement) {
-        observer.observe(sideMenuElement, {
-          attributes: true,
-          attributeFilter: ["class"],
-        });
-      }
-
-      // Initialize: Set first tab as active
+      // Initialize
       document.addEventListener("DOMContentLoaded", function () {
-        console.log("Bet Converter loaded successfully!");
+        console.log("Bet Converter Phase 1 loaded successfully!");
       });
     </script>
   </body>

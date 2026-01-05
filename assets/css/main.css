@@ -1,102 +1,27 @@
+/* ========================================
+   DESKTOP NAVIGATION - UNIVERSAL FOR ALL SCREENS
+======================================== */
 
-
-/* Main Content */
-.main-content {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 0 1rem 6rem 1rem;
-}
-
-/* Tabs */
-.tabs-mobile {
-  display: flex;
-  gap: 0.5rem;
-  overflow-x: auto;
-  margin-bottom: 1.5rem;
-  padding-bottom: 0.5rem;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.tabs-mobile::-webkit-scrollbar {
-  display: none;
-}
-
-.tab-btn {
-  padding: 0.75rem 1.5rem;
-  border: 2px solid #1a1a1a;
+/* Desktop nav - always fixed at top */
+#desktop-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
   background: white;
-  border-radius: 50px;
-  font-weight: 600;
-  white-space: nowrap;
-  cursor: pointer;
-  transition: all 0.3s;
-  font-size: 0.875rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.tab-btn.active {
-  background: #1a1a1a;
-  color: white;
+#side-menu {
+  z-index: 500;
 }
 
-.tabs-desktop {
-  display: none;
-  gap: 0;
-  border: 2px solid #1a1a1a;
-  border-radius: 8px;
-  overflow: hidden;
-  margin-bottom: 1.5rem;
-  background: #e5e5e5;
+#bottom-nav {
+  z-index: 800;
 }
 
-@media (min-width: 768px) {
-  .tabs-mobile {
-    display: none;
-  }
-  .tabs-desktop {
-    display: flex;
-  }
+/* Add top padding to ALL page content */
+.page-wrap {
+  padding-top:80px; /* Adjust based on your actual nav height */
 }
-
-.tab-btn-desktop {
-  flex: 1;
-  padding: 1rem;
-  background: transparent;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.tab-btn-desktop.active {
-  background: white;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-/* Content Card */
-.content-card {
-  background: white;
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-}
-
-.content-section {
-  display: none;
-}
-
-.content-section.active {
-  display: block;
-}
-
-.content-section h2 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  font-weight: 700;
-}
-
-.content-section > p {
-  color: #666;
-  margin-bottom: 1.5rem;
-}
-

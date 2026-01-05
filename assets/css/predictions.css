@@ -64,9 +64,9 @@
 /* SPORT TABS */
 .sport-filter-tabs {
   display: flex;
-  gap: 8px;
+  gap: 2px;
   padding: 12px 16px;
-  border-bottom: 1px solid #e0e0e0;
+  /* border-bottom: 1px solid #e0e0e0; */
   overflow-x: auto;
 }
 
@@ -80,6 +80,9 @@
   color: #000;
   cursor: pointer;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .sport-filter-tab:hover {
@@ -92,83 +95,36 @@
   border-color: #000;
 }
 
-/* MARKET TABS */
-.market-filter-tabs {
-  display: flex;
-  gap: 8px;
-  padding: 2px 8px;
-  border-bottom: 1px solid #e0e0e0;
-  overflow-x: auto;
-  position: relative;
+.sport-filter-tab i {
+  font-size: 16px;
 }
 
-.market-filter-tab {
-  padding: 4px 16px;
-  background: #fff;
-  border: 2px solid #333;
-  border-radius: 6px;
-  font-size: 13px;
-  font-weight: 600;
-  color: #000;
-  cursor: pointer;
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.market-filter-tab:hover {
-  background: #fafafa;
-}
-
-.market-filter-tab.active {
+/* MARKET FILTER DROPDOWN (Multi-Maker Style) */
+.market-filter-dropdown {
+  padding: 10px 16px;
   background: #000;
   color: #fff;
-  border-color: #000;
-}
-
-.market-filter-tab.hidden {
-  display: none;
-}
-
-.market-count {
-  display: inline-block;
-  padding: 2px 6px;
-  background: rgba(0, 0, 0, 0.1);
-  border-radius: 3px;
-  font-size: 11px;
-  font-weight: 700;
-}
-
-.market-filter-tab.active .market-count {
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
-}
-
-.show-more-btn {
-  padding: 10px 16px;
-  background: #fff;
-  border: 2px solid #333;
+  border: none;
   border-radius: 6px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
-  color: #000;
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: center;
-  min-width: 50px;
+  gap: 8px;
+  white-space: nowrap;
 }
 
-.show-more-btn:hover {
-  background: #fafafa;
+.market-filter-dropdown:hover {
+  background: #333;
 }
 
-.show-more-btn i {
+.market-filter-dropdown i {
+  font-size: 14px;
   transition: transform 0.2s;
 }
 
-.show-more-btn.expanded i {
+.market-filter-dropdown.active i {
   transform: rotate(180deg);
 }
 
@@ -199,136 +155,224 @@
 
 /* LEAGUE GROUP */
 .league-group {
-  margin-bottom: 16px;
+  margin-bottom: 0;
 }
 
 .league-header {
-  padding: 10px 16px;
+  padding: 8px 16px;
   background: #f9f9f9;
   border-bottom: 1px solid #e0e0e0;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   color: #000;
   text-transform: uppercase;
   letter-spacing: 0.3px;
 }
 
-/* PREDICTION CARD */
+/* PREDICTION CARD - COMPACT MULTI-MAKER STYLE */
 .prediction-card {
-  padding: 14px 16px;
+  padding: 10px 16px;
   border-bottom: 1px solid #f0f0f0;
   transition: background 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .prediction-card:hover {
   background: #fafafa;
 }
 
-.prediction-number {
-  font-size: 11px;
-  color: #999;
-  margin-bottom: 6px;
-}
-
-.prediction-match {
+/* Card Header with Sport Icon and Market */
+.prediction-card-header {
   display: flex;
-  justify-content: space-between;
-  align-items: start;
-  margin-bottom: 8px;
-}
-
-.prediction-teams {
-  flex: 1;
-}
-
-.prediction-team-name {
-  font-size: 15px;
-  font-weight: 600;
-  color: #000;
-}
-
-.prediction-vs {
-  font-size: 13px;
-  color: #666;
-  margin: 2px 0;
-}
-
-.prediction-icons {
-  display: flex;
-  gap: 8px;
   align-items: center;
+  justify-content: space-between;
+  gap: 8px;
 }
 
-.prediction-icon {
-  width: 28px;
-  height: 28px;
+.prediction-sport-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #666;
+  font-weight: 600;
+}
+
+.prediction-sport-icon {
+  width: 20px;
+  height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 1px solid #333;
   border-radius: 50%;
+  font-size: 11px;
+  color: #333;
+}
+
+.prediction-market-badge {
+  padding: 3px 8px;
+  background: #f0f0f0;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Match Content - Compact Layout */
+.prediction-match-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.prediction-teams-compact {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+}
+
+.prediction-team-home {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.prediction-vs-separator {
+  font-size: 12px;
+  color: #999;
+  font-weight: 400;
+  flex-shrink: 0;
+}
+
+.prediction-team-away {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Odds Box - Multi-Maker Style */
+.prediction-odds-box {
+  min-width: 50px;
+  padding: 6px 10px;
+  background: #fff;
+  border: 2px solid #333;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* Action Buttons */
+.prediction-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.prediction-action-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #333;
+  border-radius: 4px;
   font-size: 14px;
   color: #333;
+  background: #fff;
   cursor: pointer;
+  transition: all 0.2s;
 }
 
-.prediction-icon:hover {
+.prediction-action-btn:hover {
   background: #000;
   color: #fff;
+  border-color: #000;
 }
 
-.prediction-meta {
+.prediction-action-btn.primary {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.prediction-action-btn.primary:hover {
+  background: #333;
+}
+
+/* Meta Info - Compact */
+.prediction-meta-compact {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-top: 8px;
+  justify-content: space-between;
+  gap: 8px;
 }
 
-.prediction-market {
-  font-size: 12px;
-  color: #666;
-}
-
-.prediction-datetime {
+.prediction-datetime-compact {
   font-size: 11px;
   color: #999;
 }
 
-.prediction-odds {
+.prediction-stats {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
 }
 
-.prediction-odds-label {
+.prediction-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
   font-size: 11px;
   color: #666;
 }
 
-.prediction-odds-value {
-  font-size: 14px;
-  font-weight: 700;
+.prediction-stat-item i {
+  font-size: 12px;
+  color: #ff6b35;
+}
+
+.prediction-stat-value {
+  font-weight: 600;
   color: #000;
 }
 
 /* BOTTOM LINKS */
 .predictions-bottom-links {
   display: flex;
-  padding: 10px;
+  padding: 16px;
   border-top: 2px solid #e0e0e0;
-  text-align: center;
-  font-size: 14px;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .predictions-link-group {
-    display: flex;  
-    flex-direction: column;
-    flex: 1;
+  display: flex;  
+  flex-direction: column;
+  gap: 8px;
 }
 
-.predictions-bottom-text {
+.predictions-link {
   font-size: 13px;
   color: #666;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.predictions-link:hover {
+  color: #000;
+  text-decoration: underline;
 }
 
 /* PAGINATION */
@@ -390,6 +434,16 @@
   .pagination-text {
     display: none;
   }
+  
+  .prediction-teams-compact {
+    font-size: 13px;
+  }
+  
+  .prediction-odds-box {
+    min-width: 45px;
+    padding: 5px 8px;
+    font-size: 13px;
+  }
 }
 
 /* FILTER MODAL */
@@ -414,7 +468,7 @@
 .filter-modal-content {
   background: #fff;
   border: 2px solid #333;
-  border-radius: 0;
+  border-radius: 8px;
   width: 100%;
   max-width: 400px;
   max-height: 80vh;
@@ -427,6 +481,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 1;
 }
 
 .filter-modal-title {
@@ -450,6 +508,75 @@
 
 .filter-modal-body {
   padding: 20px 16px;
+}
+
+/* Market List Items */
+.market-list-item {
+  padding: 14px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.market-list-item:hover {
+  background: #fafafa;
+}
+
+.market-list-item.active {
+  background: #f5f5f5;
+}
+
+.market-list-item-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.market-radio {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #333;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.market-list-item.active .market-radio {
+  background: #000;
+  border-color: #000;
+}
+
+.market-list-item.active .market-radio::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.market-list-item-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+}
+
+.market-list-item-count {
+  padding: 3px 10px;
+  background: #f0f0f0;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #666;
+}
+
+.market-list-item.active .market-list-item-count {
+  background: #000;
+  color: #fff;
 }
 
 .filter-group {
@@ -561,7 +688,7 @@
   }
   
   .prediction-card {
-    padding: 12px;
+    padding: 8px 12px;
   }
   
   .filter-modal {
@@ -572,4 +699,329 @@
     max-height: 100vh;
     border-radius: 0;
   }
+}
+
+/* PREDICTIONS FILTER MODALS - SLIDE FROM BOTTOM */
+
+.pred-filter-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 12000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.pred-filter-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.pred-filter-modal-content {
+  background: #fff;
+  border-radius: 16px 16px 0 0;
+  width: 100%;
+  max-width: 600px;
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pred-filter-modal.active .pred-filter-modal-content {
+  transform: translateY(0);
+}
+
+/* Header */
+.pred-filter-modal-header {
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.pred-filter-modal-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+}
+
+.pred-filter-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #666;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.pred-filter-close:hover {
+  background: #f0f0f0;
+  color: #000;
+}
+
+/* Body */
+.pred-filter-modal-body {
+  padding: 0;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Filter Items */
+.pred-filter-item {
+  padding: 16px 20px;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.pred-filter-item:hover {
+  background: #fafafa;
+}
+
+.pred-filter-item.selected {
+  background: #f5f5f5;
+}
+
+.pred-filter-checkbox {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #333;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.pred-filter-item.selected .pred-filter-checkbox {
+  background: #000;
+  border-color: #000;
+}
+
+.pred-filter-checkbox i {
+  font-size: 14px;
+  color: #fff;
+}
+
+.pred-filter-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+  flex: 1;
+}
+
+/* Footer */
+.pred-filter-modal-footer {
+  padding: 16px 20px;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+  background: #fff;
+}
+
+.pred-filter-cancel,
+.pred-filter-apply {
+  flex: 1;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.pred-filter-cancel {
+  background: #f0f0f0;
+  color: #000;
+}
+
+.pred-filter-cancel:hover {
+  background: #e0e0e0;
+}
+
+.pred-filter-apply {
+  background: #000;
+  color: #fff;
+}
+
+.pred-filter-apply:hover {
+  background: #333;
+}
+
+/* ODDS FILTER SPECIFIC STYLES */
+.pred-odds-filter-content {
+  padding: 24px 20px;
+}
+
+.pred-odds-values {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.pred-odds-value-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.pred-odds-value-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pred-odds-value-number {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+}
+
+.pred-odds-slider-container {
+  position: relative;
+  height: 40px;
+  margin-top: 20px;
+}
+
+.pred-odds-slider-track {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  transform: translateY(-50%);
+}
+
+.pred-odds-slider-progress {
+  position: absolute;
+  height: 100%;
+  background: #000;
+  border-radius: 3px;
+  left: 0;
+  width: 100%;
+}
+
+.pred-odds-slider {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  top: 0;
+  left: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  pointer-events: none;
+}
+
+.pred-odds-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #000;
+  cursor: pointer;
+  pointer-events: auto;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.pred-odds-slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #000;
+  cursor: pointer;
+  pointer-events: auto;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Active state for filter buttons */
+.filter-btn.active,
+.market-filter-dropdown.active {
+  background: #333;
+  color: #fff;
+}
+
+.filter-btn.active i,
+.market-filter-dropdown.active i {
+  transform: rotate(180deg);
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .pred-filter-modal-content {
+    max-height: 80vh;
+    border-radius: 20px 20px 0 0;
+  }
+  
+  .pred-filter-modal-header {
+    padding: 16px;
+  }
+  
+  .pred-filter-modal-title {
+    font-size: 16px;
+  }
+  
+  .pred-filter-item {
+    padding: 14px 16px;
+  }
+  
+  .pred-filter-label {
+    font-size: 14px;
+  }
+  
+  .pred-filter-modal-footer {
+    padding: 12px 16px;
+  }
+  
+  .pred-filter-cancel,
+  .pred-filter-apply {
+    padding: 12px;
+    font-size: 14px;
+  }
+  
+  .pred-odds-filter-content {
+    padding: 20px 16px;
+  }
+  
+  .pred-odds-value-number {
+    font-size: 20px;
+  }
+}
+
+/* Prevent body scroll when modal is open */
+body.pred-filter-open {
+  overflow: hidden;
 }

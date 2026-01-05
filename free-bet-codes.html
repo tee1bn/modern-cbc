@@ -35,7 +35,7 @@
     <div id="desktop-nav"></div>
     <div id="side-menu"></div>
 
-    <div class="adminuiux-wrap">
+    <div class="adminuiux-wrap page-wrapper">
       <main class="adminuiux-content has-sidebar" onclick="contentClick()">
         <div class="container-fluid py-1 py-lg-3">
           <div class="row gx-3 gx-lg-4 align-items-center page-title">
@@ -60,287 +60,152 @@
               </p>
             </div>
 
-            <!-- Search Bar -->
-            <div class="codes-search-bar">
-              <input
-                type="text"
-                class="codes-search-input"
-                placeholder="Search"
-                id="search-toggle"
-                readonly
-              />
+            <!-- Filter Bar (Code Hub Style) -->
+            <div class="hub-filters">
+              <button class="hub-filter-btn" id="time-filter-btn">
+                Time <i class="bi bi-chevron-down"></i>
+              </button>
+              <button class="hub-filter-btn" id="folds-filter-btn">
+                Folds <i class="bi bi-chevron-down"></i>
+              </button>
+              <button class="hub-filter-btn" id="odds-filter-btn">
+                Odds <i class="bi bi-chevron-down"></i>
+              </button>
+              <button class="hub-filter-btn" id="sort-filter-btn">
+                Sort <i class="bi bi-chevron-down"></i>
+              </button>
             </div>
 
             <!-- Ad Banner -->
-            <div class="codes-ad-banner">
+            <!-- <div class="codes-ad-banner">
               <div class="ad-placeholder">Advertisement Space - 728x90</div>
-            </div>
+            </div> -->
 
             <!-- Bet Codes List -->
-            <div class="codes-list">
-              <!-- Free Code 1 (with @guest) -->
-              <div class="code-card">
-                <div class="code-card-header">
-                  <div class="code-info">
-                    <div class="code-meta">3 events @2.05 odd</div>
-                    <div class="code-number">
-                      425668 <span class="code-flag">🇳🇬</span>
-                    </div>
-                    <div class="code-bookie">
-                      <span class="bookie-logo">betbaba</span>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="code-badge guest">by @guest</div>
-                    <div class="code-badge" style="margin-top: 6px">
-                      <i class="bi bi-fire badge-fire"></i> 31+
-                    </div>
-                  </div>
-                </div>
-                <div class="code-card-footer">
-                  <button
-                    class="code-btn primary"
-                    onclick="openBookie('betbaba', '425668')"
-                  >
-                    Play now
-                  </button>
-                </div>
-              </div>
+            <div class="codes-list" id="codes-list">
+              <!-- Codes will be rendered here by JavaScript -->
+            </div>
 
-              <!-- Free Code 2 (with @guest) -->
-              <div class="code-card">
-                <div class="code-card-header">
-                  <div class="code-info">
-                    <div class="code-meta">4 events @2.18 odd</div>
-                    <div class="code-number">
-                      425013 <span class="code-flag">🇳🇬</span>
-                    </div>
-                    <div class="code-bookie">
-                      <span class="bookie-logo">betbaba</span>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="code-badge guest">by @guest</div>
-                    <div class="code-badge" style="margin-top: 6px">
-                      <i class="bi bi-fire badge-fire"></i> 11+
-                    </div>
-                  </div>
-                </div>
-                <div class="code-card-footer">
-                  <button
-                    class="code-btn primary"
-                    onclick="openBookie('betbaba', '425013')"
-                  >
-                    Play now
-                  </button>
-                </div>
-              </div>
-
-              <!-- Converted Code 1 -->
-              <div class="code-card converted">
-                <div class="converted-grid">
-                  <div class="converted-code">
-                    <div class="converted-meta">6events @3.8 odds</div>
-                    <div class="converted-number">XUUKN</div>
-                    <div class="converted-bookie">22bet 🇳🇬</div>
-                    <div class="converted-time">
-                      7 minutes ago • <i class="bi bi-heart"></i>1
-                    </div>
-                  </div>
-
-                  <div class="converted-arrow">→</div>
-
-                  <div class="converted-code">
-                    <div class="converted-meta">6events @4.2 odds</div>
-                    <div class="converted-number">8ZZLN</div>
-                    <div class="converted-bookie">1xbet</div>
-                    <div class="converted-time"></div>
-                  </div>
-                </div>
-                <div class="converted-footer">
-                  <button
-                    class="code-btn"
-                    data-code-id="code-1"
-                    onclick="addToBetslip(this, 'XUUKN', '8ZZLN')"
-                  >
-                    Add to betslip <i class="bi bi-box-arrow-up-right"></i>
-                  </button>
-                </div>
-              </div>
-
-              <!-- Converted Code 2 -->
-              <div class="code-card converted">
-                <div class="converted-grid">
-                  <div class="converted-code">
-                    <div class="converted-meta">8events @5.9 odds</div>
-                    <div class="converted-number">M7XLN</div>
-                    <div class="converted-bookie">1xbet 🇳🇬</div>
-                    <div class="converted-time">
-                      9 minutes ago • <i class="bi bi-heart"></i>1
-                    </div>
-                  </div>
-
-                  <div class="converted-arrow">→</div>
-
-                  <div class="converted-code">
-                    <div class="converted-meta">8events @6.38 odds</div>
-                    <div class="converted-number">HEYLN</div>
-                    <div class="converted-bookie">1xbet</div>
-                    <div class="converted-time"></div>
-                  </div>
-                </div>
-                <div class="converted-footer">
-                  <button
-                    class="code-btn"
-                    data-code-id="code-2"
-                    onclick="addToBetslip(this, 'M7XLN', 'HEYLN')"
-                  >
-                    Add to betslip <i class="bi bi-box-arrow-up-right"></i>
-                  </button>
-                </div>
-              </div>
-
-              <!-- Converted Code 3 -->
-              <div class="code-card converted">
-                <div class="converted-grid">
-                  <div class="converted-code">
-                    <div class="converted-meta">6events @10.66 odds</div>
-                    <div class="converted-number">3V5TFYB</div>
-                    <div class="converted-bookie">bet9ja 🇳🇬</div>
-                    <div class="converted-time">
-                      9 minutes ago • <i class="bi bi-heart"></i>3
-                    </div>
-                  </div>
-
-                  <div class="converted-arrow">→</div>
-
-                  <div class="converted-code">
-                    <div class="converted-meta">4events @3.07 odds</div>
-                    <div class="converted-number">JQ2MSX</div>
-                    <div class="converted-bookie">sportybet 🇳🇬</div>
-                    <div class="converted-time"></div>
-                  </div>
-                </div>
-                <div class="converted-footer">
-                  <button
-                    class="code-btn"
-                    data-code-id="code-3"
-                    onclick="addToBetslip(this, '3V5TFYB', 'JQ2MSX')"
-                  >
-                    Add to betslip <i class="bi bi-box-arrow-up-right"></i>
-                  </button>
-                </div>
-              </div>
-
-              <div class="codes-pagination">
-                <button class="codes-page-btn" disabled>
-                  <i class="bi bi-chevron-double-left"></i>
-                </button>
-                <button class="codes-page-btn" disabled>
-                  <i class="bi bi-chevron-left"></i>
-                </button>
-                <button class="codes-page-btn active">1</button>
-                <button class="codes-page-btn">2</button>
-                <button class="codes-page-btn">3</button>
-                <button class="codes-page-btn">
-                  <i class="bi bi-chevron-right"></i>
-                </button>
-                <button class="codes-page-btn">
-                  <i class="bi bi-chevron-double-right"></i>
-                </button>
-              </div>
+            <!-- Pagination -->
+            <div class="codes-pagination">
+              <button class="codes-page-btn" disabled>
+                <i class="bi bi-chevron-double-left"></i>
+              </button>
+              <button class="codes-page-btn" disabled>
+                <i class="bi bi-chevron-left"></i>
+              </button>
+              <button class="codes-page-btn active">1</button>
+              <button class="codes-page-btn">2</button>
+              <button class="codes-page-btn">3</button>
+              <button class="codes-page-btn">
+                <i class="bi bi-chevron-right"></i>
+              </button>
+              <button class="codes-page-btn">
+                <i class="bi bi-chevron-double-right"></i>
+              </button>
             </div>
           </div>
         </div>
       </main>
     </div>
 
-    <!-- Search Filter Modal -->
-    <div class="search-filter-modal hidden" id="search-modal">
-      <div class="search-filter-content">
-        <div class="search-filter-header">
-          <h3 class="search-filter-title">Search Filter</h3>
-          <button class="search-filter-close" id="close-search">
-            <i class="bi bi-x-lg"></i>
+    <!-- Filter Modals (Code Hub Style) -->
+    <!-- Time Filter Modal -->
+    <div class="filter-modal" id="time-modal">
+      <div class="filter-modal-content">
+        <div class="filter-modal-header">
+          <h3>Time</h3>
+          <button class="filter-close-btn" id="close-time-filter">
+            <i class="bi bi-x"></i>
           </button>
         </div>
+        <div class="filter-list" id="time-list">
+          <!-- Will be populated by JS -->
+        </div>
+        <div class="filter-modal-footer">
+          <button class="filter-reset-btn" id="reset-time-filter">Reset</button>
+          <button class="filter-apply-btn" id="apply-time-filter">Apply</button>
+        </div>
+      </div>
+    </div>
 
-        <div class="search-filter-body">
-          <div class="search-filter-group">
-            <span class="search-new-badge">new</span>
-            <p class="search-input-label">
-              Search your preferred betting site, odds, matches, sports etc.
-            </p>
+    <!-- Folds Filter Modal -->
+    <div class="filter-modal" id="folds-modal">
+      <div class="filter-modal-content">
+        <div class="filter-modal-header">
+          <h3>Folds</h3>
+          <button class="filter-close-btn" id="close-folds-filter">
+            <i class="bi bi-x"></i>
+          </button>
+        </div>
+        <div class="filter-list" id="folds-list">
+          <!-- Will be populated by JS -->
+        </div>
+        <div class="filter-custom-range">
+          <label>Custom Range</label>
+          <div class="custom-range-inputs">
+            <input type="number" id="folds-min" placeholder="1" min="1" max="50" />
+            <span>~</span>
+            <input type="number" id="folds-max" placeholder="50" min="1" max="50" />
           </div>
-
-          <div class="search-filter-group">
-            <label class="search-filter-label">Bookie</label>
-            <select class="search-filter-select">
-              <option value="">Select bookie</option>
-              <option value="sportybet">Sportybet</option>
-              <option value="bet9ja">Bet9ja</option>
-              <option value="1xbet">1xBet</option>
-              <option value="betking">BetKing</option>
-              <option value="22bet">22bet</option>
-            </select>
-          </div>
-
-          <div class="search-filter-group">
-            <label class="search-filter-label">Odds (Range)</label>
-            <div class="search-filter-range">
-              <input
-                type="number"
-                class="search-filter-input"
-                placeholder="0.02"
-                min="0"
-                step="0.01"
-              />
-              <input
-                type="number"
-                class="search-filter-input"
-                placeholder="End"
-                min="0"
-                step="0.01"
-              />
-            </div>
-          </div>
-
-          <div class="search-filter-group">
-            <label class="search-filter-label">Number of events (Range)</label>
-            <div class="search-filter-range">
-              <input
-                type="number"
-                class="search-filter-input"
-                placeholder="Start"
-                min="0"
-              />
-              <input
-                type="number"
-                class="search-filter-input"
-                placeholder="End"
-                min="0"
-              />
-            </div>
-          </div>
-
-          <div class="search-filter-group">
-            <div class="search-filter-checkbox-group">
-              <input
-                type="checkbox"
-                id="order-popularity"
-                class="search-filter-checkbox"
-              />
-              <label for="order-popularity" class="search-filter-checkbox-label"
-                >Order By Popularity</label
-              >
-            </div>
+          <div class="range-slider">
+            <input type="range" id="folds-slider" min="1" max="50" value="50" />
+            <div class="range-label">1 ~ 50</div>
           </div>
         </div>
+        <div class="filter-modal-footer">
+          <button class="filter-reset-btn" id="reset-folds-filter">Reset</button>
+          <button class="filter-apply-btn" id="apply-folds-filter">Apply</button>
+        </div>
+      </div>
+    </div>
 
-        <div class="search-filter-footer">
-          <button class="search-filter-submit" id="submit-search">
-            Submit
+    <!-- Odds Filter Modal -->
+    <div class="filter-modal" id="odds-modal">
+      <div class="filter-modal-content">
+        <div class="filter-modal-header">
+          <h3>Odds</h3>
+          <button class="filter-close-btn" id="close-odds-filter">
+            <i class="bi bi-x"></i>
           </button>
+        </div>
+        <div class="filter-list" id="odds-list">
+          <!-- Will be populated by JS -->
+        </div>
+        <div class="filter-custom-range">
+          <label>Custom Range</label>
+          <div class="custom-range-inputs">
+            <input type="number" id="odds-min" placeholder="1" min="1" max="2000" step="0.01" />
+            <span>~</span>
+            <input type="number" id="odds-max" placeholder="2000" min="1" max="2000" step="0.01" />
+          </div>
+          <div class="range-slider">
+            <input type="range" id="odds-slider" min="1" max="2000" value="2000" />
+            <div class="range-label">1 ~ 2000</div>
+          </div>
+        </div>
+        <div class="filter-modal-footer">
+          <button class="filter-reset-btn" id="reset-odds-filter">Reset</button>
+          <button class="filter-apply-btn" id="apply-odds-filter">Apply</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sort Filter Modal -->
+    <div class="filter-modal" id="sort-modal">
+      <div class="filter-modal-content">
+        <div class="filter-modal-header">
+          <h3>Sort</h3>
+          <button class="filter-close-btn" id="close-sort-filter">
+            <i class="bi bi-x"></i>
+          </button>
+        </div>
+        <div class="filter-list" id="sort-list">
+          <!-- Will be populated by JS -->
+        </div>
+        <div class="filter-modal-footer">
+          <button class="filter-reset-btn" id="reset-sort-filter">Reset</button>
+          <button class="filter-apply-btn" id="apply-sort-filter">Apply</button>
         </div>
       </div>
     </div>
@@ -353,207 +218,6 @@
     <script src="assets/js/adminux/adminux-dashboard.js"></script>
     <script src="./components/AppLayout.js"></script>
     <script src="./components/betslip-rail.js"></script>
-    <script>
-      // ==================== WAIT FOR RAIL ====================
-      function waitForRail() {
-        return new Promise((resolve) => {
-          if (window.betslipRail) {
-            resolve();
-          } else {
-            const checkInterval = setInterval(() => {
-              if (window.betslipRail) {
-                clearInterval(checkInterval);
-                resolve();
-              }
-            }, 50);
-          }
-        });
-      }
-
-      // ==================== SEARCH MODAL ====================
-      const searchInput = document.getElementById("search-toggle");
-      const searchModal = document.getElementById("search-modal");
-      const closeSearch = document.getElementById("close-search");
-      const submitSearch = document.getElementById("submit-search");
-
-      searchInput.addEventListener("click", () => {
-        searchModal.classList.remove("hidden");
-      });
-
-      closeSearch.addEventListener("click", () => {
-        searchModal.classList.add("hidden");
-      });
-
-      submitSearch.addEventListener("click", () => {
-        searchModal.classList.add("hidden");
-        console.log("Search filters applied");
-      });
-
-      searchModal.addEventListener("click", (e) => {
-        if (e.target === searchModal) {
-          searchModal.classList.add("hidden");
-        }
-      });
-
-      // ==================== OPEN BOOKIE FOR FREE CODES ====================
-      function openBookie(bookie, code) {
-        const bookieUrls = {
-          betbaba: "https://www.betbaba.ng/",
-          sportybet: "https://www.sportybet.com/ng/",
-          bet9ja: "https://www.bet9ja.com/",
-          "1xbet": "https://www.1xbet.ng/",
-        };
-
-        const url = bookieUrls[bookie] || "#";
-        window.open(url, "_blank");
-      }
-
-      // ==================== ADD TO BETSLIP (CONVERTED CODES) ====================
-      async function addToBetslip(button, originalCode, convertedCode) {
-        await waitForRail();
-
-        // Show loading state
-        button.classList.add('loading');
-        button.disabled = true;
-        const originalText = button.innerHTML;
-
-        try {
-          // Mock data - In production, fetch from API using the codes
-          const mockBets = generateMockBets(originalCode, convertedCode);
-
-          // Add to Rail
-          let addedCount = 0;
-          for (const bet of mockBets) {
-            if (window.betslipRail && window.betslipRail.addSelection) {
-              window.betslipRail.addSelection(bet);
-              addedCount++;
-            } else {
-              // Fallback to localStorage
-              const existingBets = JSON.parse(localStorage.getItem('editorBets') || '[]');
-              existingBets.push(bet);
-              localStorage.setItem('editorBets', JSON.stringify(existingBets));
-              addedCount++;
-            }
-          }
-
-          // Flash Rail badge
-          if (window.betslipRail && window.betslipRail.flashBadge) {
-            window.betslipRail.flashBadge();
-          }
-
-          // Show success state
-          button.classList.remove('loading');
-          button.classList.add('success');
-          button.innerHTML = `Added ${addedCount}!`;
-
-          // Reset button after 2 seconds
-          setTimeout(() => {
-            button.classList.remove('success');
-            button.disabled = false;
-            button.innerHTML = originalText;
-          }, 2000);
-
-        } catch (error) {
-          console.error('Failed to add to betslip:', error);
-          button.classList.remove('loading');
-          button.disabled = false;
-          button.innerHTML = originalText;
-          alert('Failed to add to betslip. Please try again.');
-        }
-      }
-
-      // ==================== GENERATE MOCK BETS ====================
-      function generateMockBets(originalCode, convertedCode) {
-        // In production, fetch from API
-        // For now, return mock data
-        const mockData = {
-          'XUUKN': [
-            {
-              matchId: 'free-xuukn-1',
-              teams: 'Liverpool vs Wolverhampton',
-              date: 'Sat December.27.25, 16:00',
-              market: '1x2',
-              value: 'home',
-              odd: '1.28',
-              odds: '1.28',
-              league: 'Premier League',
-              selected: true
-            },
-            {
-              matchId: 'free-xuukn-2',
-              teams: 'Chelsea vs Aston Villa',
-              date: 'Sat December.27.25, 18:30',
-              market: 'handicap',
-              value: 'home 0',
-              odd: '1.34',
-              odds: '1.34',
-              league: 'Premier League',
-              selected: true
-            },
-            {
-              matchId: 'free-xuukn-3',
-              teams: 'Pisa 1909 vs Juventus',
-              date: 'Sat December.27.25, 20:45',
-              market: 'handicap',
-              value: 'away 0',
-              odd: '1.05',
-              odds: '1.05',
-              league: 'Serie A',
-              selected: true
-            }
-          ],
-          'M7XLN': [
-            {
-              matchId: 'free-m7xln-1',
-              teams: 'Barcelona vs Real Madrid',
-              date: 'Sun December.28.25, 20:00',
-              market: '1x2',
-              value: 'home',
-              odd: '2.10',
-              odds: '2.10',
-              league: 'La Liga',
-              selected: true
-            },
-            {
-              matchId: 'free-m7xln-2',
-              teams: 'Bayern vs Dortmund',
-              date: 'Sun December.28.25, 17:30',
-              market: 'over/under',
-              value: 'over 2.5',
-              odd: '1.75',
-              odds: '1.75',
-              league: 'Bundesliga',
-              selected: true
-            }
-          ],
-          '3V5TFYB': [
-            {
-              matchId: 'free-3v5tfyb-1',
-              teams: 'Man United vs Arsenal',
-              date: 'Mon December.29.25, 20:00',
-              market: '1x2',
-              value: 'away',
-              odd: '2.50',
-              odds: '2.50',
-              league: 'Premier League',
-              selected: true
-            },
-            {
-              matchId: 'free-3v5tfyb-2',
-              teams: 'Inter vs AC Milan',
-              date: 'Mon December.29.25, 19:45',
-              market: 'gg/ng',
-              value: 'yes',
-              odd: '1.65',
-              odds: '1.65',
-              league: 'Serie A',
-              selected: true
-            }
-          ]
-        };
-
-        return mockData[originalCode] || mockData['XUUKN'];
-      }
-    </script>
+    <script src="assets/js/free-bet-codes.js"></script>
   </body>
 </html>

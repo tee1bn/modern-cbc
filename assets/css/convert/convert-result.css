@@ -1,12 +1,12 @@
-/* CONVERT RESULT PAGE - BLACK & WHITE */
 .convert-result-page {
-  font-family: var(--adminuiux-content-font, 'Open Sans', sans-serif);
+  font-family: var(--adminuiux-content-font, "Open Sans", sans-serif);
   background: #fff;
 }
 
 /* BACK LINK */
 .icon-back {
-  display: inline-flex;
+  display: flex;
+  flex: 1;
   align-items: center;
   gap: 8px;
   padding: 12px 16px;
@@ -29,16 +29,16 @@
 
 /* RESULT CONTAINER */
 .result-container {
-  max-width: 900px;
+  /* max-width: 900px; */
   margin: 0 auto;
   background: #fff;
   border: 2px solid #e0e0e0;
-  border-radius: 0;
+  border-radius: 0; /* Square corners */
 }
 
-/* RESULT HERO */
+/* RESULT HERO - Cleaned up redundancy */
 .result-hero {
-  padding: 24px 20px;
+  padding: 20px; /* Reduced from 24px */
   text-align: center;
   border-bottom: 2px solid #e0e0e0;
   background: #fff;
@@ -73,22 +73,21 @@
   flex-wrap: wrap;
 }
 
-.result-code .icon {
+.summary-code .icon {
   width: 24px;
   height: 24px;
-  display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
 }
 
-.result-code .icon svg {
+.summary-code .icon svg {
   width: 20px;
   height: 20px;
   color: #333;
 }
 
-.result-code .icon:hover svg {
+.summary-code .icon:hover svg {
   color: #000;
 }
 
@@ -103,10 +102,18 @@
   font-weight: 700;
 }
 
+
 .result-meta {
   font-size: 13px;
   color: #999;
   margin: 0;
+}
+
+.events-left {
+  font-size: 13px;
+  color: #666;
+  margin: 8px 0 0 0;
+  font-weight: 600;
 }
 
 /* CONVERSION SUMMARY */
@@ -115,7 +122,7 @@
   grid-template-columns: 1fr auto 1fr;
   gap: 16px;
   align-items: center;
-  padding: 20px;
+  padding: 1px; /* Reduced from 20px */
   border-bottom: 1px solid #e0e0e0;
   background: #fafafa;
 }
@@ -154,10 +161,41 @@
     grid-template-columns: 1fr;
     gap: 12px;
   }
-  
+
   .summary-arrow {
+    justify-self: center;
     transform: rotate(90deg);
   }
+}
+
+.view-toggle {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  background: #fff;
+  justify-content: center;
+}
+
+.toggle-btn {
+  padding: 6px 14px;
+  background: #fff;
+  color: #000;
+  border: 1px solid #333;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.toggle-btn:hover {
+  background: #fafafa;
+}
+
+.toggle-btn.active {
+  background: #000;
+  color: #fff;
+  border-color: #000;
 }
 
 /* FILTER BAR */
@@ -165,7 +203,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 20px;
+  padding: 12px 16px; /* Reduced from 14px 20px */
   border-bottom: 1px solid #e0e0e0;
   background: #fff;
 }
@@ -173,7 +211,7 @@
 .game-filter {
   padding: 8px 12px;
   border: 1px solid #333;
-  border-radius: 4px;
+  border-radius: 0; /* Square corners */
   background: #fff;
   color: #000;
   font-size: 13px;
@@ -199,16 +237,18 @@
   margin: 0;
 }
 
+/* PHASE 1: Added serial numbers and compact layout */
 .game-card {
   display: flex;
   justify-content: space-between;
   align-items: start;
-  padding: 14px;
+  padding: 12px; /* Reduced from 14px */
   border: 1px solid #e0e0e0;
-  border-radius: 0;
-  margin-bottom: 12px;
+  border-radius: 0; /* Square corners */
+  margin-bottom: 10px; /* Reduced from 12px */
   background: #fff;
   transition: all 0.2s;
+  position: relative;
 }
 
 .game-card:hover {
@@ -220,31 +260,65 @@
   margin-bottom: 0;
 }
 
+/* PHASE 1: Serial number */
+.game-serial {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 20px;
+  height: 20px;
+  background: #000;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+}
+
 .game-info {
   flex: 1;
   margin-right: 12px;
+  margin-left: 28px; /* Space for serial number */
 }
 
 .game-league {
-  font-size: 12px;
+  font-size: 11px; /* Reduced from 12px */
   font-weight: 500;
-  /* text-transform: lowercase; */
   color: #333;
   letter-spacing: 0.3px;
-  margin-bottom: 4px;
+  margin-bottom: 3px; /* Reduced from 4px */
 }
 
 .game-title {
   font-size: 14px;
   font-weight: 600;
   color: #000;
-  margin-bottom: 4px;
+  margin-bottom: 3px; /* Reduced from 4px */
 }
 
 .game-meta {
   font-size: 12px;
   color: #666;
-  margin: 0;
+  margin: 2px 0; /* Reduced spacing */
+}
+
+/* PHASE 1: Failed conversion reason */
+.game-failed {
+  border-left: 3px solid #dc3545;
+  background: #fff5f5;
+}
+
+.game-failed-reason {
+  display: inline-block;
+  background: #dc3545;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 0; /* Square corners */
+  font-size: 11px;
+  font-weight: 600;
+  margin-top: 4px;
 }
 
 .game-status {
@@ -268,13 +342,13 @@
   .games-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    gap: 10px; /* Reduced from 12px */
   }
-  
+
   .game-card {
     margin-bottom: 0;
   }
-  
+
   .result-code {
     font-size: 32px;
   }
@@ -282,22 +356,472 @@
 
 @media (min-width: 992px) {
   .result-hero {
-    padding: 32px 24px;
+    padding: 24px;
   }
-  
+
   .conversion-summary {
-    padding: 24px;
+    padding: 20px;
   }
-  
+
   .filter-bar {
-    padding: 16px 24px;
+    padding: 14px 20px;
   }
-  
+
   .games-list {
-    padding: 24px;
+    padding: 20px;
   }
-  
+
   .game-card {
-    padding: 16px;
+    padding: 14px;
   }
 }
+
+/* Conversion arrow between origin and target */
+.conversion-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0;
+  margin: 0 auto;
+  width: 40px;
+  height: 40px;
+}
+
+.conversion-arrow svg {
+  width: 24px;
+  height: 24px;
+  color: #666;
+}
+
+/* Bookie badges */
+.bookie-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 0;
+  margin-bottom: 4px;
+}
+
+.bookie-origin {
+  background: #f0f0f0;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.bookie-target {
+  background: #000;
+  color: #fff;
+  border: 1px solid #000;
+}
+
+/* Enhanced game card for grouped view */
+.game-card {
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.game-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Improved serial number positioning */
+.game-serial {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 22px;
+  height: 22px;
+  background: #000;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  z-index: 1;
+}
+
+/* Total games text enhancement */
+.total-games {
+  font-size: 13px;
+  font-weight: 600;
+  color: #000;
+  padding: 4px 0;
+}
+
+/* Responsive adjustments for grouped view */
+@media (min-width: 768px) {
+  .games-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  /* For grouped view, make each pair a flex row */
+  .games-list.view-grouped .game-card,
+  .games-list.view-grouped .conversion-arrow {
+    grid-column: 1 / -1; /* Full width by default */
+  }
+
+  /* Create flex row groups for origin-arrow-target */
+  .games-list.view-grouped {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* Each conversion group (origin + arrow + target) */
+  .conversion-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .conversion-group .game-card {
+    flex: 1;
+    margin: 0;
+  }
+
+  .conversion-group .conversion-arrow {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    transform: rotate(-90deg); /* Point right instead of down */
+  }
+
+  /* For origin-only and target-only views, use 2-column grid */
+  .games-list:not(.view-grouped) .game-card {
+    margin-bottom: 0;
+  }
+}
+
+/* View toggle button improvements */
+.toggle-btn {
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.toggle-btn.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background: #000;
+  border-radius: 50%;
+}
+
+/* Filter dropdown enhancement */
+.game-filter {
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.game-filter:hover {
+  background: #fafafa;
+  border-color: #000;
+}
+
+/* Failed event styling improvements */
+.game-failed {
+  border-left: 3px solid #dc3545;
+  background: #fff5f5;
+}
+
+.game-failed-reason {
+  display: inline-block;
+  background: #dc3545;
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 0;
+  font-size: 11px;
+  font-weight: 600;
+  margin-top: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* Loading state (optional - for future use) */
+.games-list.loading {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Empty state */
+.games-list:empty::after {
+  content: "No games to display";
+  display: block;
+  text-align: center;
+  padding: 40px 20px;
+  color: #999;
+  font-size: 14px;
+}
+
+/* Animation for view changes */
+.game-card {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Improve spacing in grouped view */
+.games-list > .game-card:not(:first-child) {
+  margin-top: 10px;
+}
+
+.games-list > .conversion-arrow + .game-card {
+  margin-top: 0;
+}
+
+.games-list > .game-card + .conversion-arrow {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Mobile: vertical stacking */
+.conversion-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 12px;
+}
+
+.conversion-group .game-card {
+  margin: 0;
+}
+
+.conversion-group .conversion-arrow {
+  margin: 4px auto;
+}
+
+/* Desktop: horizontal flex row */
+@media (min-width: 768px) {
+  .conversion-group {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .conversion-group .game-card {
+    flex: 1;
+    min-width: 0; /* Allow flex items to shrink */
+  }
+
+  .conversion-group .conversion-arrow {
+    flex-shrink: 0;
+    width: 40px;
+    margin: 0;
+    align-self: center;
+    transform: rotate(-90deg); /* Point right on desktop */
+  }
+
+  /* For non-grouped views, use grid layout */
+  .games-list:not(.view-grouped) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .games-list:not(.view-grouped) .game-card {
+    margin: 0;
+  }
+}
+
+/* Extra large screens: more space */
+@media (min-width: 1200px) {
+  .conversion-group {
+    gap: 16px;
+  }
+
+  .conversion-group .conversion-arrow {
+    width: 50px;
+  }
+}
+
+/* Status icon positioning */
+.game-status {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #000;
+  border-radius: 50%;
+}
+
+.game-failed .game-status {
+  border-color: #dc3545;
+}
+
+.game-status svg {
+  width: 18px;
+  height: 18px;
+  stroke: #000;
+}
+
+.game-failed .game-status svg {
+  stroke: #dc3545;
+}
+
+/* Conversion arrow between origin and target */
+.conversion-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0;
+  margin: 4px auto;
+  width: 40px;
+  height: 40px;
+}
+
+.conversion-arrow svg {
+  width: 24px;
+  height: 24px;
+  color: #666;
+}
+
+/* Bookie badges */
+.bookie-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 0;
+  margin-bottom: 4px;
+}
+
+.bookie-origin {
+  background: #f0f0f0;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.bookie-target {
+  background: #000;
+  color: #fff;
+  border: 1px solid #000;
+}
+
+/* Animation for view changes */
+.game-card {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Conversion group container */
+.conversion-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 12px;
+}
+
+.conversion-group .game-card {
+  margin: 0;
+}
+
+.conversion-group .conversion-arrow {
+  margin: 4px auto;
+}
+
+/* Desktop: horizontal flex row */
+@media (min-width: 768px) {
+  .conversion-group {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .conversion-group .game-card {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .conversion-group .conversion-arrow {
+    flex-shrink: 0;
+    width: 40px;
+    margin: 0;
+    align-self: center;
+    transform: rotate(-90deg);
+  }
+
+  /* For non-grouped views, use grid layout */
+  .games-list:not(.view-grouped) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .games-list:not(.view-grouped) .game-card {
+    margin: 0;
+  }
+}
+
+
+/* ========================================
+   RESULT CONTAINER STICKY BEHAVIOR
+   ======================================== */
+
+/* Make the back link and conversion summary sticky */
+.icon-back {
+  position: sticky;
+  /* border: 1px solid red; */
+  top: 62px; /* Below desktop nav */
+  z-index: 200;
+  background: white;
+}
+
+/* .conversion-summary {
+  position: sticky;
+  top: 106px;
+  z-index: 199;
+
+}
+
+.view-toggle {
+  position: sticky;
+  top: 344px; 
+  z-index: 198;
+  background: white;
+}
+
+
+.filter-bar {
+  position: sticky;
+  top: 400px; 
+  z-index: 199;
+  background: white;
+} */

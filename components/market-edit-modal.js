@@ -1,5 +1,4 @@
-// MARKET EDIT MODAL COMPONENT - Reusable market editor
-// Usage: Include after betslip-rail.js
+
 
 (function() {
   'use strict';

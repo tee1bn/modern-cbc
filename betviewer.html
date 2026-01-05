@@ -23,6 +23,7 @@
     <script defer src="assets/js/app8051.js?bd1e16b080f637e63a80"></script>
     <link href="assets/css/app8051.css?bd1e16b080f637e63a80" rel="stylesheet" />
     <link href="assets/css/betviewer.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/main.css">
   </head>
 
   <body
@@ -39,47 +40,19 @@
     data-headerfill="adminuiux-header-transparent"
   >
 
-    <!-- standard header -->
     <div id="desktop-nav"></div>
-
-    <!-- Standard sidebar -->
     <div id="side-menu"></div>
 
-    <!-- main content -->
-    <div class="adminuiux-wrap">
-
+    <div class="adminuiux-wrap page-wrap">
       <main class="adminuiux-content has-sidebar" onclick="contentClick()">
 
-        <!-- page title -->
-        <div class="container-fluid py-1 py-lg-3">
-          <div class="row gx-3 gx-lg-4 align-items-center page-title">
-            <div class="col col-sm">
-              <h6 class="mb-0">Bet Viewer</h6>
-              <p class="text-secondary small">This is personal intranet</p>
-            </div>
-            <div class="col-auto position-relative">
-              <button
-                class="btn btn-link btn-square"
-                data-bs-toggle="offcanvas"
-                data-bs-target="#filter"
-                data-bs-placement="end"
-              >
-                <i class="bi bi-filter"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
         <!-- content -->
-        <div class="container mt-3" id="main-content">
+        <div class="mt-3" id="main-content">
           <div class="betviewer">
-            <div class="card">
               <div class="betviewer-columns">
                 
                 <!-- Left column: form -->
                 <div class="btv-form">
-                  <h5>Bet Code Form</h5>
-                  
                   <label for="bet-code">Enter Bet Code</label>
                   <div class="input-group">
                     <input id="bet-code" class="form-control" placeholder="Enter bet code (e.g. PYDFRC)" aria-label="Bet code" />
@@ -94,7 +67,6 @@
                     </button>
                   </div>
 
-
                   <label for="btv-bookie">Select Bookie</label>
                   <select id="btv-bookie" class="form-select">
                     <option>Sportybet</option>
@@ -103,10 +75,10 @@
                   </select>
                   
                   <div>
-                    <button id="view-bet" class="btn mt-3 mb-2 w-50" type="button">Load</button>
+                    <button id="view-bet" class="btn mt-2 mb-2 w-50" type="button">Load</button>
                   </div>
 
-                  <p class="text-muted">Additional info, instructions, or ads can go here.</p>
+                  <p class="text-muted">Enter your bet code above to view details and share with friends.</p>
                 </div>
 
                 <!-- Right column: results -->
@@ -117,7 +89,34 @@
                     <div class="btv-header-content">
                       <div class="btv-header-left">
                         <h5 id="btv-code-mobile">PYDFRC</h5>
-                        <div class="small">Sportybet NG . 2 Events</div>
+                        <div class="small">
+                          <span id="btv-events-count-mobile">2</span> Events . 
+                          <span id="btv-bookie-name-mobile">Sportybet NG</span>
+                        </div>
+                      </div>
+                      <div class="btv-header-middle">
+                        <button 
+                          id="copy-code-mobile" 
+                          class="icon-btn" 
+                          type="button" 
+                          title="Copy code"
+                          aria-label="Copy code"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                          </svg>
+                        </button>
+                        <button 
+                          id="share-code-mobile" 
+                          class="icon-btn" 
+                          type="button" 
+                          title="Share code"
+                          aria-label="Share code"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+                          </svg>
+                        </button>
                       </div>
                       <div class="btv-header-right">
                         <div class="h4" id="btv-odds-mobile">4.39</div>
@@ -131,7 +130,34 @@
                     <div class="btv-header-content">
                       <div class="btv-header-left">
                         <h5 id="btv-code">PYDFRC</h5>
-                        <div class="btv-header-meta">2 events . Sportybet</div>
+                        <div class="btv-header-meta">
+                          <span id="btv-events-count">2</span> events . 
+                          <span id="btv-bookie-name">Sportybet NG</span>
+                        </div>
+                      </div>
+                      <div class="btv-header-middle">
+                        <span 
+                          id="copy-code" 
+                          class="icon-btn" 
+                          type="button" 
+                          title="Copy code"
+                          aria-label="Copy code"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                          </svg>
+                        </span>
+                        <span 
+                          id="share-code" 
+                          class="icon-btn" 
+                          type="button" 
+                          title="Share code"
+                          aria-label="Share code"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+                          </svg>
+                        </span>
                       </div>
                       <div class="btv-header-right">
                         <div class="h4" id="btv-odds">4.39</div>
@@ -143,11 +169,15 @@
                   <!-- Events list -->
                   <div id="bet-list">
                     <div class="game-card" role="article" aria-label="Event 1">
+                      <span class="serial-number">1</span>
                       <div class="game-card-content">
                         <div class="game-card-left">
-                          <div class="small">International Africa Cup of Nations</div>
+                          <div class="small">
+                            <span class="sport-icon"><i class="bi bi-dribbble"></i></span>
+                            International Africa Cup of Nations
+                          </div>
                           <div class="fw-semibold">Morocco vs Comoros</div>
-                          <div class="game-details">1X2 . Home Win . Dec 21, 20:00 utc</div>
+                          <div class="game-details">1X2 . Home Win . Dec 21, 20:00 UTC</div>
                         </div>
                         <div class="game-card-right">
                           <div class="odds-badge">1.15</div>
@@ -156,11 +186,15 @@
                     </div>
 
                     <div class="game-card" role="article" aria-label="Event 2">
+                      <span class="serial-number">2</span>
                       <div class="game-card-content">
                         <div class="game-card-left">
-                          <div class="small">International Africa Cup of Nations</div>
+                          <div class="small">
+                            <span class="sport-icon"><i class="bi bi-dribbble"></i></span>
+                            International Africa Cup of Nations
+                          </div>
                           <div class="fw-semibold">Mali vs Zambia</div>
-                          <div class="game-details">1X2 . Draw . Dec 22, 15:00 utc</div>
+                          <div class="game-details">1X2 . Draw . Dec 22, 15:00 UTC</div>
                         </div>
                         <div class="game-card-right">
                           <div class="odds-badge">3.82</div>
@@ -172,31 +206,23 @@
                       No results found for this code.
                     </div>
                   </div>
-
+<!-- 
                   <div class="btv-actions">
-                    <div class="icon-section"></div>
-                  </div>
+                    <button id="load-betslip" class="btn" type="button">Load to Betslip</button>
+                  </div> -->
 
                 </div>
 
               </div>
-            </div>
           </div>
         </div>
 
       </main>
     </div>
 
-    <!-- global filter -->
     <div id="filter-canvas"></div>
-
-    <!-- footer -->
-    <!-- <div id="footer"></div> -->
-  
-    <!-- mobile navigation -->
     <div id="mobile-nav"></div>
 
-    <!-- Page Level js -->
     <script src="assets/js/adminux/adminux-dashboard.js"></script>
     <script src="assets/js/betviewer.js"></script>
     <script src="./components/AppLayout.js"></script>

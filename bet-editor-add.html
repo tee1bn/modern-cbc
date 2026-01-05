@@ -7,383 +7,184 @@
   <link rel="preconnect" href="https://fonts.googleapis.com/" />
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&family=SUSE:wght@100..800&display=swap" rel="stylesheet"/>
-  <style>
-    :root {
-      --adminuiux-content-font: "Open Sans", sans-serif;
-      --adminuiux-title-font: "SUSE", sans-serif;
-    }
-    
-  </style>
   <script defer src="assets/js/app8051.js?bd1e16b080f637e63a80"></script>
   <link href="assets/css/app8051.css?bd1e16b080f637e63a80" rel="stylesheet" />
-  <link rel="stylesheet" href="./assets/css/bet-editor-add.css" />
-  <link rel="stylesheet" href="./assets/css/betslip-rail.css" />
+  <link rel="stylesheet" href="assets/css/multi-maker.css">
+  <link rel="stylesheet" href="assets/css/betslip-rail.css">
 </head>
 
-<body class="add-game-screen">
-  
+<body>
   <!-- Header -->
-  <div class="add-game-header">
-    <button class="add-game-back" id="back-btn">
-      <i class="bi bi-chevron-left"></i>
-      Multi Maker
-    </button>
-    <button class="add-game-home" id="home-btn">
+  <div class="mm-header">
+    <div class="mm-header-left">
+      <button class="mm-back-btn" onclick="window.location.href='bet-editor.html'">
+        <i class="bi bi-chevron-left"></i>
+      </button>
+      <h1 class="mm-title">Multi Maker</h1>
+    </div>
+    <button class="mm-home-btn" onclick="window.location.href='index.html'">
       <i class="bi bi-house-fill"></i>
     </button>
   </div>
 
   <!-- Sport Tabs -->
-  <div class="sport-tabs-container">
-    <button class="sport-tab-item active" data-sport="football">
-      <div class="sport-tab-icon"></div>
-      <div class="sport-tab-label">Football</div>
+  <div class="sport-tabs">
+    <button class="sport-tab active" data-sport="football">
+      <i class="bi bi-controller"></i>
+      <span>Football</span>
     </button>
-    <button class="sport-tab-item" data-sport="basketball">
-      <div class="sport-tab-icon"></div>
-      <div class="sport-tab-label">Basketball</div>
+    <button class="sport-tab" data-sport="basketball">
+      <i class="bi bi-controller"></i>
+      <span>Basketball</span>
     </button>
-    <button class="sport-tab-item" data-sport="tennis">
-      <div class="sport-tab-icon"></div>
-      <div class="sport-tab-label">Tennis</div>
+    <button class="sport-tab" data-sport="tennis">
+      <i class="bi bi-controller"></i>
+      <span>Tennis</span>
     </button>
-    <button class="sport-tab-item" data-sport="cs">
-      <div class="sport-tab-icon"></div>
-      <div class="sport-tab-label">Counter-Strike</div>
-    </button>
-    <button class="sport-tab-item" data-sport="dota">
-      <div class="sport-tab-icon"></div>
-      <div class="sport-tab-label">Dota 2</div>
+    <button class="sport-tab" data-sport="esports">
+      <i class="bi bi-controller"></i>
+      <span>E-Sports</span>
     </button>
   </div>
 
-  <!-- Filters -->
-  <div class="filters-bar">
-    <button class="filter-dropdown" id="time-filter">
+  <!-- Filter Bar -->
+  <div class="filter-bar">
+    <button class="filter-btn" id="time-filter">
       Time <i class="bi bi-chevron-down"></i>
     </button>
-    <button class="filter-dropdown" id="market-filter">
-      1X2 <i class="bi bi-chevron-down"></i>
+    <button class="filter-btn active" id="market-filter">
+      1X2 <i class="bi bi-chevron-up"></i>
     </button>
-    <button class="filter-dropdown" id="league-filter">
+    <button class="filter-btn" id="league-filter">
       Leagues <i class="bi bi-chevron-down"></i>
     </button>
-    <button class="filter-dropdown" id="odds-filter">
+    <button class="filter-btn" id="odds-filter">
       Odds <i class="bi bi-chevron-down"></i>
     </button>
   </div>
 
-  <!-- Matches List -->
+  <!-- Matches Container -->
   <div class="matches-container" id="matches-list">
-    
-    <!-- Match 1 -->
-    <div class="match-item" data-match-id="mm-1">
-      <div class="match-header-row">
-        <div class="match-selection">
-          <i class="bi bi-circle"></i> Home | 1X2
-        </div>
-        <div class="match-odds-label">1.54</div>
-      </div>
-      <div class="match-content-row">
-        <button class="match-remove" data-match-id="mm-1">
-          <i class="bi bi-x-lg"></i>
-        </button>
-        <div class="match-details">
-          <div class="match-teams-row">
-            <div class="match-outcome">
-              <i class="bi bi-record-circle-fill"></i>
-              Home
-            </div>
-            <div class="match-teams">Morocco vs Mali</div>
-          </div>
-          <div class="match-info-row">26/12 Fri 21:00</div>
-        </div>
-        <div class="match-odds-value">1.54</div>
-      </div>
-    </div>
-
-    <!-- Match 2 -->
-    <div class="match-item" data-match-id="mm-2">
-      <div class="match-header-row">
-        <div class="match-selection">
-          <i class="bi bi-circle"></i> Away | 1X2
-        </div>
-        <div class="match-odds-label">1.62</div>
-      </div>
-      <div class="match-content-row">
-        <button class="match-remove" data-match-id="mm-2">
-          <i class="bi bi-x-lg"></i>
-        </button>
-        <div class="match-details">
-          <div class="match-teams-row">
-            <div class="match-outcome">
-              <i class="bi bi-record-circle-fill"></i>
-              Away
-            </div>
-            <div class="match-teams">Nottingham Forest vs Man City</div>
-          </div>
-          <div class="match-info-row">27/12 Sat 13:30</div>
-        </div>
-        <div class="match-odds-value">1.62</div>
-      </div>
-    </div>
-
-    <!-- Match 3 -->
-    <div class="match-item" data-match-id="mm-3">
-      <div class="match-header-row">
-        <div class="match-selection">
-          <i class="bi bi-circle"></i> Home | 1X2
-        </div>
-        <div class="match-odds-label">1.39</div>
-      </div>
-      <div class="match-content-row">
-        <button class="match-remove" data-match-id="mm-3">
-          <i class="bi bi-x-lg"></i>
-        </button>
-        <div class="match-details">
-          <div class="match-teams-row">
-            <div class="match-outcome">
-              <i class="bi bi-record-circle-fill"></i>
-              Home
-            </div>
-            <div class="match-teams">AC Milan vs Verona</div>
-          </div>
-          <div class="match-info-row">28/12 Sun 12:30</div>
-        </div>
-        <div class="match-odds-value">1.39</div>
-      </div>
-    </div>
-
-    <!-- Match 4 -->
-    <div class="match-item" data-match-id="mm-4">
-      <div class="match-header-row">
-        <div class="match-selection">
-          <i class="bi bi-circle"></i> Home | 1X2
-        </div>
-        <div class="match-odds-label">1.28</div>
-      </div>
-      <div class="match-content-row">
-        <button class="match-remove" data-match-id="mm-4">
-          <i class="bi bi-x-lg"></i>
-        </button>
-        <div class="match-details">
-          <div class="match-teams-row">
-            <div class="match-outcome">
-              <i class="bi bi-record-circle-fill"></i>
-              Home
-            </div>
-            <div class="match-teams">Liverpool vs Wolves</div>
-          </div>
-          <div class="match-info-row">27/12 Sat 16:00</div>
-        </div>
-        <div class="match-odds-value">1.28</div>
-      </div>
-    </div>
-
-    <!-- Match 5 -->
-    <div class="match-item" data-match-id="mm-5">
-      <div class="match-header-row">
-        <div class="match-selection">
-          <i class="bi bi-circle"></i> Away | 1X2
-        </div>
-        <div class="match-odds-label">2.10</div>
-      </div>
-      <div class="match-content-row">
-        <button class="match-remove" data-match-id="mm-5">
-          <i class="bi bi-x-lg"></i>
-        </button>
-        <div class="match-details">
-          <div class="match-teams-row">
-            <div class="match-outcome">
-              <i class="bi bi-record-circle-fill"></i>
-              Away
-            </div>
-            <div class="match-teams">Chelsea vs Arsenal</div>
-          </div>
-          <div class="match-info-row">28/12 Sun 15:00</div>
-        </div>
-        <div class="match-odds-value">2.10</div>
-      </div>
-    </div>
-
+    <!-- Matches will be dynamically loaded here -->
   </div>
 
-  <!-- Footer -->
-  <div class="add-game-footer">
+  <!-- Bottom Actions -->
+<!-- Bottom Actions -->
+<div class="bottom-actions">
+  <div class="actions-top">
     <div class="selections-info">
-      <div class="selections-count">Selections <strong id="selection-count">5</strong></div>
-      <div class="total-odds-display">Total Odds <strong id="footer-total-odds">9.48</strong></div>
+      Selections <span class="selections-count" id="selections-count">0</span>
     </div>
-    <button class="add-to-betslip-btn" id="add-to-betslip">
-      <i class="bi bi-plus-circle"></i>
+    <div class="total-odds">
+      Total Odds <span id="total-odds">0.00</span>
+    </div>
+    <div class="action-icons">
+      <button class="action-icon-btn" id="refresh-btn" title="Refresh">
+        <i class="bi bi-arrow-clockwise"></i>
+      </button>
+      <button class="action-icon-btn" id="remove-all-btn" title="Remove All">
+        <i class="bi bi-x-lg"></i>
+      </button>
+      <button class="action-icon-btn" id="lock-all-btn" title="Lock All">
+        <i class="bi bi-unlock"></i>
+      </button>
+    </div>
+  </div>
+  <div class="actions-bottom">
+    <div class="add-selections-group">
+      <input type="number" id="add-count-input" class="add-count-input" value="2" min="1" max="50" />
+      <button class="add-selections-btn" id="add-more-btn">
+        Add Selections
+      </button>
+    </div>
+    <button class="add-betslip-btn" id="add-to-betslip">
       Add to Betslip
     </button>
   </div>
+</div>
 
-  <!-- Shared betslip rail -->
+  <!-- Filter Modals -->
+  <div class="filter-modal" id="time-modal">
+    <div class="filter-modal-content">
+      <div class="filter-modal-header">Filter by Time</div>
+      <div class="filter-list" id="time-list"></div>
+      <div class="filter-modal-footer">
+        <button class="filter-cancel-btn" onclick="closeFilterModal('time')">Cancel</button>
+        <button class="filter-apply-btn" onclick="applyFilter('time')">Apply</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="filter-modal" id="market-modal">
+    <div class="filter-modal-content">
+      <div class="filter-modal-header">Filter by Market</div>
+      <div class="filter-list" id="market-list"></div>
+      <div class="filter-modal-footer">
+        <button class="filter-cancel-btn" onclick="closeFilterModal('market')">Cancel</button>
+        <button class="filter-apply-btn" onclick="applyFilter('market')">Apply</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="filter-modal" id="league-modal">
+    <div class="filter-modal-content">
+      <div class="filter-modal-header">Filter by League</div>
+      <div class="filter-list" id="league-list"></div>
+      <div class="filter-modal-footer">
+        <button class="filter-cancel-btn" onclick="closeFilterModal('league')">Cancel</button>
+        <button class="filter-apply-btn" onclick="applyFilter('league')">Apply</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="filter-modal" id="odds-modal">
+    <div class="filter-modal-content">
+      <div class="filter-modal-header">Filter by Odds</div>
+      <div class="odds-range-container">
+        <div class="odds-tabs">
+          <button class="odds-tab active" data-tab="selection">Selection Odds</button>
+          <button class="odds-tab" data-tab="total">Total Odds</button>
+        </div>
+        <div class="range-slider">
+          <div class="range-track"></div>
+          <div class="range-progress" id="odds-progress"></div>
+          <div class="range-input">
+            <input type="range" id="odds-min" min="1" max="10" step="0.1" value="1">
+            <input type="range" id="odds-max" min="1" max="10" step="0.1" value="10">
+          </div>
+        </div>
+        <div class="range-values">
+          <span class="range-value" id="odds-min-value">1.0</span>
+          <span class="range-value" id="odds-max-value">10.0</span>
+        </div>
+      </div>
+      <div class="filter-modal-footer">
+        <button class="filter-cancel-btn" onclick="closeFilterModal('odds')">Cancel</button>
+        <button class="filter-apply-btn" onclick="applyFilter('odds')">Apply</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirmation Modal -->
+  <div class="confirm-modal" id="confirm-modal">
+    <div class="confirm-content">
+      <h3 class="confirm-title">Add to Betslip?</h3>
+      <p class="confirm-message">
+        You are about to add <strong id="confirm-count">0</strong> selections to your betslip. Continue?
+      </p>
+      <div class="confirm-actions">
+        <button class="confirm-cancel" onclick="closeConfirmModal()">Cancel</button>
+        <button class="confirm-ok" onclick="confirmAddToBetslip()">Add to Betslip</button>
+      </div>
+    </div>
+  </div>
+
   <div id="betslip-rail"></div>
 
+
+  <script src="assets/js/adminux/adminux-dashboard.js"></script>
+  <script src="./components/AppLayout.js"></script>
   <script src="./components/betslip-rail.js"></script>
-  <script>
-    // ==================== STATE MANAGEMENT ====================
-    let selectedMatches = new Set(['mm-1', 'mm-2', 'mm-3', 'mm-4', 'mm-5']);
-
-    // ==================== WAIT FOR RAIL ====================
-    function waitForRail() {
-      return new Promise((resolve) => {
-        if (window.betslipRail) {
-          resolve();
-        } else {
-          const checkInterval = setInterval(() => {
-            if (window.betslipRail) {
-              clearInterval(checkInterval);
-              resolve();
-            }
-          }, 50);
-        }
-      });
-    }
-
-    // ==================== SPORT TABS ====================
-    document.querySelectorAll('.sport-tab-item').forEach(tab => {
-      tab.addEventListener('click', function() {
-        document.querySelectorAll('.sport-tab-item').forEach(t => t.classList.remove('active'));
-        this.classList.add('active');
-        console.log('Selected sport:', this.dataset.sport);
-      });
-    });
-
-    // ==================== NAVIGATION ====================
-    document.getElementById('back-btn').addEventListener('click', () => {
-      window.location.href = 'bet-editor.html';
-    });
-
-    document.getElementById('home-btn').addEventListener('click', () => {
-      window.location.href = 'bet-editor.html';
-    });
-
-    // ==================== REMOVE MATCH ====================
-    document.querySelectorAll('.match-remove').forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const matchId = this.dataset.matchId;
-        const matchItem = document.querySelector(`.match-item[data-match-id="${matchId}"]`);
-        
-        // Add removing animation
-        matchItem.classList.add('removing');
-        
-        // Remove from selection
-        selectedMatches.delete(matchId);
-        
-        // Remove from DOM after animation
-        setTimeout(() => {
-          matchItem.remove();
-          updateFooter();
-        }, 200);
-      });
-    });
-
-    // ==================== ADD TO BETSLIP ====================
-    document.getElementById('add-to-betslip').addEventListener('click', async () => {
-      await waitForRail();
-      
-      const addBtn = document.getElementById('add-to-betslip');
-      
-      // Disable button during processing
-      addBtn.disabled = true;
-      addBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Adding...';
-      
-      // Get selected matches data and add to shared rail
-      const addedCount = await addSelectionsToRail();
-      
-      // Show success state
-      addBtn.classList.add('success');
-      addBtn.innerHTML = `<i class="bi bi-check-circle"></i> Added ${addedCount}!`;
-      
-      // Flash the Rail badge
-      if (window.betslipRail && window.betslipRail.flashBadge) {
-        window.betslipRail.flashBadge();
-      }
-      
-      // Wait a moment to show success
-      setTimeout(() => {
-        // Redirect to editor
-        window.location.href = 'bet-editor.html';
-      }, 800);
-    });
-
-    // ==================== ADD SELECTIONS TO RAIL ====================
-    async function addSelectionsToRail() {
-      let addedCount = 0;
-      
-      for (const matchId of selectedMatches) {
-        const matchEl = document.querySelector(`.match-item[data-match-id="${matchId}"]`);
-        if (!matchEl) continue;
-        
-        const teams = matchEl.querySelector('.match-teams').textContent.trim();
-        const odds = matchEl.querySelector('.match-odds-value').textContent.trim();
-        const datetime = matchEl.querySelector('.match-info-row').textContent.trim();
-        const outcome = matchEl.querySelector('.match-outcome').textContent.trim();
-        
-        const selection = {
-          matchId: matchId,
-          teams: teams,
-          date: datetime,
-          market: '1x2',
-          value: outcome.toLowerCase(),
-          odd: odds,
-          odds: odds,
-          league: 'Football',
-          selected: true
-        };
-        
-        if (window.betslipRail && window.betslipRail.addSelection) {
-          window.betslipRail.addSelection(selection);
-          addedCount++;
-        } else {
-          // Fallback to localStorage
-          const existingBets = JSON.parse(localStorage.getItem('editorBets') || '[]');
-          existingBets.push(selection);
-          localStorage.setItem('editorBets', JSON.stringify(existingBets));
-          addedCount++;
-        }
-      }
-      
-      return addedCount;
-    }
-
-    // ==================== UPDATE FOOTER ====================
-    function updateFooter() {
-      const count = selectedMatches.size;
-      document.getElementById('selection-count').textContent = count;
-      
-      // Calculate total odds
-      const totalOdds = Array.from(selectedMatches).reduce((acc, matchId) => {
-        const matchEl = document.querySelector(`.match-item[data-match-id="${matchId}"]`);
-        if (matchEl) {
-          const odds = parseFloat(matchEl.querySelector('.match-odds-value').textContent);
-          return acc * odds;
-        }
-        return acc;
-      }, 1).toFixed(2);
-      
-      document.getElementById('footer-total-odds').textContent = totalOdds;
-      
-      // Disable button if no selections
-      const addBtn = document.getElementById('add-to-betslip');
-      addBtn.disabled = count === 0;
-      
-      if (count === 0) {
-        addBtn.innerHTML = '<i class="bi bi-inbox"></i> No selections';
-      } else {
-        addBtn.innerHTML = `<i class="bi bi-plus-circle"></i> Add to Betslip`;
-      }
-    }
-
-    // ==================== INITIAL STATE ====================
-    window.addEventListener('DOMContentLoaded', () => {
-      updateFooter();
-    });
-  </script>
+  <script src="./components/multi-maker.js"></script>
 </body>
 </html>

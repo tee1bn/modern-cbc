@@ -1,50 +1,201 @@
-.back-header {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background: #f5f5f5;
+  overflow-x: hidden;
+}
+
+/* ===== HEADER ===== */
+.event-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+.event-header.scrolled .header-logo,
+.event-header.scrolled .header-actions {
+  display: none;
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.header-logo {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 16px;
-  border-bottom: 1px solid #e0e0e0;
-  cursor: pointer;
-}
-
-.back-header:hover {
-  background: #fafafa;
-}
-
-.back-icon {
   font-size: 18px;
+  font-weight: 700;
+  color: #444;
 }
 
-.back-header span {
+/* Header logo modifications */
+.header-logo .header-match-name {
+  display: none;
+}
+
+.event-header.scrolled .header-logo {
+  display: flex !important;
+}
+
+.event-header.scrolled .header-logo .header-title {
+  display: none;
+}
+
+.event-header.scrolled .header-logo .header-match-name {
+  display: block;
   font-size: 14px;
   font-weight: 600;
 }
 
-/* MATCH HEADER */
-.match-header {
-  padding: 16px;
-  text-align: center;
-  border-bottom: 1px solid #e0e0e0;
+/* Adjust market filter bar sticky position when scrolled */
+.event-header.scrolled .market-filter-bar {
+  top: 98px;
 }
 
-.match-competition {
+/* Adjust markets container padding when scrolled */
+.event-header.scrolled ~ .markets-container {
+  padding-top: 200px;
+}
+
+.event-header.scrolled .match-info {
+  display: none;
+}
+
+/* Hide match info when scrolled */
+.event-header.scrolled .match-info {
+  display: none;
+}
+
+/* Adjust action tabs position when scrolled */
+.event-header.scrolled .action-tabs {
+  top: 48px;
+}
+
+/* Adjust market filter bar position when scrolled */
+.event-header.scrolled .market-filter-bar {
+  top: 98px;
+}
+
+/* Reduce markets container top padding when scrolled */
+@media (max-width: 480px) {
+  .event-header.scrolled ~ .adminuiux-content .markets-container {
+    margin-top: 145px;
+  }
+}
+
+.event-header.scrolled ~ .adminuiux-content .markets-container {
+  padding-top: 145px;
+}
+
+.header-back {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.header-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.event-btn {
+    width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Match Info */
+.match-info {
+  padding: 12px 16px;
+  background: white;
+}
+
+.match-league {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
   font-size: 12px;
   color: #666;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+}
+
+.sport-icon {
+  font-size: 14px;
+}
+
+.league-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   text-decoration: underline;
 }
 
 .match-teams {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 20px;
-  margin: 12px 0;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.team {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.team.home {
+  align-items: flex-start;
+}
+
+.team.away {
+  align-items: flex-end;
 }
 
 .team-logo {
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,65 +205,304 @@
 }
 
 .team-name {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   color: #333;
+  text-align: center;
+  max-width: 120px;
 }
 
-.vs {
-  font-size: 20px;
-  font-weight: bold;
-  color: #333;
+.match-vs {
+  font-size: 16px;
+  font-weight: 500;
+  color: #999;
 }
 
-/* MARKETS TABS */
-.market-tabs {
+.match-time {
   display: flex;
-  overflow-x: auto;
-  border-bottom: 1px solid #e0e0e0;
+  flex-direction: column;
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+}
+
+.match-time span {
+  font-size: 11px;
+}
+
+/* Action Tabs */
+.action-tabs {
+  display: flex;
   background: white;
+  border-bottom: 1px solid #e0e0e0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  overflow-x: auto;
+}
+
+.action-tab {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  background: transparent;
+  border-bottom: 2px solid transparent;
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.action-tab.active {
+  color: #000;
+  border-bottom-color: #000;
+}
+
+/* Market Filter Bar */
+.market-filter-bar {
+  position: sticky;
+  top: 50px;
+  z-index: 45;
+  background: white;
+  padding: 10px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.market-filter-bar::-webkit-scrollbar {
+  display: none;
 }
 
 .market-tab {
-  padding: 12px 16px;
-  white-space: nowrap;
+  padding: 4px 12px;
+  border: 1px solid #333;
+  /* border-radius: 4px; */
+  background: white;
   font-size: 13px;
   font-weight: 600;
-  border-bottom: 2px solid transparent;
+  white-space: nowrap;
   cursor: pointer;
   transition: all 0.2s;
 }
 
-.market-tab:hover {
-  background: #fafafa;
-}
-
 .market-tab.active {
-  border-bottom-color: black;
+  background: #000;
+  color: white;
 }
 
-/* ODDS SECTION */
-.odds-section {
-  padding: 0;
+.market-tab.favorite {
+  padding: 8px 12px;
 }
 
-.market-group {
+.filter {
+  padding: 8px 12px;
+  cursor: pointer;
+  display: flex;
+}
+
+.border {
+  margin-left: 10px;
+}
+
+
+
+/* Markets Container - Increase padding to ensure first market shows */
+.markets-container {
+  padding-top: 310px;
+  padding-bottom: 80px;
+}
+
+@media (max-width: 480px){
+  .markets-container {
+    padding-top: 300px;
+  }
+}
+
+/* When scrolled - keep adequate padding */
+.event-header.scrolled ~ .adminuiux-content .markets-container {
+  padding-top: 160px;
+}
+
+@media (max-width: 480px) {
+  .event-header.scrolled ~ .adminuiux-content .markets-container {
+    padding-top: 155px;
+  }
+}
+
+/* Ensure header doesn't cover markets */
+.event-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+/* Make sure market filter bar doesn't overlap */
+.market-filter-bar {
+  position: sticky;
+  top: 218px;
+  z-index: 45;
+  background: white;
+  padding: 10px 16px;
   border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+/* When scrolled, adjust market filter bar position */
+.event-header.scrolled .market-filter-bar {
+  top: 108px;
+}
+
+/* Market Group */
+.market-group {
+  background: white;
+  /* margin-bottom: 8px; */
 }
 
 .market-header {
   padding: 12px 16px;
-  font-size: 13px;
-  font-weight: 600;
-  color: #333;
-  background: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  border-bottom: 1px solid #e0e0e0;
 }
 
-/* BOOKIE ROW */
+.market-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.market-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.info-icon {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.favourite-icon{
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.market-expand {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #666;
+}
+
+.expand-icon {
+  font-size: 13px;
+  transition: transform 0.3s ease;
+}
+
+.market-group.collapsed .expand-icon {
+  transform: rotate(-90deg);
+}
+
+/* Market Options (1X2 Headers) */
+.market-options {
+  display: none;
+  padding: 8px 16px;
+  background: #f9f9f9;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.market-group:not(.collapsed) .market-options {
+  display: flex;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 8px;
+  width: 100%;
+}
+
+.option-label {
+  text-transform: uppercase;
+  padding: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+}
+
+.option-headers {
+  display: flex;
+  gap: 8px;
+}
+
+.option-header {
+  flex: 1;
+  padding: 8px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+  /* background: white; */
+  /* border: 1px solid #ddd; */
+  /* border-radius: 4px; */
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+/* .option-header:hover {
+  background: #f0f0f0;
+}
+
+.option-header.sorting {
+  background: #000;
+  color: white;
+  border-color: #000;
+} */
+
+/* Bookie Rows */
+.bookie-list {
+  display: none;
+}
+
+.market-group:not(.collapsed) .bookie-list {
+  display: block;
+}
+
 .bookie-row {
   display: grid;
   grid-template-columns: 120px 1fr;
-  align-items: center;
+  gap: 8px;
   padding: 12px 16px;
   border-bottom: 1px solid #f0f0f0;
   transition: background 0.2s;
@@ -122,61 +512,38 @@
   background: #fafafa;
 }
 
-.bookie-row:last-child {
-  border-bottom: none;
-}
-
-.bookie-info {
+.bookie-name {
   display: flex;
   align-items: center;
-  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .bookie-logo {
-  width: 60px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  font-weight: bold;
-  color: white;
-  border-radius: 3px;
   padding: 4px 8px;
-}
-
-.bookie-logo.blue {
-  background: #1763d8;
-}
-
-.bookie-logo.red {
-  background: #e11b1b;
-}
-
-.bookie-logo.black {
   background: #000;
-}
-
-.bookie-logo.purple {
-  background: #6b46c1;
+  color: white;
+  /* border-radius: 3px; */
+  font-size: 11px;
+  font-weight: 700;
 }
 
 .bookie-odds {
   display: flex;
   gap: 8px;
-  justify-content: flex-end;
 }
 
 .odd-value {
-  min-width: 60px;
-  padding: 8px 10px;
+  flex: 1;
+  padding: 10px;
   text-align: center;
   font-size: 13px;
   font-weight: 600;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  /* border-radius: 4px; */
   cursor: pointer;
   transition: all 0.2s;
+  background: white;
 }
 
 .odd-value:hover {
@@ -189,206 +556,180 @@
   background: #e8f5e9;
   color: #2e7d32;
   border-color: #2e7d32;
-}
-
-.odd-value.worst {
-  background: #ffebee;
-  color: #c62828;
-  border-color: #c62828;
+  font-weight: 700;
 }
 
 .odd-dash {
-  min-width: 60px;
-  padding: 8px 10px;
-  text-align: center;
-  font-size: 13px;
-  color: #999;
-}
-
-/* BEST INDICATOR */
-.best-indicator {
+  flex: 1;
   display: flex;
   align-items: center;
-  gap: 4px;
-  font-size: 12px;
-  color: #2e7d32;
-}
-
-.arrow-up {
-  font-size: 14px;
-}
-
-.arrow-down {
-  font-size: 14px;
-  color: #c62828;
-}
-
-/* MORE LINK */
-.more-link {
-  padding: 12px 16px;
-  text-align: right;
+  justify-content: center;
+  color: #999;
   font-size: 13px;
-  color: #666;
-  cursor: pointer;
+}
+
+
+/* Scrolled State */
+.event-header.scrolled {
+  padding-top: 0;
+}
+
+.event-header.scrolled .header-top {
+  padding: 8px 16px;
+}
+
+.event-header.scrolled .match-info {
+  padding: 8px 16px;
+}
+
+.event-header.scrolled .match-teams {
+  margin-bottom: 4px;
+}
+
+.event-header.scrolled .team-logo {
+  width: 36px;
+  height: 36px;
+  font-size: 18px;
+}
+
+.event-header.scrolled .team-name {
+  font-size: 12px;
+}
+
+.market-info-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.market-info-modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  /* border-radius: 8px; */
+  width: 80%;
+  max-width: 500px;
+  position: relative;
+  animation: slideDown 0.3s ease;
+}
+
+.market-info-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
 }
 
-.more-link:hover {
-  background: #fafafa;
+.market-info-modal-header h2 {
+  margin: 0;
+  font-size: 18px;
 }
 
-.more-link i {
-  margin-left: 4px;
+.market-info-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
 }
 
-/* RESPONSIVE */
+.market-info-modal-body {
+  text-align: left;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
 @media (max-width: 480px) {
+  .team-name {
+    font-size: 12px;
+    max-width: 100px;
+  }
+
   .bookie-row {
-    grid-template-columns: 80px 1fr;
+    grid-template-columns: 100px 1fr;
     padding: 10px 12px;
   }
 
-  .bookie-logo {
-    width: 50px;
-    font-size: 10px;
-  }
-
-  .odd-value,
-  .odd-dash {
-    min-width: 50px;
-    padding: 6px 8px;
+  .odd-value {
+    padding: 8px;
     font-size: 12px;
   }
-
-  .match-teams {
-    gap: 16px;
-  }
-
-  .team-logo {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-  }
-
-  .team-name {
-    font-size: 14px;
-  }
 }
 
-/* ACTION TABS (Markets/Stats/Comments) */
-.action-tabs {
+/* ===== HEADER ===== */
+.event-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+.event-header.scrolled .header-logo {
+  display: none;
+}
+
+.header-top {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
   border-bottom: 1px solid #e0e0e0;
-  background: white;
 }
 
-.action-tab {
-  flex: 1;
-  padding: 14px 16px;
-  background: white;
-  border: none;
-  border-bottom: 2px solid transparent;
-  font-size: 14px;
-  font-weight: 600;
-  color: #666;
-  cursor: pointer;
+.header-logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18px;
+  font-weight: 700;
+  color: #444;
+}
+
+.header-back {
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  transition: all 0.2s;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 20px;
 }
 
-.action-tab:hover {
-  background: #fafafa;
-}
-
-.action-tab.active {
-  color: #000;
-  border-bottom-color: #000;
-}
-
-.action-tab i {
-  font-size: 16px;
-}
-
-/* MARKET FILTER BAR */
-.market-filter-bar {
+.header-actions {
   display: flex;
   gap: 8px;
-  padding: 10px;
-  border-bottom: 1px solid #e0e0e0;
-  background: white;
-  overflow-x: auto;
 }
 
-.filter-btn {
-  padding: 8px 12px;
-  background: white;
-  border: 1px solid #333;
-  border-radius: 4px;
-  cursor: pointer;
-  flex-shrink: 0;
+.header-btn {
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s;
-}
-
-.filter-btn:hover {
-  background: #000;
-  color: white;
-}
-
-.filter-btn i {
-  font-size: 16px;
-}
-
-.market-search-tabs {
-  display: flex;
-  gap: 6px;
-  flex: 1;
-  overflow-x: auto;
-}
-
-.market-search-tab {
-  padding: 8px 14px;
-  background: white;
-  border: 1px solid #333;
-  border-radius: 4px;
-  font-size: 13px;
-  font-weight: 600;
-  white-space: nowrap;
+  border: none;
+  background: transparent;
   cursor: pointer;
-  transition: all 0.2s;
-}
-
-.market-search-tab:hover {
-  background: #fafafa;
-}
-
-.market-search-tab.active {
-  background: #000;
-  color: white;
-  border-color: #000;
-}
-
-.market-search-tab i {
-  font-size: 14px;
-}
-
-@media (max-width: 480px) {
-  .action-tab {
-    padding: 12px 10px;
-    font-size: 13px;
-  }
-  
-  .action-tab i {
-    font-size: 14px;
-  }
-  
-  .market-search-tab {
-    padding: 6px 12px;
-    font-size: 12px;
-  }
+  font-size: 18px;
 }

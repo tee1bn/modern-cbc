@@ -1,219 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Multi bet editor - ConvertBetCodes</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com/" />
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&family=SUSE:wght@100..800&display=swap" rel="stylesheet"/>
-  <style>
-    :root {
-      --adminuiux-content-font: "Open Sans", sans-serif;
-      --adminuiux-title-font: "SUSE", sans-serif;
-    }
-    
-  </style>
-  <script defer src="assets/js/app8051.js?bd1e16b080f637e63a80"></script>
-  <link href="assets/css/app8051.css?bd1e16b080f637e63a80" rel="stylesheet" />
-  <link rel="stylesheet" href="./assets/css/bet-editor.css" />
-  <link rel="stylesheet" href="./assets/css/betslip-rail.css" />
-</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Multi bet editor - ConvertBetCodes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&family=SUSE:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --adminuiux-content-font: "Open Sans", sans-serif;
+        --adminuiux-title-font: "SUSE", sans-serif;
+      }
+    </style>
+    <script defer src="assets/js/app8051.js?bd1e16b080f637e63a80"></script>
+    <link href="assets/css/app8051.css?bd1e16b080f637e63a80" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/bet-editor.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/betslip-rail.css" />
+  </head>
 
-<body class="main-bg main-bg-opac adminuiux-header-standard theme-blue adminuiux-header-transparent adminuiux-sidebar-fill-white adminuiux-sidebar-standard bg-r-gradient scrollup">
-  
-  <div id="desktop-nav"></div>
-  <div id="side-menu"></div>
+  <body
+    class="main-bg main-bg-opac adminuiux-header-standard theme-blue adminuiux-header-transparent adminuiux-sidebar-fill-white adminuiux-sidebar-standard bg-r-gradient scrollup"
+  >
+    <div id="desktop-nav"></div>
+    <div id="side-menu"></div>
 
-  <div class="adminuiux-wrap">
-    <main class="adminuiux-content has-sidebar" onclick="contentClick()">
-      
-      <div class="container-fluid py-1 py-lg-3">
-        <div class="row gx-3 gx-lg-4 align-items-center page-title">
-          <div class="col col-sm">
-            <h6 class="mb-0">Multi Bet Editor</h6>
-            <p class="text-secondary small">Universal Edit My Bet Feature</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="mt-3 p-1">
-        <div class="card p-0 bet-editor">
-          
-          <!-- Simplified Editor Controls -->
-          <div class="editor-controls">
-            <div class="editor-badge">
-              <span>Editor</span>
-            </div>
-          </div>
-
-          <!-- Action Buttons (Primary CTAs) -->
-          <div class="action-buttons">
-            <button class="action-btn" id="load-code-btn">
-              <i class="bi bi-plus-circle"></i>
-              Load Code
-            </button>
-            <button class="action-btn" id="add-game-btn">
-              <i class="bi bi-plus-circle"></i>
-              Add Game
-            </button>
-          </div>
-
-          <!-- Info Card (shown when betslip has items) -->
-          <div class="editor-info-card" id="info-card" style="display: none;">
-            <div class="info-card-header">
-              <div class="info-card-icon">
-                <i class="bi bi-check-circle-fill"></i>
-              </div>
-              <div class="info-card-content">
-                <h4 class="info-card-title">Your betslip is ready!</h4>
-                <p class="info-card-text">
-                  You have <strong id="bet-count-info">0</strong> selections in your betslip. 
-                  Click the betslip badge at the bottom to review, edit, or book your bets.
-                </p>
+    <div class="adminuiux-wrap page-wrap">
+      <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+        <div class="">
+          <div class="card p-0 bet-editor">
+            <!-- Simplified Editor Controls -->
+            <div class="editor-controls">
+              <div class="editor-badge">
+                <span>Editor</span>
               </div>
             </div>
-            <div class="info-card-btn" id="open-betslip-btn">
-              <!-- <i class="bi bi-eye"></i> View Betslip -->
+
+            <!-- Action Buttons (Primary CTAs) -->
+            <div class="action-buttons">
+              <button class="action-btn" id="load-code-btn">
+                <i class="bi bi-plus-circle"></i>
+                Load Code
+              </button>
+              <button class="action-btn" id="add-game-btn">
+                <i class="bi bi-plus-circle"></i>
+                Add Game
+              </button>
+            </div>
+
+            <!-- Info Card (shown when betslip has items) -->
+            <div class="editor-info-card" id="info-card" style="display: none">
+              <div class="info-card-header">
+                <div class="info-card-icon">
+                  <i class="bi bi-check-circle-fill"></i>
+                </div>
+                <div class="info-card-content">
+                  <h4 class="info-card-title">Your betslip is ready!</h4>
+                  <p class="info-card-text">
+                    You have <strong id="bet-count-info">0</strong> selections
+                    in your betslip. Click the betslip badge at the bottom to
+                    review, edit, or book your bets.
+                  </p>
+                </div>
+              </div>
+              <div class="info-card-btn" id="open-betslip-btn">
+                <!-- <i class="bi bi-eye"></i> View Betslip -->
+              </div>
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="empty-state">
+              <div class="empty-state-icon">
+                <svg
+                  width="120"
+                  height="120"
+                  viewBox="0 0 120 120"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    x="20"
+                    y="30"
+                    width="80"
+                    height="60"
+                    rx="8"
+                    stroke="#E0E0E0"
+                    stroke-width="3"
+                    fill="none"
+                  />
+                  <path
+                    d="M30 45 L90 45"
+                    stroke="#E0E0E0"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                  <circle cx="40" cy="60" r="8" fill="#E0E0E0" />
+                  <rect
+                    x="52"
+                    y="55"
+                    width="30"
+                    height="4"
+                    rx="2"
+                    fill="#E0E0E0"
+                  />
+                  <rect
+                    x="52"
+                    y="63"
+                    width="20"
+                    height="3"
+                    rx="1.5"
+                    fill="#E0E0E0"
+                  />
+                  <circle cx="40" cy="78" r="8" fill="#E0E0E0" />
+                  <rect
+                    x="52"
+                    y="73"
+                    width="30"
+                    height="4"
+                    rx="2"
+                    fill="#E0E0E0"
+                  />
+                  <rect
+                    x="52"
+                    y="81"
+                    width="20"
+                    height="3"
+                    rx="1.5"
+                    fill="#E0E0E0"
+                  />
+                </svg>
+              </div>
+              <p class="empty-state-text">No bets added yet</p>
+              <p class="empty-state-subtext">
+                Use "Load Code" to import existing bets or "Add Game" to create
+                new ones
+              </p>
             </div>
           </div>
-
-          <!-- Empty State -->
-          <div class="empty-state" id="empty-state">
-            <div class="empty-state-icon">
-              <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="20" y="30" width="80" height="60" rx="8" stroke="#E0E0E0" stroke-width="3" fill="none"/>
-                <path d="M30 45 L90 45" stroke="#E0E0E0" stroke-width="3" stroke-linecap="round"/>
-                <circle cx="40" cy="60" r="8" fill="#E0E0E0"/>
-                <rect x="52" y="55" width="30" height="4" rx="2" fill="#E0E0E0"/>
-                <rect x="52" y="63" width="20" height="3" rx="1.5" fill="#E0E0E0"/>
-                <circle cx="40" cy="78" r="8" fill="#E0E0E0"/>
-                <rect x="52" y="73" width="30" height="4" rx="2" fill="#E0E0E0"/>
-                <rect x="52" y="81" width="20" height="3" rx="1.5" fill="#E0E0E0"/>
-              </svg>
-            </div>
-            <p class="empty-state-text">No bets added yet</p>
-            <p class="empty-state-subtext">Use "Load Code" to import existing bets or "Add Game" to create new ones</p>
-          </div>
-
         </div>
-      </div>
+      </main>
+    </div>
 
-    </main>
-  </div>
+    <div id="filter-canvas"></div>
+    <div id="mobile-nav"></div>
+    <div id="betslip-rail"></div>
 
-  <!-- Shared betslip rail -->
-  <div id="betslip-rail"></div>
+    <script src="assets/js/adminux/adminux-dashboard.js"></script>
+    <script src="./components/AppLayout.js"></script>
+    <script src="./components/betslip-rail.js"></script>
+    <script src="./components/market-edit-modal.js"></script>
+    <script>
+      // ==================== WAIT FOR RAIL TO BE READY ====================
+      function waitForRail() {
+        return new Promise((resolve) => {
+          if (window.betslipRail) {
+            resolve();
+          } else {
+            const checkInterval = setInterval(() => {
+              if (window.betslipRail) {
+                clearInterval(checkInterval);
+                resolve();
+              }
+            }, 50);
+          }
+        });
+      }
 
-  <div id="filter-canvas"></div>
-  <div id="mobile-nav"></div>
+      // ==================== NAVIGATION ====================
+      async function setupNavigation() {
+        await waitForRail();
 
-  <script src="assets/js/adminux/adminux-dashboard.js"></script>
-  <script src="./components/AppLayout.js"></script>
-  <script src="./components/betslip-rail.js"></script>
-  <script src="./components/market-edit-modal.js"></script>
-  <script>
-    // ==================== WAIT FOR RAIL TO BE READY ====================
-    function waitForRail() {
-      return new Promise((resolve) => {
-        if (window.betslipRail) {
-          resolve();
+        const loadCodeBtn = document.getElementById("load-code-btn");
+        const addGameBtn = document.getElementById("add-game-btn");
+
+        loadCodeBtn.addEventListener("click", () => {
+          console.log(
+            "Load Code clicked, Rail available:",
+            !!window.betslipRail
+          );
+
+          // FIXED: Just open the rail - the empty state will show the load form
+          if (window.betslipRail && window.betslipRail.openRail) {
+            window.betslipRail.openRail();
+          } else {
+            console.warn("Rail not ready, falling back to navigation");
+            window.location.href = "bet-editor-load.html";
+          }
+        });
+
+        addGameBtn.addEventListener("click", () => {
+          window.location.href = "bet-editor-add.html";
+        });
+      }
+
+      // ==================== UI STATE MANAGEMENT ====================
+      async function updateUIState() {
+        await waitForRail();
+
+        const bets = window.betslipRail ? window.betslipRail.getBets() : [];
+        const emptyState = document.getElementById("empty-state");
+        const infoCard = document.getElementById("info-card");
+        const betCountInfo = document.getElementById("bet-count-info");
+
+        if (bets.length === 0) {
+          // Show empty state
+          if (emptyState) emptyState.style.display = "block";
+          if (infoCard) infoCard.style.display = "none";
         } else {
-          const checkInterval = setInterval(() => {
-            if (window.betslipRail) {
-              clearInterval(checkInterval);
-              resolve();
+          // Show info card
+          if (emptyState) emptyState.style.display = "none";
+          if (infoCard) {
+            infoCard.style.display = "block";
+            if (betCountInfo) betCountInfo.textContent = bets.length;
+          }
+        }
+      }
+
+      // ==================== OPEN BETSLIP ====================
+      async function setupOpenBetslip() {
+        await waitForRail();
+
+        const openBetslipBtn = document.getElementById("open-betslip-btn");
+        if (openBetslipBtn) {
+          openBetslipBtn.addEventListener("click", () => {
+            if (window.betslipRail && window.betslipRail.openRail) {
+              window.betslipRail.openRail();
             }
-          }, 50);
+          });
         }
-      });
-    }
-
-    // ==================== NAVIGATION ====================
-    async function setupNavigation() {
-      await waitForRail();
-
-      const loadCodeBtn = document.getElementById('load-code-btn');
-      const addGameBtn = document.getElementById('add-game-btn');
-
-      loadCodeBtn.addEventListener('click', () => {
-        console.log('Load Code clicked, Rail available:', !!window.betslipRail);
-        
-        // Open load code modal directly from Rail
-        if (window.betslipRail && window.betslipRail.showLoadCodeModal) {
-          window.betslipRail.showLoadCodeModal();
-        } else {
-          console.warn('Rail not ready, falling back to navigation');
-          // Fallback: navigate to load page
-          window.location.href = 'bet-editor-load.html';
-        }
-      });
-
-      addGameBtn.addEventListener('click', () => {
-        window.location.href = 'bet-editor-add.html';
-      });
-    }
-
-    // ==================== UI STATE MANAGEMENT ====================
-    async function updateUIState() {
-      await waitForRail();
-      
-      const bets = window.betslipRail ? window.betslipRail.getBets() : [];
-      const emptyState = document.getElementById('empty-state');
-      const infoCard = document.getElementById('info-card');
-      const betCountInfo = document.getElementById('bet-count-info');
-
-      if (bets.length === 0) {
-        // Show empty state
-        emptyState.style.display = 'block';
-        infoCard.style.display = 'none';
-      } else {
-        // Show info card
-        emptyState.style.display = 'none';
-        infoCard.style.display = 'block';
-        betCountInfo.textContent = bets.length;
       }
-    }
 
-    // ==================== OPEN BETSLIP ====================
-    async function setupOpenBetslip() {
-      await waitForRail();
-      
-      document.getElementById('open-betslip-btn').addEventListener('click', () => {
-        if (window.betslipRail && window.betslipRail.openRail) {
-          window.betslipRail.openRail();
-        }
-      });
-    }
-
-    // ==================== LISTEN TO BETSLIP UPDATES ====================
-    document.addEventListener('betslip:updated', (e) => {
-      updateUIState();
-    });
-
-    document.addEventListener('betslip:cleared', (e) => {
-      updateUIState();
-    });
-
-    // ==================== INITIAL STATE ====================
-    window.addEventListener('DOMContentLoaded', async () => {
-      // Wait for Rail to be ready
-      await waitForRail();
-      
-      // Setup all interactions
-      await setupNavigation();
-      await setupOpenBetslip();
-      
-      // Update UI state
-      updateUIState();
-    });
-
-    // ==================== PAGE VISIBILITY (Sync across tabs) ====================
-    document.addEventListener('visibilitychange', () => {
-      if (!document.hidden) {
+      // ==================== LISTEN TO BETSLIP UPDATES ====================
+      document.addEventListener("betslip:updated", (e) => {
         updateUIState();
-      }
-    });
-  </script>
-</body>
+      });
+
+      document.addEventListener("betslip:cleared", (e) => {
+        updateUIState();
+      });
+
+      // ==================== INITIAL STATE ====================
+      window.addEventListener("DOMContentLoaded", async () => {
+        // Wait for Rail to be ready
+        await waitForRail();
+
+        // Setup all interactions
+        await setupNavigation();
+        await setupOpenBetslip();
+
+        // Update UI state
+        updateUIState();
+      });
+
+      // ==================== PAGE VISIBILITY (Sync across tabs) ====================
+      document.addEventListener("visibilitychange", () => {
+        if (!document.hidden) {
+          updateUIState();
+        }
+      });
+    </script>
+  </body>
 </html>

@@ -16,6 +16,8 @@
   <link href="assets/css/app8051.css?bd1e16b080f637e63a80" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/css/main.css" />
   <link rel="stylesheet" href="./assets/css/predictions.css" />
+  <link rel="stylesheet" href="./assets/css/predictions-filters.css" />
+  <link rel="stylesheet" href="./assets/css/betslip-rail.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 
@@ -24,7 +26,7 @@
   <div id="desktop-nav"></div>
   <div id="side-menu"></div>
 
-  <div class="adminuiux-wrap">
+  <div class="adminuiux-wrap page-wrapper">
     <main class="adminuiux-content has-sidebar" onclick="contentClick()">
       
       <div class="container-fluid py-1 py-lg-3">
@@ -38,65 +40,34 @@
 
       <div class="main-content mt-3">
         <div class="card p-0 predictions-page">
-          
-          <!-- Filter Bar -->
-          <div class="predictions-filters">
-            <button class="filter-btn" id="open-filter-btn">
-              <i class="bi bi-funnel"></i> Filter
-            </button>
-            <button class="filter-btn" id="sports-filter-btn">
-              <i class="bi bi-trophy"></i> Sports
-            </button>
-          </div>
 
-          <!-- Sport Tabs -->
+          <!-- Sport Tabs with Icons -->
           <div class="sport-filter-tabs" id="sport-tabs">
-            <button class="sport-filter-tab active" data-sport="football">Football</button>
-            <button class="sport-filter-tab" data-sport="basketball">Basketball</button>
-            <button class="sport-filter-tab" data-sport="tennis">Tennis</button>
+            <div class="sport-filter-tab active" data-sport="football">
+              <i class="bi bi-dribbble"></i> Football
+            </div>
+            <div class="sport-filter-tab" data-sport="basketball">
+              <i class="bi bi-basket"></i> Basketball
+            </div>
+            <div class="sport-filter-tab" data-sport="tennis">
+              <i class="bi bi-trophy"></i> Tennis
+            </div>
           </div>
 
-          <!-- Market Tabs -->
-          <div class="market-filter-tabs" id="market-tabs">
-            <button class="market-filter-tab active" data-market="1x2">
-              1X2 <span class="market-count">419</span>
+          <!-- Filter Buttons -->
+          <div class="predictions-filters">
+            <button class="filter-btn" id="time-filter-btn">
+              Time <i class="bi bi-chevron-down"></i>
             </button>
-            <button class="market-filter-tab" data-market="double-chance">
-              Double Chance <span class="market-count">75</span>
-            </button>
-            <button class="market-filter-tab" data-market="handicap">
-              Handicap <span class="market-count">5</span>
-            </button>
-            
-            <!-- Hidden markets (show on click) -->
-            <button class="market-filter-tab hidden" data-market="over-under">
-              Over/Under <span class="market-count">253</span>
-            </button>
-            <button class="market-filter-tab hidden" data-market="gg-ng">
-              Gg/ng <span class="market-count">44</span>
-            </button>
-            <button class="market-filter-tab hidden" data-market="european-handicap">
-              European Handicap <span class="market-count">7</span>
-            </button>
-            <button class="market-filter-tab hidden" data-market="btts">
-              BTTS <span class="market-count">38</span>
-            </button>
-            <button class="market-filter-tab hidden" data-market="correct-score">
-              Correct Score <span class="market-count">92</span>
-            </button>
-            <button class="market-filter-tab hidden" data-market="half-time">
-              Half Time <span class="market-count">156</span>
-            </button>
-            <button class="market-filter-tab hidden" data-market="draw-no-bet">
-              Draw No Bet <span class="market-count">34</span>
-            </button>
-            <button class="market-filter-tab hidden" data-market="total-goals">
-              Total Goals <span class="market-count">128</span>
-            </button>
-            
-            <!-- Show More button -->
-            <button class="show-more-btn" id="show-more-markets">
+            <button class="market-filter-dropdown" id="market-filter-btn">
+              <span id="selected-market-label">1X2</span>
               <i class="bi bi-chevron-down"></i>
+            </button>
+            <button class="filter-btn" id="league-filter-btn">
+              Leagues <i class="bi bi-chevron-down"></i>
+            </button>
+            <button class="filter-btn" id="odds-filter-btn">
+              Odds <i class="bi bi-chevron-down"></i>
             </button>
           </div>
 
@@ -118,88 +89,124 @@
               <div class="league-header">DFB Pokal</div>
               
               <div class="prediction-card">
-                <div class="prediction-number">1. DFB Pokal</div>
-                <div class="prediction-match">
-                  <div class="prediction-teams">
-                    <div class="prediction-team-name">Bayern Munich</div>
-                    <div class="prediction-vs">vs</div>
-                    <div class="prediction-team-name">Leipzig</div>
+                <div class="prediction-card-header">
+                  <div class="prediction-sport-indicator">
+                    <div class="prediction-sport-icon">
+                      <i class="bi bi-dribbble"></i>
+                    </div>
+                    <span>DFB Pokal</span>
                   </div>
-                  <div class="prediction-icons">
-                    <div class="prediction-icon" title="Settings">
-                      <i class="bi bi-gear"></i>
-                    </div>
-                    <div class="prediction-icon" title="Hot tip">
-                      <i class="bi bi-fire"></i>
-                    </div>
+                  <div class="prediction-market-badge">1X2: 1</div>
+                </div>
+                
+                <div class="prediction-match-content">
+                  <div class="prediction-teams-compact">
+                    <span class="prediction-team-home">Bayern Munich</span>
+                    <span class="prediction-vs-separator">vs</span>
+                    <span class="prediction-team-away">Leipzig</span>
+                  </div>
+                  
+                  <div class="prediction-odds-box">1.38</div>
+                  
+                  <div class="prediction-actions">
+                    <button class="prediction-action-btn" title="Info">
+                      <i class="bi bi-info-circle"></i>
+                    </button>
+                    <button class="prediction-action-btn primary" title="Add to Betslip">
+                      <i class="bi bi-plus-lg"></i>
+                    </button>
                   </div>
                 </div>
-                <div class="prediction-meta">
-                  <div>
-                    <div class="prediction-market">1X2: 1</div>
-                    <div class="prediction-datetime">Feb 11, 19:45 utc</div>
-                  </div>
-                  <div class="prediction-odds">
-                    <span class="prediction-odds-label">odd:</span>
-                    <span class="prediction-odds-value">1.38</span>
+                
+                <div class="prediction-meta-compact">
+                  <div class="prediction-datetime-compact">Feb 11, 19:45 UTC</div>
+                  <div class="prediction-stats">
+                    <div class="prediction-stat-item">
+                      <i class="bi bi-fire"></i>
+                      <span class="prediction-stat-value">124</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
               <div class="prediction-card">
-                <div class="prediction-number">2. DFB Pokal</div>
-                <div class="prediction-match">
-                  <div class="prediction-teams">
-                    <div class="prediction-team-name">Holstein Kiel</div>
-                    <div class="prediction-vs">vs</div>
-                    <div class="prediction-team-name">Stuttgart</div>
+                <div class="prediction-card-header">
+                  <div class="prediction-sport-indicator">
+                    <div class="prediction-sport-icon">
+                      <i class="bi bi-dribbble"></i>
+                    </div>
+                    <span>DFB Pokal</span>
                   </div>
-                  <div class="prediction-icons">
-                    <div class="prediction-icon">
-                      <i class="bi bi-gear"></i>
-                    </div>
-                    <div class="prediction-icon">
-                      <i class="bi bi-fire"></i>
-                    </div>
+                  <div class="prediction-market-badge">1X2: 2</div>
+                </div>
+                
+                <div class="prediction-match-content">
+                  <div class="prediction-teams-compact">
+                    <span class="prediction-team-home">Holstein Kiel</span>
+                    <span class="prediction-vs-separator">vs</span>
+                    <span class="prediction-team-away">Stuttgart</span>
+                  </div>
+                  
+                  <div class="prediction-odds-box">1.56</div>
+                  
+                  <div class="prediction-actions">
+                    <button class="prediction-action-btn" title="Info">
+                      <i class="bi bi-info-circle"></i>
+                    </button>
+                    <button class="prediction-action-btn primary" title="Add to Betslip">
+                      <i class="bi bi-plus-lg"></i>
+                    </button>
                   </div>
                 </div>
-                <div class="prediction-meta">
-                  <div>
-                    <div class="prediction-market">1X2: 2</div>
-                    <div class="prediction-datetime">Feb 4, 19:45 utc</div>
-                  </div>
-                  <div class="prediction-odds">
-                    <span class="prediction-odds-label">odd:</span>
-                    <span class="prediction-odds-value">1.56</span>
+                
+                <div class="prediction-meta-compact">
+                  <div class="prediction-datetime-compact">Feb 4, 19:45 UTC</div>
+                  <div class="prediction-stats">
+                    <div class="prediction-stat-item">
+                      <i class="bi bi-fire"></i>
+                      <span class="prediction-stat-value">98</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
               <div class="prediction-card">
-                <div class="prediction-number">3. DFB Pokal</div>
-                <div class="prediction-match">
-                  <div class="prediction-teams">
-                    <div class="prediction-team-name">Bayer Leverkusen</div>
-                    <div class="prediction-vs">vs</div>
-                    <div class="prediction-team-name">St. Pauli</div>
+                <div class="prediction-card-header">
+                  <div class="prediction-sport-indicator">
+                    <div class="prediction-sport-icon">
+                      <i class="bi bi-dribbble"></i>
+                    </div>
+                    <span>DFB Pokal</span>
                   </div>
-                  <div class="prediction-icons">
-                    <div class="prediction-icon">
-                      <i class="bi bi-gear"></i>
-                    </div>
-                    <div class="prediction-icon">
-                      <i class="bi bi-fire"></i>
-                    </div>
+                  <div class="prediction-market-badge">1X2: 1</div>
+                </div>
+                
+                <div class="prediction-match-content">
+                  <div class="prediction-teams-compact">
+                    <span class="prediction-team-home">Bayer Leverkusen</span>
+                    <span class="prediction-vs-separator">vs</span>
+                    <span class="prediction-team-away">St. Pauli</span>
+                  </div>
+                  
+                  <div class="prediction-odds-box">1.44</div>
+                  
+                  <div class="prediction-actions">
+                    <button class="prediction-action-btn" title="Info">
+                      <i class="bi bi-info-circle"></i>
+                    </button>
+                    <button class="prediction-action-btn primary" title="Add to Betslip">
+                      <i class="bi bi-plus-lg"></i>
+                    </button>
                   </div>
                 </div>
-                <div class="prediction-meta">
-                  <div>
-                    <div class="prediction-market">1X2: 1</div>
-                    <div class="prediction-datetime">Feb 3, 19:45 utc</div>
-                  </div>
-                  <div class="prediction-odds">
-                    <span class="prediction-odds-label">odd:</span>
-                    <span class="prediction-odds-value">1.44</span>
+                
+                <div class="prediction-meta-compact">
+                  <div class="prediction-datetime-compact">Feb 3, 19:45 UTC</div>
+                  <div class="prediction-stats">
+                    <div class="prediction-stat-item">
+                      <i class="bi bi-fire"></i>
+                      <span class="prediction-stat-value">156</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -210,30 +217,42 @@
               <div class="league-header">Denmark. Superliga</div>
               
               <div class="prediction-card">
-                <div class="prediction-number">1. Denmark. Superliga</div>
-                <div class="prediction-match">
-                  <div class="prediction-teams">
-                    <div class="prediction-team-name">Brondby</div>
-                    <div class="prediction-vs">vs</div>
-                    <div class="prediction-team-name">Copenhagen</div>
+                <div class="prediction-card-header">
+                  <div class="prediction-sport-indicator">
+                    <div class="prediction-sport-icon">
+                      <i class="bi bi-dribbble"></i>
+                    </div>
+                    <span>Superliga</span>
                   </div>
-                  <div class="prediction-icons">
-                    <div class="prediction-icon">
-                      <i class="bi bi-gear"></i>
-                    </div>
-                    <div class="prediction-icon">
-                      <i class="bi bi-fire"></i>
-                    </div>
+                  <div class="prediction-market-badge">O/U: Over</div>
+                </div>
+                
+                <div class="prediction-match-content">
+                  <div class="prediction-teams-compact">
+                    <span class="prediction-team-home">Brondby</span>
+                    <span class="prediction-vs-separator">vs</span>
+                    <span class="prediction-team-away">Copenhagen</span>
+                  </div>
+                  
+                  <div class="prediction-odds-box">1.25</div>
+                  
+                  <div class="prediction-actions">
+                    <button class="prediction-action-btn" title="Info">
+                      <i class="bi bi-info-circle"></i>
+                    </button>
+                    <button class="prediction-action-btn primary" title="Add to Betslip">
+                      <i class="bi bi-plus-lg"></i>
+                    </button>
                   </div>
                 </div>
-                <div class="prediction-meta">
-                  <div>
-                    <div class="prediction-market">Over / Under: Over</div>
-                    <div class="prediction-datetime">Feb 8, 18:00 utc</div>
-                  </div>
-                  <div class="prediction-odds">
-                    <span class="prediction-odds-label">odd:</span>
-                    <span class="prediction-odds-value">1.25</span>
+                
+                <div class="prediction-meta-compact">
+                  <div class="prediction-datetime-compact">Feb 8, 18:00 UTC</div>
+                  <div class="prediction-stats">
+                    <div class="prediction-stat-item">
+                      <i class="bi bi-fire"></i>
+                      <span class="prediction-stat-value">67</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -244,59 +263,83 @@
               <div class="league-header">UEFA Champions League</div>
               
               <div class="prediction-card">
-                <div class="prediction-number">9. UEFA Champions League</div>
-                <div class="prediction-match">
-                  <div class="prediction-teams">
-                    <div class="prediction-team-name">Inter</div>
-                    <div class="prediction-vs">vs</div>
-                    <div class="prediction-team-name">Arsenal</div>
+                <div class="prediction-card-header">
+                  <div class="prediction-sport-indicator">
+                    <div class="prediction-sport-icon">
+                      <i class="bi bi-dribbble"></i>
+                    </div>
+                    <span>Champions League</span>
                   </div>
-                  <div class="prediction-icons">
-                    <div class="prediction-icon">
-                      <i class="bi bi-gear"></i>
-                    </div>
-                    <div class="prediction-icon">
-                      <i class="bi bi-fire"></i>
-                    </div>
+                  <div class="prediction-market-badge">O/U: Over</div>
+                </div>
+                
+                <div class="prediction-match-content">
+                  <div class="prediction-teams-compact">
+                    <span class="prediction-team-home">Inter</span>
+                    <span class="prediction-vs-separator">vs</span>
+                    <span class="prediction-team-away">Arsenal</span>
+                  </div>
+                  
+                  <div class="prediction-odds-box">1.29</div>
+                  
+                  <div class="prediction-actions">
+                    <button class="prediction-action-btn" title="Info">
+                      <i class="bi bi-info-circle"></i>
+                    </button>
+                    <button class="prediction-action-btn primary" title="Add to Betslip">
+                      <i class="bi bi-plus-lg"></i>
+                    </button>
                   </div>
                 </div>
-                <div class="prediction-meta">
-                  <div>
-                    <div class="prediction-market">Over / Under: Over</div>
-                    <div class="prediction-datetime">Jan 20, 20:00 utc</div>
-                  </div>
-                  <div class="prediction-odds">
-                    <span class="prediction-odds-label">odd:</span>
-                    <span class="prediction-odds-value">1.29</span>
+                
+                <div class="prediction-meta-compact">
+                  <div class="prediction-datetime-compact">Jan 20, 20:00 UTC</div>
+                  <div class="prediction-stats">
+                    <div class="prediction-stat-item">
+                      <i class="bi bi-fire"></i>
+                      <span class="prediction-stat-value">203</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
               <div class="prediction-card">
-                <div class="prediction-number">10. UEFA Champions League</div>
-                <div class="prediction-match">
-                  <div class="prediction-teams">
-                    <div class="prediction-team-name">Sporting</div>
-                    <div class="prediction-vs">vs</div>
-                    <div class="prediction-team-name">PSG</div>
+                <div class="prediction-card-header">
+                  <div class="prediction-sport-indicator">
+                    <div class="prediction-sport-icon">
+                      <i class="bi bi-dribbble"></i>
+                    </div>
+                    <span>Champions League</span>
                   </div>
-                  <div class="prediction-icons">
-                    <div class="prediction-icon">
-                      <i class="bi bi-gear"></i>
-                    </div>
-                    <div class="prediction-icon">
-                      <i class="bi bi-fire"></i>
-                    </div>
+                  <div class="prediction-market-badge">O/U: Over</div>
+                </div>
+                
+                <div class="prediction-match-content">
+                  <div class="prediction-teams-compact">
+                    <span class="prediction-team-home">Sporting</span>
+                    <span class="prediction-vs-separator">vs</span>
+                    <span class="prediction-team-away">PSG</span>
+                  </div>
+                  
+                  <div class="prediction-odds-box">1.16</div>
+                  
+                  <div class="prediction-actions">
+                    <button class="prediction-action-btn" title="Info">
+                      <i class="bi bi-info-circle"></i>
+                    </button>
+                    <button class="prediction-action-btn primary" title="Add to Betslip">
+                      <i class="bi bi-plus-lg"></i>
+                    </button>
                   </div>
                 </div>
-                <div class="prediction-meta">
-                  <div>
-                    <div class="prediction-market">Over / Under: Over</div>
-                    <div class="prediction-datetime">Jan 20, 20:00 utc</div>
-                  </div>
-                  <div class="prediction-odds">
-                    <span class="prediction-odds-label">odd:</span>
-                    <span class="prediction-odds-value">1.16</span>
+                
+                <div class="prediction-meta-compact">
+                  <div class="prediction-datetime-compact">Jan 20, 20:00 UTC</div>
+                  <div class="prediction-stats">
+                    <div class="prediction-stat-item">
+                      <i class="bi bi-fire"></i>
+                      <span class="prediction-stat-value">178</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -306,14 +349,14 @@
 
           <!-- Bottom Links -->
           <div class="predictions-bottom-links">
-                <div class="predictions-link-group">
-                  <a href="#" class="predictions-link">Asian handicap (5)</a>
-                  <a href="#" class="predictions-link">Double chance (75)</a>
-                </div>
-                <div class="predictions-link-group">
-                  <a href="#" class="predictions-link">European handicap (7)</a>
-                  <a href="#" class="predictions-link">1x2 (419)</a>
-                </div>
+            <div class="predictions-link-group">
+              <a href="#" class="predictions-link">Asian handicap (5)</a>
+              <a href="#" class="predictions-link">Double chance (75)</a>
+            </div>
+            <div class="predictions-link-group">
+              <a href="#" class="predictions-link">European handicap (7)</a>
+              <a href="#" class="predictions-link">1x2 (419)</a>
+            </div>
           </div>
 
           <!-- Pagination -->
@@ -342,157 +385,103 @@
     </main>
   </div>
 
-  <!-- Filter Modal -->
-  <div class="filter-modal hidden" id="filter-modal">
-    <div class="filter-modal-content">
-      <div class="filter-modal-header">
-        <h3 class="filter-modal-title">Filter</h3>
-        <button class="filter-modal-close" id="close-filter-btn">
+  <!-- Time Filter Modal -->
+  <div class="pred-filter-modal" id="time-modal">
+    <div class="pred-filter-modal-content">
+      <div class="pred-filter-modal-header">
+        <h3 class="pred-filter-modal-title">Time</h3>
+        <button class="pred-filter-close" onclick="closePredFilter('time')">
           <i class="bi bi-x-lg"></i>
         </button>
       </div>
-      
-      <div class="filter-modal-body">
-        <div class="filter-group">
-          <label class="filter-label">Odds (0 - max)</label>
-          <div class="filter-odds-range">
-            <input type="number" class="filter-input" placeholder="0" min="0" step="0.01" />
-            <input type="number" class="filter-input" placeholder="End" min="0" step="0.01" />
+      <div class="pred-filter-modal-body" id="time-list"></div>
+      <div class="pred-filter-modal-footer">
+        <button class="pred-filter-cancel" onclick="closePredFilter('time')">Cancel</button>
+        <button class="pred-filter-apply" onclick="applyPredFilter('time')">Apply</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Market Filter Modal -->
+  <div class="pred-filter-modal" id="market-modal">
+    <div class="pred-filter-modal-content">
+      <div class="pred-filter-modal-header">
+        <h3 class="pred-filter-modal-title">Select Market</h3>
+        <button class="pred-filter-close" onclick="closePredFilter('market')">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+      <div class="pred-filter-modal-body" id="market-list"></div>
+      <div class="pred-filter-modal-footer">
+        <button class="pred-filter-cancel" onclick="closePredFilter('market')">Cancel</button>
+        <button class="pred-filter-apply" onclick="applyPredFilter('market')">Apply</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- League Filter Modal -->
+  <div class="pred-filter-modal" id="league-modal">
+    <div class="pred-filter-modal-content">
+      <div class="pred-filter-modal-header">
+        <h3 class="pred-filter-modal-title">Leagues</h3>
+        <button class="pred-filter-close" onclick="closePredFilter('league')">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+      <div class="pred-filter-modal-body" id="league-list"></div>
+      <div class="pred-filter-modal-footer">
+        <button class="pred-filter-cancel" onclick="closePredFilter('league')">Cancel</button>
+        <button class="pred-filter-apply" onclick="applyPredFilter('league')">Apply</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Odds Filter Modal -->
+  <div class="pred-filter-modal" id="odds-modal">
+    <div class="pred-filter-modal-content">
+      <div class="pred-filter-modal-header">
+        <h3 class="pred-filter-modal-title">Odds</h3>
+        <button class="pred-filter-close" onclick="closePredFilter('odds')">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+      <div class="pred-filter-modal-body">
+        <div class="pred-odds-filter-content">
+          <div class="pred-odds-values">
+            <div class="pred-odds-value-item">
+              <span class="pred-odds-value-label">Min</span>
+              <span class="pred-odds-value-number" id="pred-odds-min-value">1.0</span>
+            </div>
+            <div class="pred-odds-value-item">
+              <span class="pred-odds-value-label">Max</span>
+              <span class="pred-odds-value-number" id="pred-odds-max-value">10.0</span>
+            </div>
           </div>
-        </div>
-
-        <div class="filter-group">
-          <label class="filter-label">Playing on</label>
-          <select class="filter-select">
-            <option value="">Select event date</option>
-            <option value="today">Today</option>
-            <option value="tomorrow">Tomorrow</option>
-            <option value="this-week">This Week</option>
-            <option value="this-month">This Month</option>
-          </select>
-        </div>
-
-        <div class="filter-group">
-          <label class="filter-label">Teams</label>
-          <input type="text" class="filter-input" placeholder="Search teams..." />
-        </div>
-
-        <div class="filter-group">
-          <label class="filter-label">Leagues</label>
-          <select class="filter-select">
-            <option value="">All Leagues</option>
-            <option value="premier-league">Premier League</option>
-            <option value="la-liga">La Liga</option>
-            <option value="serie-a">Serie A</option>
-            <option value="bundesliga">Bundesliga</option>
-          </select>
-        </div>
-
-        <div class="filter-group">
-          <div class="filter-checkbox-group">
-            <input type="checkbox" id="order-popularity" class="filter-checkbox" />
-            <label for="order-popularity" class="filter-checkbox-label">Order By Popularity</label>
+          
+          <div class="pred-odds-slider-container">
+            <div class="pred-odds-slider-track">
+              <div class="pred-odds-slider-progress" id="pred-odds-progress"></div>
+            </div>
+            <input type="range" min="1" max="10" step="0.1" value="1" class="pred-odds-slider" id="pred-odds-min">
+            <input type="range" min="1" max="10" step="0.1" value="10" class="pred-odds-slider" id="pred-odds-max">
           </div>
         </div>
       </div>
-
-      <div class="filter-modal-footer">
-        <button class="filter-reset-btn" id="reset-filter-btn">Reset</button>
-        <button class="filter-submit-btn" id="submit-filter-btn">Submit</button>
+      <div class="pred-filter-modal-footer">
+        <button class="pred-filter-cancel" onclick="closePredFilter('odds')">Cancel</button>
+        <button class="pred-filter-apply" onclick="applyPredFilter('odds')">Apply</button>
       </div>
     </div>
   </div>
 
   <div id="filter-canvas"></div>
   <div id="mobile-nav"></div>
+  <div id="betslip-rail"></div>
 
   <script src="assets/js/adminux/adminux-dashboard.js"></script>
   <script src="./components/AppLayout.js"></script>
-  <script>
-    // Sport tabs
-    document.querySelectorAll('.sport-filter-tab').forEach(tab => {
-      tab.addEventListener('click', function() {
-        document.querySelectorAll('.sport-filter-tab').forEach(t => t.classList.remove('active'));
-        this.classList.add('active');
-        // Load predictions for selected sport
-        console.log('Selected sport:', this.dataset.sport);
-      });
-    });
-
-    // Market tabs
-    document.querySelectorAll('.market-filter-tab').forEach(tab => {
-      tab.addEventListener('click', function() {
-        document.querySelectorAll('.market-filter-tab').forEach(t => t.classList.remove('active'));
-        this.classList.add('active');
-        // Load predictions for selected market
-        console.log('Selected market:', this.dataset.market);
-      });
-    });
-
-    // Show more markets toggle
-    const showMoreBtn = document.getElementById('show-more-markets');
-    const hiddenMarkets = document.querySelectorAll('.market-filter-tab.hidden');
-    let isExpanded = false;
-
-    showMoreBtn.addEventListener('click', () => {
-      isExpanded = !isExpanded;
-      
-      hiddenMarkets.forEach(market => {
-        if (isExpanded) {
-          market.classList.remove('hidden');
-        } else {
-          market.classList.add('hidden');
-        }
-      });
-      
-      showMoreBtn.classList.toggle('expanded', isExpanded);
-    });
-
-    // Filter modal
-    const filterModal = document.getElementById('filter-modal');
-    const openFilterBtn = document.getElementById('open-filter-btn');
-    const closeFilterBtn = document.getElementById('close-filter-btn');
-    const submitFilterBtn = document.getElementById('submit-filter-btn');
-    const resetFilterBtn = document.getElementById('reset-filter-btn');
-
-    openFilterBtn.addEventListener('click', () => {
-      filterModal.classList.remove('hidden');
-    });
-
-    closeFilterBtn.addEventListener('click', () => {
-      filterModal.classList.add('hidden');
-    });
-
-    submitFilterBtn.addEventListener('click', () => {
-      // Apply filters
-      filterModal.classList.add('hidden');
-      console.log('Filters applied');
-    });
-
-    resetFilterBtn.addEventListener('click', () => {
-      // Reset all filters
-      document.querySelectorAll('.filter-input, .filter-select').forEach(input => {
-        input.value = '';
-      });
-      document.getElementById('order-popularity').checked = false;
-    });
-
-    // Close modal on outside click
-    filterModal.addEventListener('click', (e) => {
-      if (e.target === filterModal) {
-        filterModal.classList.add('hidden');
-      }
-    });
-
-    // Pagination
-    document.querySelectorAll('.pagination-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
-        if (!this.disabled) {
-          document.querySelectorAll('.pagination-btn').forEach(b => b.classList.remove('active'));
-          this.classList.add('active');
-        }
-      });
-    });
-  </script>
+  <script src="assets/js/predictions-filters.js"></script>
+  <script src="assets/js/prediction.js"></script>
+  <script src="./components/betslip-rail.js"></script>
 </body>
 </html>

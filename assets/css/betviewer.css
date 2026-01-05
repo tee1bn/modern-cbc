@@ -17,28 +17,28 @@
 
 /* Main card container */
 .betviewer .card {
-  border: 2px solid var(--btv-border);
-  border-radius: 0;
+  /* border: 2px solid var(--btv-border); */
+  /* border-radius: 0; */
   background: #ffffff;
 }
 
 /* Forms */
 .btv-form {
-  padding: 16px;
+  padding: 12px;
 }
 
 .btv-form h5 {
   font-size: 16px;
   font-weight: 600;
-  margin: 0 0 16px 0;
+  margin: 0 0 12px 0;
   color: var(--btv-text);
 }
 
 .btv-form label {
   display: block;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   color: var(--btv-text);
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -47,25 +47,25 @@
 .btv-form .form-control,
 .btv-form .form-select {
   width: 100%;
-  padding: 10px 12px;
+  padding: 8px 10px;
   background: #ffffff;
   color: var(--btv-text);
-  border: 1px solid var(--btv-border);
   border-radius: 0;
   font-size: 14px;
   font-family: inherit;
+  margin-bottom: 10px;
 }
 
 .btv-form .form-control:focus,
 .btv-form .form-select:focus {
-  outline: 2px solid var(--btv-text);
-  outline-offset: 2px;
-  border-color: var(--btv-text);
+  outline: none;
+  /* outline-offset: 2px; */
+  /* border-color: var(--btv-text); */
 }
 
 .btv-form .input-group {
   display: flex;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
 .btv-form .input-group .form-control {
@@ -85,17 +85,18 @@
 }
 
 .btv-form .btn {
-  padding: 10px 16px;
+  padding: 8px 14px;
   background: var(--btv-text);
   color: #ffffff;
   border: 1px solid var(--btv-text);
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  min-height: 44px;
+  min-height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 0;
 }
 
 .btv-form .btn:hover {
@@ -115,48 +116,59 @@
 }
 
 .btv-form .text-muted {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--btv-muted);
   line-height: 1.4;
-  margin: 16px 0 0 0;
+  margin: 10px 0 0 0;
 }
 
 /* Results panel */
 .btv-results {
-  padding: 16px;
+  padding: 10px;
   background: #ffffff;
   border-left: 2px solid var(--btv-border);
 }
 
-/* Header section */
+/* Header section - COMPACT */
 .btv-header,
 .btv-desktop-header {
-  padding: 14px;
-  background: #ffffff;
-  border: 2px solid var(--btv-border);
-  border-radius: 0;
-  margin-bottom: 16px;
+  padding: 10px 12px;
+  background: #f8f8f8;
+  border: 1px solid var(--btv-border);
+  /* border-radius: 0; */
+  margin-bottom: 10px;
 }
 
 .btv-header-content {
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: center;
+}
+
+.btv-header-left {
+  flex: 1;
 }
 
 .btv-header-left h5,
 .btv-header-left .h5 {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
-  margin: 0 0 4px 0;
+  margin: 0 0 2px 0;
   color: var(--btv-text);
 }
 
 .btv-header-left .small,
 .btv-header-meta {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--btv-muted);
   margin: 0;
+}
+
+.btv-header-middle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 12px;
 }
 
 .btv-header-right {
@@ -164,30 +176,58 @@
 }
 
 .btv-header-right .h4 {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   margin: 0 0 2px 0;
   color: var(--btv-text);
 }
 
 .btv-header-right .small {
-  font-size: 11px;
+  font-size: 10px;
   color: var(--btv-muted);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
-/* Game card list */
+/* Icon buttons in header */
+.icon-btn {
+  background: transparent;
+  border: none;
+  padding: 6px 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.icon-btn:hover {
+  background: var(--btv-text);
+  border-color: var(--btv-text);
+}
+
+.icon-btn:hover svg {
+  fill: #ffffff;
+}
+
+.icon-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--btv-text);
+}
+
+/* Game card list - COMPACT */
 #bet-list {
-  margin-top: 12px;
+  margin-top: 8px;
 }
 
 #bet-list .game-card {
   background: #ffffff;
   border: 1px solid var(--btv-border);
   border-radius: 0;
-  padding: 12px;
-  margin-bottom: 10px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  position: relative;
 }
 
 #bet-list .game-card:last-child {
@@ -200,64 +240,92 @@
   align-items: start;
 }
 
-.game-card-left .small {
+/* Serial number badge */
+.serial-number {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  background: var(--btv-text);
+  color: #ffffff;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 11px;
+  font-weight: 700;
+}
+
+.game-card-left {
+  flex: 1;
+  padding-left: 30px;
+}
+
+.game-card-left .sport-icon {
+  display: inline-block;
+  margin-right: 6px;
+  font-size: 14px;
+}
+
+.game-card-left .small {
+  font-size: 10px;
   color: var(--btv-muted);
   text-transform: uppercase;
   letter-spacing: 0.3px;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
+  display: block;
 }
 
 .game-card-left .fw-semibold {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--btv-text);
-  margin: 4px 0;
+  margin: 2px 0;
+  display: block;
 }
 
 .game-card-left .game-details {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--btv-muted);
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
 .game-card-right {
   text-align: right;
   flex-shrink: 0;
-  margin-left: 12px;
+  margin-left: 10px;
 }
 
 .odds-badge {
   background: #ffffff;
   color: var(--btv-text);
   font-weight: 700;
-  font-size: 16px;
-  padding: 8px 12px;
-  border: 2px solid var(--btv-text);
-  border-radius: 0;
+  font-size: 15px;
+  padding: 6px 10px;
   display: inline-block;
-  min-width: 60px;
+  min-width: 55px;
   text-align: center;
 }
 
 /* Action buttons */
 .btv-actions {
-  margin-top: 16px;
+  margin-top: 12px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
 .btv-actions .btn {
   width: 100%;
-  padding: 12px 16px;
+  padding: 10px 14px;
   background: #ffffff;
   color: var(--btv-text);
   border: 2px solid var(--btv-text);
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  min-height: 44px;
+  min-height: 40px;
 }
 
 .btv-actions .btn:hover {
@@ -276,12 +344,12 @@
 
 /* No results */
 #no-results {
-  padding: 16px;
+  padding: 12px;
   text-align: center;
   color: var(--btv-muted);
-  font-size: 14px;
+  font-size: 13px;
   border: 1px solid var(--btv-border);
-  margin-top: 12px;
+  margin-top: 10px;
 }
 
 /* Two-column layout on desktop */
@@ -315,11 +383,11 @@
   .btv-results {
     border-left: none;
     border-top: 2px solid var(--btv-border);
-    padding-top: 16px;
+    padding-top: 12px;
   }
 }
 
-/* Utility classes we need to keep */
+/* Utility classes */
 .d-none {
   display: none !important;
 }

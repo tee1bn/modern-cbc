@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Multi Maker - ConvertBetCodes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com/" />
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&family=SUSE:wght@100..800&display=swap" rel="stylesheet"/>
+  <script defer src="assets/js/app8051.js?bd1e16b080f637e63a80"></script>
+  <link href="assets/css/app8051.css?bd1e16b080f637e63a80" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/code-hub.css">
+  <link rel="stylesheet" href="assets/css/betslip-rail.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <div class="hub-header">
+    <button class="hub-back-btn" onclick="window.history.back()">
+      <i class="bi bi-arrow-left"></i>
+    </button>
+    <h1 class="hub-title">Code Hub-Football</h1>
+    <div class="hub-header-actions">
+      <button class="hub-icon-btn">
+        <i class="bi bi-people"></i>
+      </button>
+      <button class="hub-icon-btn" onclick="window.location.href='index.html'">
+        <i class="bi bi-house-fill"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="hub-tabs">
+    <button class="hub-tab active" data-tab="popular">Popular Codes</button>
+    <button class="hub-tab" data-tab="load">
+      Load Code
+      <i class="bi bi-qr-code-scan"></i>
+    </button>
+  </div>
+
+  <!-- Popular Codes Content -->
+  <div class="hub-content" id="popular-content">
+    <!-- Filter Bar -->
+    <div class="hub-filters">
+      <button class="hub-filter-btn" id="time-filter-btn">
+        Time <i class="bi bi-chevron-down"></i>
+      </button>
+      <button class="hub-filter-btn" id="folds-filter-btn">
+        Folds <i class="bi bi-chevron-down"></i>
+      </button>
+      <button class="hub-filter-btn" id="odds-filter-btn">
+        Odds <i class="bi bi-chevron-down"></i>
+      </button>
+      <button class="hub-filter-btn" id="sort-filter-btn">
+        Sort <i class="bi bi-chevron-down"></i>
+      </button>
+    </div>
+
+    <!-- Codes List -->
+    <div class="hub-codes-list" id="codes-list">
+      <!-- Code items will be rendered here by JavaScript -->
+    </div>
+  </div>
+
+  <!-- Load Code Content -->
+  <div class="hub-content" id="load-content" style="display: none;">
+    <div class="load-code-container">
+      <div class="load-code-header">
+        <h2 class="load-code-title">Please insert booking code</h2>
+        <i class="bi bi-info-circle load-code-info"></i>
+      </div>
+
+      <form class="load-code-form" id="load-code-form">
+        <div class="load-form-group">
+          <label class="load-form-label">Booking Code</label>
+          <div class="load-input-wrapper">
+            <input 
+              type="text" 
+              class="load-form-input" 
+              id="booking-code-input"
+              placeholder="Enter booking code"
+              required
+            />
+            <button type="button" class="load-paste-btn" id="load-paste-btn">
+              <i class="bi bi-clipboard"></i>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="load-submit-btn" id="load-submit-btn">
+          Load
+        </button>
+      </form>
+
+      <div class="load-info-section">
+        <h3 class="load-info-title">How to get a booking code?</h3>
+        <div class="load-steps">
+          <div class="load-step">
+            <strong>Step1</strong>
+            <p>Go to our website / mobile web / app</p>
+          </div>
+          <div class="load-step">
+            <strong>Step2</strong>
+            <p>Make the selections you want to bet on</p>
+          </div>
+          <div class="load-step">
+            <strong>Step3</strong>
+            <p>Click on the "Book bet" button on web website/mobile web/app</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="load-disclaimer">
+        *Odds or availabilities may change.
+      </div>
+    </div>
+  </div>
+
+  <!-- Filter Modals -->
+  <!-- Time Filter Modal -->
+  <div class="filter-modal" id="time-modal">
+    <div class="filter-modal-content">
+      <div class="filter-modal-header">
+        <h3>Time</h3>
+        <button class="filter-close-btn" onclick="closeFilter('time')">
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+      <div class="filter-list" id="time-list">
+        <!-- Will be populated by JS -->
+      </div>
+      <div class="filter-modal-footer">
+        <button class="filter-reset-btn" onclick="resetFilter('time')">Reset</button>
+        <button class="filter-apply-btn" onclick="applyFilter('time')">Apply</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Folds Filter Modal -->
+  <div class="filter-modal" id="folds-modal">
+    <div class="filter-modal-content">
+      <div class="filter-modal-header">
+        <h3>Folds</h3>
+        <button class="filter-close-btn" onclick="closeFilter('folds')">
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+      <div class="filter-list" id="folds-list">
+        <!-- Will be populated by JS -->
+      </div>
+      <div class="filter-custom-range">
+        <label>Custom Range</label>
+        <div class="custom-range-inputs">
+          <input type="number" id="folds-min" placeholder="40" min="1" max="50" />
+          <span>~</span>
+          <input type="number" id="folds-max" placeholder="50" min="1" max="50" />
+        </div>
+        <div class="range-slider">
+          <input type="range" id="folds-slider" min="1" max="50" value="50" />
+          <div class="range-label">1 ~ 50</div>
+        </div>
+      </div>
+      <div class="filter-modal-footer">
+        <button class="filter-reset-btn" onclick="resetFilter('folds')">Reset</button>
+        <button class="filter-apply-btn" onclick="applyFilter('folds')">Apply</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Odds Filter Modal -->
+  <div class="filter-modal" id="odds-modal">
+    <div class="filter-modal-content">
+      <div class="filter-modal-header">
+        <h3>Odds</h3>
+        <button class="filter-close-btn" onclick="closeFilter('odds')">
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+      <div class="filter-list" id="odds-list">
+        <!-- Will be populated by JS -->
+      </div>
+      <div class="filter-custom-range">
+        <label>Custom Range</label>
+        <div class="custom-range-inputs">
+          <input type="number" id="odds-min" placeholder="200" min="1" max="2000" />
+          <span>~</span>
+          <input type="number" id="odds-max" placeholder="2000" min="1" max="2000" />
+        </div>
+        <div class="range-slider">
+          <input type="range" id="odds-slider" min="1" max="2000" value="2000" />
+          <div class="range-label">1</div>
+        </div>
+      </div>
+      <div class="filter-modal-footer">
+        <button class="filter-reset-btn" onclick="resetFilter('odds')">Reset</button>
+        <button class="filter-apply-btn" onclick="applyFilter('odds')">Apply</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sort Filter Modal -->
+  <div class="filter-modal" id="sort-modal">
+    <div class="filter-modal-content">
+      <div class="filter-modal-header">
+        <h3>Sort</h3>
+        <button class="filter-close-btn" onclick="closeFilter('sort')">
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+      <div class="filter-list" id="sort-list">
+        <!-- Will be populated by JS -->
+      </div>
+      <div class="filter-modal-footer">
+        <button class="filter-reset-btn" onclick="resetFilter('sort')">Reset</button>
+        <button class="filter-apply-btn" onclick="applyFilter('sort')">Apply</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loading-overlay">
+    <div class="loading-spinner"></div>
+    <p>Loading bet code...</p>
+  </div>
+
+  <!-- Betslip Rail Container -->
+  <div id="betslip-rail"></div>
+
+  <!-- Betslip Bottom Bar -->
+
+  <script src="./components/betslip-rail.js"></script>
+  <script src="./components/code-hub.js"></script>
+</body>
+</html>
