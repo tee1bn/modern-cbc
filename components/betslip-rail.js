@@ -540,6 +540,10 @@ function renderRail() {
         </h2>
       </div>
       <div class="rail-header-actions">
+        <!-- New load icon added here -->
+        <button class="rail-load-btn" id="rail-load-btn" title="Load New Bet Code">
+          <i class="bi bi-download"></i>
+        </button>
         ${bets.length > 0 ? '<button class="rail-action-btn" id="rail-expand-btn" title="Expand Full Screen"><i class="bi bi-arrows-fullscreen"></i></button>' : ''}
         <button class="rail-minimize-btn" id="rail-minimize-btn" title="${isMinimized ? 'Expand' : 'Minimize'}">
           <i class="bi bi-${isMinimized ? 'chevron-up' : 'chevron-down'}"></i>
@@ -686,6 +690,142 @@ function renderRail() {
   attachEventListeners();
 }
 
+function renderEmptyLoadForm() {
+  const rail = document.getElementById('rail-container');
+  if (!rail) return;
+
+  rail.innerHTML = `
+    <div class="rail-header">
+      <div class="rail-header-left">
+        <h2 class="rail-title">Load Bet Code</h2>
+      </div>
+      <div class="rail-header-actions">
+        <button class="rail-close-btn" id="rail-close-btn">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="empty-load-form">
+      <div class="empty-load-form-header">
+        <h4>Please insert booking code</h4>
+        <i class="bi bi-info-circle" title="Enter your bet code to load selections"></i>
+      </div>
+
+      <form id="empty-load-code-form">
+        <div class="empty-form-group">
+          <label>Bet Code</label>
+          <div class="empty-input-wrapper">
+            <input 
+              type="text" 
+              id="empty-bet-code-input"
+              placeholder="Enter bet code (e.g., M8BULE)"
+              required
+            />
+            <button type="button" id="empty-paste-btn" class="empty-paste-btn">
+              <i class="bi bi-clipboard"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="empty-form-group">
+          <label>Select Origin Bookie</label>
+          <select id="empty-origin-bookie" required>
+            <option value="">Choose a bookie</option>
+            <option value="sportybet-nigeria">Sportybet - Nigeria</option>
+            <option value="sportybet-ghana">Sportybet - Ghana</option>
+            <option value="sportybet-kenya">Sportybet - Kenya</option>
+            <option value="bet9ja-nigeria">Bet9ja - Nigeria</option>
+            <option value="betking-nigeria">BetKing - Nigeria</option>
+            <option value="1xbet-nigeria">1xBet - Nigeria</option>
+            <option value="22bet-nigeria">22bet - Nigeria</option>
+          </select>
+        </div>
+
+        <div class="empty-form-buttons">
+          <button type="button" id="empty-cancel-btn" class="empty-cancel-btn">
+            Cancel
+          </button>
+          <button type="submit" class="empty-submit-btn">
+            <i class="bi bi-download"></i> Load Code
+          </button>
+        </div>
+      </form>
+
+      <!-- Loading State -->
+      <div id="empty-loading-state" class="empty-loading-state" style="display: none;">
+        <div class="empty-spinner"></div>
+        <p>Loading bet code...</p>
+      </div>
+
+      <!-- Error State -->
+      <div id="empty-error-state" class="empty-error-state" style="display: none;">
+        <i class="bi bi-exclamation-circle"></i>
+        <p>Failed to load bet code. Please try again.</p>
+        <button id="empty-retry-btn" class="empty-retry-btn">Retry</button>
+      </div>
+    </div>
+  `;
+
+  attachLoadFormEventListeners();
+}
+
+function attachLoadFormEventListeners() {
+  const closeBtn = document.getElementById('rail-close-btn');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeRail);
+  }
+
+  const emptyPasteBtn = document.getElementById('empty-paste-btn');
+  const emptyCodeInput = document.getElementById('empty-bet-code-input');
+  if (emptyPasteBtn && emptyCodeInput) {
+    emptyPasteBtn.addEventListener('click', async () => {
+      try {
+        const text = await navigator.clipboard.readText();
+        emptyCodeInput.value = text.trim();
+      } catch (err) {
+        console.log('Paste failed:', err);
+      }
+    });
+  }
+
+  const emptyLoadForm = document.getElementById('empty-load-code-form');
+  if (emptyLoadForm) {
+    emptyLoadForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const code = document.getElementById('empty-bet-code-input').value.trim();
+      const bookie = document.getElementById('empty-origin-bookie').value;
+      
+      if (!code || !bookie) {
+        alert('Please fill in all fields');
+        return;
+      }
+
+      emptyLoadForm.style.display = 'none';
+      document.getElementById('empty-loading-state').style.display = 'flex';
+
+      try {
+        // Clear existing bets before loading new ones
+        bets = [];
+        await loadBetCodeFromEmpty(code, bookie);
+        renderRail();
+      } catch (error) {
+        document.getElementById('empty-loading-state').style.display = 'none';
+        document.getElementById('empty-error-state').style.display = 'flex';
+      }
+    });
+  }
+
+  const emptyRetryBtn = document.getElementById('empty-retry-btn');
+  if (emptyRetryBtn) {
+    emptyRetryBtn.addEventListener('click', () => {
+      document.getElementById('empty-error-state').style.display = 'none';
+      document.getElementById('empty-load-code-form').style.display = 'block';
+    });
+  }
+}
+
 // ==================== EVENT LISTENERS ====================
 function attachEventListeners() {
   const closeBtn = document.getElementById('rail-close-btn');
@@ -693,6 +833,14 @@ function attachEventListeners() {
 
   const minimizeBtn = document.getElementById('rail-minimize-btn');
   if (minimizeBtn) minimizeBtn.addEventListener('click', toggleMinimize);
+
+  const loadBtn = document.getElementById('rail-load-btn');
+  if (loadBtn) {
+    loadBtn.addEventListener('click', () => {
+      // Render the empty state with load form
+      renderEmptyLoadForm();
+    });
+  }
 
   const expandBtn = document.getElementById('rail-expand-btn');
   if (expandBtn) expandBtn.addEventListener('click', expandFullScreen);

@@ -35,6 +35,26 @@
   font-weight: 600;
 }
 
+.rail-load-btn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  color: var(--rail-text-secondary);
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  font-size: 16px;
+}
+
+.rail-load-btn:hover {
+  background: #f5f5f5;
+  color: var(--rail-text);
+}
+
 .rail-badge:hover {
   transform: translateY(-4px) scale(1.05);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
