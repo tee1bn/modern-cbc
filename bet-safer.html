@@ -1,462 +1,637 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Bet Safer - ConvertBetCodes</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com/" />
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&family=SUSE:wght@100..800&display=swap" rel="stylesheet"/>
-  <style>
-    :root {
-      --adminuiux-content-font: "Open Sans", sans-serif;
-    }
-  </style>
-  <script defer src="assets/js/app8051.js?bd1e16b080f637e63a80"></script>
-  <link href="assets/css/app8051.css?bd1e16b080f637e63a80" rel="stylesheet" />
-  <link rel="stylesheet" href="./assets/css/main.css" />
-  <link rel="stylesheet" href="./assets/css/bet-safer.css" />
-  <link rel="stylesheet" href="./assets/css/betslip-rail.css" />
-</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Bet Safer - ConvertBetCodes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&family=SUSE:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --adminuiux-content-font: "Open Sans", sans-serif;
+      }
+    </style>
+    <script defer src="assets/js/app8051.js?bd1e16b080f637e63a80"></script>
+    <link href="assets/css/app8051.css?bd1e16b080f637e63a80" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/bet-safer.css" />
+    <link rel="stylesheet" href="./assets/css/betslip-rail.css" />
+  </head>
 
-<body class="main-bg main-bg-opac adminuiux-header-standard theme-blue adminuiux-header-transparent adminuiux-sidebar-fill-white adminuiux-sidebar-standard bg-r-gradient scrollup">
-  
-  <div id="desktop-nav"></div>
-  <div id="side-menu"></div>
+  <body
+    class="main-bg main-bg-opac adminuiux-header-standard theme-blue adminuiux-header-transparent adminuiux-sidebar-fill-white adminuiux-sidebar-standard bg-r-gradient scrollup"
+  >
+    <div id="desktop-nav"></div>
+    <div id="side-menu"></div>
 
-  <div class="adminuiux-wrap">
-    <main class="adminuiux-content has-sidebar" onclick="contentClick()">
-      
-      <div class="container-fluid py-1 py-lg-3">
-        <div class="row gx-3 gx-lg-4 align-items-center page-title">
-          <div class="col col-sm">
-            <h6 class="mb-0">Bet Safer</h6>
-            <p class="text-secondary small">Get smarter, safer betting alternatives</p>
+    <div class="adminuiux-wrap">
+      <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+        <div class="container-fluid py-1 py-lg-3">
+          <div class="row gx-3 gx-lg-4 align-items-center page-title">
+            <div class="col col-sm">
+              <h6 class="mb-0">Bet Safer</h6>
+              <p class="text-secondary small">
+                Get smarter, safer betting alternatives
+              </p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="p-1 mt-3">
-        <div class="card p-0 bet-safer-page">
-          
-          <!-- Header -->
-          <div class="safer-header">
-            <h1 class="safer-title">
-              <i class="bi bi-shield-check"></i>
-              Bet Safer
-            </h1>
-            <p class="safer-subtitle">Get smarter, safer betting alternatives with higher winning chances</p>
-          </div>
-
-          <!-- Input Section -->
-          <div class="safer-input-section">
-            
-            <!-- Input Type Tabs -->
-            <div class="safer-input-tabs">
-              <button class="safer-input-tab active" data-input="betting-code">
-                Betting Code
-              </button>
-              <button class="safer-input-tab" data-input="ticket-code">
-                Ticket Code
-              </button>
-              <button class="safer-input-tab" data-input="bet-link">
-                Bet Link
-              </button>
-              <button class="safer-input-tab" data-input="upload-file">
-                Upload File
-              </button>
+        <div class="">
+          <div class="card p-0 bet-safer-page">
+            <!-- Header -->
+            <div class="safer-header">
+              <h1 class="safer-title">
+                <i class="bi bi-shield-check"></i>
+                Bet Safer
+              </h1>
+              <p class="safer-subtitle">
+                Get smarter, safer betting alternatives with higher winning
+                chances
+              </p>
             </div>
 
-            <form id="safer-form">
-              
-              <!-- Betting Code Input -->
-              <div id="betting-code-input" class="safer-input-content">
-                <div class="safer-form-group">
-                  <label class="safer-form-label">Betting Code</label>
-                  <div class="safer-input-wrapper">
-                    <input 
-                      type="text" 
-                      class="safer-form-input" 
-                      id="bet-code-field"
-                      placeholder="Enter betting code"
-                      required
-                    />
-                    <button type="button" class="safer-paste-btn" title="Paste from clipboard">
-                      <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <rect width="8" height="4" x="8" y="2" rx="1" stroke-width="2"/>
-                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" stroke-width="2"/>
+            <!-- Input Section -->
+            <div class="safer-input-section">
+              <!-- Input Type Tabs -->
+              <div class="safer-input-tabs">
+                <button
+                  class="safer-input-tab active"
+                  data-input="betting-code"
+                >
+                  Betting Code
+                </button>
+                <button class="safer-input-tab" data-input="ticket-code">
+                  Ticket Code
+                </button>
+                <button class="safer-input-tab" data-input="bet-link">
+                  Bet Link
+                </button>
+                <button class="safer-input-tab" data-input="upload-file">
+                  Upload File
+                </button>
+              </div>
+
+              <form id="safer-form">
+                <!-- Betting Code Input -->
+                <div id="betting-code-input" class="safer-input-content">
+                  <div class="safer-form-group">
+                    <label class="safer-form-label">Betting Code</label>
+                    <div class="safer-input-wrapper">
+                      <input
+                        type="text"
+                        class="safer-form-input"
+                        id="bet-code-field"
+                        placeholder="Enter betting code"
+                        required
+                      />
+                      <button
+                        type="button"
+                        class="safer-paste-btn"
+                        title="Paste from clipboard"
+                      >
+                        <svg
+                          width="20"
+                          height="20"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <rect
+                            width="8"
+                            height="4"
+                            x="8"
+                            y="2"
+                            rx="1"
+                            stroke-width="2"
+                          />
+                          <path
+                            d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                            stroke-width="2"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                    <div
+                      class="auto-detect-badge"
+                      id="auto-detect"
+                      style="display: none"
+                    >
+                      <i class="bi bi-check-circle-fill"></i>
+                      <span
+                        >Auto-detected:
+                        <strong id="detected-bookie"
+                          >Sportybet Nigeria</strong
+                        ></span
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Ticket Code Input -->
+                <div
+                  id="ticket-code-input"
+                  class="safer-input-content"
+                  style="display: none"
+                >
+                  <div class="safer-form-group">
+                    <label class="safer-form-label">Ticket Code</label>
+                    <div class="safer-input-wrapper">
+                      <input
+                        type="text"
+                        class="safer-form-input"
+                        placeholder="Enter ticket code"
+                      />
+                      <button
+                        type="button"
+                        class="safer-paste-btn"
+                        title="Paste from clipboard"
+                      >
+                        <svg
+                          width="20"
+                          height="20"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <rect
+                            width="8"
+                            height="4"
+                            x="8"
+                            y="2"
+                            rx="1"
+                            stroke-width="2"
+                          />
+                          <path
+                            d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                            stroke-width="2"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Bet Link Input -->
+                <div
+                  id="bet-link-input"
+                  class="safer-input-content"
+                  style="display: none"
+                >
+                  <div class="safer-form-group">
+                    <label class="safer-form-label">Bet Link</label>
+                    <div class="safer-input-wrapper">
+                      <input
+                        type="url"
+                        class="safer-form-input"
+                        placeholder="https://example.com/bet/123456"
+                      />
+                      <button
+                        type="button"
+                        class="safer-paste-btn"
+                        title="Paste from clipboard"
+                      >
+                        <svg
+                          width="20"
+                          height="20"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <rect
+                            width="8"
+                            height="4"
+                            x="8"
+                            y="2"
+                            rx="1"
+                            stroke-width="2"
+                          />
+                          <path
+                            d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                            stroke-width="2"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Upload File Input -->
+                <div
+                  id="upload-file-input"
+                  class="safer-input-content"
+                  style="display: none"
+                >
+                  <div class="safer-form-group">
+                    <label class="safer-form-label">Upload Betting Slip</label>
+                    <div
+                      class="safer-upload-area"
+                      onclick="document.getElementById('safer-file-input').click()"
+                    >
+                      <svg
+                        class="safer-upload-icon"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                        />
                       </svg>
-                    </button>
+                      <h3 class="safer-upload-title">
+                        Browse Files or drag & drop here
+                      </h3>
+                      <p class="safer-upload-text">
+                        JPEG, PNG, and CSV formats up to 2MB
+                      </p>
+                      <input
+                        type="file"
+                        id="safer-file-input"
+                        style="display: none"
+                        accept=".jpg,.jpeg,.png,.csv"
+                      />
+                      <label for="safer-file-input" class="safer-browse-btn"
+                        >Browse Files</label
+                      >
+                    </div>
                   </div>
-                  <div class="auto-detect-badge" id="auto-detect" style="display: none;">
-                    <i class="bi bi-check-circle-fill"></i>
-                    <span>Auto-detected: <strong id="detected-bookie">Sportybet Nigeria</strong></span>
+                </div>
+
+                <!-- Source Bookie (Optional - shown only if not auto-detected) -->
+                <div
+                  class="safer-form-group"
+                  id="source-bookie-group"
+                  style="display: none"
+                >
+                  <label class="safer-form-label"
+                    >Source Bookie (Optional)</label
+                  >
+                  <select class="safer-form-select" id="source-bookie">
+                    <option value="">Auto-detect</option>
+                    <option value="sportybet">Sportybet</option>
+                    <option value="bet9ja">Bet9ja</option>
+                    <option value="1xbet">1xBet</option>
+                    <option value="betking">BetKing</option>
+                    <option value="22bet">22bet</option>
+                    <option value="nairabet">NairaBet</option>
+                  </select>
+                </div>
+
+                <button type="submit" class="safer-analyze-btn">
+                  <i class="bi bi-search"></i> Analyze Bet
+                </button>
+              </form>
+            </div>
+
+            <!-- Empty State -->
+            <div class="safer-empty-state" id="empty-state">
+              <p class="safer-empty-text">
+                Enter a bet code above to analyze and get safer alternatives
+              </p>
+            </div>
+
+            <!-- Results Section -->
+            <div
+              class="safer-results"
+              id="results-section"
+              style="display: none"
+            >
+              <!-- Selection 1 - High Risk -->
+              <div class="safer-selection-card">
+                <div class="safer-selection-header">
+                  <span class="selection-number">Selection 1 of 4</span>
+                  <span class="risk-badge risk-high">
+                    <i class="bi bi-exclamation-circle"></i> High Risk
+                  </span>
+                </div>
+
+                <div class="safer-selection-body">
+                  <!-- Original Pick -->
+                  <div class="original-pick">
+                    <div class="pick-info">
+                      <div>
+                        <div class="pick-teams">Liverpool vs Man City</div>
+                        <div class="pick-market">1X2: Home</div>
+                      </div>
+                      <div class="pick-odds">2.50</div>
+                    </div>
+                  </div>
+
+                  <!-- Safer Alternative -->
+                  <div class="safer-alternative">
+                    <div class="safer-alt-header">
+                      <i class="bi bi-lightbulb"></i>
+                      <span>SAFER ALTERNATIVE</span>
+                    </div>
+
+                    <div class="safer-alt-content">
+                      <div class="safer-alt-market">Double Chance: 1X</div>
+                      <div class="safer-alt-explanation">
+                        <i class="bi bi-check2"></i> Liverpool wins OR draw =
+                        You win<br />
+                        <i class="bi bi-check2"></i> Only Man City win = You
+                        lose
+                      </div>
+
+                      <div class="safer-comparison">
+                        <div class="comparison-item">
+                          <div class="comparison-label">Original Odds</div>
+                          <div class="comparison-value">2.50</div>
+                          <div class="comparison-subtext">33% win chance</div>
+                        </div>
+                        <div class="comparison-item">
+                          <div class="comparison-label">Safer Odds</div>
+                          <div class="comparison-value">1.55</div>
+                          <div class="comparison-subtext">66% win chance</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="safer-actions">
+                      <button class="btn-accept">
+                        <i class="bi bi-check-lg"></i> Accept Suggestion
+                      </button>
+                      <button class="btn-keep">Keep Original</button>
+                    </div>
+                  </div>
+
+                  <!-- Odds Comparison -->
+                  <div class="odds-comparison">
+                    <div class="odds-comparison-title">Best Odds at:</div>
+                    <div class="bookie-row best-odds">
+                      <span class="bookie-name">
+                        1xBet <span class="best-badge">BEST</span>
+                      </span>
+                      <span class="bookie-odds">2.58</span>
+                    </div>
+                    <div class="bookie-row">
+                      <span class="bookie-name">Sportybet</span>
+                      <span class="bookie-odds">2.50</span>
+                    </div>
+                    <div class="bookie-row">
+                      <span class="bookie-name">Bet9ja</span>
+                      <span class="bookie-odds">2.45</span>
+                    </div>
+                    <div class="bookie-row">
+                      <span class="bookie-name">BetKing</span>
+                      <span class="bookie-odds">2.48</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Ticket Code Input -->
-              <div id="ticket-code-input" class="safer-input-content" style="display: none;">
-                <div class="safer-form-group">
-                  <label class="safer-form-label">Ticket Code</label>
-                  <div class="safer-input-wrapper">
-                    <input 
-                      type="text" 
-                      class="safer-form-input" 
-                      placeholder="Enter ticket code"
-                    />
-                    <button type="button" class="safer-paste-btn" title="Paste from clipboard">
-                      <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <rect width="8" height="4" x="8" y="2" rx="1" stroke-width="2"/>
-                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" stroke-width="2"/>
-                      </svg>
-                    </button>
+              <!-- Selection 2 - Medium Risk -->
+              <div class="safer-selection-card">
+                <div class="safer-selection-header">
+                  <span class="selection-number">Selection 2 of 4</span>
+                  <span class="risk-badge risk-medium">
+                    <i class="bi bi-dash-circle"></i> Medium Risk
+                  </span>
+                </div>
+
+                <div class="safer-selection-body">
+                  <div class="original-pick">
+                    <div class="pick-info">
+                      <div>
+                        <div class="pick-teams">Chelsea vs Arsenal</div>
+                        <div class="pick-market">Over/Under: Over 2.5</div>
+                      </div>
+                      <div class="pick-odds">1.85</div>
+                    </div>
+                  </div>
+
+                  <div class="safer-alternative">
+                    <div class="safer-alt-header">
+                      <i class="bi bi-lightbulb"></i>
+                      <span>SAFER ALTERNATIVE</span>
+                    </div>
+
+                    <div class="safer-alt-content">
+                      <div class="safer-alt-market">Over/Under: Over 1.5</div>
+                      <div class="safer-alt-explanation">
+                        <i class="bi bi-check2"></i> Lower threshold = Easier to
+                        win<br />
+                        <i class="bi bi-check2"></i> Just 2 goals needed instead
+                        of 3
+                      </div>
+
+                      <div class="safer-comparison">
+                        <div class="comparison-item">
+                          <div class="comparison-label">Original Odds</div>
+                          <div class="comparison-value">1.85</div>
+                          <div class="comparison-subtext">55% win chance</div>
+                        </div>
+                        <div class="comparison-item">
+                          <div class="comparison-label">Safer Odds</div>
+                          <div class="comparison-value">1.30</div>
+                          <div class="comparison-subtext">75% win chance</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="safer-actions">
+                      <button class="btn-accept">
+                        <i class="bi bi-check-lg"></i> Accept Suggestion
+                      </button>
+                      <button class="btn-keep">Keep Original</button>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Bet Link Input -->
-              <div id="bet-link-input" class="safer-input-content" style="display: none;">
-                <div class="safer-form-group">
-                  <label class="safer-form-label">Bet Link</label>
-                  <div class="safer-input-wrapper">
-                    <input 
-                      type="url" 
-                      class="safer-form-input" 
-                      placeholder="https://example.com/bet/123456"
-                    />
-                    <button type="button" class="safer-paste-btn" title="Paste from clipboard">
-                      <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <rect width="8" height="4" x="8" y="2" rx="1" stroke-width="2"/>
-                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" stroke-width="2"/>
-                      </svg>
-                    </button>
+              <!-- Selection 3 - Already Safe -->
+              <div class="safer-selection-card">
+                <div class="safer-selection-header">
+                  <span class="selection-number">Selection 3 of 4</span>
+                  <span class="risk-badge risk-low">
+                    <i class="bi bi-check-circle"></i> Already Safe
+                  </span>
+                </div>
+
+                <div class="safer-selection-body">
+                  <div class="original-pick">
+                    <div class="pick-info">
+                      <div>
+                        <div class="pick-teams">Barcelona vs Getafe</div>
+                        <div class="pick-market">Double Chance: 1X</div>
+                      </div>
+                      <div class="pick-odds">1.15</div>
+                    </div>
+                  </div>
+
+                  <div class="already-safe">
+                    <i class="bi bi-check-circle"></i>
+                    <span
+                      >This selection is already safe. No suggestions
+                      needed.</span
+                    >
                   </div>
                 </div>
               </div>
 
-              <!-- Upload File Input -->
-              <div id="upload-file-input" class="safer-input-content" style="display: none;">
-                <div class="safer-form-group">
-                  <label class="safer-form-label">Upload Betting Slip</label>
-                  <div class="safer-upload-area" onclick="document.getElementById('safer-file-input').click()">
-                    <svg class="safer-upload-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
-                    </svg>
-                    <h3 class="safer-upload-title">Browse Files or drag & drop here</h3>
-                    <p class="safer-upload-text">JPEG, PNG, and CSV formats up to 2MB</p>
-                    <input type="file" id="safer-file-input" style="display: none" accept=".jpg,.jpeg,.png,.csv" />
-                    <label for="safer-file-input" class="safer-browse-btn">Browse Files</label>
+              <!-- Selection 4 - Medium Risk -->
+              <div class="safer-selection-card">
+                <div class="safer-selection-header">
+                  <span class="selection-number">Selection 4 of 4</span>
+                  <span class="risk-badge risk-medium">
+                    <i class="bi bi-dash-circle"></i> Medium Risk
+                  </span>
+                </div>
+
+                <div class="safer-selection-body">
+                  <div class="original-pick">
+                    <div class="pick-info">
+                      <div>
+                        <div class="pick-teams">
+                          Real Madrid vs Atletico Madrid
+                        </div>
+                        <div class="pick-market">BTTS: Yes</div>
+                      </div>
+                      <div class="pick-odds">1.70</div>
+                    </div>
+                  </div>
+
+                  <div class="safer-alternative">
+                    <div class="safer-alt-header">
+                      <i class="bi bi-lightbulb"></i>
+                      <span>SAFER ALTERNATIVE</span>
+                    </div>
+
+                    <div class="safer-alt-content">
+                      <div class="safer-alt-market">
+                        Over/Under: Over 1.5 Goals
+                      </div>
+                      <div class="safer-alt-explanation">
+                        <i class="bi bi-check2"></i> Easier condition than both
+                        teams scoring<br />
+                        <i class="bi bi-check2"></i> Any team can score 2+ goals
+                      </div>
+
+                      <div class="safer-comparison">
+                        <div class="comparison-item">
+                          <div class="comparison-label">Original Odds</div>
+                          <div class="comparison-value">1.70</div>
+                          <div class="comparison-subtext">58% win chance</div>
+                        </div>
+                        <div class="comparison-item">
+                          <div class="comparison-label">Safer Odds</div>
+                          <div class="comparison-value">1.25</div>
+                          <div class="comparison-subtext">78% win chance</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="safer-actions">
+                      <button class="btn-accept">
+                        <i class="bi bi-check-lg"></i> Accept Suggestion
+                      </button>
+                      <button class="btn-keep">Keep Original</button>
+                    </div>
                   </div>
                 </div>
               </div>
+            </div>
 
-              <!-- Source Bookie (Optional - shown only if not auto-detected) -->
-              <div class="safer-form-group" id="source-bookie-group" style="display: none;">
-                <label class="safer-form-label">Source Bookie (Optional)</label>
-                <select class="safer-form-select" id="source-bookie">
-                  <option value="">Auto-detect</option>
-                  <option value="sportybet">Sportybet</option>
-                  <option value="bet9ja">Bet9ja</option>
-                  <option value="1xbet">1xBet</option>
-                  <option value="betking">BetKing</option>
-                  <option value="22bet">22bet</option>
-                  <option value="nairabet">NairaBet</option>
-                </select>
-              </div>
-
-              <button type="submit" class="safer-analyze-btn">
-                <i class="bi bi-search"></i> Analyze Bet
+            <!-- Footer Actions -->
+            <div
+              class="safer-footer-actions"
+              id="footer-actions"
+              style="display: none"
+            >
+              <button class="safer-footer-btn primary" id="accept-all-btn">
+                <i class="bi bi-check-all"></i> Accept All Suggestions
               </button>
-            </form>
-          </div>
-
-          <!-- Empty State -->
-          <div class="safer-empty-state" id="empty-state">
-            <p class="safer-empty-text">Enter a bet code above to analyze and get safer alternatives</p>
-          </div>
-
-          <!-- Results Section -->
-          <div class="safer-results" id="results-section" style="display: none;">
-            
-            <!-- Selection 1 - High Risk -->
-            <div class="safer-selection-card">
-              <div class="safer-selection-header">
-                <span class="selection-number">Selection 1 of 4</span>
-                <span class="risk-badge risk-high">
-                  <i class="bi bi-exclamation-circle"></i> High Risk
-                </span>
-              </div>
-              
-              <div class="safer-selection-body">
-                <!-- Original Pick -->
-                <div class="original-pick">
-                  <div class="pick-info">
-                    <div>
-                      <div class="pick-teams">Liverpool vs Man City</div>
-                      <div class="pick-market">1X2: Home</div>
-                    </div>
-                    <div class="pick-odds">2.50</div>
-                  </div>
-                </div>
-                
-                <!-- Safer Alternative -->
-                <div class="safer-alternative">
-                  <div class="safer-alt-header">
-                    <i class="bi bi-lightbulb"></i>
-                    <span>SAFER ALTERNATIVE</span>
-                  </div>
-                  
-                  <div class="safer-alt-content">
-                    <div class="safer-alt-market">Double Chance: 1X</div>
-                    <div class="safer-alt-explanation">
-                      <i class="bi bi-check2"></i> Liverpool wins OR draw = You win<br>
-                      <i class="bi bi-check2"></i> Only Man City win = You lose
-                    </div>
-                    
-                    <div class="safer-comparison">
-                      <div class="comparison-item">
-                        <div class="comparison-label">Original Odds</div>
-                        <div class="comparison-value">2.50</div>
-                        <div class="comparison-subtext">33% win chance</div>
-                      </div>
-                      <div class="comparison-item">
-                        <div class="comparison-label">Safer Odds</div>
-                        <div class="comparison-value">1.55</div>
-                        <div class="comparison-subtext">66% win chance</div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div class="safer-actions">
-                    <button class="btn-accept">
-                      <i class="bi bi-check-lg"></i> Accept Suggestion
-                    </button>
-                    <button class="btn-keep">Keep Original</button>
-                  </div>
-                </div>
-                
-                <!-- Odds Comparison -->
-                <div class="odds-comparison">
-                  <div class="odds-comparison-title">Best Odds at:</div>
-                  <div class="bookie-row best-odds">
-                    <span class="bookie-name">
-                      1xBet <span class="best-badge">BEST</span>
-                    </span>
-                    <span class="bookie-odds">2.58</span>
-                  </div>
-                  <div class="bookie-row">
-                    <span class="bookie-name">Sportybet</span>
-                    <span class="bookie-odds">2.50</span>
-                  </div>
-                  <div class="bookie-row">
-                    <span class="bookie-name">Bet9ja</span>
-                    <span class="bookie-odds">2.45</span>
-                  </div>
-                  <div class="bookie-row">
-                    <span class="bookie-name">BetKing</span>
-                    <span class="bookie-odds">2.48</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Selection 2 - Medium Risk -->
-            <div class="safer-selection-card">
-              <div class="safer-selection-header">
-                <span class="selection-number">Selection 2 of 4</span>
-                <span class="risk-badge risk-medium">
-                  <i class="bi bi-dash-circle"></i> Medium Risk
-                </span>
-              </div>
-              
-              <div class="safer-selection-body">
-                <div class="original-pick">
-                  <div class="pick-info">
-                    <div>
-                      <div class="pick-teams">Chelsea vs Arsenal</div>
-                      <div class="pick-market">Over/Under: Over 2.5</div>
-                    </div>
-                    <div class="pick-odds">1.85</div>
-                  </div>
-                </div>
-                
-                <div class="safer-alternative">
-                  <div class="safer-alt-header">
-                    <i class="bi bi-lightbulb"></i>
-                    <span>SAFER ALTERNATIVE</span>
-                  </div>
-                  
-                  <div class="safer-alt-content">
-                    <div class="safer-alt-market">Over/Under: Over 1.5</div>
-                    <div class="safer-alt-explanation">
-                      <i class="bi bi-check2"></i> Lower threshold = Easier to win<br>
-                      <i class="bi bi-check2"></i> Just 2 goals needed instead of 3
-                    </div>
-                    
-                    <div class="safer-comparison">
-                      <div class="comparison-item">
-                        <div class="comparison-label">Original Odds</div>
-                        <div class="comparison-value">1.85</div>
-                        <div class="comparison-subtext">55% win chance</div>
-                      </div>
-                      <div class="comparison-item">
-                        <div class="comparison-label">Safer Odds</div>
-                        <div class="comparison-value">1.30</div>
-                        <div class="comparison-subtext">75% win chance</div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div class="safer-actions">
-                    <button class="btn-accept">
-                      <i class="bi bi-check-lg"></i> Accept Suggestion
-                    </button>
-                    <button class="btn-keep">Keep Original</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Selection 3 - Already Safe -->
-            <div class="safer-selection-card">
-              <div class="safer-selection-header">
-                <span class="selection-number">Selection 3 of 4</span>
-                <span class="risk-badge risk-low">
-                  <i class="bi bi-check-circle"></i> Already Safe
-                </span>
-              </div>
-              
-              <div class="safer-selection-body">
-                <div class="original-pick">
-                  <div class="pick-info">
-                    <div>
-                      <div class="pick-teams">Barcelona vs Getafe</div>
-                      <div class="pick-market">Double Chance: 1X</div>
-                    </div>
-                    <div class="pick-odds">1.15</div>
-                  </div>
-                </div>
-                
-                <div class="already-safe">
-                  <i class="bi bi-check-circle"></i>
-                  <span>This selection is already safe. No suggestions needed.</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Selection 4 - Medium Risk -->
-            <div class="safer-selection-card">
-              <div class="safer-selection-header">
-                <span class="selection-number">Selection 4 of 4</span>
-                <span class="risk-badge risk-medium">
-                  <i class="bi bi-dash-circle"></i> Medium Risk
-                </span>
-              </div>
-              
-              <div class="safer-selection-body">
-                <div class="original-pick">
-                  <div class="pick-info">
-                    <div>
-                      <div class="pick-teams">Real Madrid vs Atletico Madrid</div>
-                      <div class="pick-market">BTTS: Yes</div>
-                    </div>
-                    <div class="pick-odds">1.70</div>
-                  </div>
-                </div>
-                
-                <div class="safer-alternative">
-                  <div class="safer-alt-header">
-                    <i class="bi bi-lightbulb"></i>
-                    <span>SAFER ALTERNATIVE</span>
-                  </div>
-                  
-                  <div class="safer-alt-content">
-                    <div class="safer-alt-market">Over/Under: Over 1.5 Goals</div>
-                    <div class="safer-alt-explanation">
-                      <i class="bi bi-check2"></i> Easier condition than both teams scoring<br>
-                      <i class="bi bi-check2"></i> Any team can score 2+ goals
-                    </div>
-                    
-                    <div class="safer-comparison">
-                      <div class="comparison-item">
-                        <div class="comparison-label">Original Odds</div>
-                        <div class="comparison-value">1.70</div>
-                        <div class="comparison-subtext">58% win chance</div>
-                      </div>
-                      <div class="comparison-item">
-                        <div class="comparison-label">Safer Odds</div>
-                        <div class="comparison-value">1.25</div>
-                        <div class="comparison-subtext">78% win chance</div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div class="safer-actions">
-                    <button class="btn-accept">
-                      <i class="bi bi-check-lg"></i> Accept Suggestion
-                    </button>
-                    <button class="btn-keep">Keep Original</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Footer Actions -->
-          <div class="safer-footer-actions" id="footer-actions" style="display: none;">
-            <button class="safer-footer-btn primary" id="accept-all-btn">
-              <i class="bi bi-check-all"></i> Accept All Suggestions
-            </button>
-            <button class="safer-footer-btn" id="generate-code-btn">
-              <i class="bi bi-code-square"></i> Generate Safer Code
-            </button>
-            <button class="safer-footer-btn" id="add-editor-btn">
-              <i class="bi bi-pencil-square"></i> Add to Bet Editor
-            </button>
-          </div>
-
-          <!-- Share Section -->
-          <div class="safer-share-section" id="share-section" style="display: none;">
-            <div class="share-section-title">
-              <i class="bi bi-share"></i>
-              Share this optimized bet:
-            </div>
-            <div class="share-link-box">
-              <input 
-                type="text" 
-                class="share-input" 
-                id="share-link"
-                value="https://convertbetcodes.com/share/ABC123XYZ" 
-                readonly
-              />
-              <button class="btn-copy" id="copy-link-btn">
-                <i class="bi bi-clipboard"></i> Copy
+              <button class="safer-footer-btn" id="generate-code-btn">
+                <i class="bi bi-code-square"></i> Generate Safer Code
+              </button>
+              <button class="safer-footer-btn" id="add-editor-btn">
+                <i class="bi bi-pencil-square"></i> Add to Bet Editor
               </button>
             </div>
-            <div class="share-description">
-              Anyone with this link can view and edit your optimized selections
+
+            <!-- Share Section -->
+            <div
+              class="safer-share-section"
+              id="share-section"
+              style="display: none"
+            >
+              <div class="share-section-title">
+                <i class="bi bi-share"></i>
+                Share this optimized bet:
+              </div>
+              <div class="share-link-box">
+                <input
+                  type="text"
+                  class="share-input"
+                  id="share-link"
+                  value="https://convertbetcodes.com/share/ABC123XYZ"
+                  readonly
+                />
+                <button class="btn-copy" id="copy-link-btn">
+                  <i class="bi bi-clipboard"></i> Copy
+                </button>
+              </div>
+              <div class="share-description">
+                Anyone with this link can view and edit your optimized
+                selections
+              </div>
             </div>
+
+            <button id="scroll-to-top" class="scroll-to-top">
+              <i class="bi bi-arrow-up"></i>
+            </button>
+
+            <div id="betslip-rail"></div>
           </div>
-
-          <div id="betslip-rail"></div>
-
-
-
         </div>
-      </div>
+      </main>
+    </div>
 
-    </main>
-  </div>
+    <div id="filter-canvas"></div>
+    <div id="mobile-nav"></div>
 
-  <div id="filter-canvas"></div>
-  <div id="mobile-nav"></div>
+    <script src="assets/js/adminux/adminux-dashboard.js"></script>
+    <script src="./components/AppLayout.js"></script>
+    <script src="assets/js/betsafer.js"></script>
+    <script src="./components/betslip-rail.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const scrollToTopBtn = document.getElementById("scroll-to-top");
+        const mainContent = document.querySelector(".adminuiux-content");
 
-  <script src="assets/js/adminux/adminux-dashboard.js"></script>
-  <script src="./components/AppLayout.js"></script>
-  <script src="assets/js/betsafer.js"></script>
-  <script src="./components/betslip-rail.js"></script>
+        // Function to check scroll position and toggle button visibility
+        function toggleScrollToTopButton() {
+          // Adjust this value to control when the button appears
+          const scrollThreshold = 300;
 
-</body>
+          if (mainContent.scrollTop > scrollThreshold) {
+            scrollToTopBtn.classList.add("visible");
+          } else {
+            scrollToTopBtn.classList.remove("visible");
+          }
+        }
+
+        // Add scroll event listener to the main content
+        mainContent.addEventListener("scroll", toggleScrollToTopButton);
+
+        // Scroll to top when button is clicked
+        scrollToTopBtn.addEventListener("click", function () {
+          mainContent.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
+  </body>
 </html>

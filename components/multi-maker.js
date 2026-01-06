@@ -138,13 +138,14 @@
         <div class="match-header">
           <div class="match-selection">
             <i class="bi bi-circle-fill"></i>
-            <span>${match.outcome} | ${match.market.toUpperCase()}</span>
+            <span>${match.market.toUpperCase()} | ${match.outcome}</span>
           </div>
         </div>
         <div class="match-content">
           <button class="match-remove" data-match-id="${match.id}">
             <i class="bi bi-x-lg"></i>
           </button>
+          
           <div class="match-details">
             <div class="match-outcome-row">
               <div class="match-teams">${match.teams}</div>

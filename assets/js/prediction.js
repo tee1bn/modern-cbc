@@ -1,4 +1,4 @@
-// components/predictions.js
+// predictions.js - Phase 7 Fix
 
 (function() {
   'use strict';
@@ -12,6 +12,46 @@
   function init() {
     setupEventListeners();
     loadPredictions();
+    initLeagueCollapse();
+  }
+
+  // ==================== LEAGUE COLLAPSE ====================
+  function initLeagueCollapse() {
+    document.addEventListener('click', function(e) {
+      const leagueHeader = e.target.closest('.league-header');
+      if (leagueHeader) {
+        const leagueEvents = leagueHeader.nextElementSibling;
+        const toggleIcon = leagueHeader.querySelector('.toggle-icon');
+        
+        if (leagueEvents && leagueEvents.classList.contains('league-events')) {
+          // Toggle collapsed state
+          leagueHeader.classList.toggle('collapsed');
+          leagueEvents.classList.toggle('collapsed');
+          
+          if (toggleIcon) {
+            toggleIcon.classList.toggle('rotated');
+          }
+        }
+      }
+    });
+
+    // Initially collapse all leagues except the first one
+    const leagueGroups = document.querySelectorAll('.league-group');
+    leagueGroups.forEach((group, index) => {
+      if (index > 0) { // Keep first league open
+        const header = group.querySelector('.league-header');
+        const events = group.querySelector('.league-events');
+        const toggleIcon = group.querySelector('.toggle-icon');
+        
+        if (header && events) {
+          header.classList.add('collapsed');
+          events.classList.add('collapsed');
+          if (toggleIcon) {
+            toggleIcon.classList.add('rotated');
+          }
+        }
+      }
+    });
   }
 
   // ==================== EVENT LISTENERS ====================
@@ -49,27 +89,19 @@
     // Market list items
     document.querySelectorAll('.market-list-item').forEach(item => {
       item.addEventListener('click', function() {
-        // Remove active from all
         document.querySelectorAll('.market-list-item').forEach(i => i.classList.remove('active'));
-        
-        // Add active to clicked
         this.classList.add('active');
         
-        // Update button label
         const label = this.dataset.label;
         const selectedLabel = document.getElementById('selected-market-label');
         if (selectedLabel) {
           selectedLabel.textContent = label;
         }
         
-        // Update current market
         currentMarket = this.dataset.market;
-        
-        // Close modal
         marketModal.classList.add('hidden');
         marketFilterBtn.classList.remove('active');
         
-        // Load predictions
         loadPredictions();
         console.log('Selected market:', currentMarket);
       });
@@ -81,48 +113,6 @@
         if (e.target === marketModal) {
           marketModal.classList.add('hidden');
           marketFilterBtn.classList.remove('active');
-        }
-      });
-    }
-
-    // Filter modal
-    const filterModal = document.getElementById('filter-modal');
-    const openFilterBtn = document.getElementById('open-filter-btn');
-    const closeFilterBtn = document.getElementById('close-filter-btn');
-    const submitFilterBtn = document.getElementById('submit-filter-btn');
-    const resetFilterBtn = document.getElementById('reset-filter-btn');
-
-    if (openFilterBtn) {
-      openFilterBtn.addEventListener('click', () => {
-        filterModal.classList.remove('hidden');
-      });
-    }
-
-    if (closeFilterBtn) {
-      closeFilterBtn.addEventListener('click', () => {
-        filterModal.classList.add('hidden');
-      });
-    }
-
-    if (submitFilterBtn) {
-      submitFilterBtn.addEventListener('click', () => {
-        filterModal.classList.add('hidden');
-        applyFilters();
-        console.log('Filters applied');
-      });
-    }
-
-    if (resetFilterBtn) {
-      resetFilterBtn.addEventListener('click', () => {
-        resetFilters();
-      });
-    }
-
-    // Close modal on outside click
-    if (filterModal) {
-      filterModal.addEventListener('click', (e) => {
-        if (e.target === filterModal) {
-          filterModal.classList.add('hidden');
         }
       });
     }
@@ -140,20 +130,10 @@
 
     // Add to betslip buttons - delegate event
     document.addEventListener('click', (e) => {
-      if (e.target.closest('.prediction-action-btn.primary')) {
+      if (e.target.closest('.prediction-action-btn')) {
         const card = e.target.closest('.prediction-card');
         if (card) {
           addToBetslip(card);
-        }
-      }
-    });
-
-    // Info buttons
-    document.addEventListener('click', (e) => {
-      if (e.target.closest('.prediction-action-btn:not(.primary)')) {
-        const card = e.target.closest('.prediction-card');
-        if (card) {
-          showPredictionInfo(card);
         }
       }
     });
@@ -161,10 +141,8 @@
 
   // ==================== LOAD PREDICTIONS ====================
   function loadPredictions() {
-    // In a real app, this would fetch from an API
     console.log(`Loading predictions for ${currentSport} - ${currentMarket}`);
     
-    // For now, just update the page info
     const pageInfo = document.getElementById('page-info');
     if (pageInfo) {
       pageInfo.textContent = `Page 1, Showing 25/80`;
@@ -178,7 +156,8 @@
     const oddsElement = card.querySelector('.prediction-odds-box');
     const marketElement = card.querySelector('.prediction-market-badge');
     const dateElement = card.querySelector('.prediction-datetime-compact');
-    const leagueElement = card.querySelector('.prediction-sport-indicator span');
+    const leagueGroup = card.closest('.league-group');
+    const leagueName = leagueGroup?.querySelector('.league-name')?.textContent || '';
     
     if (!teamsElement || !oddsElement) {
       console.error('Missing required elements');
@@ -190,21 +169,23 @@
     const teams = `${homeTeam} vs ${awayTeam}`;
     const odd = oddsElement.textContent || '1.00';
     const marketText = marketElement?.textContent || '1X2';
-    const date = dateElement?.textContent || '';
-    const league = leagueElement?.textContent || '';
+    const date = dateElement?.textContent.replace(/🕐\s*/g, '').trim() || '';
+
+    // Create unique match ID
+    const matchId = 'pred-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
 
     // Parse market to get type and value
     const [marketType, marketValue] = parseMarket(marketText);
 
     const selection = {
-      matchId: 'pred-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9),
+      matchId: matchId,
       teams: teams,
       date: date,
       market: marketType,
       value: marketValue,
       odd: odd,
       odds: odd,
-      league: league,
+      league: leagueName,
       selected: true
     };
 
@@ -213,18 +194,18 @@
       window.betslipRail.addSelection(selection);
       
       // Visual feedback
-      const btn = card.querySelector('.prediction-action-btn.primary');
+      const btn = card.querySelector('.prediction-action-btn');
       if (btn) {
         const originalHTML = btn.innerHTML;
-        btn.innerHTML = '<i class="bi bi-check-lg"></i>';
-        btn.style.background = '#333';
-        btn.style.borderColor = '#3333';
+        btn.innerHTML = '<i class="bi bi-check-lg"></i> Added';
+        btn.style.background = '#10b981';
+        btn.style.borderColor = '#10b981';
         
         setTimeout(() => {
           btn.innerHTML = originalHTML;
           btn.style.background = '';
           btn.style.borderColor = '';
-        }, 1000);
+        }, 1500);
       }
 
       // Flash betslip badge
@@ -264,51 +245,6 @@
     }
     
     return ['1x2', 'home'];
-  }
-
-  // ==================== SHOW PREDICTION INFO ====================
-  function showPredictionInfo(card) {
-    const teamsElement = card.querySelector('.prediction-teams-compact');
-    const homeTeam = teamsElement.querySelector('.prediction-team-home')?.textContent || '';
-    const awayTeam = teamsElement.querySelector('.prediction-team-away')?.textContent || '';
-    
-    alert(`Prediction Details\n\nMatch: ${homeTeam} vs ${awayTeam}\n\nClick "Add to Betslip" to add this prediction to your betslip.`);
-  }
-
-  // ==================== FILTER FUNCTIONS ====================
-  function applyFilters() {
-    // Get filter values
-    const oddsMin = document.querySelector('.filter-odds-range input:first-child')?.value || '';
-    const oddsMax = document.querySelector('.filter-odds-range input:last-child')?.value || '';
-    const playingOn = document.querySelector('.filter-select[name="playing-on"]')?.value || '';
-    const teams = document.querySelector('.filter-input[placeholder="Search teams..."]')?.value || '';
-    const league = document.querySelector('.filter-select option:checked')?.value || '';
-    const orderByPopularity = document.getElementById('order-popularity')?.checked || false;
-
-    console.log('Applying filters:', {
-      oddsMin,
-      oddsMax,
-      playingOn,
-      teams,
-      league,
-      orderByPopularity
-    });
-
-    // In a real app, this would filter the predictions
-    loadPredictions();
-  }
-
-  function resetFilters() {
-    document.querySelectorAll('.filter-input, .filter-select').forEach(input => {
-      input.value = '';
-    });
-    
-    const checkbox = document.getElementById('order-popularity');
-    if (checkbox) {
-      checkbox.checked = false;
-    }
-
-    console.log('Filters reset');
   }
 
   // ==================== INITIALIZE ====================

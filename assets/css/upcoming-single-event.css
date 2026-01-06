@@ -23,7 +23,7 @@ body {
 
 .event-header.scrolled .header-logo,
 .event-header.scrolled .header-actions {
-  display: none;
+  display: flex;
 }
 
 .header-top {

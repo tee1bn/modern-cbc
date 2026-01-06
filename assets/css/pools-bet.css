@@ -29,7 +29,7 @@
 /* Sports Bar - Sticks below desktop nav */
 .sports-bar-wrapper {
   /* border:1px solid blue; */
-  top: 62px; 
+  top: 62px; /* Changed from 0 to account for desktop nav */
   border-bottom: 1px solid #e5e7eb;
   padding: 0.75rem 1rem;
 }
@@ -574,4 +574,83 @@ html {
 .sports-tabs::-webkit-scrollbar-thumb:hover,
 .market-tabs::-webkit-scrollbar-thumb:hover {
   background: #9ca3af;
+}
+
+/* ========================================
+   MATCH BADGE (Serial Numbers)
+   ======================================== */
+
+.match-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 20px;
+  padding: 0 6px;
+  background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+  color: white;
+  font-size: 0.688rem;
+  font-weight: 700;
+  border-radius: 4px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* Alternative badge styles - uncomment to use */
+
+/* Style 2: Colored badge */
+/*
+.match-badge {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+}
+*/
+
+/* Style 3: Outlined badge */
+/*
+.match-badge {
+  background: transparent;
+  border: 2px solid #1f2937;
+  color: #1f2937;
+  font-weight: 700;
+}
+*/
+
+/* Style 4: Pill badge */
+/*
+.match-badge {
+  background: #10b981;
+  border-radius: 12px;
+  padding: 0 8px;
+}
+*/
+
+/* Style 5: Square badge */
+/*
+.match-badge {
+  background: #ef4444;
+  border-radius: 2px;
+  min-width: 24px;
+  height: 24px;
+}
+*/
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .match-badge {
+    min-width: 24px;
+    height: 18px;
+    font-size: 0.625rem;
+    margin-right: 6px;
+    padding: 0 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .match-badge {
+    min-width: 22px;
+    height: 16px;
+    font-size: 0.563rem;
+    margin-right: 5px;
+    padding: 0 4px;
+  }
 }

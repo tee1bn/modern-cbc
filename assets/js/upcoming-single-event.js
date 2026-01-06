@@ -102,64 +102,6 @@ marketInfoCloseBtn.addEventListener("click", () => {
   marketInfoModal.style.display = "none";
 });
 
-// ================================
-// Sorting & Best Odds Highlight
-// ================================
-let currentSort = {
-  market: null,
-  option: null,
-};
-
-function sortByOption(headerEl, option) {
-  const marketGroup = headerEl.closest(".market-group");
-  const marketType = marketGroup.dataset.market;
-  const bookieList = marketGroup.querySelector(".bookie-list");
-  const rows = Array.from(bookieList.querySelectorAll(".bookie-row"));
-
-  // Reset header styles
-  marketGroup.querySelectorAll(".option-header").forEach((btn) => {
-    btn.classList.remove("sorting");
-  });
-  headerEl.classList.add("sorting");
-
-  // Sort rows
-  rows.sort((a, b) => {
-    const aVal = parseFloat(a.dataset[option]) || 0;
-    const bVal = parseFloat(b.dataset[option]) || 0;
-    return bVal - aVal;
-  });
-
-  // Re-append sorted rows
-  rows.forEach((row) => bookieList.appendChild(row));
-
-  // Remove previous best highlights
-  marketGroup.querySelectorAll(".odd-value").forEach((odd) => {
-    odd.classList.remove("best");
-  });
-
-  // Highlight best odd in selected column
-  let bestValue = 0;
-  rows.forEach((row) => {
-    const val = parseFloat(row.dataset[option]) || 0;
-    if (val > bestValue) bestValue = val;
-  });
-
-  rows.forEach((row) => {
-    const odds = row.querySelectorAll(".odd-value");
-    const headers = Array.from(marketGroup.querySelectorAll(".option-header"));
-    const index = headers.findIndex((h) => h === headerEl);
-
-    if (index !== -1 && odds[index]) {
-      const oddVal = parseFloat(odds[index].textContent);
-      if (oddVal === bestValue) {
-        odds[index].classList.add("best");
-      }
-    }
-  });
-
-  currentSort.market = marketType;
-  currentSort.option = option;
-}
 
 // ================================
 // Market filter tabs (UI only)
@@ -226,36 +168,9 @@ async function addOddToBetslip(bookieName, market, outcomeType, oddValue) {
   if (window.betslipRail && window.betslipRail.addSelection) {
     window.betslipRail.addSelection(selection);
     window.betslipRail.flashBadge();
-    
-    // Show success feedback
-    // showAddedFeedback();
   }
 }
 
-// ==================== SHOW ADDED FEEDBACK ====================
-function showAddedFeedback() {
-  const feedback = document.createElement('div');
-  feedback.style.cssText = `
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: #000;
-    color: #fff;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    z-index: 10000;
-    animation: slideInRight 0.3s ease;
-  `;
-  feedback.innerHTML = '<i class="bi bi-check-circle"></i> Added to Betslip';
-  document.body.appendChild(feedback);
-
-  setTimeout(() => {
-    feedback.style.animation = 'slideOutRight 0.3s ease';
-    setTimeout(() => feedback.remove(), 300);
-  }, 2000);
-}
 
 // ==================== SETUP ODD CLICK LISTENERS ====================
 document.addEventListener('DOMContentLoaded', async () => {
@@ -321,29 +236,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 });
 
-// Add CSS animation for feedback
-const style = document.createElement('style');
-style.textContent = `
-  @keyframes slideInRight {
-    from {
-      transform: translateX(400px);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  
-  @keyframes slideOutRight {
-    from {
-      transform: translateX(0);
-      opacity: 1;
-    }
-    to {
-      transform: translateX(400px);
-      opacity: 0;
-    }
-  }
-`;
-document.head.appendChild(style);
+
+

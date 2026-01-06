@@ -79,15 +79,16 @@ body {
 }
 
 .sport-tab {
+  /* border: 1px solid red; */
   flex: 1;
   min-width: 80px;
-  padding: 12px;
+  padding: 4px 14px;
   background: none;
   border: none;
   color: var(--text-muted);
   cursor: pointer;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   gap: 4px;
   border-bottom: 3px solid transparent;
@@ -164,10 +165,11 @@ body {
   background: #fff;
 }
 
-.match-card {1
+.match-card {
+  /* border: 1px solid red; */
   background: white;
-  margin-bottom: px;
-  border-bottom: 1px solid var(--border-light);
+  margin-bottom: 4px;
+  border-bottom: 3px solid var(--border-light);
 }
 
 .match-header {
@@ -176,7 +178,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid var(--border-light);
+  /* border-bottom: 1px solid var(--border-light); */
 }
 
 .match-selection {
@@ -220,6 +222,7 @@ body {
 }
 
 .match-details {
+  /* border: 1px solid red; */
   flex: 1;
 }
 
@@ -252,8 +255,7 @@ body {
 }
 
 .match-odd-box {
-  padding: 10px 16px;
-  border: 2px solid var(--border-color);
+  padding: 4px;
   border-radius: 4px;
   font-size: 16px;
   font-weight: 700;
@@ -268,6 +270,7 @@ body {
   color: var(--text-muted);
   cursor: pointer;
   transition: color 0.2s;
+  padding: 0px 4px;
 }
 
 .match-lock:hover {
@@ -865,3 +868,4 @@ body {
     gap: 8px;
   }
 }
+

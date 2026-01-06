@@ -138,17 +138,18 @@
   }
 
   // ==================== UI CONTROLS ====================
-  function openRail() {
-    isRailOpen = true;
-    const overlay = document.getElementById("rail-overlay");
-    const rail = document.getElementById("rail-container");
+function openRail() {
+  isRailOpen = true;
+  const overlay = document.getElementById("rail-overlay");
+  const rail = document.getElementById("rail-container");
 
-    if (overlay && rail) {
-      overlay.classList.add("active");
-      rail.classList.add("active");
-      document.body.style.overflow = "hidden";
-    }
+  if (overlay && rail) {
+    overlay.classList.add("active");
+    rail.classList.add("active");
+    rail.classList.add("fullscreen"); // Always fullscreen
+    document.body.style.overflow = "hidden";
   }
+}
 
   function expandFullScreen() {
     const rail = document.getElementById("rail-container");
@@ -473,55 +474,75 @@
   // This function is removed to prevent conflicts
   // The empty state now directly shows the load form
 
-  async function loadBetCodeFromEmpty(code, bookie) {
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+async function loadBetCodeFromEmpty(code, bookie) {
+  await new Promise((resolve) => setTimeout(resolve, 1500));
 
-    const mockBets = [
-      {
-        matchId: "load-" + Date.now() + "-1",
-        teams: "Nottingham Forest vs Man City",
-        date: "Sat 12/27/25, 13:30",
-        market: "1x2",
-        value: "Away",
-        odd: "1.62",
-        league: "Premier League",
-        selected: true,
-      },
-      {
-        matchId: "load-" + Date.now() + "-2",
-        teams: "AC Milan vs Verona",
-        date: "Sun 12/28/25, 12:30",
-        market: "1x2",
-        value: "Home",
-        odd: "1.39",
-        league: "Serie A",
-        selected: true,
-      },
-      {
-        matchId: "load-" + Date.now() + "-3",
-        teams: "Liverpool vs Wolves",
-        date: "Sat 12/27/25, 16:00",
-        market: "1x2",
-        value: "Home",
-        odd: "1.26",
-        league: "Premier League",
-        selected: true,
-      },
-    ];
+  const mockBets = [
+    {
+      matchId: "load-" + Date.now() + "-1",
+      teams: "Nottingham Forest vs Man City",
+      date: "Sat 12/27/25, 13:30",
+      market: "1x2",
+      value: "Away",
+      odd: "1.62",
+      league: "Premier League",
+      selected: true,
+      bookieSource: bookie || "sportybet-nigeria", // ADD THIS
+      bookingCode: code // ADD THIS
+    },
+    {
+      matchId: "load-" + Date.now() + "-2",
+      teams: "AC Milan vs Verona",
+      date: "Sun 12/28/25, 12:30",
+      market: "1x2",
+      value: "Home",
+      odd: "1.39",
+      league: "Serie A",
+      selected: true,
+      bookieSource: bookie || "sportybet-nigeria", // ADD THIS
+      bookingCode: code // ADD THIS
+    },
+    {
+      matchId: "load-" + Date.now() + "-3",
+      teams: "Liverpool vs Wolves",
+      date: "Sat 12/27/25, 16:00",
+      market: "1x2",
+      value: "Home",
+      odd: "1.26",
+      league: "Premier League",
+      selected: true,
+      bookieSource: bookie || "sportybet-nigeria", // ADD THIS
+      bookingCode: code // ADD THIS
+    },
+  ];
 
-    mockBets.forEach((bet) => {
-      bets.push(bet);
-    });
+  // APPEND instead of replace
+  mockBets.forEach((bet) => {
+    bets.push(bet);
+  });
 
-    saveToStorage();
-    renderRail();
-    updateBadge();
-    flashBadge();
+  saveToStorage();
+  renderRail();
+  updateBadge();
+  flashBadge();
 
-    setTimeout(() => {
-      alert(`Loaded ${mockBets.length} bets from ${code}`);
-    }, 300);
-  }
+  setTimeout(() => {
+    alert(`Loaded ${mockBets.length} bets from ${code}`);
+  }, 300);
+}
+
+function formatBookieName(bookieCode) {
+  const bookieNames = {
+    'sportybet-nigeria': 'Sportybet NG',
+    'sportybet-ghana': 'Sportybet GH',
+    'sportybet-kenya': 'Sportybet KE',
+    'bet9ja-nigeria': 'Bet9ja NG',
+    'betking-nigeria': 'BetKing NG',
+    '1xbet-nigeria': '1xBet NG',
+    '22bet-nigeria': '22bet NG'
+  };
+  return bookieNames[bookieCode] || bookieCode;
+}
 
 // ==================== RENDERING ====================
 function renderRail() {
@@ -641,29 +662,32 @@ function renderRail() {
 
       <div class="rail-bets-list">
         ${bets.map((bet, index) => `
-          <div class="rail-bet-item ${bet.selected ? 'selected' : ''}" data-match-id="${bet.matchId}">
-            <div class="rail-bet-checkbox">
-              <input type="checkbox" class="bet-checkbox" data-match-id="${bet.matchId}" ${bet.selected ? 'checked' : ''} />
-            </div>
-            <div class="rail-bet-content" data-match-id="${bet.matchId}" style="cursor: pointer;">
-              <div class="rail-bet-teams">${bet.teams || 'Unknown Match'}</div>
-              <div class="rail-bet-market">${bet.market || '1x2'}: ${bet.value || 'home'}</div>
-              <div class="rail-bet-meta">
-                <span class="rail-bet-date">${bet.date || ''}</span>
-                ${bet.league ? `<span class="rail-bet-league">${bet.league}</span>` : ''}
-              </div>
-            </div>
-            <div class="rail-bet-actions">
-              <div class="rail-bet-odd">${bet.odd || bet.odds || '—'}</div>
-              <button class="rail-bet-edit-btn" data-match-id="${bet.matchId}" title="Edit">
-                <i class="bi bi-pencil"></i>
-              </button>
-              <button class="rail-bet-remove-btn" data-match-id="${bet.matchId}" title="Remove">
-                <i class="bi bi-x-lg"></i>
-              </button>
-            </div>
-          </div>
-        `).join('')}
+  <div class="rail-bet-item ${bet.selected ? 'selected' : ''}" data-match-id="${bet.matchId}">
+    <div class="rail-bet-checkbox">
+      <input type="checkbox" class="bet-checkbox" data-match-id="${bet.matchId}" ${bet.selected ? 'checked' : ''} />
+    </div>
+    <div class="rail-bet-content" data-match-id="${bet.matchId}" style="cursor: pointer;">
+      <div class="rail-bet-teams">${bet.teams || 'Unknown Match'}</div>
+      <div class="rail-bet-market">${bet.market || '1x2'}: ${bet.value || 'home'}</div>
+      <div class="rail-bet-meta">
+        <span class="rail-bet-date">${bet.date || ''}</span>
+        ${bet.league ? `<span class="rail-bet-league">${bet.league}</span>` : ''}
+      </div>
+      ${bet.bookieSource ? `<div class="rail-bet-bookie-tag">${formatBookieName(bet.bookieSource)}</div>` : ''}
+    </div>
+    <div class="rail-bet-actions">
+      <div class="rail-bet-odd">${bet.odd || bet.odds || '—'}</div>
+      <div class="rail-bet-action-icons">
+        <button class="rail-bet-edit-btn" data-match-id="${bet.matchId}" title="Edit">
+          <i class="bi bi-pencil"></i>
+        </button>
+        <button class="rail-bet-remove-btn" data-match-id="${bet.matchId}" title="Remove">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+`).join('')}
       </div>
 
       <div class="rail-footer">
@@ -697,13 +721,28 @@ function renderEmptyLoadForm() {
   rail.innerHTML = `
     <div class="rail-header">
       <div class="rail-header-left">
-        <h2 class="rail-title">Load Bet Code</h2>
+        <h2 class="rail-title">
+          Betslip 
+          <span class="rail-count-badge" id="rail-count">${bets.length}</span>
+        </h2>
       </div>
       <div class="rail-header-actions">
         <button class="rail-close-btn" id="rail-close-btn">
           <i class="bi bi-x-lg"></i>
         </button>
       </div>
+    </div>
+
+    <!-- Navigation tabs -->
+    <div class="empty-nav-tabs">
+      <button class="empty-nav-tab active" id="empty-code-hub-btn">
+        <i class="bi bi-code-square"></i>
+        <span>Code Hub</span>
+      </button>
+      <button class="empty-nav-tab" id="empty-multi-maker-btn">
+        <i class="bi bi-plus-square"></i>
+        <span>Multi Maker</span>
+      </button>
     </div>
 
     <div class="empty-load-form">
@@ -752,13 +791,11 @@ function renderEmptyLoadForm() {
         </div>
       </form>
 
-      <!-- Loading State -->
       <div id="empty-loading-state" class="empty-loading-state" style="display: none;">
         <div class="empty-spinner"></div>
         <p>Loading bet code...</p>
       </div>
 
-      <!-- Error State -->
       <div id="empty-error-state" class="empty-error-state" style="display: none;">
         <i class="bi bi-exclamation-circle"></i>
         <p>Failed to load bet code. Please try again.</p>
@@ -837,7 +874,7 @@ function attachEventListeners() {
   const loadBtn = document.getElementById('rail-load-btn');
   if (loadBtn) {
     loadBtn.addEventListener('click', () => {
-      // Render the empty state with load form
+      expandFullScreen(); // ADD THIS LINE
       renderEmptyLoadForm();
     });
   }

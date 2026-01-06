@@ -27,7 +27,7 @@
 .predictions-filters {
   display: flex;
   gap: 8px;
-  padding: 12px 16px;
+  padding: 4px 12px;
   border-bottom: 1px solid #e0e0e0;
   overflow-x: auto;
 }
@@ -65,8 +65,8 @@
 .sport-filter-tabs {
   display: flex;
   gap: 2px;
-  padding: 12px 16px;
-  /* border-bottom: 1px solid #e0e0e0; */
+  padding: 8px 12px;
+  border-bottom: 1px solid #e0e0e0;
   overflow-x: auto;
 }
 
@@ -261,9 +261,7 @@
 /* Odds Box - Multi-Maker Style */
 .prediction-odds-box {
   min-width: 50px;
-  padding: 6px 10px;
   background: #fff;
-  border: 2px solid #333;
   border-radius: 4px;
   font-size: 14px;
   font-weight: 700;
@@ -281,14 +279,13 @@
 }
 
 .prediction-action-btn {
-  width: 32px;
-  height: 32px;
+  padding: 8px 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 1px solid #333;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 12px;
   color: #333;
   background: #fff;
   cursor: pointer;
@@ -1021,7 +1018,39 @@
   }
 }
 
+
 /* Prevent body scroll when modal is open */
 body.pred-filter-open {
   overflow: hidden;
+}
+
+
+.sport-filter-tabs,
+.predictions-filters {
+  position: sticky;
+  top: 62.5px; 
+  z-index: 100;
+  background: #fff;
+  transition: box-shadow 0.3s ease;
+}
+
+.sport-filter-tabs {
+  top: 62.5px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.predictions-filters {
+  top: calc(62.5px + 57px); /* Height of sport tabs + navbar height */
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Shadow effect when scrolled */
+.sport-filter-tabs,
+.predictions-filters {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Ensure content doesn't hide behind sticky elements */
+.predictions-page {
+  padding-top: calc(48px + 48px); /* Sport tabs + filter buttons height */
 }

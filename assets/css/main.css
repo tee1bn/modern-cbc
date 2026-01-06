@@ -23,5 +23,6 @@
 
 /* Add top padding to ALL page content */
 .page-wrap {
-  padding-top:80px; /* Adjust based on your actual nav height */
+  padding-top:62.5px;
 }
+
