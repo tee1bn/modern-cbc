@@ -35,21 +35,44 @@
     <div id="desktop-nav"></div>
     <div id="side-menu"></div>
 
-    <div class="adminuiux-wrap page-wrapper">
+    <div class="adminuiux-wrap">
       <main class="adminuiux-content has-sidebar" onclick="contentClick()">
-        <div class="container-fluid py-1 py-lg-3">
-          <div class="row gx-3 gx-lg-4 align-items-center page-title">
-            <div class="col col-sm">
-              <h6 class="mb-0">Free Bet Codes</h6>
-              <p class="text-secondary small">
-                Daily betting codes from top bookmakers
-              </p>
-            </div>
+        <div class="">
+          <div class="page-header">
+            <button class="back-btn" onclick="navigateTo('convert.html')">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+            </button>
+            <h1 class="page-title">Free Bet Codes</h1>
+            <button class="home-btn" onclick="navigateTo('index.html')">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+              </svg>
+            </button>
           </div>
-        </div>
-
-        <div class="main-content mt-3">
-          <div class="card p-0 free-codes-page">
+          <div class="free-codes-page">
             <!-- Header -->
             <div class="codes-header">
               <div class="codes-date">SATURDAY 27TH, DEC 2025</div>
@@ -144,9 +167,21 @@
         <div class="filter-custom-range">
           <label>Custom Range</label>
           <div class="custom-range-inputs">
-            <input type="number" id="folds-min" placeholder="1" min="1" max="50" />
+            <input
+              type="number"
+              id="folds-min"
+              placeholder="1"
+              min="1"
+              max="50"
+            />
             <span>~</span>
-            <input type="number" id="folds-max" placeholder="50" min="1" max="50" />
+            <input
+              type="number"
+              id="folds-max"
+              placeholder="50"
+              min="1"
+              max="50"
+            />
           </div>
           <div class="range-slider">
             <input type="range" id="folds-slider" min="1" max="50" value="50" />
@@ -154,8 +189,12 @@
           </div>
         </div>
         <div class="filter-modal-footer">
-          <button class="filter-reset-btn" id="reset-folds-filter">Reset</button>
-          <button class="filter-apply-btn" id="apply-folds-filter">Apply</button>
+          <button class="filter-reset-btn" id="reset-folds-filter">
+            Reset
+          </button>
+          <button class="filter-apply-btn" id="apply-folds-filter">
+            Apply
+          </button>
         </div>
       </div>
     </div>
@@ -175,12 +214,32 @@
         <div class="filter-custom-range">
           <label>Custom Range</label>
           <div class="custom-range-inputs">
-            <input type="number" id="odds-min" placeholder="1" min="1" max="2000" step="0.01" />
+            <input
+              type="number"
+              id="odds-min"
+              placeholder="1"
+              min="1"
+              max="2000"
+              step="0.01"
+            />
             <span>~</span>
-            <input type="number" id="odds-max" placeholder="2000" min="1" max="2000" step="0.01" />
+            <input
+              type="number"
+              id="odds-max"
+              placeholder="2000"
+              min="1"
+              max="2000"
+              step="0.01"
+            />
           </div>
           <div class="range-slider">
-            <input type="range" id="odds-slider" min="1" max="2000" value="2000" />
+            <input
+              type="range"
+              id="odds-slider"
+              min="1"
+              max="2000"
+              value="2000"
+            />
             <div class="range-label">1 ~ 2000</div>
           </div>
         </div>
@@ -219,5 +278,10 @@
     <script src="./components/AppLayout.js"></script>
     <script src="./components/betslip-rail.js"></script>
     <script src="assets/js/free-bet-codes.js"></script>
+    <script>
+      document.getElementById("desktop-nav").style.display = "none";
+      // document.getElementById("side-menu").style.display = "none";
+      // document.getElementById("mobile-nav").style.display = "none";
+    </script>
   </body>
 </html>

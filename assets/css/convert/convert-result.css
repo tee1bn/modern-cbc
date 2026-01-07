@@ -1,6 +1,78 @@
 .convert-result-page {
   font-family: var(--adminuiux-content-font, "Open Sans", sans-serif);
   background: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Page Header Styles */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.page-header .back-btn,
+.page-header .home-btn {
+  background: none;
+  border: none;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.page-header .back-btn svg,
+.page-header .home-btn svg {
+  width: 24px;
+  height: 24px;
+  stroke: #000;
+}
+
+.page-header .page-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+  flex-grow: 1;
+}
+
+/* Result Container */
+.result-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  background: #fff;
+  border: none;
+  border-radius: 0;
+}
+
+
+/* Hide unnecessary elements */
+
+
+/* Responsive design for desktop */
+@media (min-width: 992px) {
+  .result-container {
+    max-width: 1000px;
+  }
+}
+
+/* Responsive design for large screens */
+@media (min-width: 1200px) {
+  .result-container {
+    max-width: 1200px;
+  }
 }
 
 /* ========================================
@@ -719,3 +791,4 @@
     width: 60px;
   }
 }
+

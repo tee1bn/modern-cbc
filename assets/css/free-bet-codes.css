@@ -9,6 +9,10 @@
 .codes-header {
   padding: 16px;
   border-bottom: 2px solid #e0e0e0;
+  position: sticky; 
+  top: 52px;
+  z-index: 99;
+  background: white;
 }
 
 .codes-date {
@@ -50,6 +54,11 @@
   border-bottom: 1px solid #e0e0e0;
   overflow-x: auto;
   scrollbar-width: none;
+  position: sticky;
+  top: 162px; 
+  z-index: 98;
+  background: white;
+
 }
 
 .hub-filters::-webkit-scrollbar {

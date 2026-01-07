@@ -1,4 +1,4 @@
-// components/multi-maker.js
+
 
 (function() {
   'use strict';
@@ -669,3 +669,23 @@ window.confirmAddToBetslip = async function() {
   document.head.appendChild(style);
 
 })();
+
+document.addEventListener('DOMContentLoaded', () => {
+  const sportTabs = document.querySelector('.sport-tabs');
+  const filterBar = document.querySelector('.filter-bar');
+  
+  window.addEventListener('scroll', () => {
+    // Check if sport tabs or filter bar are sticky
+    if (sportTabs.offsetTop <= window.scrollY) {
+      sportTabs.classList.add('scrolled');
+    } else {
+      sportTabs.classList.remove('scrolled');
+    }
+    
+    if (filterBar.offsetTop <= window.scrollY) {
+      filterBar.classList.add('scrolled');
+    } else {
+      filterBar.classList.remove('scrolled');
+    }
+  });
+});

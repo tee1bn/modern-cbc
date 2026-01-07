@@ -285,3 +285,79 @@ select:focus {
     margin-bottom: 14px;
   }
 }
+
+/* Existing CSS content... */
+
+/* Page Header Styles */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.page-header .back-btn,
+.page-header .home-btn {
+  background: none;
+  border: none;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.page-header .back-btn svg,
+.page-header .home-btn svg {
+  width: 24px;
+  height: 24px;
+  stroke: #000;
+}
+
+.page-header .page-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+  flex-grow: 1;
+}
+
+/* Desktop Styles */
+@media (min-width: 768px) {
+  .page-header {
+    display: none;
+  }
+
+  .tabs-mobile {
+    display: none;
+  }
+
+  .tabs-desktop {
+    display: flex;
+  }
+}
+
+#desktop-nav {
+  display: none;
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+  .tabs-desktop {
+    display: none;
+  }
+
+  .content-section {
+    padding-top: 0;
+  }
+
+  #desktop-nav {
+    display: none !important;
+  }
+}
+

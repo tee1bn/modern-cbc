@@ -68,80 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Betslip Integration with Duplicate Check
-    function initBetslipIntegration() {
-        const events = document.querySelectorAll('.event-card');
-        
-        events.forEach(event => {
-            const oddButtons = event.querySelectorAll('.odd-btn');
-            
-            oddButtons.forEach((button, index) => {
-                button.addEventListener('click', (e) => {
-                    // Get event details
-                    const teams = event.querySelectorAll('.team');
-                    const header = event.querySelector('.event-header');
-                    
-                    // Create a unique match identifier based on teams and date
-                    const matchIdentifier = `${teams[0].textContent.trim()}-vs-${teams[1].textContent.trim()}-${header.querySelector('.event-time').textContent.trim()}`;
-                    
-                    // Determine the bet type based on button position
-                    let betType;
-                    if (index === 0) betType = 'Home';
-                    else if (index === 1) betType = 'Draw';
-                    else if (index === 2) betType = 'Away';
-                    
-                    const eventDetails = {
-                        matchId: matchIdentifier,
-                        teams: `${teams[0].textContent} vs ${teams[1].textContent}`,
-                        date: header.querySelector('.event-time').textContent,
-                        market: event.closest('.event-card').getAttribute('data-market') || '1x2',
-                        value: betType,
-                        odd: button.textContent,
-                        league: header.querySelector('.event-league') ? header.querySelector('.event-league').textContent : 'Unknown League',
-                        selected: true
-                    };
-                    
-                    // Check if betslip rail is available
-                    if (window.betslipRail && window.betslipRail.addSelection) {
-                        // Check if event already exists in betslip
-                        const existingBet = window.betslipRail.checkIfExists ? 
-                            window.betslipRail.checkIfExists(matchIdentifier) : false;
-                        
-                        if (existingBet) {
-                            // Update existing bet instead of adding duplicate
-                            if (window.betslipRail.updateSelection) {
-                                window.betslipRail.updateSelection(eventDetails);
-                                
-                                // Update UI: remove selected class from all odds in this event
-                                oddButtons.forEach(btn => btn.classList.remove('selected'));
-                                // Add selected class to clicked button
-                                button.classList.add('selected');
-                            } else {
-                                // Fallback: show message that bet already exists
-                                console.log('Bet already exists in betslip. Updating selection...');
-                                // Still highlight the selected odd
-                                oddButtons.forEach(btn => btn.classList.remove('selected'));
-                                button.classList.add('selected');
-                            }
-                        } else {
-                            // Add new selection
-                            window.betslipRail.addSelection(eventDetails);
-                            
-                            // Highlight selected odd
-                            oddButtons.forEach(btn => btn.classList.remove('selected'));
-                            button.classList.add('selected');
-                        }
-                    } else {
-                        console.warn('Betslip rail not available');
-                        
-                        // Still update UI for visual feedback
-                        oddButtons.forEach(btn => btn.classList.remove('selected'));
-                        button.classList.add('selected');
-                    }
-                });
-            });
-        });
-    }
 
     // Optional: CSS to support the JavaScript
     const styles = `
@@ -188,5 +114,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize functionalities
     initLeagueCollapse();
     initLoadMore();
-    initBetslipIntegration();
 });

@@ -46,24 +46,44 @@
     <div id="side-menu"></div>
 
     <!-- main content -->
-    <div class="adminuiux-wrap page-wrap">
+    <div class="adminuiux-wrap">
       <main class="adminuiux-content has-sidebar" onclick="contentClick()">
         <div class="convert-result-page sticky-header">
-          <!-- Back link -->
-          <a href="convert.html" class="icon-back">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M11.03 3.97a.75.75 0 0 1 0 1.06l-6.22 6.22H21a.75.75 0 0 1 0 1.5H4.81l6.22 6.22a.75.75 0 1 1-1.06 1.06l-7.5-7.5a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 0 1 1.06 0z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            <span>Back to bet converter</span>
-          </a>
+          
+          <div class="page-header">
+            <button class="back-btn" onclick="navigateTo('convert.html')">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+            </button>
+            <h1 class="page-title">Conversion Result</h1>
+            <button class="home-btn" onclick="navigateTo('index.html')">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+              </svg>
+            </button>
+          </div>
 
           <div class="result-container">
             <!-- Conversion summary -->
@@ -176,9 +196,7 @@
                       <div class="game-title">
                         Werder Bremen vs Bayer Leverkusen
                       </div>
-                      <div class="game-market">
-                        Over/Under
-                      </div>
+                      <div class="game-market">Over/Under</div>
                       <div class="game-market"><strong>Over 0.5</strong></div>
                     </div>
                     <div class="game-side-info">
@@ -207,7 +225,9 @@
                 <li class="game-card card-target">
                   <div class="game-header">
                     <span class="game-serial">1</span>
-                    <span class="game-league">Women Bundesliga <i class="bi bi-dribbble"></i></span>
+                    <span class="game-league"
+                      >Women Bundesliga <i class="bi bi-dribbble"></i
+                    ></span>
                     <span class="bookie-badge bookie-target">Bet9ja</span>
                   </div>
                   <div class="game-info-row">
@@ -215,9 +235,7 @@
                       <div class="game-title">
                         Werder Bremen vs Bayer Leverkusen
                       </div>
-                      <div class="game-market">
-                        Over/Under 
-                      </div>
+                      <div class="game-market">Over/Under</div>
                       <div class="game-market"><strong>Over 0.5</strong></div>
                     </div>
                     <div class="game-side-info">
@@ -250,7 +268,9 @@
                 <li class="game-card card-origin">
                   <div class="game-header">
                     <span class="game-serial">2</span>
-                    <span class="game-league">English Premier League <i class="bi bi-dribbble"></i></span>
+                    <span class="game-league"
+                      >English Premier League <i class="bi bi-dribbble"></i
+                    ></span>
                     <span class="bookie-badge bookie-origin">1xBet</span>
                   </div>
                   <div class="game-info-row">
@@ -258,9 +278,7 @@
                       <div class="game-title">
                         Manchester United vs Liverpool
                       </div>
-                      <div class="game-market">
-                        Full Time Result 
-                      </div>
+                      <div class="game-market">Full Time Result</div>
                       <div class="game-market"><strong>Home Win</strong></div>
                     </div>
                     <div class="game-side-info">
@@ -289,7 +307,9 @@
                 <li class="game-card card-target">
                   <div class="game-header">
                     <span class="game-serial">2</span>
-                    <span class="game-league">English Premier League <i class="bi bi-dribbble"></i></span>
+                    <span class="game-league"
+                      >English Premier League <i class="bi bi-dribbble"></i
+                    ></span>
                     <span class="bookie-badge bookie-target">Bet9ja</span>
                   </div>
                   <div class="game-info-row">
@@ -297,9 +317,7 @@
                       <div class="game-title">
                         Manchester United vs Liverpool
                       </div>
-                      <div class="game-market">
-                        Full Time Result 
-                      </div>
+                      <div class="game-market">Full Time Result</div>
                       <div class="game-market"><strong>Home Win</strong></div>
                     </div>
                     <div class="game-side-info">
@@ -332,15 +350,15 @@
                 <li class="game-card card-origin">
                   <div class="game-header">
                     <span class="game-serial">3</span>
-                    <span class="game-league">La Liga <i class="bi bi-dribbble"></i></span>
+                    <span class="game-league"
+                      >La Liga <i class="bi bi-dribbble"></i
+                    ></span>
                     <span class="bookie-badge bookie-origin">1xBet</span>
                   </div>
                   <div class="game-info-row">
                     <div class="game-main-info">
                       <div class="game-title">Barcelona vs Real Madrid</div>
-                      <div class="game-market">
-                        Both Teams To Score 
-                      </div>
+                      <div class="game-market">Both Teams To Score</div>
                       <div class="game-market"><strong>Yes</strong></div>
                     </div>
                     <div class="game-side-info">
@@ -369,15 +387,15 @@
                 <li class="game-card card-target">
                   <div class="game-header">
                     <span class="game-serial">3</span>
-                    <span class="game-league">La Liga <i class="bi bi-dribbble"></i></span>
+                    <span class="game-league"
+                      >La Liga <i class="bi bi-dribbble"></i
+                    ></span>
                     <span class="bookie-badge bookie-target">Bet9ja</span>
                   </div>
                   <div class="game-info-row">
                     <div class="game-main-info">
                       <div class="game-title">Barcelona vs Real Madrid</div>
-                      <div class="game-market">
-                        Both Teams To Score 
-                      </div>
+                      <div class="game-market">Both Teams To Score</div>
                       <div class="game-market"><strong>Yes</strong></div>
                     </div>
                     <div class="game-side-info">
@@ -410,16 +428,18 @@
                 <li class="game-card card-origin">
                   <div class="game-header">
                     <span class="game-serial">4</span>
-                    <span class="game-league">Serie A <i class="bi bi-dribbble"></i></span>
+                    <span class="game-league"
+                      >Serie A <i class="bi bi-dribbble"></i
+                    ></span>
                     <span class="bookie-badge bookie-origin">1xBet</span>
                   </div>
                   <div class="game-info-row">
                     <div class="game-main-info">
                       <div class="game-title">Juventus vs AC Milan</div>
+                      <div class="game-market">Double Chance</div>
                       <div class="game-market">
-                        Double Chance 
+                        <strong>Home or Draw</strong>
                       </div>
-                      <div class="game-market"><strong>Home or Draw</strong></div>
                     </div>
                     <div class="game-side-info">
                       <div class="game-odds">1.28</div>
@@ -447,16 +467,18 @@
                 <li class="game-card card-target">
                   <div class="game-header">
                     <span class="game-serial">4</span>
-                    <span class="game-league">Serie A <i class="bi bi-dribbble"></i></span>
+                    <span class="game-league"
+                      >Serie A <i class="bi bi-dribbble"></i
+                    ></span>
                     <span class="bookie-badge bookie-target">Bet9ja</span>
                   </div>
                   <div class="game-info-row">
                     <div class="game-main-info">
                       <div class="game-title">Juventus vs AC Milan</div>
+                      <div class="game-market">Double Chance</div>
                       <div class="game-market">
-                        Double Chance 
+                        <strong>Home or Draw</strong>
                       </div>
-                      <div class="game-market"><strong>Home or Draw</strong></div>
                     </div>
                     <div class="game-side-info">
                       <div class="game-odds">1.25</div>
@@ -488,15 +510,15 @@
                 <li class="game-card card-origin">
                   <div class="game-header">
                     <span class="game-serial">5</span>
-                    <span class="game-league">Bundesliga <i class="bi bi-dribbble"></i></span>
+                    <span class="game-league"
+                      >Bundesliga <i class="bi bi-dribbble"></i
+                    ></span>
                     <span class="bookie-badge bookie-origin">1xBet</span>
                   </div>
                   <div class="game-info-row">
                     <div class="game-main-info">
                       <div class="game-title">Bayern Munich vs Dortmund</div>
-                      <div class="game-market">
-                        Over/Under 
-                      </div>
+                      <div class="game-market">Over/Under</div>
                       <div class="game-market"><strong>Over 3.5</strong></div>
                     </div>
                     <div class="game-side-info">
@@ -559,15 +581,15 @@
                 <li class="game-card card-origin">
                   <div class="game-header">
                     <span class="game-serial">6</span>
-                    <span class="game-league">Ligue 1 <i class="bi bi-dribbble"></i></span>
+                    <span class="game-league"
+                      >Ligue 1 <i class="bi bi-dribbble"></i
+                    ></span>
                     <span class="bookie-badge bookie-origin">1xBet</span>
                   </div>
                   <div class="game-info-row">
                     <div class="game-main-info">
                       <div class="game-title">PSG vs Marseille</div>
-                      <div class="game-market">
-                        First Half Corner Handicap 
-                      </div>
+                      <div class="game-market">First Half Corner Handicap</div>
                       <div class="game-market"><strong>Home -2.5</strong></div>
                     </div>
                     <div class="game-side-info">
@@ -634,5 +656,16 @@
     <script src="assets/js/adminux/adminux-dashboard.js"></script>
     <script src="./components/AppLayout.js"></script>
     <script src="./assets/js/conversion-summary.js"></script>
+    <script>
+      // Navigation function
+      function navigateTo(page) {
+        window.location.href = page;
+      }
+
+      // Hide desktop navigation and side menu
+      document.getElementById("desktop-nav").style.display = "none";
+      // document.getElementById("side-menu").style.display = "none";
+      // document.getElementById("mobile-nav").style.display = "none";
+    </script>
   </body>
 </html>

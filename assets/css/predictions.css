@@ -30,13 +30,17 @@
   padding: 4px 12px;
   border-bottom: 1px solid #e0e0e0;
   overflow-x: auto;
+  position: sticky;
+  top: 119px; 
+  z-index: 99;
+  background: white;
 }
 
 .filter-btn {
-  padding: 8px 14px;
+  padding: 4px 12px;
   background: #fff;
   border: 1px solid #333;
-  border-radius: 4px;
+  border-radius: 0px;
   font-size: 13px;
   font-weight: 600;
   color: #000;
@@ -68,10 +72,14 @@
   padding: 8px 12px;
   border-bottom: 1px solid #e0e0e0;
   overflow-x: auto;
+  position: sticky; 
+  top: 61.5px;
+  z-index: 99;
+  background: white;
 }
 
 .sport-filter-tab {
-  padding: 8px 16px;
+  padding: 8px 8px;
   background: #fff;
   border: 1px solid #333;
   border-radius: 4px;
@@ -1025,32 +1033,62 @@ body.pred-filter-open {
 }
 
 
-.sport-filter-tabs,
-.predictions-filters {
-  position: sticky;
-  top: 62.5px; 
-  z-index: 100;
-  background: #fff;
-  transition: box-shadow 0.3s ease;
+/* COLLAPSIBLE LEAGUE GROUPS */
+.league-group {
+  margin-bottom: 0;
 }
 
-.sport-filter-tabs {
-  top: 62.5px;
-  border-bottom: 1px solid #e0e0e0;
+.league-header {
+  padding: 0.875rem 1rem;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.predictions-filters {
-  top: calc(62.5px + 57px); /* Height of sport tabs + navbar height */
-  border-bottom: 1px solid #e0e0e0;
+.league-header:hover {
+  background: #f9fafb;
 }
 
-/* Shadow effect when scrolled */
-.sport-filter-tabs,
-.predictions-filters {
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+.league-info {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  flex: 1;
 }
 
-/* Ensure content doesn't hide behind sticky elements */
-.predictions-page {
-  padding-top: calc(48px + 48px); /* Sport tabs + filter buttons height */
+.toggle-icon {
+  font-size: 0.875rem;
+  color: #6b7280;
+  transition: transform 0.3s ease;
+}
+
+.league-header.collapsed .toggle-icon {
+  transform: rotate(-90deg);
+}
+
+.league-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.event-count {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-left: auto;
+}
+
+/* League Events Container */
+.league-events {
+  max-height: 2000px;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.league-header.collapsed + .league-events {
+  max-height: 0;
 }

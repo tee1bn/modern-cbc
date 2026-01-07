@@ -146,7 +146,7 @@ function openRail() {
   if (overlay && rail) {
     overlay.classList.add("active");
     rail.classList.add("active");
-    rail.classList.add("fullscreen"); // Always fullscreen
+    rail.classList.add("fullscreen");
     document.body.style.overflow = "hidden";
   }
 }
@@ -544,6 +544,14 @@ function formatBookieName(bookieCode) {
   return bookieNames[bookieCode] || bookieCode;
 }
 
+function toggleFullScreen() {
+  const rail = document.getElementById("rail-container");
+  if (rail) {
+    rail.classList.toggle("fullscreen");
+    renderRail(); 
+  }
+}
+
 // ==================== RENDERING ====================
 function renderRail() {
   const rail = document.getElementById('rail-container');
@@ -553,24 +561,25 @@ function renderRail() {
   const selectedCount = bets.filter(b => b.selected).length;
 
   rail.innerHTML = `
-    <div class="rail-header">
-      <div class="rail-header-left">
-        <h2 class="rail-title">
-          Betslip 
-          <span class="rail-count-badge" id="rail-count">${bets.length}</span>
-        </h2>
-      </div>
-      <div class="rail-header-actions">
-        <!-- New load icon added here -->
+  <div class="page-header">
+      <button class="back-btn" onclick="window.betslipRail.closeRail()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 18l-6-6 6-6" />
+        </svg>
+      </button>
+      <h1 class="page-title">Betslip (${bets.length})</h1>
+      <div style="display: flex; align-items: center; gap: 8px;">
         <button class="rail-load-btn" id="rail-load-btn" title="Load New Bet Code">
           <i class="bi bi-download"></i>
         </button>
-        ${bets.length > 0 ? '<button class="rail-action-btn" id="rail-expand-btn" title="Expand Full Screen"><i class="bi bi-arrows-fullscreen"></i></button>' : ''}
-        <button class="rail-minimize-btn" id="rail-minimize-btn" title="${isMinimized ? 'Expand' : 'Minimize'}">
-          <i class="bi bi-${isMinimized ? 'chevron-up' : 'chevron-down'}"></i>
+        <button class="rail-action-btn" id="rail-expand-btn" title="${rail && rail.classList.contains('fullscreen') ? 'Exit Fullscreen' : 'Fullscreen'}">
+          <i class="bi bi-arrows-fullscreen"></i>
         </button>
-        <button class="rail-close-btn" id="rail-close-btn">
-          <i class="bi bi-x-lg"></i>
+        <button class="home-btn" onclick="window.location.href='index.html'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
         </button>
       </div>
     </div>
@@ -662,32 +671,31 @@ function renderRail() {
 
       <div class="rail-bets-list">
         ${bets.map((bet, index) => `
-  <div class="rail-bet-item ${bet.selected ? 'selected' : ''}" data-match-id="${bet.matchId}">
-    <div class="rail-bet-checkbox">
-      <input type="checkbox" class="bet-checkbox" data-match-id="${bet.matchId}" ${bet.selected ? 'checked' : ''} />
-    </div>
-    <div class="rail-bet-content" data-match-id="${bet.matchId}" style="cursor: pointer;">
-      <div class="rail-bet-teams">${bet.teams || 'Unknown Match'}</div>
-      <div class="rail-bet-market">${bet.market || '1x2'}: ${bet.value || 'home'}</div>
-      <div class="rail-bet-meta">
-        <span class="rail-bet-date">${bet.date || ''}</span>
-        ${bet.league ? `<span class="rail-bet-league">${bet.league}</span>` : ''}
-      </div>
-      ${bet.bookieSource ? `<div class="rail-bet-bookie-tag">${formatBookieName(bet.bookieSource)}</div>` : ''}
-    </div>
-    <div class="rail-bet-actions">
-      <div class="rail-bet-odd">${bet.odd || bet.odds || '—'}</div>
-      <div class="rail-bet-action-icons">
-        <button class="rail-bet-edit-btn" data-match-id="${bet.matchId}" title="Edit">
-          <i class="bi bi-pencil"></i>
-        </button>
-        <button class="rail-bet-remove-btn" data-match-id="${bet.matchId}" title="Remove">
-          <i class="bi bi-x-lg"></i>
-        </button>
-      </div>
-    </div>
-  </div>
-`).join('')}
+          <div class="rail-bet-item ${bet.selected ? 'selected' : ''}" data-match-id="${bet.matchId}">
+            <div class="rail-bet-checkbox">
+              <input type="checkbox" class="bet-checkbox" data-match-id="${bet.matchId}" ${bet.selected ? 'checked' : ''} />
+            </div>
+            <div class="rail-bet-content" data-match-id="${bet.matchId}" style="cursor: pointer;">
+              <div class="rail-bet-teams">${bet.teams || 'Unknown Match'}</div>
+              <div class="rail-bet-market">${bet.market || '1x2'}: ${bet.value || 'home'}</div>
+              <div class="rail-bet-meta">
+                <span class="rail-bet-date">${bet.date || ''}</span>
+              </div>
+              ${bet.league ? `<div class="rail-bet-league-tag">${bet.league}</div>` : ''}
+            </div>
+            <div class="rail-bet-actions">
+              <div class="rail-bet-odd">${bet.odd || bet.odds || '—'}</div>
+              <div class="rail-bet-action-icons">
+                <button class="rail-bet-edit-btn" data-match-id="${bet.matchId}" title="Edit">
+                  <i class="bi bi-pencil"></i>
+                </button>
+                <button class="rail-bet-remove-btn" data-match-id="${bet.matchId}" title="Remove">
+                  <i class="bi bi-x-lg"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        `).join('')}
       </div>
 
       <div class="rail-footer">
@@ -719,18 +727,19 @@ function renderEmptyLoadForm() {
   if (!rail) return;
 
   rail.innerHTML = `
-    <div class="rail-header">
-      <div class="rail-header-left">
-        <h2 class="rail-title">
-          Betslip 
-          <span class="rail-count-badge" id="rail-count">${bets.length}</span>
-        </h2>
-      </div>
-      <div class="rail-header-actions">
-        <button class="rail-close-btn" id="rail-close-btn">
-          <i class="bi bi-x-lg"></i>
-        </button>
-      </div>
+    <div class="page-header">
+      <button class="back-btn" id="load-back-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 18l-6-6 6-6" />
+        </svg>
+      </button>
+      <h1 class="page-title">Load Bet Code</h1>
+      <button class="home-btn" onclick="window.location.href='index.html'">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+          <polyline points="9 22 9 12 15 12 15 22" />
+        </svg>
+      </button>
     </div>
 
     <!-- Navigation tabs -->
@@ -808,9 +817,28 @@ function renderEmptyLoadForm() {
 }
 
 function attachLoadFormEventListeners() {
-  const closeBtn = document.getElementById('rail-close-btn');
-  if (closeBtn) {
-    closeBtn.addEventListener('click', closeRail);
+  // Back button - return to betslip view
+  const loadBackBtn = document.getElementById('load-back-btn');
+  if (loadBackBtn) {
+    loadBackBtn.addEventListener('click', () => {
+      renderRail(); // Return to betslip view
+    });
+  }
+
+  // Code Hub tab - navigate to codehub page
+  const codeHubBtn = document.getElementById('empty-code-hub-btn');
+  if (codeHubBtn) {
+    codeHubBtn.addEventListener('click', () => {
+      window.location.href = 'codehub.html';
+    });
+  }
+
+  // Multi Maker tab - navigate to add games page
+  const multiMakerBtn = document.getElementById('empty-multi-maker-btn');
+  if (multiMakerBtn) {
+    multiMakerBtn.addEventListener('click', () => {
+      window.location.href = 'bet-editor-add.html';
+    });
   }
 
   const emptyPasteBtn = document.getElementById('empty-paste-btn');
@@ -823,6 +851,14 @@ function attachLoadFormEventListeners() {
       } catch (err) {
         console.log('Paste failed:', err);
       }
+    });
+  }
+
+  // Cancel button - return to betslip view
+  const emptyCancelBtn = document.getElementById('empty-cancel-btn');
+  if (emptyCancelBtn) {
+    emptyCancelBtn.addEventListener('click', () => {
+      renderRail(); // Return to betslip view
     });
   }
 
@@ -843,10 +879,8 @@ function attachLoadFormEventListeners() {
       document.getElementById('empty-loading-state').style.display = 'flex';
 
       try {
-        // Clear existing bets before loading new ones
-        bets = [];
         await loadBetCodeFromEmpty(code, bookie);
-        renderRail();
+        renderRail(); // Return to betslip view after loading
       } catch (error) {
         document.getElementById('empty-loading-state').style.display = 'none';
         document.getElementById('empty-error-state').style.display = 'flex';
@@ -874,13 +908,14 @@ function attachEventListeners() {
   const loadBtn = document.getElementById('rail-load-btn');
   if (loadBtn) {
     loadBtn.addEventListener('click', () => {
-      expandFullScreen(); // ADD THIS LINE
       renderEmptyLoadForm();
     });
   }
 
   const expandBtn = document.getElementById('rail-expand-btn');
-  if (expandBtn) expandBtn.addEventListener('click', expandFullScreen);
+  if (expandBtn) {
+    expandBtn.addEventListener('click', toggleFullScreen);
+  }
 
   // Code Hub tab
   const codeHubBtn = document.getElementById('empty-code-hub-btn');
@@ -1069,6 +1104,7 @@ function attachEventListeners() {
     toggleMinimize,
     expandFullScreen,
     exitFullScreen,
+    toggleFullScreen,
     showBadge,
     hideBadge,
     flashBadge,

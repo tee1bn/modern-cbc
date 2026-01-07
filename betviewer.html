@@ -47,8 +47,42 @@
     <div id="desktop-nav"></div>
     <div id="side-menu"></div>
 
-    <div class="adminuiux-wrap page-wrap">
+    <div class="adminuiux-wrap">
       <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+        <div class="page-header">
+          <button class="back-btn" onclick="navigateTo('convert.html')">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+          <h1 class="page-title">Bet Viewer</h1>
+          <button class="home-btn" onclick="navigateTo('index.html')">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              <polyline points="9 22 9 12 15 12 15 22" />
+            </svg>
+          </button>
+        </div>
         <!-- content -->
         <div class="" id="main-content">
           <div class="betviewer">
@@ -400,6 +434,9 @@
     <script src="assets/js/betviewer.js"></script>
     <script src="./components/AppLayout.js"></script>
     <script>
+      document.getElementById("desktop-nav").style.display = "none";
+      // document.getElementById("side-menu").style.display = "none";
+      // document.getElementById("mobile-nav").style.display = "none";
       document.addEventListener("DOMContentLoaded", function () {
         const scrollToTopBtn = document.getElementById("scroll-to-top");
         const mainContent = document.querySelector(".adminuiux-content");

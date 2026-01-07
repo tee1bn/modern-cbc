@@ -33,29 +33,44 @@
 
     <div class="adminuiux-wrap">
       <main class="adminuiux-content has-sidebar" onclick="contentClick()">
-        <div class="container-fluid py-1 py-lg-3">
-          <div class="row gx-3 gx-lg-4 align-items-center page-title">
-            <div class="col col-sm">
-              <h6 class="mb-0">Bet Safer</h6>
-              <p class="text-secondary small">
-                Get smarter, safer betting alternatives
-              </p>
-            </div>
-          </div>
-        </div>
-
         <div class="">
-          <div class="card p-0 bet-safer-page">
-            <!-- Header -->
-            <div class="safer-header">
+          <div class="bet-safer-page">
+            <div class="page-header">
+              <button class="back-btn" onclick="navigateTo('convert.html')">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
+              </button>
               <h1 class="safer-title">
                 <i class="bi bi-shield-check"></i>
                 Bet Safer
               </h1>
-              <p class="safer-subtitle">
-                Get smarter, safer betting alternatives with higher winning
-                chances
-              </p>
+              <button class="home-btn" onclick="navigateTo('index.html')">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                  <polyline points="9 22 9 12 15 12 15 22" />
+                </svg>
+              </button>
             </div>
 
             <!-- Input Section -->
@@ -605,13 +620,13 @@
     <script src="assets/js/betsafer.js"></script>
     <script src="./components/betslip-rail.js"></script>
     <script>
+      document.getElementById("desktop-nav").style.display = "none";
+      // document.getElementById("side-menu").style.display = "none";
+      // document.getElementById("mobile-nav").style.display = "none";
       document.addEventListener("DOMContentLoaded", function () {
         const scrollToTopBtn = document.getElementById("scroll-to-top");
         const mainContent = document.querySelector(".adminuiux-content");
-
-        // Function to check scroll position and toggle button visibility
         function toggleScrollToTopButton() {
-          // Adjust this value to control when the button appears
           const scrollThreshold = 300;
 
           if (mainContent.scrollTop > scrollThreshold) {
@@ -620,11 +635,7 @@
             scrollToTopBtn.classList.remove("visible");
           }
         }
-
-        // Add scroll event listener to the main content
         mainContent.addEventListener("scroll", toggleScrollToTopButton);
-
-        // Scroll to top when button is clicked
         scrollToTopBtn.addEventListener("click", function () {
           mainContent.scrollTo({
             top: 0,

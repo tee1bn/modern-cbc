@@ -72,6 +72,9 @@ body {
   border-bottom: 2px solid var(--border-light);
   scrollbar-width: none;
   -ms-overflow-style: none;
+  position: sticky; 
+  top: 52px;
+  z-index: 99; 
 }
 
 .sport-tabs::-webkit-scrollbar {
@@ -123,6 +126,9 @@ body {
   border-bottom: 1px solid var(--border-light);
   scrollbar-width: none;
   -ms-overflow-style: none;
+   position: sticky;
+  top: 96px; 
+  z-index: 98;
 }
 
 .filter-bar::-webkit-scrollbar {
@@ -163,6 +169,7 @@ body {
 .matches-container {
   padding: 0 0 140px 0;
   background: #fff;
+  margin-top: 0; 
 }
 
 .match-card {
