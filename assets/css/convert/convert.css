@@ -342,10 +342,6 @@ select:focus {
   }
 }
 
-#desktop-nav {
-  display: none;
-}
-
 /* Mobile Styles */
 @media (max-width: 767px) {
   .tabs-desktop {
