@@ -25,7 +25,7 @@
     <script defer src="assets/js/app8051.js?bd1e16b080f637e63a80"></script>
     <link href="assets/css/app8051.css?bd1e16b080f637e63a80" rel="stylesheet" />
     <link rel="stylesheet" href="./assets/css/main.css" />
-    <link rel="stylesheet" href="assets/css/pricing.css">
+    <link rel="stylesheet" href="assets/css/pricing.css" />
   </head>
 
   <body
@@ -41,7 +41,6 @@
     data-bggradient="bg-r-gradient"
     data-headerfill="adminuiux-header-transparent"
   >
-
     <div id="desktop-nav"></div>
     <div id="side-menu"></div>
 
@@ -83,7 +82,373 @@
     <!-- main content -->
     <div class="adminuiux-wrap">
       <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+        <div
+          class="pricing-container"
+          style="background-color: white; padding: 5px"
+        >
+          <!-- Hero Section -->
+          <section class="pricing-hero">
+            <h2 class="hero-title">Choose Your Plan</h2>
+            <p class="hero-subtitle">
+              **Change the currency at the top-right to your preference.
+            </p>
 
+            <!-- Billing Toggle -->
+            <div class="billing-toggle">
+              <button class="toggle-btn active" data-interval="monthly">
+                monthly
+              </button>
+              <button class="toggle-btn" data-interval="yearly">yearly</button>
+            </div>
+          </section>
+
+          <!-- Pricing Cards Section -->
+          <section class="pricing-plans">
+            <!-- Plan: Dl -->
+            <div class="plan-card" data-plan="dl">
+              <div class="plan-header">
+                <span class="plan-badge popular">Popular</span>
+                <h3 class="plan-name">Dl</h3>
+              </div>
+
+              <div class="plan-pricing">
+                <span class="plan-price" data-monthly="10" data-yearly="100"
+                  >$10</span
+                >
+                <span class="plan-validity">30 days validity</span>
+              </div>
+
+              <div class="plan-features">
+                <div class="feature-item">
+                  <span class="feature-label">Allowed Bookies</span>
+                  <span class="feature-value unlimited">Unlimited</span>
+                </div>
+                <div class="feature-item">
+                  <span class="feature-label">Units</span>
+                  <span class="feature-value">150</span>
+                </div>
+                <div class="feature-item checked">
+                  <span class="feature-label">API, Widget</span>
+                  <svg
+                    class="check-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <div class="feature-item checked">
+                  <span class="feature-label">~Zero Ads</span>
+                  <svg
+                    class="check-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+              </div>
+
+              <button class="plan-cta">Order now</button>
+            </div>
+
+            <!-- Plan: D -->
+            <div class="plan-card featured" data-plan="d">
+              <div class="plan-header">
+                <span class="plan-badge popular">Popular</span>
+                <h3 class="plan-name">D</h3>
+              </div>
+
+              <div class="plan-pricing">
+                <span class="plan-price" data-monthly="7" data-yearly="70"
+                  >$7</span
+                >
+                <span class="plan-validity monthly-badge">monthly</span>
+              </div>
+
+              <div class="plan-features">
+                <div class="feature-item">
+                  <span class="feature-label">Allowed Bookies</span>
+                  <span class="feature-value unlimited">Unlimited</span>
+                </div>
+                <div class="feature-item">
+                  <span class="feature-label">Units</span>
+                  <span class="feature-value unlimited">Unlimited</span>
+                </div>
+                <div class="feature-item checked">
+                  <span class="feature-label">~Zero Ads</span>
+                  <svg
+                    class="check-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+              </div>
+
+              <button class="plan-cta primary">Order now</button>
+            </div>
+
+            <!-- Plan: Cl -->
+            <div class="plan-card" data-plan="cl">
+              <div class="plan-header">
+                <h3 class="plan-name">Cl</h3>
+              </div>
+
+              <div class="plan-pricing">
+                <span class="plan-price" data-monthly="4" data-yearly="40"
+                  >$4</span
+                >
+                <span class="plan-validity">30 days validity</span>
+              </div>
+
+              <div class="plan-features">
+                <div class="feature-item">
+                  <span class="feature-label">Allowed Bookies</span>
+                  <span class="feature-value unlimited">Unlimited</span>
+                </div>
+                <div class="feature-item">
+                  <span class="feature-label">Units</span>
+                  <span class="feature-value">55</span>
+                </div>
+                <div class="feature-item checked">
+                  <span class="feature-label">~Zero Ads</span>
+                  <svg
+                    class="check-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+              </div>
+
+              <button class="plan-cta">Order now</button>
+            </div>
+
+            <!-- Plan: Bl -->
+            <div class="plan-card" data-plan="bl">
+              <div class="plan-header">
+                <h3 class="plan-name">Bl</h3>
+              </div>
+
+              <div class="plan-pricing">
+                <span class="plan-price" data-monthly="2" data-yearly="20"
+                  >$2</span
+                >
+                <span class="plan-validity">20 days validity</span>
+              </div>
+
+              <div class="plan-features">
+                <div class="feature-item">
+                  <span class="feature-label">Allowed Bookies</span>
+                  <span class="feature-value unlimited">Unlimited</span>
+                </div>
+                <div class="feature-item">
+                  <span class="feature-label">Units</span>
+                  <span class="feature-value">25</span>
+                </div>
+                <div class="feature-item checked">
+                  <span class="feature-label">~Zero Ads</span>
+                  <svg
+                    class="check-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+              </div>
+
+              <button class="plan-cta">Order now</button>
+            </div>
+
+            <!-- Plan: Al -->
+            <div class="plan-card" data-plan="al">
+              <div class="plan-header">
+                <h3 class="plan-name">Al</h3>
+              </div>
+
+              <div class="plan-pricing">
+                <span class="plan-price" data-monthly="1" data-yearly="10"
+                  >$1</span
+                >
+                <span class="plan-validity">20 days validity</span>
+              </div>
+
+              <div class="plan-features">
+                <div class="feature-item">
+                  <span class="feature-label">Allowed Bookies</span>
+                  <span class="feature-value unlimited">Unlimited</span>
+                </div>
+                <div class="feature-item">
+                  <span class="feature-label">Units</span>
+                  <span class="feature-value">12</span>
+                </div>
+                <div class="feature-item checked">
+                  <span class="feature-label">~Zero Ads</span>
+                  <svg
+                    class="check-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+              </div>
+
+              <button class="plan-cta">Order now</button>
+            </div>
+          </section>
+
+          <!-- FAQ Section -->
+          <section class="faq-section">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>What payment methods do you accept?</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="accordion-content collapsed">
+                <p>
+                  We accept all major credit cards, PayPal, and cryptocurrency
+                  payments for your convenience.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>Can I upgrade or downgrade my plan?</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="accordion-content collapsed">
+                <p>
+                  Yes, you can upgrade or downgrade your plan at any time.
+                  Changes will be reflected in your next billing cycle.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>What happens when I run out of units?</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="accordion-content collapsed">
+                <p>
+                  When you run out of units, you can either wait for your plan
+                  to renew or upgrade to a higher tier plan with more units.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>Is there a refund policy?</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="accordion-content collapsed">
+                <p>
+                  We offer a 7-day money-back guarantee for all plans. If you're
+                  not satisfied, contact our support team for a full refund.
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
       </main>
     </div>
 
@@ -99,8 +464,177 @@
     <!-- Page Level js -->
     <script src="assets/js/adminux/adminux-dashboard.js"></script>
     <script src="./components/AppLayout.js"></script>
+
     <script>
-        document.getElementById("desktop-nav").style.display = "none";
+      document.getElementById("desktop-nav").style.display = "none";
+      // ========================================
+      // PRICING PAGE FUNCTIONALITY
+      // ========================================
+
+      // Navigation functions
+      function navigateTo(page) {
+        console.log(`Navigating to: ${page}`);
+        // In production, this would be: window.location.href = page;
+      }
+
+      // ========================================
+      // BILLING TOGGLE (Monthly/Yearly)
+      // ========================================
+      function initBillingToggle() {
+        const toggleBtns = document.querySelectorAll(".toggle-btn");
+        const priceElements = document.querySelectorAll(".plan-price");
+
+        toggleBtns.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            // Remove active class from all buttons
+            toggleBtns.forEach((b) => b.classList.remove("active"));
+
+            // Add active class to clicked button
+            btn.classList.add("active");
+
+            // Get selected interval
+            const interval = btn.dataset.interval;
+
+            // Update all prices
+            priceElements.forEach((priceEl) => {
+              const monthlyPrice = priceEl.dataset.monthly;
+              const yearlyPrice = priceEl.dataset.yearly;
+
+              if (interval === "monthly") {
+                priceEl.textContent = `$${monthlyPrice}`;
+              } else {
+                priceEl.textContent = `$${yearlyPrice}`;
+              }
+            });
+          });
+        });
+      }
+
+      // ========================================
+      // ACCORDION FUNCTIONALITY
+      // ========================================
+      function initAccordion() {
+        const accordionHeaders = document.querySelectorAll(".accordion-header");
+
+        accordionHeaders.forEach((header) => {
+          header.addEventListener("click", () => {
+            const content = header.nextElementSibling;
+            const isExpanded = header.classList.contains("expanded");
+
+            // Close all accordions
+            accordionHeaders.forEach((h) => {
+              h.classList.remove("expanded");
+              h.nextElementSibling.classList.add("collapsed");
+            });
+
+            // Toggle clicked accordion
+            if (!isExpanded) {
+              header.classList.add("expanded");
+              content.classList.remove("collapsed");
+            }
+          });
+        });
+      }
+
+      // ========================================
+      // PLAN CTA BUTTON HANDLERS
+      // ========================================
+      function initPlanButtons() {
+        const ctaButtons = document.querySelectorAll(".plan-cta");
+
+        ctaButtons.forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            const planCard = e.target.closest(".plan-card");
+            const planName = planCard.querySelector(".plan-name").textContent;
+            const planPrice = planCard.querySelector(".plan-price").textContent;
+
+            console.log(`Order clicked: ${planName} - ${planPrice}`);
+
+            // In production, this would redirect to checkout or open a modal
+            alert(
+              `Redirecting to checkout for ${planName} plan (${planPrice})`
+            );
+          });
+        });
+      }
+
+      // ========================================
+      // SMOOTH SCROLL TO SECTION
+      // ========================================
+      function smoothScrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }
+
+      // ========================================
+      // PLAN CARD HOVER EFFECTS
+      // ========================================
+      function initPlanCardEffects() {
+        const planCards = document.querySelectorAll(".plan-card");
+
+        planCards.forEach((card) => {
+          card.addEventListener("mouseenter", () => {
+            card.style.transform = "translateY(-4px)";
+          });
+
+          card.addEventListener("mouseleave", () => {
+            if (!card.classList.contains("featured")) {
+              card.style.transform = "translateY(0)";
+            }
+          });
+        });
+      }
+
+      // ========================================
+      // INITIALIZE ON PAGE LOAD
+      // ========================================
+      document.addEventListener("DOMContentLoaded", () => {
+        initBillingToggle();
+        initAccordion();
+        initPlanButtons();
+        initPlanCardEffects();
+
+        console.log("Pricing page initialized");
+      });
+
+      // ========================================
+      // UTILITY FUNCTIONS
+      // ========================================
+
+      // Format currency based on user preference
+      function formatCurrency(amount, currency = "USD") {
+        return new Intl.NumberFormat("en-US", {
+          style: "currency",
+          currency: currency,
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 2,
+        }).format(amount);
+      }
+
+      // Calculate yearly savings
+      function calculateYearlySavings(monthlyPrice, yearlyPrice) {
+        const monthlyCost = monthlyPrice * 12;
+        const savings = monthlyCost - yearlyPrice;
+        const savingsPercent = ((savings / monthlyCost) * 100).toFixed(0);
+
+        return {
+          amount: savings,
+          percentage: savingsPercent,
+        };
+      }
+
+      // Export functions for external use
+      window.pricingFunctions = {
+        navigateTo,
+        smoothScrollToSection,
+        formatCurrency,
+        calculateYearlySavings,
+      };
     </script>
   </body>
 </html>
