@@ -659,3 +659,274 @@
 .scroll-to-top i {
   font-size: 20px;
 }
+
+@media (min-width: 992px) {
+  /* Hide mobile navigation */
+  #mobile-nav {
+    display: none !important;
+  }
+  
+  .page-header {
+    display: none !important;
+  }
+  
+  #desktop-nav {
+    display: block !important;
+  }
+
+  /* Main container */
+  .bet-safer-page {
+    max-width: 1400px;
+    margin-top: 60px;
+    padding: 40px 60px 80px;
+  }
+
+  /* Header */
+  .safer-header {
+    padding: 40px 40px 30px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+  }
+
+  .safer-title {
+    font-size: 36px;
+  }
+
+  .safer-subtitle {
+    font-size: 15px;
+  }
+
+  /* Input Section */
+  .safer-input-section {
+    padding: 40px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .safer-input-tabs {
+    gap: 12px;
+    margin-bottom: 30px;
+    overflow-x: visible;
+  }
+
+  .safer-input-tab {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+
+  .safer-input-tab:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  .safer-form-group {
+    margin-bottom: 24px;
+  }
+
+  .safer-form-label {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  .safer-form-input,
+  .safer-form-select {
+    padding: 14px 16px;
+    font-size: 15px;
+  }
+
+  .safer-paste-btn {
+    padding: 14px 16px;
+  }
+
+  .safer-upload-area {
+    padding: 60px 40px;
+    border-radius: 8px;
+  }
+
+  .safer-upload-area:hover {
+    transform: scale(1.01);
+  }
+
+  .safer-analyze-btn {
+    padding: 16px;
+    font-size: 16px;
+    border-radius: 8px;
+  }
+
+  .safer-analyze-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  /* Results Section - Two Column Layout */
+  .safer-results {
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .safer-selection-card {
+    border-radius: 8px;
+    margin-bottom: 0;
+    transition: all 0.3s ease;
+  }
+
+  .safer-selection-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  }
+
+  .safer-selection-header {
+    padding: 16px 24px;
+  }
+
+  .safer-selection-body {
+    padding: 24px;
+  }
+
+  .original-pick {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+  }
+
+  .pick-teams {
+    font-size: 16px;
+  }
+
+  .pick-odds {
+    font-size: 20px;
+  }
+
+  .safer-alternative {
+    padding: 24px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+  }
+
+  .safer-comparison {
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .comparison-value {
+    font-size: 22px;
+  }
+
+  .safer-actions {
+    gap: 12px;
+  }
+
+  .btn-accept,
+  .btn-keep {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  .btn-accept:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+
+  .btn-keep:hover {
+    transform: translateY(-2px);
+  }
+
+  .odds-comparison {
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  .bookie-row {
+    padding: 14px 16px;
+    border-radius: 4px;
+  }
+
+  .bookie-row:hover {
+    background: #f5f5f5;
+  }
+
+  /* Footer Actions */
+  .safer-footer-actions {
+    padding: 40px;
+    flex-direction: row;
+    gap: 16px;
+    max-width: 1400px;
+    margin: 40px auto 0;
+    border-radius: 8px;
+  }
+
+  .safer-footer-btn {
+    padding: 16px 24px;
+    font-size: 15px;
+    border-radius: 8px;
+  }
+
+  .safer-footer-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  /* Share Section */
+  .safer-share-section {
+    padding: 30px 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 8px;
+  }
+
+  .share-link-box {
+    gap: 12px;
+  }
+
+  .share-input {
+    padding: 14px 16px;
+  }
+
+  .btn-copy {
+    padding: 14px 24px;
+  }
+
+  /* Empty State */
+  .safer-empty-state {
+    padding: 80px 40px;
+  }
+
+  .safer-empty-text {
+    font-size: 16px;
+  }
+
+  /* Scroll to top button */
+  .scroll-to-top {
+    bottom: 40px;
+    right: 40px;
+    width: 56px;
+    height: 56px;
+  }
+
+  .scroll-to-top:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* Large Desktop - Single Row for all cards */
+@media (min-width: 1400px) {
+  .bet-safer-page {
+    max-width: 1600px;
+    padding: 50px 80px 100px;
+  }
+
+  .safer-title {
+    font-size: 42px;
+  }
+
+  .safer-results {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}

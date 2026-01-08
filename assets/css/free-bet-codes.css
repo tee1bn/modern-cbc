@@ -798,3 +798,67 @@
     font-size: 12px;
   }
 }
+
+@media (min-width: 992px) {
+  #mobile-nav,
+  .page-header {
+    display: none !important;
+  }
+
+  #desktop-nav {
+    display: block;
+  }
+
+  .free-codes-page {
+    margin-top: 60px;
+  }
+  
+  .free-codes-page .codes-header,
+  .free-codes-page .hub-filters,
+  .free-codes-page .codes-ad-banner,
+  .free-codes-page .codes-list,
+  .free-codes-page .codes-pagination {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .free-codes-page .codes-header {
+    padding: 24px 32px;
+    z-index: 1000;
+  }
+
+  .free-codes-page .hub-filters {
+    padding: 16px 32px;
+    z-index: 1000;
+  }
+
+  .free-codes-page .codes-list {
+    padding: 16px 32px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .free-codes-page .codes-header,
+  .free-codes-page .hub-filters,
+  .free-codes-page .codes-list,
+  .free-codes-page .codes-pagination {
+    max-width: 1400px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .free-codes-page .codes-header,
+  .free-codes-page .hub-filters,
+  .free-codes-page .codes-list,
+  .free-codes-page .codes-pagination {
+    max-width: 1600px;
+  }
+
+  .free-codes-page .codes-header,
+  .free-codes-page .hub-filters,
+  .free-codes-page .codes-list {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}

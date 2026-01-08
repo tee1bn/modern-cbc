@@ -58,7 +58,10 @@ const AppLayout = {
       <!-- Fixed navbar -->
       <nav class="navbar navbar-expand-lg fixed">
         <div class="container-fluid">
-          <!-- main sidebar toggle -->
+                      <!-- main sidebar toggle -->
+            <button class="btn btn-link btn-square sidebar-toggler" type="button" onclick="initSidebar()">
+                <i class="sidebar-svg" data-feather="menu"></i>
+            </button>
           <!-- logo -->
           <a class="navbar-brand" onclick="navigateTo('index.html')">
             <img data-bs-img="light" src="" alt="" />
@@ -428,6 +431,8 @@ const AppLayout = {
               </div>
             </div>
           </div>
+
+          </ul>
 
           <!-- right icons button -->
           <div class="ms-auto">
@@ -858,7 +863,7 @@ sideMenu: `
     <div id="side-menu" class="adminuiux-wrap">
       <div class="adminuiux-sidebar shadow-sm">
         <div class="adminuiux-sidebar-inner">
-          <div class="px-3 not-iconic mt-2">
+          <div class="px-3 not-iconic" id="features">
             <div class="row gx-3 gx-lg-4">
               <div class="col align-self-center menu-name">
                 <h6>Features & Pages</h6>
@@ -1190,31 +1195,6 @@ sideMenu: `
 
           <div class="mt-auto"></div>
 
-          <!-- chat -->
-          <ul class="nav flex-column menu-active-line mb-2">
-            <li class="nav-item">
-              <a href="adminux-chat.html" class="nav-link">
-                <div class="col-auto">
-                  <div
-                    class="avatar avatar-30 coverimg rounded d-block align-top"
-                  >
-                    <img src="assets/img/modern-ai-image/user-2.jpg" alt="" />
-                  </div>
-                </div>
-                <div class="col px-2 menu-name text-start not-iconic">
-                  <!-- limit name character-->
-                  <p class="mb-0 fs-14 lh-20">
-                    Zoory Sen<br /><small class="opacity-75"
-                      >Relationship Manager</small
-                    >
-                  </p>
-                </div>
-                <div class="col-auto not-iconic">
-                  <i class="bi bi-chat-dots"></i>
-                </div>
-              </a>
-            </li>
-          </ul>
 
           <!-- quick links -->
           <div class="px-3 not-iconic">
@@ -1459,303 +1439,247 @@ sideMenu: `
     </div>
   `,
 
-  footer: `
-     <!-- footer content -->
-    <div class="adminuiux-footer has-adminuiux-sidebar mt-auto py-0">
-      <div class="container py-4 py-lg-5">
-        <div class="row mb-3">
-          <div class="col-12 col-xxl-4 mb-3 mb-xxl-0">
-            <a class="style-none d-block mb-3 mb-lg-4" href="#">
-              <div class="row gx-3 gx-lg-4">
-                <div class="col-auto">
-                  <span class="logo-icon"
-                    ><img src="assets/img/logo.svg" class="width-50" alt=""
-                  /></span>
-                </div>
-                <div class="col ps-0 align-self-center">
-                  <h4 class="text-gradient mb-0">Convert.io</h4>
-                  <p class="text-secondary small">Best Converter Platform</p>
-                </div>
-              </div>
+footer: `
+  <!-- Footer Content -->
+  <div class="adminuiux-footer has-adminuiux-sidebar mt-auto py-0">
+    <div class="container py-4 py-lg-5">
+      <!-- Main Footer Content -->
+      <div class="row mb-4">
+        <!-- Services Column -->
+        <div class="col-6 col-md-3 mb-4">
+          <h6 class="fw-bold mb-3" style="font-size: 14px;">Services</h6>
+          <ul class="nav flex-column" style="gap: 8px;">
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="convert.html" style="color: #666; font-size: 13px;">Bet converter</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="betviewer.html" style="color: #666; font-size: 13px;">Bet viewer</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="pools-bet-code.html" style="color: #666; font-size: 13px;">Pools bet codes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="bet-editor.html" style="color: #666; font-size: 13px;">Bet editor</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="bet-safer.html" style="color: #666; font-size: 13px;">Bet saver</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="#" style="color: #666; font-size: 13px;">Odd comparer</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="free-prediction.html" style="color: #666; font-size: 13px;">Accurate predictions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="free-bet-codes.html" style="color: #666; font-size: 13px;">Free bet codes today</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="#" style="color: #666; font-size: 13px;">Widget</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Developer Column -->
+        <div class="col-6 col-md-3 mb-4">
+          <h6 class="fw-bold mb-3" style="font-size: 14px;">Developer</h6>
+          <ul class="nav flex-column" style="gap: 8px;">
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="#" style="color: #666; font-size: 13px;">Bet conversion API</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="#" style="color: #666; font-size: 13px;">API documentation</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Quick Links Column -->
+        <div class="col-6 col-md-3 mb-4">
+          <h6 class="fw-bold mb-3" style="font-size: 14px;">Quick Links</h6>
+          <ul class="nav flex-column" style="gap: 8px;">
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="#" style="color: #666; font-size: 13px;">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="#" style="color: #666; font-size: 13px;">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="#" style="color: #666; font-size: 13px;">Faqs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="#" style="color: #666; font-size: 13px;">About us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="#" style="color: #666; font-size: 13px;">Advertise with us</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Support & Community Column -->
+        <div class="col-6 col-md-3 mb-4">
+          <h6 class="fw-bold mb-3" style="font-size: 14px;">Support</h6>
+          <ul class="nav flex-column mb-4" style="gap: 8px;">
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="#" style="color: #666; font-size: 13px;">support@convertbetcodes.com</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="#" style="color: #666; font-size: 13px;">Contact us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="#" style="color: #666; font-size: 13px;">Why conversion may fail</a>
+            </li>
+          </ul>
+
+          <h6 class="fw-bold mb-3" style="font-size: 14px;">Community</h6>
+          <div class="d-flex gap-2">
+            <a href="#" class="btn btn-sm" style="width: 36px; height: 36px; padding: 0; display: flex; align-items: center; justify-content: center; border: 1px solid #ddd; background: #fff;">
+              <i class="bi bi-twitter" style="font-size: 16px; color: #000;"></i>
             </a>
-
-            <h3 class="mb-3">
-              <span class="text-gradient">#1 Creative</span> &amp;
-              <span class="text-gradient">Multipurpose</span> Bet Converter
-            </h3>
-            <p class="text-secondary">
-              Convert.io is creative and multipurpose template. You can use it for
-              CRM, Business application, Intranet Application, Portal service
-              and Many more. It comes with unlimited possibilities and 10+
-              predefined styles which you can also mix up and create new style.
-              Do support and spread a word for us.
-            </p>
-          </div>
-          <div class="col-6 col-sm-6 col-md-4 col-xxl offset-xl-1 mb-3 mb-md-0">
-            <h5 class="mb-3">
-              The <span class="text-gradient">Dashboards</span>
-            </h5>
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <a
-                  class="nav-link px-0"
-                  href="https://www.adminuiux.com/adminuiux/adminux-mobile/html/finance-dashboard.html"
-                  >Finance</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link px-0"
-                  href="https://www.adminuiux.com/adminuiux/adminux-mobile/html/network-dashboard.html"
-                  >Network</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link px-0"
-                  href="https://www.adminuiux.com/adminuiux/adminux-mobile/html/inventory-dashboard.html"
-                  >Inventory</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link px-0"
-                  href="https://www.adminuiux.com/adminuiux/adminux-mobile/html/social-dashboard.html"
-                  >Social</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link px-0"
-                  href="https://www.adminuiux.com/adminuiux/adminux-mobile/html/project-dashboard.html"
-                  >Project</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link px-0"
-                  href="https://www.adminuiux.com/adminuiux/adminux-mobile/html/learning-dashboard.html"
-                  >Learning</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="col-6 col-sm-6 col-md-4 col-xxl mb-3 mb-md-0">
-            <h5 class="mb-3">
-              Creative <span class="text-gradient">Pages</span>
-            </h5>
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <a class="nav-link px-0" href="adminux-calendar.html"
-                  >Calendar</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link px-0" href="adminux-email.html">Email</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link px-0" href="adminux-explorer.html"
-                  >Explorer</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link px-0" href="adminux-company-help-center.html"
-                  >Need Support
-                  <i class="bi bi-heart-fill text-theme-1 theme-red"></i
-                ></a>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link px-0"
-                  href="https://1.envato.market/7N7Br"
-                  target="_blank"
-                  >Buy Now <i class="bi bi-arrow-up-right-square"></i
-                ></a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-12 col-md-4 col-xxl-3">
-            <p class="mb-2"><b>Main office:</b></p>
-            <p class="mb-1">
-              <a href="https://adminuiux.com/" target="_blank"
-                >www.adminuiux.com</a
-              >
-            </p>
-            <p class="text-secondary mb-4">
-              Test data 103909 Witamer CR, Niagara Falls, NY 14305, United
-              States
-            </p>
-
-            <div class="row gx-3 align-items-center mb-3">
-              <div class="col-auto">
-                <i class="bi bi-clock text-theme-1 h4"></i>
-              </div>
-              <div class="col text-secondary">
-                0441-215-518625<br /><span>Mon - Sat, 9:00 am - 10:00pm</span>
-              </div>
-            </div>
-            <div class="row gx-3 align-items-center mb-3">
-              <div class="col-auto">
-                <i class="bi bi-telephone text-theme-1 h4"></i>
-              </div>
-              <div class="col text-secondary">+1-000 000 100000</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row gx-3 gx-lg-4 align-items-center">
-          <div class="col-12 col-md-auto mb-4 mb-md-0">
-            <ul class="nav justify-content-center">
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  href="https://www.facebook.com/adminuiux1/"
-                  target="_blank"
-                >
-                  <i class="bi bi-facebook h5"></i>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  href="https://twitter.com/admiinuiux"
-                  target="_blank"
-                >
-                  <i class="bi bi-twitter h5"></i>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  href="https://linkedin.com/company/adminuiux"
-                  target="_blank"
-                >
-                  <i class="bi bi-linkedin h5"></i>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  href="https://www.instagram.com/adminuiux/"
-                  target="_blank"
-                >
-                  <i class="bi bi-instagram h5"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-12 col-md-auto ms-auto">
-            <ul class="nav justify-content-center">
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <div class="row gx-3 gx-lg-4 align-items-center">
-                    <div class="col-auto">
-                      <i class="bi bi-play-fill h3"></i>
-                    </div>
-                    <div class="col">
-                      <p class="mb-0 fs-12 opacity-50">Get this on</p>
-                      <p>Google Play</p>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <div class="row gx-3 gx-lg-4 align-items-center">
-                    <div class="col-auto">
-                      <i class="bi bi-apple h4"></i>
-                    </div>
-                    <div class="col">
-                      <p class="mb-0 fs-12 opacity-50">Get this on</p>
-                      <p>App Store</p>
-                    </div>
-                  </div>
-                </a>
-              </li>
-            </ul>
+            <a href="#" class="btn btn-sm" style="width: 36px; height: 36px; padding: 0; display: flex; align-items: center; justify-content: center; border: 1px solid #ddd; background: #fff;">
+              <i class="bi bi-telegram" style="font-size: 16px; color: #000;"></i>
+            </a>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- standard footer -->
-    <footer class="adminuiux-footer has-adminuiux-sidebar mt-auto bg-theme-1">
-      <div class="container-fluid">
-        <div class="row gx-3 gx-lg-4">
-          <div class="col-10 col-md col-lg py-2">
-            <span class="small"
-              >Copyright @2025, Designed by
-              <a
-                href="https://adminuiux.com/"
-                target="_blank"
-                class="text-white"
-                >Adminuiux</a
-              >
-              on Earth ❤️
-            </span>
-          </div>
-          <div class="col-12 col-md-auto col-lg-auto align-self-center">
-            <ul class="nav small">
-              <li class="nav-item">
-                <a
-                  class="nav-link text-white px-2"
-                  href="adminux-company-help-center.html"
-                  >Help</a
-                >
-              </li>
-              <li class="nav-item opacity-50">|</li>
-              <li class="nav-item">
-                <a
-                  class="nav-link text-white px-2"
-                  href="https://www.adminuiux.com/adminuiux/adminux-mobile/html/terms-of-use.html"
-                  >Terms of Use</a
-                >
-              </li>
-              <li class="nav-item opacity-50">|</li>
-              <li class="nav-item">
-                <a
-                  class="nav-link text-white px-2"
-                  href="https://www.adminuiux.com/adminuiux/adminux-mobile/html/privacy-policy.html"
-                  >Privacy Policy</a
-                >
-              </li>
-            </ul>
-          </div>
+      <!-- Resources & Terms Section -->
+      <div class="row mb-4 pt-4" style="border-top: 1px solid #e0e0e0;">
+        <div class="col-12 col-md-6 mb-3">
+          <h6 class="fw-bold mb-3" style="font-size: 14px;">Resources</h6>
+          <ul class="nav" style="gap: 16px; flex-wrap: wrap;">
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="#" style="color: #007bff; font-size: 13px;">Careers <span style="background: #007bff; color: #fff; padding: 2px 6px; font-size: 10px; border-radius: 3px; margin-left: 4px;">hiring</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="#" style="color: #666; font-size: 13px;">Reviews</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="#" style="color: #666; font-size: 13px;">Join our affiliate programme</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="blog.html" style="color: #666; font-size: 13px;">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="#" style="color: #666; font-size: 13px;">Help Center <span style="background: #28a745; color: #fff; padding: 2px 6px; font-size: 10px; border-radius: 3px; margin-left: 4px;">soon</span></a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-6 mb-3">
+          <h6 class="fw-bold mb-3" style="font-size: 14px;">Terms</h6>
+          <ul class="nav" style="gap: 16px; flex-wrap: wrap;">
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="#" style="color: #666; font-size: 13px;">Terms of service</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="#" style="color: #666; font-size: 13px;">Cookie Policy</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="#" style="color: #666; font-size: 13px;">Privacy Policy</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="#" style="color: #666; font-size: 13px;">Disclaimer</a>
+            </li>
+          </ul>
         </div>
       </div>
-    </footer>
 
-
-    <!-- arrow action-->
-    <div class="position-fixed bottom-0 end-0 m-3 z-index-5" id="fixedbuttons">
-      <button
-        class="btn btn-square btn-theme shadow rounded-circle"
-        type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#theming"
-        aria-controls="theming"
-      >
-        <i class="bi bi-palette"></i>
-      </button>
-      <br />
-      <button
-        class="btn btn-theme btn-square shadow mt-2 d-none rounded-circle theme-black"
-        id="backtotop"
-      >
-        <i class="bi bi-arrow-up"></i>
-      </button>
+      <!-- Recommended Sites Section -->
+      <div class="row pt-4" style="border-top: 1px solid #e0e0e0;">
+        <div class="col-12">
+          <h6 class="fw-bold mb-3" style="font-size: 14px;">Recommended sites</h6>
+          <ul class="nav" style="gap: 16px; flex-wrap: wrap;">
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="#" style="color: #666; font-size: 13px;">bettingsitesbd.com</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="#" style="color: #666; font-size: 13px;">Moroccobettingsites.com</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="#" style="color: #666; font-size: 13px;">Bookmakerscameroun.com</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="#" style="color: #666; font-size: 13px;">Codepromoafrique.com</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="#" style="color: #666; font-size: 13px;">Winning Tips</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="#" style="color: #666; font-size: 13px;">Live Football Scores</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-0 py-1" href="#" style="color: #666; font-size: 13px;">Pools fixtures</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-  `,
+  </div>
 
-  // Initialize layout
-  init() {
+  <!-- Copyright Footer -->
+  <footer class="adminuiux-footer has-adminuiux-sidebar mt-0" style="background: #000; color: #fff;">
+    <div class="container-fluid">
+      <div class="row gx-3 gx-lg-4 align-items-center py-3">
+        <div class="col-12 col-md-6 text-center text-md-start mb-2 mb-md-0">
+          <span style="font-size: 13px;">
+            Copyright @2025, Designed by 
+            <a href="https://adminuiux.com/" target="_blank" class="text-white text-decoration-underline">Adminuiux</a>
+          </span>
+        </div>
+        <div class="col-12 col-md-6 text-center text-md-end">
+          <span style="font-size: 13px;">
+            * All Packages are fair use only(rate limited).
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Fixed Buttons -->
+  <div class="position-fixed bottom-0 end-0 m-3 z-index-5" id="fixedbuttons">
+    <button
+      class="btn btn-square shadow rounded-circle"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#theming"
+      aria-controls="theming"
+      style="background: #000; color: #fff; width: 48px; height: 48px;"
+    >
+      <i class="bi bi-palette"></i>
+    </button>
+    <br />
+    <button
+      class="btn btn-square shadow mt-2 d-none rounded-circle"
+      id="backtotop"
+      style="background: #000; color: #fff; width: 48px; height: 48px;"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+  </div>
+`,
+
+init() {
+  if (document.getElementById("mobile-nav")) {
     document.getElementById("mobile-nav").innerHTML = this.mobileNav;
+  }
+
+  if (document.getElementById("filter-canvas")) {
     document.getElementById("filter-canvas").innerHTML = this.filterCanvas;
+  }
+
+  if (document.getElementById("desktop-nav") && window.innerWidth >= 1024) {
     document.getElementById("desktop-nav").innerHTML = this.desktopNav;
+  }
+
+  if (document.getElementById("side-menu")) {
     document.getElementById("side-menu").innerHTML = this.sideMenu;
+  }
+
+  if (document.getElementById("footer")) {
     document.getElementById("footer").innerHTML = this.footer;
-    this.setActiveNav();
-  },
+  }
+
+  this.setActiveNav();
+},
 
   // Set active navigation state
   setActiveNav() {

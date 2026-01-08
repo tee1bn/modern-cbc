@@ -1,11 +1,10 @@
 /* ========================================
-   GLOBAL VARIABLES & RESET
+   MODERN PRICING PAGE - BLACK & WHITE
    ======================================== */
+
 :root {
   --adminuiux-content-font: "Open Sans", sans-serif;
-  --adminuiux-content-font-weight: 400;
   --adminuiux-title-font: "SUSE", sans-serif;
-  --adminuiux-title-font-weight: 600;
 }
 
 * {
@@ -16,15 +15,13 @@
 
 body {
   font-family: var(--adminuiux-content-font);
-  font-weight: var(--adminuiux-content-font-weight);
-  background: #f5f5f5;
+  background: #f8f8f8;
   color: #000;
   line-height: 1.6;
-  min-height: 100vh;
 }
 
 /* ========================================
-   PAGE HEADER - STICKY
+   PAGE HEADER
    ======================================== */
 .page-header {
   position: sticky;
@@ -33,18 +30,18 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 16px;
+  padding: 16px 20px;
   background: #fff;
   border-bottom: 1px solid #e0e0e0;
 }
 
 .page-title {
   font-family: var(--adminuiux-title-font);
-  font-weight: var(--adminuiux-title-font-weight);
-  font-size: 18px;
+  font-weight: 600;
+  font-size: 20px;
   margin: 0;
   color: #000;
-  flex-grow: 1;
+  flex: 1;
   text-align: center;
 }
 
@@ -56,14 +53,11 @@ body {
   cursor: pointer;
   color: #000;
   transition: opacity 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .back-btn:hover,
 .home-btn:hover {
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
 .back-btn svg,
@@ -78,7 +72,8 @@ body {
 .pricing-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 20px 16px 60px;
+  padding: 24px 16px 80px;
+  background: #fff;
 }
 
 /* ========================================
@@ -86,40 +81,39 @@ body {
    ======================================== */
 .pricing-hero {
   text-align: center;
-  padding: 20px 16px 24px;
-  background: #fff;
-  border: 1px solid #e0e0e0;
-  margin-bottom: 20px;
+  padding: 32px 20px;
+  margin-bottom: 32px;
 }
 
 .hero-title {
   font-family: var(--adminuiux-title-font);
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 700;
   color: #000;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .hero-subtitle {
-  color: #666;
-  font-size: 12px;
-  margin-bottom: 16px;
+  color: #333;
+  font-size: 13px;
+  margin-bottom: 24px;
+  font-weight: 500;
 }
 
 /* Billing Toggle */
 .billing-toggle {
   display: inline-flex;
-  background: #f0f0f0;
-  border: 1px solid #999;
-  padding: 2px;
+  background: #fff;
+  border: 1px solid #000;
+  overflow: hidden;
 }
 
 .toggle-btn {
-  padding: 6px 20px;
-  background: transparent;
+  padding: 10px 32px;
+  background: #fff;
   border: none;
-  color: #666;
-  font-size: 12px;
+  color: #000;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
@@ -131,17 +125,41 @@ body {
 }
 
 .toggle-btn:hover:not(.active) {
+  background: #f5f5f5;
+}
+
+/* ========================================
+   SECTION HEADERS
+   ======================================== */
+.section-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.section-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.section-title {
+  font-family: var(--adminuiux-title-font);
+  font-size: 24px;
+  font-weight: 700;
   color: #000;
 }
 
 /* ========================================
-   PRICING PLANS GRID
+   PRICING GRID - DESKTOP LAYOUT
    ======================================== */
 .pricing-plans {
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
-  margin-bottom: 40px;
+  margin-bottom: 48px;
 }
 
 /* ========================================
@@ -149,101 +167,96 @@ body {
    ======================================== */
 .plan-card {
   background: #fff;
-  border: 2px solid #555;
-  padding: 8px;
-  transition: all 0.2s;
-  animation: fadeIn 0.3s ease-in;
+  border: 2px solid #e0e0e0;
+  padding: 24px;
+  transition: all 0.3s;
+  position: relative;
 }
 
 .plan-card:hover {
-  border-color: #333;
-  background: #fafafa;
+  border-color: #000;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
 .plan-card.featured {
-  border: 2px solid #000;
-  transform: scale(1);
+  border: 2px solid #333;
+  background: #f8fbff;
 }
 
 .plan-card.featured:hover {
-  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(0, 123, 255, 0.15);
 }
 
 /* Plan Header */
 .plan-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 12px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 20px;
 }
 
 .plan-name {
   font-family: var(--adminuiux-title-font);
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 700;
   color: #000;
   margin: 0;
 }
 
 .plan-badge {
-  background: #000;
+  background: #333;
   color: #fff;
-  padding: 2px 8px;
-  font-size: 9px;
+  padding: 4px 10px;
+  font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-}
-
-.plan-badge.popular {
-  background: #000;
+  border-radius: 3px;
 }
 
 /* Plan Pricing */
 .plan-pricing {
-  text-align: center;
-  margin-bottom: 14px;
-  /* padding: 10px 0; */
+  margin-bottom: 24px;
 }
 
 .plan-price {
   display: block;
   font-family: var(--adminuiux-title-font);
-  font-size: 32px;
+  font-size: 42px;
   font-weight: 700;
   color: #000;
-  margin-bottom: 3px;
+  line-height: 1;
+  margin-bottom: 8px;
 }
 
 .plan-validity {
   display: block;
   color: #666;
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .monthly-badge {
   display: inline-block;
   background: #f0f0f0;
-  color: #333;
-  padding: 3px 8px;
-  border: 1px solid #ddd;
-  font-size: 10px;
-  font-weight: 700;
+  color: #000;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
   text-transform: lowercase;
+  border-radius: 3px;
+  margin-top: 4px;
 }
 
 /* Plan Features */
 .plan-features {
-  margin-bottom: 14px;
+  margin-bottom: 24px;
 }
 
 .feature-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 0;
+  padding: 12px 0;
   border-bottom: 1px solid #f0f0f0;
 }
 
@@ -253,39 +266,44 @@ body {
 
 .feature-label {
   color: #333;
-  font-size: 12px;
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .feature-value {
   color: #000;
-  font-weight: 600;
-  font-size: 12px;
+  font-weight: 700;
+  font-size: 14px;
 }
 
 .feature-value.unlimited {
   font-style: italic;
-  color: #666;
+  color: #333;
+  font-weight: 600;
 }
 
 .feature-item.checked {
-  gap: 8px;
+  gap: 12px;
 }
 
 .check-icon {
   flex-shrink: 0;
+  color: #28a745;
 }
 
 /* Plan CTA */
 .plan-cta {
   width: 100%;
-  padding: 10px;
+  padding: 14px;
   background: #fff;
-  border: 1px solid #333;
+  border: 2px solid #000;
   color: #000;
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .plan-cta:hover {
@@ -294,37 +312,30 @@ body {
 }
 
 .plan-cta.primary {
-  background: #000;
+  background: #333;
   color: #fff;
-  border: 1px solid #000;
+  border: 2px solid #333;
 }
 
 .plan-cta.primary:hover {
-  background: #333;
+  background: #0056b3;
+  border-color: #0056b3;
 }
 
 /* ========================================
    FAQ SECTION
    ======================================== */
 .faq-section {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
-}
-
-.section-title {
-  font-family: var(--adminuiux-title-font);
-  font-size: 22px;
-  font-weight: 600;
-  color: #000;
-  text-align: center;
-  margin-bottom: 24px;
+  padding-top: 32px;
 }
 
 /* Accordion */
 .accordion-item {
   border: 1px solid #e0e0e0;
-  margin-bottom: 10px;
-  overflow: hidden;
+  margin-bottom: 12px;
+  background: #fff;
 }
 
 .accordion-header {
@@ -332,27 +343,31 @@ body {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 14px 16px;
+  padding: 18px 20px;
   background: #fff;
   border: none;
   color: #000;
   font-weight: 600;
-  font-size: 13px;
+  font-size: 14px;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.2s;
   text-align: left;
 }
 
 .accordion-header:hover {
-  background: #fafafa;
+  background: #f8f8f8;
 }
 
 .accordion-header svg {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   transition: transform 0.3s;
   flex-shrink: 0;
-  margin-left: 12px;
+  margin-left: 16px;
+}
+
+.accordion-header.expanded {
+  background: #f8f8f8;
 }
 
 .accordion-header.expanded svg {
@@ -360,7 +375,7 @@ body {
 }
 
 .accordion-content {
-  padding: 0 16px;
+  padding: 0 20px;
   max-height: 500px;
   overflow: hidden;
   transition: all 0.3s ease-out;
@@ -374,24 +389,10 @@ body {
 }
 
 .accordion-content p {
-  margin: 0 0 14px;
-  color: #333;
-  line-height: 1.6;
-  font-size: 13px;
-}
-
-/* ========================================
-   ANIMATIONS
-   ======================================== */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  margin: 0 0 18px;
+  color: #555;
+  line-height: 1.7;
+  font-size: 14px;
 }
 
 /* ========================================
@@ -402,79 +403,87 @@ body {
 @media (min-width: 640px) {
   .pricing-plans {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .plan-card.featured {
-    grid-column: span 2;
-    max-width: 500px;
-    margin: 0 auto;
+    gap: 20px;
   }
 }
 
-/* Desktop Small */
-@media (min-width: 768px) {
+/* Desktop - Main Layout (5 columns like image) */
+@media (min-width: 992px) {
   .pricing-container {
-    padding: 30px 24px 80px;
+    padding: 48px 32px 100px;
+    max-width: 1600px;
   }
 
   .pricing-hero {
-    padding: 40px 24px 50px;
-    margin-bottom: 40px;
+    padding: 48px 32px;
+    margin-bottom: 48px;
   }
 
   .hero-title {
-    font-size: 32px;
+    font-size: 36px;
   }
 
   .hero-subtitle {
     font-size: 14px;
   }
 
+  .section-label {
+    font-size: 13px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
   .pricing-plans {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 20px;
   }
 
-  .plan-card.featured {
-    grid-column: auto;
-    max-width: none;
-  }
-
   .plan-card {
-    padding: 16px;
-  }
-}
-
-/* Desktop Medium */
-@media (min-width: 1024px) {
-  .pricing-plans {
-    grid-template-columns: repeat(5, 1fr);
+    padding: 28px 20px;
   }
 
   .plan-card.featured {
-    transform: scale(1.05);
+    transform: scale(1.02);
+  }
+
+  .plan-card:hover {
+    transform: translateY(-4px);
   }
 
   .plan-card.featured:hover {
-    transform: scale(1.08);
-  }
-}
-
-/* Desktop Large */
-@media (min-width: 1200px) {
-  .hero-title {
-    font-size: 36px;
+    transform: scale(1.02) translateY(-4px);
   }
 
   .plan-price {
     font-size: 48px;
   }
+
+  .faq-section {
+    max-width: 1000px;
+  }
 }
 
-/* Mobile Small */
-@media (max-width: 480px) {
+/* Large Desktop */
+@media (min-width: 1400px) {
+  .pricing-container {
+    max-width: 1800px;
+  }
+
+  .pricing-plans {
+    gap: 24px;
+  }
+
+  .plan-card {
+    padding: 32px 24px;
+  }
+}
+
+/* Mobile Optimization */
+@media (max-width: 639px) {
   .page-title {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .hero-title {
@@ -487,13 +496,22 @@ body {
 
   .toggle-btn {
     flex: 1;
-  }
-
-  .plan-card {
-    padding: 16px;
+    padding: 10px 16px;
   }
 
   .plan-price {
     font-size: 36px;
+  }
+
+  .plan-card {
+    padding: 20px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .page-header,
+  .billing-toggle {
+    display: none;
   }
 }

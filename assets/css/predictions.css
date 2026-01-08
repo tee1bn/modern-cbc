@@ -1092,3 +1092,84 @@ body.pred-filter-open {
 .league-header.collapsed + .league-events {
   max-height: 0;
 }
+
+
+@media (min-width: 992px) {
+   #mobile-nav,
+  .page-header {
+    display: none !important;
+  }
+
+  #desktop-nav {
+    display: block;
+  }
+    .predictions-page {
+    margin-top: 65px;
+  }
+  .predictions-page .predictions-header,
+  .predictions-page .sport-filter-tabs,
+  .predictions-page .predictions-filters,
+  .predictions-page .predictions-page-info,
+  .predictions-page .predictions-list,
+  .predictions-page .predictions-bottom-links,
+  .predictions-page .predictions-pagination {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .predictions-page .predictions-header {
+    padding: 24px 32px;
+  }
+
+  .predictions-page .sport-filter-tabs,
+  .predictions-page .predictions-filters {
+    padding: 12px 32px;
+  }
+
+  .predictions-page .predictions-page-info {
+    padding: 16px 32px;
+  }
+
+  .predictions-page .predictions-bottom-links,
+  .predictions-page .predictions-pagination {
+    padding: 20px 32px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .predictions-page {
+    margin-top: 65px;
+  }
+  .predictions-page .predictions-header,
+  .predictions-page .sport-filter-tabs,
+  .predictions-page .predictions-filters,
+  .predictions-page .predictions-page-info,
+  .predictions-page .predictions-list,
+  .predictions-page .predictions-bottom-links,
+  .predictions-page .predictions-pagination {
+    max-width: 1400px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .predictions-page .predictions-header,
+  .predictions-page .sport-filter-tabs,
+  .predictions-page .predictions-filters,
+  .predictions-page .predictions-page-info,
+  .predictions-page .predictions-list,
+  .predictions-page .predictions-bottom-links,
+  .predictions-page .predictions-pagination {
+    max-width: 1600px;
+  }
+
+  .predictions-page .predictions-header,
+  .predictions-page .sport-filter-tabs,
+  .predictions-page .predictions-filters,
+  .predictions-page .predictions-page-info,
+  .predictions-page .predictions-bottom-links,
+  .predictions-page .predictions-pagination {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}

@@ -760,10 +760,6 @@
 }
 
 
-
-/* ========================================
-   RESPONSIVE ADJUSTMENTS
-   ======================================== */
 @media (min-width: 992px) {
   .conversion-summary {
     padding: 20px;
@@ -780,6 +776,10 @@
   .game-card {
     padding: 12px 14px;
   }
+
+  .result-container {
+    max-width: 1000px;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -792,3 +792,61 @@
   }
 }
 
+@media (min-width: 1024px) {
+
+  .conversion-group {
+    gap: 0;
+  }
+
+  .conversion-connector {
+    width: 60px;
+  }
+  .page-header {
+    display: none !important;
+  }
+
+  .icon-back {
+    position: static;
+    top: 0;
+  }
+
+   .convert-result-page {
+    margin-top: 61.5px;
+    /* max-width: 100%; */
+    overflow-x: hidden;
+    z-index: 1000;
+  }
+
+  #side-menu {
+    /* display: none; */
+  }
+
+  .result-container {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+  } 
+
+  /* Adjust conversion summary for desktop */
+  .conversion-summary {
+    padding: 24px;
+  }
+
+  /* Better spacing for view toggle section */
+  .view-toggle-section {
+    padding: 16px 24px;
+  }
+
+  /* Adjust games list padding */
+  .games-list {
+    padding: 24px;
+  }
+
+  /* Remove extra padding that's causing the space */
+  /* .adminuiux-content {
+    padding: 20px;
+    padding-right: 20px;
+  } */
+}

@@ -562,3 +562,155 @@
   }
 }
 
+
+@media (min-width: 992px) {
+   #mobile-nav {
+    display: none;
+  }
+
+  #main-content {
+    padding-top: 65px;
+  }
+
+  .betviewer-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    max-width: 1400px;
+    margin: 0 auto;
+    height: calc(100vh - 60px); /* Adjust based on your header height */
+    overflow: hidden;
+  }
+  
+  .btv-form {
+    padding: 20px;
+    border-right: 2px solid var(--btv-border);
+    overflow: hidden; /* Prevent scrolling on the left */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .btv-header {
+    display: none;
+  }
+  
+  .btv-results {
+    border-left: none;
+    padding: 20px;
+    overflow-y: auto; /* Enable scrolling only on the right */
+    overflow-x: hidden;
+    height: 100%;
+  }
+  
+  .btv-desktop-header {
+    margin-bottom: 16px;
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 10;
+    padding-bottom: 10px;
+  }
+  
+  /* Make game cards look more like the screenshot */
+  #bet-list .game-card {
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+  
+  .game-card-row2 {
+    margin: 6px 0;
+  }
+  
+  .game-teams-compact {
+    font-size: 14px;
+  }
+  
+  .game-odds-compact {
+    background: #f5f5f5;
+    border: 1px solid #e0e0e0;
+  }
+  
+  /* Make the form section cleaner */
+  .btv-form h5 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .btv-form label {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+  
+  .btv-form .form-control,
+  .btv-form .form-select {
+    margin-bottom: 16px;
+    border: 1px solid var(--btv-border);
+  }
+  
+  /* Better spacing for the header content */
+  .btv-desktop-header {
+    background: #f8f8f8;
+    border: 1px solid var(--btv-border);
+    padding: 16px;
+  }
+  
+  .btv-header-content {
+    gap: 20px;
+  }
+  
+  .btv-header-left h5 {
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+  
+  .btv-header-right .h4 {
+    font-size: 24px;
+  }
+  
+  /* Custom scrollbar for the results section */
+  .btv-results::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .btv-results::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  .btv-results::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+  
+  .btv-results::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+
+/* Extra large screens - more breathing room */
+@media (min-width: 1200px) {
+  .betviewer-columns {
+    grid-template-columns: 500px 1fr;
+  }
+  
+  .btv-form {
+    padding: 30px;
+  }
+  
+  .btv-results {
+    padding: 30px;
+  }
+}
+/* Extra large screens - more breathing room */
+@media (min-width: 1200px) {
+  .betviewer-columns {
+    grid-template-columns: 500px 1fr;
+  }
+  
+  .btv-form {
+    padding: 30px;
+  }
+  
+  .btv-results {
+    padding: 30px;
+  }
+}

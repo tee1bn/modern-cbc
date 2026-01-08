@@ -49,7 +49,7 @@
     <div class="adminuiux-wrap">
       <main class="adminuiux-content has-sidebar" onclick="contentClick()">
         <!-- Events Container -->
-        <div class="">
+        <div class="wrapper">
           <div class="page-header">
             <button class="back-btn" onclick="navigateTo('convert.html')">
               <svg
@@ -123,7 +123,7 @@
           <!-- Sticky Market Tabs -->
           <div class="market-tabs-wrapper sticky-header" id="market-tabs">
             <div class="market-tabs">
-              <button class="market-btn active" data-market="1x2">1X2</button>
+              <div class="market-btn active" data-market="1x2">1X2</div>
               <button class="market-btn" data-market="dc">Double Chance</button>
               <button class="market-btn" data-market="handicap">
                 Handicap
@@ -1602,6 +1602,7 @@
 
     <div id="betslip-rail"></div>
     <div id="filter-canvas"></div>
+    <div id="footer"></div>
     <div id="mobile-nav"></div>
 
     <!-- Page Level js -->
@@ -1609,10 +1610,6 @@
     <script src="./components/AppLayout.js"></script>
     <script src="./components/betslip-rail.js"></script>
     <script src="assets/js/upcoming-events.js"></script>
-    <script>
-      document.getElementById("desktop-nav").style.display = "none";
-      // document.getElementById("side-menu").style.display = "none";
-      // document.getElementById("mobile-nav").style.display = "none";
-    </script>
+    <script src="./components/market-edit-modal.js"></script>
   </body>
 </html>

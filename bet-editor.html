@@ -36,7 +36,7 @@
       <main class="adminuiux-content has-sidebar" onclick="contentClick()">
         
         <div class="">
-          <div class="card p-0 bet-editor">
+          <div class="card bet-editor">
             <div class="page-header">
           <button class="back-btn" onclick="navigateTo('convert.html')">
             <svg
@@ -177,7 +177,7 @@
       </main>
     </div>
 
-    <div id="filter-canvas"></div>
+    <div id="footer"></div>
     <div id="mobile-nav"></div>
     <div id="betslip-rail"></div>
 
@@ -186,9 +186,6 @@
     <script src="./components/betslip-rail.js"></script>
     <script src="./components/market-edit-modal.js"></script>
     <script>
-            document.getElementById("desktop-nav").style.display = "none";
-      // document.getElementById("side-menu").style.display = "none";
-      // document.getElementById("mobile-nav").style.display = "none";
       // ==================== WAIT FOR RAIL TO BE READY ====================
       function waitForRail() {
         return new Promise((resolve) => {

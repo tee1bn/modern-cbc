@@ -46,9 +46,6 @@
   >
     <div id="desktop-nav"></div>
     <div id="side-menu"></div>
-
-    <div class="adminuiux-wrap">
-      <main class="adminuiux-content has-sidebar" onclick="contentClick()">
         <div class="page-header">
           <button class="back-btn" onclick="navigateTo('convert.html')">
             <svg
@@ -83,6 +80,10 @@
             </svg>
           </button>
         </div>
+    <div class="adminuiux-wrap">
+      <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+
+
         <!-- content -->
         <div class="" id="main-content">
           <div class="betviewer">
@@ -427,14 +428,14 @@
       <i class="bi bi-arrow-up"></i>
     </button>
 
-    <div id="filter-canvas"></div>
+    <div id="footer"></div>
     <div id="mobile-nav"></div>
 
     <script src="assets/js/adminux/adminux-dashboard.js"></script>
     <script src="assets/js/betviewer.js"></script>
     <script src="./components/AppLayout.js"></script>
     <script>
-      document.getElementById("desktop-nav").style.display = "none";
+      // document.getElementById("desktop-nav").style.display = "none";
 
       document.addEventListener("DOMContentLoaded", function () {
         const scrollToTopBtn = document.getElementById("scroll-to-top");

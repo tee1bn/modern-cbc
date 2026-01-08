@@ -733,3 +733,16 @@ body {
   cursor: pointer;
   font-size: 18px;
 }
+
+
+@media (min-width: 992px) { 
+  #side-menu {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  #side-menu {
+    display: none;
+  }
+}

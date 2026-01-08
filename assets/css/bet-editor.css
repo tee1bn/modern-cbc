@@ -504,3 +504,64 @@
   flex-grow: 1;
 }
 
+
+/* ===== BET EDITOR DESKTOP RESPONSIVE ===== */
+
+/* Hide mobile nav on desktop */
+@media (min-width: 992px) {
+  #mobile-nav,
+  .page-header {
+    display: none !important;
+  }
+
+  #desktop-nav {
+    display: block;
+  }
+}
+
+/* Desktop layout */
+@media (min-width: 992px) {
+
+
+  .bet-editor {
+    max-width: 100%;
+    width: 100%;
+    margin-top: 70px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .editor-header,
+  .editor-controls,
+  .action-buttons,
+  .bet-item,
+  .editor-footer,
+  .load-code-section {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .empty-state {
+    padding: 60px 32px;
+  }
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+.bet-editor {
+    max-width: 100%;
+    width: 100%;
+    margin-top: 70px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Extra large desktop */
+@media (min-width: 1400px) {
+.bet-editor {
+    max-width: 100%;
+    width: 100%;
+    margin-top: 70px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+

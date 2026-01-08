@@ -520,11 +520,11 @@
   padding: 5px;
 }
 
-.market-tabs {
+/* .market-tabs {
   display: flex;
   justify-content: space-around;
   align-items: center;
-}
+} */
 
 .market-tab {
   cursor: pointer;
@@ -652,5 +652,51 @@ html {
     font-size: 0.563rem;
     margin-right: 5px;
     padding: 0 4px;
+  }
+}
+@media (min-width: 992px) {
+
+    #mobile-nav,
+  .page-header {
+    display: none !important;
+  }
+
+  #desktop-nav {
+    display: block;
+  }
+  
+  .pools-screen .sports-bar-wrapper,
+  .pools-screen .market-tabs-wrapper,
+  .pools-screen .events-list {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .pools-screen .sports-tabs,
+  .pools-screen .market-tabs {
+    padding: 12px 32px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .pools-screen .sports-bar-wrapper,
+  .pools-screen .market-tabs-wrapper,
+  .pools-screen .events-list {
+    max-width: 1400px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .pools-screen .sports-bar-wrapper,
+  .pools-screen .market-tabs-wrapper,
+  .pools-screen .events-list {
+    max-width: 1600px;
+  }
+
+  .pools-screen .sports-tabs,
+  .pools-screen .market-tabs {
+    padding-left: 40px;
+    padding-right: 40px;
   }
 }

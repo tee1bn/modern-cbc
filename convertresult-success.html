@@ -47,7 +47,7 @@
 
     <!-- main content -->
     <div class="adminuiux-wrap">
-      <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+      <main class="adminuiux-content has-sidebar" onclick="contentClick()" >
         <div class="convert-result-page sticky-header">
           
           <div class="page-header">
@@ -650,20 +650,15 @@
       </main>
     </div>
 
-    <div id="filter-canvas"></div>
+    <div id="footer"></div>
     <div id="mobile-nav"></div>
 
     <script src="assets/js/adminux/adminux-dashboard.js"></script>
     <script src="./components/AppLayout.js"></script>
     <script src="./assets/js/conversion-summary.js"></script>
     <script>
-      // Navigation function
-      function navigateTo(page) {
-        window.location.href = page;
-      }
-
       // Hide desktop navigation and side menu
-      document.getElementById("desktop-nav").style.display = "none";
+      // document.getElementById("desktop-nav").style.display = "none";
       // document.getElementById("side-menu").style.display = "none";
       // document.getElementById("mobile-nav").style.display = "none";
     </script>

@@ -328,7 +328,7 @@ select:focus {
 }
 
 /* Desktop Styles */
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .page-header {
     display: none;
   }
@@ -339,6 +339,26 @@ select:focus {
 
   .tabs-desktop {
     display: flex;
+  }
+
+  .content-card {
+    max-width: 900px;
+    margin: 100px auto;
+  }
+  
+  .content-section {
+    padding: 40px 48px;
+  }
+
+  .form-group-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .form-group-row .form-group {
+    margin-bottom: 0;
   }
 }
 

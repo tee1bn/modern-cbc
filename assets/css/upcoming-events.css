@@ -515,11 +515,11 @@
   padding: 5px;
 }
 
-.market-tabs {
+/* .market-tabs {
   display: flex;
   justify-content: space-around;
   align-items: center;
-}
+} */
 
 .market-tab {
   cursor: pointer;
@@ -613,3 +613,157 @@ html {
 }
 
 
+/* ========================================
+   DESKTOP RESPONSIVE LAYOUT
+   ======================================== */
+
+@media (min-width: 992px) {
+
+  .wrapper {
+    max-width: 100%;
+    width:100%;
+  }
+
+  .page-header {
+    display: none;
+  }
+  
+  .sports-bar-wrapper {
+    /* border: 1px solid red; */
+    top: 61px;
+  }
+  
+  .market-tabs-wrapper {
+    /* border: 1px solid red; */
+    top: 120px; 
+  }
+  
+  .events-list {
+    margin-top: 50px;
+  }
+  
+
+  .event-card {
+    /* padding: 1.125rem 1.25rem; */
+    transition: all 0.2s ease;
+  }
+  
+  .event-card:hover {
+    background: #f9fafb;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+  
+  .event-body {
+    /* grid-template-columns: 1fr auto;
+    gap: 1.25rem; */
+  }
+  
+  .team {
+    max-width: 350px;
+    font-size: 0.938rem;
+  }
+  
+  .odds-grid {
+    gap: 0.625rem;
+  }
+  
+  .odd-btn {
+    min-width: 56px;
+    padding: 0.75rem 0.625rem;
+    font-size: 0.875rem;
+  }
+  
+  .odd-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* League header - better spacing */
+  .league-header {
+    /* padding: 1.125rem 1.25rem; */
+  }
+  
+  .league-name {
+    font-size: 0.938rem;
+  }
+
+  .event-league {
+    max-width: 280px;
+  }
+
+  .event-market-header {
+    padding: 10px 16px;
+    margin: -14px -16px 10px -16px;
+  }
+  
+  /* Sports and market buttons - larger */
+  .sport-btn {
+    padding: 0.625rem 1.125rem;
+    font-size: 0.875rem;
+  }
+  
+  .market-btn {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+  }
+
+  .section-header {
+    padding: 1rem 1.25rem;
+    font-size: 0.938rem;
+  }
+
+   #mobile-nav {
+    display: none !important;
+  }
+  
+  .page-header {
+    display: none !important;
+  }
+  
+  #desktop-nav {
+    display: block !important;
+  }
+}
+
+
+@media (min-width: 1200px) {
+
+  .market-tabs {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .team {
+    max-width: 400px;
+  }
+  
+  .event-league {
+    max-width: 320px;
+  }
+  
+  .odd-btn {
+    min-width: 60px;
+    padding: 0.875rem 0.75rem;
+    font-size: 0.938rem;
+  }
+}
+
+
+@media (min-width: 1400px) {
+  .events-wrapper {
+    max-width: 1600px;
+  }
+  
+  .event-body {
+    gap: 1.5rem;
+  }
+  
+  .odds-grid {
+    gap: 0.75rem;
+  }
+}

@@ -983,3 +983,81 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+@media (min-width: 992px) {
+  .wrapper {
+    margin-top: 40px;
+  }
+  .share-code-hero {
+    padding: 50px 40px;
+    margin-bottom: 40px;
+  }
+
+  .code-text {
+    font-size: 48px;
+  }
+
+  .hero-content {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .original-bet-card,
+  .best-conversion-summary,
+  .generate-versions-section {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+  }
+
+  .event-row {
+    padding: 16px 20px;
+    border-radius: 8px;
+  }
+
+  .event-row:hover {
+    transform: translateX(4px);
+  }
+
+  .all-conversions {
+    padding: 40px 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .conversions-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .bookie-card {
+    border-radius: 8px;
+  }
+
+  .bookie-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  }
+
+  .info-section {
+    max-width: 1000px;
+    padding: 0 60px;
+  }
+
+  .accordion-item {
+    border-radius: 8px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .code-text {
+    font-size: 56px;
+  }
+
+  .conversions-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

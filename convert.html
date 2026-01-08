@@ -142,26 +142,28 @@
                   </div>
                 </div>
 
-                <div class="form-group">
-                  <label>Source Bookie</label>
-                  <select>
-                    <option>Select source bookie</option>
-                    <option>Bet9ja</option>
-                    <option>1xBet</option>
-                    <option>SportyBet</option>
-                    <option>NairaBet</option>
-                  </select>
-                </div>
+                <div class="form-group-row">
+                  <div class="form-group">
+                    <label>Source Bookie</label>
+                    <select>
+                      <option>Select source bookie</option>
+                      <option>Bet9ja</option>
+                      <option>1xBet</option>
+                      <option>SportyBet</option>
+                      <option>NairaBet</option>
+                    </select>
+                  </div>
 
-                <div class="form-group">
-                  <label>Target Bookie</label>
-                  <select>
-                    <option>Select target bookie</option>
-                    <option>Bet9ja</option>
-                    <option>1xBet</option>
-                    <option>SportyBet</option>
-                    <option>NairaBet</option>
-                  </select>
+                  <div class="form-group">
+                    <label>Target Bookie</label>
+                    <select>
+                      <option>Select target bookie</option>
+                      <option>Bet9ja</option>
+                      <option>1xBet</option>
+                      <option>SportyBet</option>
+                      <option>NairaBet</option>
+                    </select>
+                  </div>
                 </div>
 
                 <button
@@ -209,26 +211,28 @@
                   </div>
                 </div>
 
-                <div class="form-group">
-                  <label>Source Bookie</label>
-                  <select>
-                    <option>Select source bookie</option>
-                    <option>Bet9ja</option>
-                    <option>1xBet</option>
-                    <option>SportyBet</option>
-                    <option>NairaBet</option>
-                  </select>
-                </div>
+                <div class="form-group-row">
+                  <div class="form-group">
+                    <label>Source Bookie</label>
+                    <select>
+                      <option>Select source bookie</option>
+                      <option>Bet9ja</option>
+                      <option>1xBet</option>
+                      <option>SportyBet</option>
+                      <option>NairaBet</option>
+                    </select>
+                  </div>
 
-                <div class="form-group">
-                  <label>Target Bookie</label>
-                  <select>
-                    <option>Select target bookie</option>
-                    <option>Bet9ja</option>
-                    <option>1xBet</option>
-                    <option>SportyBet</option>
-                    <option>NairaBet</option>
-                  </select>
+                  <div class="form-group">
+                    <label>Target Bookie</label>
+                    <select>
+                      <option>Select target bookie</option>
+                      <option>Bet9ja</option>
+                      <option>1xBet</option>
+                      <option>SportyBet</option>
+                      <option>NairaBet</option>
+                    </select>
+                  </div>
                 </div>
 
                 <button
@@ -241,7 +245,7 @@
               </form>
             </div>
 
-            <!-- Bet Link Section - PHASE 1 IMPROVEMENT: Auto-detect removed Origin Bookie -->
+            <!-- Bet Link Section -->
             <div id="bet-link" class="content-section">
               <h2>Bet Link</h2>
               <p>Paste your bet link - we'll auto-detect the bookie</p>
@@ -282,8 +286,6 @@
                     <strong>Detected:</strong> <span id="bookieName"></span>
                   </small>
                 </div>
-
-                <!-- REMOVED: Origin Bookie dropdown - auto-detected now -->
 
                 <div class="form-group">
                   <label>Target Bookie</label>
@@ -331,26 +333,28 @@
                   <label for="fileInput" class="browse-btn">Browse Files</label>
                 </div>
 
-                <div class="form-group">
-                  <label>Source Bookie</label>
-                  <select>
-                    <option>Select source bookie</option>
-                    <option>Bet9ja</option>
-                    <option>1xBet</option>
-                    <option>SportyBet</option>
-                    <option>NairaBet</option>
-                  </select>
-                </div>
+                <div class="form-group-row">
+                  <div class="form-group">
+                    <label>Source Bookie</label>
+                    <select>
+                      <option>Select source bookie</option>
+                      <option>Bet9ja</option>
+                      <option>1xBet</option>
+                      <option>SportyBet</option>
+                      <option>NairaBet</option>
+                    </select>
+                  </div>
 
-                <div class="form-group">
-                  <label>Target Bookie</label>
-                  <select>
-                    <option>Select target bookie</option>
-                    <option>Bet9ja</option>
-                    <option>1xBet</option>
-                    <option>SportyBet</option>
-                    <option>NairaBet</option>
-                  </select>
+                  <div class="form-group">
+                    <label>Target Bookie</label>
+                    <select>
+                      <option>Select target bookie</option>
+                      <option>Bet9ja</option>
+                      <option>1xBet</option>
+                      <option>SportyBet</option>
+                      <option>NairaBet</option>
+                    </select>
+                  </div>
                 </div>
 
                 <button type="submit" class="convert-btn">Convert</button>
@@ -360,7 +364,7 @@
       </main>
     </div>
 
-    <div id="filter-canvas"></div>
+    <div id="footer"></div>
     <div id="mobile-nav"></div>
 
     <script src="assets/js/adminux/adminux-dashboard.js"></script>
@@ -391,7 +395,7 @@
         event.target.classList.add("active");
       }
 
-      // PHASE 1: Auto-detect bookie from bet link
+      // Auto-detect bookie from bet link
       const betLinkInput = document.getElementById('betLinkInput');
       if (betLinkInput) {
         betLinkInput.addEventListener('input', function(e) {
@@ -429,7 +433,6 @@
             if (input) {
               input.value = text;
               input.focus();
-              // Trigger input event for bet link auto-detection
               input.dispatchEvent(new Event('input'));
             }
           } catch (err) {
