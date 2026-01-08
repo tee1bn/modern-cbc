@@ -896,6 +896,28 @@ sideMenu: `
               </a>
             </li>
 
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                role="button"
+              >
+                <i class="menu-icon bi bi-hdd-network"></i>
+                <div class="col menu-name">Profile</div>
+              </a>
+              <ul class="dropdown-menu">
+                <li class="nav-item">
+                  <a class="nav-link" onclick="navigateTo('profile.html')">
+                    <i class="menu-icon bi bi-grid"></i>
+                    <div class="col align-self-center menu-name">
+                     Profile Screen
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
             <!-- converter page -->
             <li class="nav-item dropdown">
               <a
@@ -1183,6 +1205,29 @@ sideMenu: `
                     <i class="menu-icon bi bi-grid"></i>
                     <div class="col align-self-center menu-name">
                      Pricing Screen
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- settings -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                role="button"
+              >
+                <i class="menu-icon bi bi-hdd-network"></i>
+                <div class="col menu-name">Settings</div>
+              </a>
+              <ul class="dropdown-menu">
+                <li class="nav-item">
+                  <a class="nav-link" onclick="navigateTo('settings.html')">
+                    <i class="menu-icon bi bi-grid"></i>
+                    <div class="col align-self-center menu-name">
+                     Settings Screen
                     </div>
                   </a>
                 </li>
