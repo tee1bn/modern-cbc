@@ -1,10 +1,7 @@
-
-
 *{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-/* Desktop Navigation - Enhanced with Transitions */
 .desktop-header {
   background: #ffffff;
   border-bottom: 1px solid #e5e5e5;
@@ -13,9 +10,8 @@
   left: 0;
   right:0;
   z-index: 1000;
-  height: 60px;
+  height: 65px;
   transition: all 0.3s ease;
-
 }
 
 .desktop-header.scrolled {
@@ -946,7 +942,7 @@
 }
 
 .footer-sports-link:hover {
-  color: #333;
+  color: #c8ff00;
 }
 
 /* Social Icons */
@@ -970,7 +966,7 @@
 }
 
 .footer-social-link:hover {
-  background: #333;
+  background: #c8ff00;
   transform: scale(1.1);
 }
 
@@ -1001,7 +997,7 @@
 }
 
 .footer-link-item:hover {
-  color: #333;
+  color: #c8ff00;
 }
 
 /* Footer Logo & Country Section */
@@ -1021,7 +1017,7 @@
 }
 
 .footer-logo-highlight {
-  color: #333;
+  color: #c8ff00;
 }
 
 .footer-country {
@@ -1063,7 +1059,7 @@
 }
 
 .footer-info-text a {
-  color: #333;
+  color: #c8ff00;
   text-decoration: none;
 }
 
@@ -1105,7 +1101,7 @@
 }
 
 .footer-contact-item:hover {
-  color: #333;
+  color: #c8ff00;
 }
 
 .footer-support-links {
@@ -1117,7 +1113,7 @@
 }
 
 .footer-support-link {
-  color: #333;
+  color: #c8ff00;
   text-decoration: none;
   font-size: 11px;
 }
@@ -1137,7 +1133,7 @@
 }
 
 .footer-copyright a {
-  color: #333;
+  color: #c8ff00;
   text-decoration: none;
 }
 

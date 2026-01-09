@@ -41,7 +41,7 @@
 .content-card {
   background: #fff;
   border: 2px solid #e0e0e0;
-  border-radius: 0; /* Square corners */
+  border-radius: 0; 
 }
 
 /* DESKTOP TABS */
@@ -286,7 +286,10 @@ select:focus {
   }
 }
 
-/* Existing CSS content... */
+
+/* .adminuiux-content {
+  margin-top: 70px;
+} */
 
 /* Page Header Styles */
 .page-header {
@@ -327,7 +330,6 @@ select:focus {
   flex-grow: 1;
 }
 
-/* Desktop Styles */
 @media (min-width: 1024px) {
   .page-header {
     display: none;
@@ -341,9 +343,27 @@ select:focus {
     display: flex;
   }
 
+  /* CENTER THE CARD */
+  .adminuiux-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+
+  .adminuiux-content {
+    margin-top: 0 !important; 
+  }
+
+  .adminuiux-wrap {
+    min-height: 100vh;
+  }
+
   .content-card {
     max-width: 900px;
-    margin: 100px auto;
+    width: 100%;
+    margin: 0 ;
   }
   
   .content-section {
@@ -370,10 +390,6 @@ select:focus {
 
   .content-section {
     padding-top: 0;
-  }
-
-  #desktop-nav {
-    display: none !important;
   }
 }
 

@@ -227,6 +227,8 @@
     justify-self: center;
     transform: rotate(90deg);
   }
+
+.adminuiux-
 }
 
 /* ========================================
@@ -711,6 +713,7 @@
   .games-list:not(.view-grouped) .game-card {
     margin: 0;
   }
+  
 }
 
 /* ========================================
