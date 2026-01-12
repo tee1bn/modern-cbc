@@ -623,15 +623,35 @@ footer: `
     </div>
 
     <!-- Fixed Buttons -->
-    <div class="position-fixed bottom-0 end-0 m-3 z-index-5" id="fixedbuttons">
+    <div class="position-fixed bottom-0 start-50 translate-middle-x mb-4 z-index-5"
+  id="fixedbuttons">
       <br />
-      <button
-        class="btn btn-square shadow mt-2 d-none rounded-circle"
-        id="backtotop"
-        style="background: #000; color: #fff; width: 48px; height: 48px"
-      >
-        <i class="bi bi-arrow-up"></i>
-      </button>
+<button
+  id="backtotop"
+  class="shadow mt-2 d-none"
+  style="
+    background: #000;
+    color: #fff;
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  "
+  aria-label="Back to top"
+>
+  <i class="bi bi-chevron-up"></i> Back to top
+</button>
+
     </div>
 </footer>
 
