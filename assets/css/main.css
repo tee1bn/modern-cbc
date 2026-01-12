@@ -225,7 +225,9 @@ body {
 }
 
 @media (min-width: 992px) {
-
+  #mobile-nav {
+    display: none !important;
+  }
 }
 
 html {

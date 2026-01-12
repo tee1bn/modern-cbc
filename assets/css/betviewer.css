@@ -693,13 +693,3 @@
     animation: none !important;
   }
 }
-
-
-/* ==========================================
-   SHOW SIDEBAR-RIGHT ON LARGE DESKTOP
-   ========================================== */
-@media (min-width: 1400px) {
-  .sidebar-right {
-    display: block !important;
-  }
-}

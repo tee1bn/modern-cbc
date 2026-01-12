@@ -1,6 +1,4 @@
-// Desktop Navigation JavaScript - Vanilla JS (No Classes)
 
-// Global variables
 let header = null;
 let menuToggle = null;
 let searchInputs = null;
@@ -8,14 +6,14 @@ let mobileSearchOverlay = null;
 let lastScrollTop = 0;
 let scrollThreshold = 10;
 
-// Initialize everything when DOM is ready
+
 document.addEventListener('DOMContentLoaded', function() {
   initializeNavigation();
 });
 
-// Main initialization function
+
 function initializeNavigation() {
-  // Get elements
+
   header = document.querySelector('.desktop-header');
   menuToggle = document.querySelector('.desktop-menu-toggle');
   searchInputs = document.querySelectorAll('.desktop-search-input');
@@ -23,7 +21,7 @@ function initializeNavigation() {
   
   if (!header) return;
   
-  // Setup all event listeners
+
   setupScrollListener();
   setupMenuToggleListener();
   setupSearchListeners();
@@ -32,7 +30,7 @@ function initializeNavigation() {
   setupSearchOverlayClose();
 }
 
-// Scroll listener with animation frame
+
 function setupScrollListener() {
   let ticking = false;
   
@@ -51,23 +49,11 @@ function setupScrollListener() {
 function handleScroll() {
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
   
-  // Add scrolled class when scrolled down
   if (scrollTop > 50) {
     header.classList.add('scrolled');
   } else {
     header.classList.remove('scrolled');
   }
-  
-  // Optional: Hide/show header on scroll (uncomment to enable)
-  /*
-  if (scrollTop > lastScrollTop && scrollTop > 100) {
-    header.classList.add('hide-on-scroll');
-    header.classList.remove('show-on-scroll');
-  } else {
-    header.classList.remove('hide-on-scroll');
-    header.classList.add('show-on-scroll');
-  }
-  */
   
   lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 }
@@ -81,7 +67,7 @@ function setupMenuToggleListener() {
   }
 }
 
-// Search input listeners
+
 function setupSearchListeners() {
   if (!searchInputs) return;
   
@@ -237,33 +223,3 @@ function setupTabsNavScroll() {
     });
   }
 }
-
-// Theme toggle function (if needed in future)
-function toggleTheme() {
-  const body = document.body;
-  const isDark = body.classList.contains('dark-theme');
-  
-  if (isDark) {
-    body.classList.remove('dark-theme');
-    localStorage.setItem('theme', 'light');
-  } else {
-    body.classList.add('dark-theme');
-    localStorage.setItem('theme', 'dark');
-  }
-  
-  // Add transition effect
-  body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
-}
-
-// Load saved theme on page load
-function loadSavedTheme() {
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'dark') {
-    document.body.classList.add('dark-theme');
-  }
-}
-
-// Initialize theme on load
-document.addEventListener('DOMContentLoaded', function() {
-  loadSavedTheme();
-});

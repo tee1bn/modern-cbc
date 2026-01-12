@@ -25,7 +25,7 @@
   </head>
 
   <body>
-        <!-- desktop nav -->
+    <!-- desktop nav -->
     <header class="desktop-header">
       <div class="desktop-header-container">
         <!-- Left Section - Menu + Logo -->
@@ -187,7 +187,7 @@
             </div>
           </div> -->
 
-        <button class="tab-item">
+        <button class="tab-item" onclick="navigateTo('index.html')">
           <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
             <path
               d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"
@@ -662,6 +662,7 @@
       </div>
     </div>
 
+    <!-- content -->
     <div class="adminuiux-wrap">
       <aside class="ad-sidebar-left">
         <div class="ad-container large">
@@ -831,8 +832,6 @@
                   </div>
                 </div>
               </div>
-
-              <!-- Events list - COMPACT 3-ROW LAYOUT -->
               <div id="bet-list">
                 <!-- Game Card 1 - Over/Under (Short Market) -->
                 <div class="game-card">
@@ -1033,7 +1032,7 @@
       </aside>
     </div>
 
-        <!-- footer -->
+    <!-- footer -->
     <footer class="footer-main">
       <div class="container">
         <!-- Join Now Section -->
@@ -1096,69 +1095,6 @@
           </div>
         </div>
       </div>
-      <!-- Footer Info -->
-      <div class="footer-info">
-        <div class="container">
-          <p class="footer-info-text">
-            Your bets and payouts are processed by Choplife Gaming Limited,
-            which is licensed and regulated by the Lagos State Lotteries and
-            Gaming Authority of Nigeria.
-          </p>
-          <p class="footer-license">Licence No. LSLGA/OP/OSB/CL071124</p>
-        </div>
-      </div>
-
-      <!-- Footer Warning -->
-      <div class="footer-warning">
-        <div class="container">
-          <p class="footer-warning-text">
-            You have to be 18 years and above to bet.
-          </p>
-          <p class="footer-warning-text">
-            Betting is addictive and can be psychologically harmful.
-          </p>
-          <p class="footer-warning-text">
-            Contact an experienced counsellor at any time 24/7 Monday to Sunday
-            via toll free numbers:
-          </p>
-
-          <div class="footer-contact">
-            <a href="tel:09117581454" class="footer-contact-item"
-              >Phone: 0911 758 1454</a
-            >
-            <a href="tel:09078884268" class="footer-contact-item"
-              >Phone: 0907 888 4268</a
-            >
-          </div>
-
-          <p class="footer-warning-text" style="margin-top: 15px">
-            or WhatsApp only: 0907 888 4268 or email via
-            <a href="mailto:eap@tranquilandquest.org.ng" style="color: #c8ff00"
-              >eap@tranquilandquest.org.ng</a
-            >
-          </p>
-          <p class="footer-warning-text">
-            Please only contact the number above if you need counselling. For
-            help related to your account, contact our
-            <a href="#" style="color: #c8ff00">Customer Support Team</a>
-          </p>
-
-          <div class="footer-support-links">
-            <a href="#" class="footer-support-link">Tranquil & Quest</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Copyright -->
-      <div class="footer-copyright">
-        <div class="container">
-          <p>
-            Copyright @2025, Designed by
-            <a href="https://adminuiux.com/" target="_blank">convertbetcodes</a>
-          </p>
-        </div>
-      </div>
-
       <!-- Fixed Buttons -->
       <div
         class="position-fixed bottom-0 start-50 translate-middle-x mb-4 z-index-5"
@@ -1196,7 +1132,7 @@
     <!-- mobile nav -->
     <footer
       id="mobile-nav"
-      class="adminuiux-mobile-footer hide-on-scrolldown style-2 d-block d-md-none"
+      class="adminuiux-mobile-footer hide-on-scrolldown style-2 d-block d-md-none d-lg-none"
     >
       <div class="container">
         <ul class="nav nav-pills nav-justified">
@@ -1246,10 +1182,8 @@
       </div>
     </footer>
 
-
-    <!-- <script src="assets/js/adminux/adminux-dashboard.js"></script> -->
+    <script src="assets/js/adminux/adminux-dashboard.js"></script>
     <script src="./components/AppLayout.js"></script>
-    <script src="assets/js/betviewer.js"></script>
     <script src="assets/js/app.js"></script>
 
   </body>
