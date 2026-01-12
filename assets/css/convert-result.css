@@ -228,7 +228,6 @@
     transform: rotate(90deg);
   }
 
-.adminuiux-
 }
 
 /* ========================================
@@ -795,7 +794,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1400px) {
 
   .conversion-group {
     gap: 0;
@@ -820,9 +819,19 @@
     z-index: 1000;
   }
 
-  #side-menu {
-    /* display: none; */
+  .sidebar-right {
+    display: none !important;
   }
+
+  .adminuiux-content {
+    width: calc(100% - 600px) !important; 
+    margin-right: 300px !important; 
+  }
+
+  .footer-main {
+     width: calc(100% - 600px) !important; 
+  }
+
 
   .result-container {
     max-width: 100%;

@@ -985,9 +985,7 @@
 }
 
 @media (min-width: 992px) {
-  .wrapper {
-    margin-top: 40px;
-  }
+
   .share-code-hero {
     padding: 50px 40px;
     margin-bottom: 40px;
@@ -1050,6 +1048,19 @@
   .accordion-item {
     border-radius: 8px;
   }
+
+    .sidebar-right {
+    display: none !important;
+  }
+
+  .adminuiux-content {
+    width: calc(100% - 600px) !important; 
+    margin-right: 300px !important; 
+  }
+
+  .footer-main {
+     width: calc(100% - 600px) !important; 
+  }
 }
 
 @media (min-width: 1200px) {
@@ -1058,6 +1069,6 @@
   }
 
   .conversions-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }

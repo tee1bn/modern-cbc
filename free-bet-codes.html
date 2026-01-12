@@ -20,58 +20,42 @@
     </style>
     <script defer src="assets/js/app8051.js?bd1e16b080f637e63a80"></script>
     <link href="assets/css/app8051.css?bd1e16b080f637e63a80" rel="stylesheet" />
-    <link rel="stylesheet" href="./assets/css/main.css" />
-    <link rel="stylesheet" href="./assets/css/free-bet-codes.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/desktop.css" />
+    <link rel="stylesheet" href="assets/css/tab-nav.css" />
+    <link rel="stylesheet" href="assets/css/side-menu.css" />
+    <link rel="stylesheet" href="assets/css/footer.css" />
     <link rel="stylesheet" href="./assets/css/betslip-rail.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="./assets/css/free-bet-codes.css" />
   </head>
 
-  <body
-    class="main-bg main-bg-opac adminuiux-header-standard theme-blue adminuiux-header-transparent adminuiux-sidebar-fill-white adminuiux-sidebar-standard bg-r-gradient scrollup"
-  >
+  <body class="">
     <div id="desktop-nav"></div>
+
+     <div id="tabsnav"></div>
+
     <div id="side-menu"></div>
 
     <div class="adminuiux-wrap">
-      <main class="adminuiux-content has-sidebar" onclick="contentClick()">
-        <div class="">
-          <div class="page-header">
-            <button class="back-btn" onclick="navigateTo('convert.html')">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
+      <aside class="ad-sidebar-left">
+        <div class="ad-container large">
+          <div class="ad-placeholder">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <rect
+                x="3"
+                y="3"
+                width="18"
+                height="18"
+                rx="2"
                 stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M15 18l-6-6 6-6" />
-              </svg>
-            </button>
-            <h1 class="page-title">Free Bet Codes</h1>
-            <button class="home-btn" onclick="navigateTo('index.html')">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                <polyline points="9 22 9 12 15 12 15 22" />
-              </svg>
-            </button>
+              />
+            </svg>
+            <p>Ad Space<br />300 x 600</p>
           </div>
+        </div>
+      </aside>
+
+      <main class="adminuiux-content">
           <div class="free-codes-page">
             <!-- Header -->
             <div class="codes-header">
@@ -83,7 +67,6 @@
               </p>
             </div>
 
-            <!-- Filter Bar (Code Hub Style) -->
             <div class="hub-filters">
               <button class="hub-filter-btn" id="time-filter-btn">
                 Time <i class="bi bi-chevron-down"></i>
@@ -99,14 +82,9 @@
               </button>
             </div>
 
-            <!-- Ad Banner -->
-            <!-- <div class="codes-ad-banner">
-              <div class="ad-placeholder">Advertisement Space - 728x90</div>
-            </div> -->
-
             <!-- Bet Codes List -->
             <div class="codes-list" id="codes-list">
-              <!-- Codes will be rendered here by JavaScript -->
+              
             </div>
 
             <!-- Pagination -->
@@ -128,149 +106,184 @@
               </button>
             </div>
           </div>
-        </div>
       </main>
-    </div>
 
-    <!-- Filter Modals (Code Hub Style) -->
-    <!-- Time Filter Modal -->
-    <div class="filter-modal" id="time-modal">
-      <div class="filter-modal-content">
-        <div class="filter-modal-header">
-          <h3>Time</h3>
-          <button class="filter-close-btn" id="close-time-filter">
-            <i class="bi bi-x"></i>
-          </button>
-        </div>
-        <div class="filter-list" id="time-list">
-          <!-- Will be populated by JS -->
-        </div>
-        <div class="filter-modal-footer">
-          <button class="filter-reset-btn" id="reset-time-filter">Reset</button>
-          <button class="filter-apply-btn" id="apply-time-filter">Apply</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Folds Filter Modal -->
-    <div class="filter-modal" id="folds-modal">
-      <div class="filter-modal-content">
-        <div class="filter-modal-header">
-          <h3>Folds</h3>
-          <button class="filter-close-btn" id="close-folds-filter">
-            <i class="bi bi-x"></i>
-          </button>
-        </div>
-        <div class="filter-list" id="folds-list">
-          <!-- Will be populated by JS -->
-        </div>
-        <div class="filter-custom-range">
-          <label>Custom Range</label>
-          <div class="custom-range-inputs">
-            <input
-              type="number"
-              id="folds-min"
-              placeholder="1"
-              min="1"
-              max="50"
-            />
-            <span>~</span>
-            <input
-              type="number"
-              id="folds-max"
-              placeholder="50"
-              min="1"
-              max="50"
-            />
+      <div class="filter-modal" id="time-modal">
+        <div class="filter-modal-content">
+          <div class="filter-modal-header">
+            <h3>Time</h3>
+            <button class="filter-close-btn" id="close-time-filter">
+              <i class="bi bi-x"></i>
+            </button>
           </div>
-          <div class="range-slider">
-            <input type="range" id="folds-slider" min="1" max="50" value="50" />
-            <div class="range-label">1 ~ 50</div>
+          <div class="filter-list" id="time-list">
+            <!-- Will be populated by JS -->
+          </div>
+          <div class="filter-modal-footer">
+            <button class="filter-reset-btn" id="reset-time-filter">
+              Reset
+            </button>
+            <button class="filter-apply-btn" id="apply-time-filter">
+              Apply
+            </button>
           </div>
         </div>
-        <div class="filter-modal-footer">
-          <button class="filter-reset-btn" id="reset-folds-filter">
-            Reset
-          </button>
-          <button class="filter-apply-btn" id="apply-folds-filter">
-            Apply
-          </button>
-        </div>
       </div>
-    </div>
 
-    <!-- Odds Filter Modal -->
-    <div class="filter-modal" id="odds-modal">
-      <div class="filter-modal-content">
-        <div class="filter-modal-header">
-          <h3>Odds</h3>
-          <button class="filter-close-btn" id="close-odds-filter">
-            <i class="bi bi-x"></i>
-          </button>
-        </div>
-        <div class="filter-list" id="odds-list">
-          <!-- Will be populated by JS -->
-        </div>
-        <div class="filter-custom-range">
-          <label>Custom Range</label>
-          <div class="custom-range-inputs">
-            <input
-              type="number"
-              id="odds-min"
-              placeholder="1"
-              min="1"
-              max="2000"
-              step="0.01"
-            />
-            <span>~</span>
-            <input
-              type="number"
-              id="odds-max"
-              placeholder="2000"
-              min="1"
-              max="2000"
-              step="0.01"
-            />
+      <!-- Folds Filter Modal -->
+      <div class="filter-modal" id="folds-modal">
+        <div class="filter-modal-content">
+          <div class="filter-modal-header">
+            <h3>Folds</h3>
+            <button class="filter-close-btn" id="close-folds-filter">
+              <i class="bi bi-x"></i>
+            </button>
           </div>
-          <div class="range-slider">
-            <input
-              type="range"
-              id="odds-slider"
-              min="1"
-              max="2000"
-              value="2000"
-            />
-            <div class="range-label">1 ~ 2000</div>
+          <div class="filter-list" id="folds-list">
+            <!-- Will be populated by JS -->
+          </div>
+          <div class="filter-custom-range">
+            <label>Custom Range</label>
+            <div class="custom-range-inputs">
+              <input
+                type="number"
+                id="folds-min"
+                placeholder="1"
+                min="1"
+                max="50"
+              />
+              <span>~</span>
+              <input
+                type="number"
+                id="folds-max"
+                placeholder="50"
+                min="1"
+                max="50"
+              />
+            </div>
+            <div class="range-slider">
+              <input
+                type="range"
+                id="folds-slider"
+                min="1"
+                max="50"
+                value="50"
+              />
+              <div class="range-label">1 ~ 50</div>
+            </div>
+          </div>
+          <div class="filter-modal-footer">
+            <button class="filter-reset-btn" id="reset-folds-filter">
+              Reset
+            </button>
+            <button class="filter-apply-btn" id="apply-folds-filter">
+              Apply
+            </button>
           </div>
         </div>
-        <div class="filter-modal-footer">
-          <button class="filter-reset-btn" id="reset-odds-filter">Reset</button>
-          <button class="filter-apply-btn" id="apply-odds-filter">Apply</button>
+      </div>
+
+      <!-- Odds Filter Modal -->
+      <div class="filter-modal" id="odds-modal">
+        <div class="filter-modal-content">
+          <div class="filter-modal-header">
+            <h3>Odds</h3>
+            <button class="filter-close-btn" id="close-odds-filter">
+              <i class="bi bi-x"></i>
+            </button>
+          </div>
+          <div class="filter-list" id="odds-list">
+            <!-- Will be populated by JS -->
+          </div>
+          <div class="filter-custom-range">
+            <label>Custom Range</label>
+            <div class="custom-range-inputs">
+              <input
+                type="number"
+                id="odds-min"
+                placeholder="1"
+                min="1"
+                max="2000"
+                step="0.01"
+              />
+              <span>~</span>
+              <input
+                type="number"
+                id="odds-max"
+                placeholder="2000"
+                min="1"
+                max="2000"
+                step="0.01"
+              />
+            </div>
+            <div class="range-slider">
+              <input
+                type="range"
+                id="odds-slider"
+                min="1"
+                max="2000"
+                value="2000"
+              />
+              <div class="range-label">1 ~ 2000</div>
+            </div>
+          </div>
+          <div class="filter-modal-footer">
+            <button class="filter-reset-btn" id="reset-odds-filter">
+              Reset
+            </button>
+            <button class="filter-apply-btn" id="apply-odds-filter">
+              Apply
+            </button>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Sort Filter Modal -->
-    <div class="filter-modal" id="sort-modal">
-      <div class="filter-modal-content">
-        <div class="filter-modal-header">
-          <h3>Sort</h3>
-          <button class="filter-close-btn" id="close-sort-filter">
-            <i class="bi bi-x"></i>
-          </button>
-        </div>
-        <div class="filter-list" id="sort-list">
-          <!-- Will be populated by JS -->
-        </div>
-        <div class="filter-modal-footer">
-          <button class="filter-reset-btn" id="reset-sort-filter">Reset</button>
-          <button class="filter-apply-btn" id="apply-sort-filter">Apply</button>
+      <!-- Sort Filter Modal -->
+      <div class="filter-modal" id="sort-modal">
+        <div class="filter-modal-content">
+          <div class="filter-modal-header">
+            <h3>Sort</h3>
+            <button class="filter-close-btn" id="close-sort-filter">
+              <i class="bi bi-x"></i>
+            </button>
+          </div>
+          <div class="filter-list" id="sort-list">
+            <!-- Will be populated by JS -->
+          </div>
+          <div class="filter-modal-footer">
+            <button class="filter-reset-btn" id="reset-sort-filter">
+              Reset
+            </button>
+            <button class="filter-apply-btn" id="apply-sort-filter">
+              Apply
+            </button>
+          </div>
         </div>
       </div>
+
+      <aside class="sidebar-right">
+        <div id="betslip-rail"></div>
+      </aside>
+
+      <aside class="ad-sidebar-right">
+        <div class="ad-container large">
+          <div class="ad-placeholder">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <rect
+                x="3"
+                y="3"
+                width="18"
+                height="18"
+                rx="2"
+                stroke-width="2"
+              />
+            </svg>
+            <p>Ad Space<br />300 x 600</p>
+          </div>
+        </div>
+      </aside>
     </div>
 
-    <!-- Shared betslip rail -->
-    <div id="betslip-rail"></div>
     <div id="footer"></div>
     <div id="mobile-nav"></div>
 
@@ -278,5 +291,6 @@
     <script src="./components/AppLayout.js"></script>
     <script src="./components/betslip-rail.js"></script>
     <script src="assets/js/free-bet-codes.js"></script>
+    <script src="assets/js/app.js"></script>
   </body>
 </html>

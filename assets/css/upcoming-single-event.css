@@ -1,261 +1,221 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ==========================================
+   MARKETS CONTAINER
+   ========================================== */
+.markets-container {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
-body {
-  font-family: "Open Sans", sans-serif;
-  background: #f5f5f5;
-  overflow-x: hidden;
-}
-
-/* ===== HEADER ===== */
+/* ==========================================
+   EVENT HEADER
+   ========================================== */
 .event-header {
-  position: fixed;
+  position: sticky;
   top: 0;
+  z-index: 100;
+  background: #fff;
+  width: 100%;
+  max-width: 100%;
   left: 0;
   right: 0;
-  background: white;
-  z-index: 100;
-  transition: all 0.3s ease;
-}
-
-.event-header.scrolled .header-logo,
-.event-header.scrolled .header-actions {
-  display: flex;
+  margin: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .header-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 16px;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.header-logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 18px;
-  font-weight: 700;
-  color: #444;
-}
-
-/* Header logo modifications */
-.header-logo .header-match-name {
-  display: none;
-}
-
-.event-header.scrolled .header-logo {
-  display: flex !important;
-}
-
-.event-header.scrolled .header-logo .header-title {
-  display: none;
-}
-
-.event-header.scrolled .header-logo .header-match-name {
-  display: block;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-/* Adjust market filter bar sticky position when scrolled */
-.event-header.scrolled .market-filter-bar {
-  top: 98px;
-}
-
-/* Adjust markets container padding when scrolled */
-.event-header.scrolled ~ .markets-container {
-  padding-top: 200px;
-}
-
-.event-header.scrolled .match-info {
-  display: none;
-}
-
-/* Hide match info when scrolled */
-.event-header.scrolled .match-info {
-  display: none;
-}
-
-/* Adjust action tabs position when scrolled */
-.event-header.scrolled .action-tabs {
-  top: 48px;
-}
-
-/* Adjust market filter bar position when scrolled */
-.event-header.scrolled .market-filter-bar {
-  top: 98px;
-}
-
-/* Reduce markets container top padding when scrolled */
-@media (max-width: 480px) {
-  .event-header.scrolled ~ .adminuiux-content .markets-container {
-    margin-top: 145px;
-  }
-}
-
-.event-header.scrolled ~ .adminuiux-content .markets-container {
-  padding-top: 145px;
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .header-back {
-  width: 32px;
-  height: 32px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #1f2937;
+  cursor: pointer;
+  padding: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  font-size: 20px;
+}
+
+.header-logo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.header-title {
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.header-match-name {
+  font-size: 0.938rem;
+  font-weight: 700;
+  color: #1f2937;
 }
 
 .header-actions {
   display: flex;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .header-btn {
-  width: 32px;
-  height: 32px;
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  color: #1f2937;
+  cursor: pointer;
+  padding: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  font-size: 18px;
 }
 
-.event-btn {
-    width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-/* Match Info */
+/* ==========================================
+   MATCH INFO
+   ========================================== */
 .match-info {
-  padding: 12px 16px;
-  background: white;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .match-league {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  color: #666;
-  margin-bottom: 12px;
-}
-
-.sport-icon {
-  font-size: 14px;
+  padding: 0.75rem 1rem;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .league-name {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-decoration: underline;
+  font-size: 0.813rem;
+  color: #6b7280;
+  font-weight: 500;
 }
 
 .match-teams {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 8px;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.event-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .team {
   flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-}
-
-.team.home {
-  align-items: flex-start;
-}
-
-.team.away {
-  align-items: flex-end;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .team-logo {
   width: 48px;
   height: 48px;
+  border-radius: 50%;
+  background: #f3f4f6;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #333;
-  border-radius: 50%;
-  font-size: 24px;
+  font-size: 1.5rem;
+  color: #6b7280;
 }
 
 .team-name {
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
-  color: #333;
+  color: #1f2937;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
   text-align: center;
-  max-width: 120px;
 }
 
 .match-vs {
-  font-size: 16px;
-  font-weight: 500;
-  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.5rem;
+  flex-shrink: 0;
 }
 
 .match-time {
   display: flex;
   flex-direction: column;
-  text-align: center;
-  font-size: 12px;
-  color: #666;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 500;
 }
 
 .match-time span {
-  font-size: 11px;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
 }
 
-/* Action Tabs */
+/* ==========================================
+   ACTION TABS
+   ========================================== */
 .action-tabs {
   display: flex;
-  background: white;
-  border-bottom: 1px solid #e0e0e0;
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  overflow-x: auto;
+  border-bottom: 2px solid #e5e7eb;
+  background: #fff;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .action-tab {
   flex: 1;
-  padding: 14px;
+  padding: 0.875rem 1rem;
   border: none;
   background: transparent;
-  border-bottom: 2px solid transparent;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
-  color: #666;
+  color: #6b7280;
   cursor: pointer;
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  transition: all 0.2s;
+  gap: 0.5rem;
+  border-bottom: 3px solid transparent;
+  position: relative;
+  bottom: -2px;
 }
 
 .action-tab.active {
@@ -263,391 +223,571 @@ body {
   border-bottom-color: #000;
 }
 
-/* Market Filter Bar */
+.action-tab i {
+  font-size: 1rem;
+}
+
+/* ==========================================
+   MARKET FILTER BAR
+   ========================================== */
 .market-filter-bar {
-  position: sticky;
-  top: 50px;
-  z-index: 45;
-  background: white;
-  padding: 10px 16px;
-  border-bottom: 1px solid #e0e0e0;
   display: flex;
-  gap: 8px;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
   overflow-x: auto;
-  scrollbar-width: none;
+  overflow-y: hidden;
+  background: #fafafa;
+  border-bottom: 1px solid #e5e7eb;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .market-filter-bar::-webkit-scrollbar {
-  display: none;
+  height: 4px;
+}
+
+.market-filter-bar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.market-filter-bar::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  flex-shrink: 0;
+}
+
+.filter i {
+  font-size: 1.125rem;
+  color: #6b7280;
+}
+
+.filter .border {
+  width: 1px;
+  height: 24px;
+  background: #d1d5db;
 }
 
 .market-tab {
-  padding: 4px 12px;
-  border: 1px solid #333;
-  /* border-radius: 4px; */
-  background: white;
-  font-size: 13px;
-  font-weight: 600;
   white-space: nowrap;
+  flex-shrink: 0;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: transparent;
+  font-size: 0.813rem;
+  font-weight: 600;
+  color: #666;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
+  border-radius: 6px;
 }
 
 .market-tab.active {
   background: #000;
-  color: white;
+  color: #fff;
 }
 
 .market-tab.favorite {
-  padding: 8px 12px;
+  color: #fbbf24;
 }
 
-.filter {
-  padding: 8px 12px;
-  cursor: pointer;
-  display: flex;
+.market-tab i {
+  font-size: 1rem;
 }
 
-.border {
-  margin-left: 10px;
-}
-
-
-
-/* Markets Container - Increase padding to ensure first market shows */
-.markets-container {
-  padding-top: 310px;
-  padding-bottom: 80px;
-}
-
-@media (max-width: 480px){
-  .markets-container {
-    padding-top: 300px;
-  }
-}
-
-/* When scrolled - keep adequate padding */
-.event-header.scrolled ~ .adminuiux-content .markets-container {
-  padding-top: 160px;
-}
-
-@media (max-width: 480px) {
-  .event-header.scrolled ~ .adminuiux-content .markets-container {
-    padding-top: 155px;
-  }
-}
-
-/* Ensure header doesn't cover markets */
-.event-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: white;
-  z-index: 100;
-  transition: all 0.3s ease;
-}
-
-/* Make sure market filter bar doesn't overlap */
-.market-filter-bar {
-  position: sticky;
-  top: 218px;
-  z-index: 45;
-  background: white;
-  padding: 10px 16px;
-  border-bottom: 1px solid #e0e0e0;
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-/* When scrolled, adjust market filter bar position */
-.event-header.scrolled .market-filter-bar {
-  top: 108px;
-}
-
-/* Market Group */
+/* ==========================================
+   MARKET GROUPS
+   ========================================== */
 .market-group {
-  background: white;
-  /* margin-bottom: 8px; */
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
 }
 
-.market-header {
-  padding: 12px 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.market-header-left {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex: 1;
-}
-
-.market-title {
-  font-size: 14px;
-  font-weight: 600;
-  color: #333;
-}
-
-.info-icon {
-  width: 18px;
-  height: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #999;
-  font-size: 15px;
-  cursor: pointer;
-}
-
-.favourite-icon{
-  width: 18px;
-  height: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #999;
-  font-size: 15px;
-  cursor: pointer;
-}
-
-.market-expand {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 12px;
-  color: #666;
-}
-
-.expand-icon {
-  font-size: 13px;
-  transition: transform 0.3s ease;
+.market-group.collapsed .market-options,
+.market-group.collapsed .bookie-list {
+  display: none;
 }
 
 .market-group.collapsed .expand-icon {
   transform: rotate(-90deg);
 }
 
-/* Market Options (1X2 Headers) */
-.market-options {
-  display: none;
-  padding: 8px 16px;
-  background: #f9f9f9;
-  border-bottom: 1px solid #e0e0e0;
+.market-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
 }
 
-.market-group:not(.collapsed) .market-options {
+.market-header:hover {
+  background: #f9fafb;
+}
+
+.market-header-left {
   display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.expand-icon {
+  font-size: 1rem;
+  color: #6b7280;
+  transition: transform 0.3s ease;
+}
+
+.market-title {
+  font-size: 0.938rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  color: #9ca3af;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.info-icon:hover {
+  color: #6b7280;
+}
+
+.market-expand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.favourite-icon {
+  font-size: 1.125rem;
+  color: #d1d5db;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.favourite-icon:hover,
+.favourite-icon.active {
+  color: #fbbf24;
+}
+
+/* ==========================================
+   MARKET OPTIONS
+   ========================================== */
+.market-options {
+  padding: 0 1rem 0.5rem 1rem;
+  background: #f9fafb;
 }
 
 .options-grid {
   display: grid;
   grid-template-columns: 120px 1fr;
-  gap: 8px;
-  width: 100%;
+  gap: 0.75rem;
+  align-items: center;
 }
 
 .option-label {
-  text-transform: uppercase;
-  padding: 8px;
-  font-size: 12px;
+  font-size: 0.813rem;
   font-weight: 600;
-  color: #666;
+  color: #6b7280;
 }
 
 .option-headers {
   display: flex;
-  gap: 8px;
+  gap: 0.5rem;
+  justify-content: flex-end;
 }
 
 .option-header {
-  flex: 1;
-  padding: 8px;
+  min-width: 60px;
+  padding: 0.5rem;
   text-align: center;
-  font-size: 12px;
-  font-weight: 600;
-  color: #666;
-  /* background: white; */
-  /* border: 1px solid #ddd; */
-  /* border-radius: 4px; */
+  font-size: 0.813rem;
+  font-weight: 700;
+  color: #374151;
   cursor: pointer;
-  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
 }
 
-/* .option-header:hover {
-  background: #f0f0f0;
+.option-header i {
+  font-size: 0.75rem;
+  color: #9ca3af;
 }
 
-.option-header.sorting {
-  background: #000;
-  color: white;
-  border-color: #000;
-} */
-
-/* Bookie Rows */
+/* ==========================================
+   BOOKIE LIST
+   ========================================== */
 .bookie-list {
-  display: none;
-}
-
-.market-group:not(.collapsed) .bookie-list {
-  display: block;
+  background: #fff;
 }
 
 .bookie-row {
   display: grid;
   grid-template-columns: 120px 1fr;
-  gap: 8px;
-  padding: 12px 16px;
-  border-bottom: 1px solid #f0f0f0;
-  transition: background 0.2s;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.875rem 1rem;
+  border-top: 1px solid #f3f4f6;
+  transition: background 0.2s ease;
 }
 
 .bookie-row:hover {
-  background: #fafafa;
+  background: #f9fafb;
 }
 
 .bookie-name {
   display: flex;
   align-items: center;
-  font-size: 12px;
-  font-weight: 600;
 }
 
 .bookie-logo {
-  padding: 4px 8px;
-  background: #000;
-  color: white;
-  /* border-radius: 3px; */
-  font-size: 11px;
+  font-size: 0.813rem;
   font-weight: 700;
+  color: #1f2937;
+  padding: 0.5rem 0.75rem;
+  background: #000;
+  color: #fff;
+  border-radius: 4px;
 }
 
 .bookie-odds {
   display: flex;
-  gap: 8px;
+  gap: 0.5rem;
+  justify-content: flex-end;
 }
 
 .odd-value {
-  flex: 1;
-  padding: 10px;
+  min-width: 60px;
+  padding: 0.625rem 0.75rem;
   text-align: center;
-  font-size: 13px;
-  font-weight: 600;
-  border: 1px solid #ddd;
-  /* border-radius: 4px; */
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #1f2937;
+  background: #f9fafb;
+  border: 2px solid #e5e7eb;
+  border-radius: 6px;
   cursor: pointer;
-  transition: all 0.2s;
-  background: white;
+  transition: all 0.2s ease;
 }
 
 .odd-value:hover {
   background: #000;
-  color: white;
+  color: #fff;
   border-color: #000;
 }
 
 .odd-value.best {
-  background: #e8f5e9;
-  color: #2e7d32;
-  border-color: #2e7d32;
-  font-weight: 700;
+  border-color: #10b981;
+  background: #d1fae5;
+  color: #065f46;
 }
 
 .odd-dash {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #999;
-  font-size: 13px;
+  min-width: 60px;
+  padding: 0.625rem 0.75rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #d1d5db;
 }
 
-
-/* Scrolled State */
-.event-header.scrolled {
-  padding-top: 0;
-}
-
-.event-header.scrolled .header-top {
-  padding: 8px 16px;
-}
-
-.event-header.scrolled .match-info {
-  padding: 8px 16px;
-}
-
-.event-header.scrolled .match-teams {
-  margin-bottom: 4px;
-}
-
-.event-header.scrolled .team-logo {
-  width: 36px;
-  height: 36px;
-  font-size: 18px;
-}
-
-.event-header.scrolled .team-name {
-  font-size: 12px;
-}
-
+/* ==========================================
+   MARKET INFO MODAL
+   ========================================== */
 .market-info-modal {
   display: none;
   position: fixed;
-  z-index: 1000;
-  left: 0;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.market-info-modal.active {
+  display: flex;
 }
 
 .market-info-modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  /* border-radius: 8px; */
-  width: 80%;
+  background: #fff;
+  border-radius: 12px;
   max-width: 500px;
-  position: relative;
-  animation: slideDown 0.3s ease;
+  width: 90%;
+  max-height: 80vh;
+  overflow: auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
 .market-info-modal-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #e0e0e0;
-  padding-bottom: 10px;
-  margin-bottom: 15px;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .market-info-modal-header h2 {
-  margin: 0;
-  font-size: 18px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
 }
 
 .market-info-close {
-  background: none;
+  background: transparent;
   border: none;
-  font-size: 24px;
+  font-size: 2rem;
+  color: #9ca3af;
   cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .market-info-modal-body {
-  text-align: left;
+  padding: 1.5rem;
 }
 
-@keyframes slideDown {
+.market-info-modal-body p {
+  font-size: 0.938rem;
+  line-height: 1.6;
+  color: #4b5563;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+@media (max-width: 992px) {
+  .header-match-name {
+    font-size: 0.875rem;
+  }
+
+  .team-logo {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+
+  .options-grid {
+    grid-template-columns: 100px 1fr;
+  }
+
+  .bookie-row {
+    grid-template-columns: 100px 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-top {
+    padding: 0.75rem;
+  }
+
+  .header-match-name {
+    font-size: 0.813rem;
+  }
+
+  .match-teams {
+    padding: 0.5rem;
+  }
+
+  .team-name {
+    font-size: 0.75rem;
+    max-width: 80px;
+  }
+
+  .team-logo {
+    width: 36px;
+    height: 36px;
+    font-size: 1.125rem;
+  }
+
+  .market-filter-bar {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .action-tab {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.813rem;
+  }
+
+  .market-header {
+    padding: 0.875rem;
+  }
+
+  .market-title {
+    font-size: 0.875rem;
+  }
+
+  .options-grid {
+    grid-template-columns: 90px 1fr;
+  }
+
+  .bookie-row {
+    grid-template-columns: 90px 1fr;
+    padding: 0.75rem 0.875rem;
+  }
+
+  .odd-value {
+    min-width: 50px;
+    padding: 0.5rem 0.5rem;
+    font-size: 0.813rem;
+  }
+
+  .odd-dash {
+    min-width: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-match-name {
+    font-size: 0.75rem;
+  }
+
+  .team-name {
+    font-size: 0.688rem;
+    max-width: 60px;
+  }
+
+  .team-logo {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+
+  .match-vs {
+    padding: 0 0.25rem;
+  }
+
+  .action-tab {
+    font-size: 0.75rem;
+    padding: 0.625rem 0.375rem;
+  }
+
+  .action-tab i {
+    font-size: 0.875rem;
+  }
+
+  .market-title {
+    font-size: 0.813rem;
+  }
+
+  .options-grid {
+    grid-template-columns: 80px 1fr;
+    gap: 0.5rem;
+  }
+
+  .bookie-row {
+    grid-template-columns: 80px 1fr;
+    gap: 0.5rem;
+    padding: 0.625rem 0.75rem;
+  }
+
+  .bookie-logo {
+    font-size: 0.75rem;
+    padding: 0.375rem 0.5rem;
+  }
+
+  .odd-value {
+    min-width: 44px;
+    padding: 0.5rem 0.375rem;
+    font-size: 0.75rem;
+  }
+
+  .odd-dash {
+    min-width: 44px;
+  }
+
+  .option-header {
+    min-width: 44px;
+    font-size: 0.75rem;
+  }
+}
+
+/* Desktop enhancements */
+@media (min-width: 1200px) {
+  .header-match-name {
+    font-size: 1.125rem;
+  }
+
+  .team-logo {
+    width: 56px;
+    height: 56px;
+    font-size: 1.75rem;
+  }
+
+  .team-name {
+    font-size: 1rem;
+    max-width: 200px;
+  }
+
+  .market-title {
+    font-size: 1rem;
+  }
+
+  .odd-value {
+    min-width: 70px;
+    padding: 0.75rem 0.875rem;
+    font-size: 0.938rem;
+  }
+
+  .odd-dash {
+    min-width: 70px;
+  }
+
+  .option-header {
+    min-width: 70px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .team-name {
+    max-width: 250px;
+  }
+
+  .odd-value {
+    min-width: 80px;
+    padding: 0.875rem 1rem;
+  }
+
+  .odd-dash {
+    min-width: 80px;
+  }
+
+  .option-header {
+    min-width: 80px;
+  }
+}
+
+/* Smooth transitions */
+* {
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Animations */
+@keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(-50px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -655,94 +795,10 @@ body {
   }
 }
 
-/* Responsive */
-@media (max-width: 480px) {
-  .team-name {
-    font-size: 12px;
-    max-width: 100px;
-  }
-
-  .bookie-row {
-    grid-template-columns: 100px 1fr;
-    padding: 10px 12px;
-  }
-
-  .odd-value {
-    padding: 8px;
-    font-size: 12px;
-  }
+.market-group {
+  animation: fadeIn 0.3s ease;
 }
 
-/* ===== HEADER ===== */
-.event-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: white;
-  z-index: 100;
-  transition: all 0.3s ease;
-}
-
-.event-header.scrolled .header-logo {
-  display: none;
-}
-
-.header-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 16px;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.header-logo {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 18px;
-  font-weight: 700;
-  color: #444;
-}
-
-.header-back {
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-.header-actions {
-  display: flex;
-  gap: 8px;
-}
-
-.header-btn {
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  font-size: 18px;
-}
-
-
-@media (min-width: 992px) { 
-  #side-menu {
-    display: none;
-  }
-}
-
-@media (min-width: 1024px) {
-  #side-menu {
-    display: none;
-  }
+html {
+  scroll-behavior: smooth;
 }

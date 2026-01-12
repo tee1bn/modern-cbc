@@ -1,6 +1,20 @@
 (function () {
   "use strict";
 
+
+function updateBadgeVisibility() {
+  const badge = document.getElementById('rail-badge');
+  if (badge) {
+    if (window.innerWidth >= 768) {
+      badge.style.display = 'none'; // Always hide on desktop
+    } else {
+      badge.style.display = 'flex'; // Show on mobile
+    }
+  }
+}
+window.addEventListener('resize', updateBadgeVisibility);
+document.addEventListener('DOMContentLoaded', updateBadgeVisibility);
+
   // ==================== STATE ====================
   let bets = [];
   let isRailOpen = false;
@@ -139,16 +153,21 @@
 
   // ==================== UI CONTROLS ====================
 function openRail() {
-  isRailOpen = true;
-  const overlay = document.getElementById("rail-overlay");
-  const rail = document.getElementById("rail-container");
+  // Only handle overlay/modal behavior on mobile
+  if (window.innerWidth < 768) {
+    isRailOpen = true;
+    const overlay = document.getElementById("rail-overlay");
+    const rail = document.getElementById("rail-container");
 
-  if (overlay && rail) {
-    overlay.classList.add("active");
-    rail.classList.add("active");
-    rail.classList.add("fullscreen");
-    document.body.style.overflow = "hidden";
+    if (overlay && rail) {
+      overlay.classList.add("active");
+      rail.classList.add("active");
+      rail.classList.add("fullscreen");
+      document.body.style.overflow = "hidden";
+    }
   }
+  // On desktop, sidebar is always visible, so just ensure it's rendered
+  renderRail();
 }
 
   function expandFullScreen() {
@@ -165,7 +184,9 @@ function openRail() {
     }
   }
 
-  function closeRail() {
+ function closeRail() {
+  // Only close on mobile
+  if (window.innerWidth < 768) {
     isRailOpen = false;
     const overlay = document.getElementById("rail-overlay");
     const rail = document.getElementById("rail-container");
@@ -176,6 +197,8 @@ function openRail() {
       document.body.style.overflow = "";
     }
   }
+  // On desktop, sidebar stays visible
+}
 
   function toggleMinimize() {
     isMinimized = !isMinimized;
@@ -545,10 +568,13 @@ function formatBookieName(bookieCode) {
 }
 
 function toggleFullScreen() {
-  const rail = document.getElementById("rail-container");
-  if (rail) {
-    rail.classList.toggle("fullscreen");
-    renderRail(); 
+
+  if (window.innerWidth < 768) {
+    const rail = document.getElementById("rail-container");
+    if (rail) {
+      rail.classList.toggle("fullscreen");
+      renderRail(); 
+    }
   }
 }
 
@@ -561,17 +587,20 @@ function renderRail() {
   const selectedCount = bets.filter(b => b.selected).length;
 
   rail.innerHTML = `
-  <div class="page-header">
+     <div class="page-header">
+    ${window.innerWidth < 768 ? `
       <button class="back-btn" onclick="window.betslipRail.closeRail()">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M15 18l-6-6 6-6" />
         </svg>
       </button>
-      <h1 class="page-title">Betslip (${bets.length})</h1>
-      <div style="display: flex; align-items: center; gap: 8px;">
-        <button class="rail-load-btn" id="rail-load-btn" title="Load New Bet Code">
-          <i class="bi bi-download"></i>
-        </button>
+    ` : ''}
+    <h1 class="page-title">Betslip (${bets.length})</h1>
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <button class="rail-load-btn" id="rail-load-btn" title="Load New Bet Code">
+        <i class="bi bi-download"></i>
+      </button>
+      ${window.innerWidth < 768 ? `
         <button class="rail-action-btn" id="rail-expand-btn" title="${rail && rail.classList.contains('fullscreen') ? 'Exit Fullscreen' : 'Fullscreen'}">
           <i class="bi bi-arrows-fullscreen"></i>
         </button>
@@ -581,8 +610,9 @@ function renderRail() {
             <polyline points="9 22 9 12 15 12 15 22" />
           </svg>
         </button>
-      </div>
+      ` : ''}
     </div>
+  </div>
 
     <!-- Always show navigation tabs -->
     <div class="empty-nav-tabs">
@@ -727,20 +757,24 @@ function renderEmptyLoadForm() {
   if (!rail) return;
 
   rail.innerHTML = `
-    <div class="page-header">
+   <div class="page-header">
+    ${window.innerWidth < 768 ? `
       <button class="back-btn" id="load-back-btn">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M15 18l-6-6 6-6" />
         </svg>
       </button>
-      <h1 class="page-title">Load Bet Code</h1>
+    ` : ''}
+    <h1 class="page-title">Load Bet Code</h1>
+    ${window.innerWidth < 768 ? `
       <button class="home-btn" onclick="window.location.href='index.html'">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
           <polyline points="9 22 9 12 15 12 15 22" />
         </svg>
       </button>
-    </div>
+    ` : ''}
+  </div>
 
     <!-- Navigation tabs -->
     <div class="empty-nav-tabs">
@@ -1057,40 +1091,36 @@ function attachEventListeners() {
 }
 
 
-  function initRailHTML() {
-    const container = document.getElementById("betslip-rail");
-    if (!container) return;
+function initRailHTML() {
+  const container = document.getElementById("betslip-rail");
+  if (!container) return;
 
-    container.innerHTML = `
-      <div class="rail-badge ${
-        bets.length === 0 ? "empty" : ""
-      }" id="rail-badge">
-        <span class="rail-badge-count" id="rail-badge-count">${
-          bets.length
-        }</span>
-        <span>Betslip</span>
-      </div>
+  container.innerHTML = `
+    <div class="rail-badge ${bets.length === 0 ? "empty" : ""}" id="rail-badge">
+      <span class="rail-badge-count" id="rail-badge-count">${bets.length}</span>
+      <span>Betslip</span>
+    </div>
 
-      <div class="rail-overlay" id="rail-overlay"></div>
+    <div class="rail-overlay" id="rail-overlay"></div>
 
-      <div class="rail-container" id="rail-container">
-      </div>
-    `;
+    <div class="rail-container ${window.innerWidth >= 768 ? 'active' : ''}" id="rail-container">
+    </div>
+  `;
 
-    const badge = document.getElementById("rail-badge");
-    if (badge) {
-      badge.addEventListener("click", openRail);
-    }
-
-    const overlay = document.getElementById("rail-overlay");
-    if (overlay) {
-      overlay.addEventListener("click", closeRail);
-    }
-
-    renderRail();
-    updateBadge();
+  const badge = document.getElementById("rail-badge");
+  if (badge) {
+    badge.addEventListener("click", openRail);
   }
 
+  const overlay = document.getElementById("rail-overlay");
+  if (overlay) {
+    overlay.addEventListener("click", closeRail);
+  }
+
+  renderRail();
+  updateBadge();
+  updateBadgeVisibility();
+}
   // ==================== PUBLIC API ====================
   window.betslipRail = {
     addSelection,
@@ -1138,5 +1168,11 @@ function attachEventListeners() {
       renderRail();
       updateBadge();
     }
+  });
+
+
+  window.addEventListener('resize', () => {
+    updateBadgeVisibility();
+    renderRail();
   });
 })();

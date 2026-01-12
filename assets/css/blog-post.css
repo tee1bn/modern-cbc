@@ -456,7 +456,6 @@ body {
 /* Desktop */
 @media (min-width: 1024px) {
   .article-container {
-    margin-top: 24px;
     border-radius: 12px;
   }
 
@@ -487,6 +486,19 @@ body {
 
   .cta-section {
     margin: 40px 48px;
+  }
+
+    .sidebar-right {
+    display: none !important;
+  }
+
+  .adminuiux-content {
+    width: calc(100% - 600px) !important; 
+    margin-right: 300px !important; 
+  }
+
+  .footer-main {
+     width: calc(100% - 600px) !important; 
   }
 }
 
@@ -532,16 +544,14 @@ body {
 
 
 @media (max-width: 767px) {
-  #desktop-nav {
-    display: none !important;
-  }
+
 }
 
 @media (min-width: 992px) {
   .article-container {
     max-width: 100%;
     width: 100%;
-    margin-top: 65px;
+
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   }
@@ -598,7 +608,6 @@ body {
   .article-container {
     max-width: 100%;
     width: 100%;
-    margin-top: 65px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   }

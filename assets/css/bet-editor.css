@@ -1,567 +1,422 @@
-/* BET EDITOR MAIN */
-.bet-editor {
-  font-family: var(--adminuiux-content-font, 'Open Sans', sans-serif);
-  font-size: 14px;
-}
-
-.editor-header {
-  padding: 16px;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.editor-title {
-  font-size: 24px;
-  font-weight: 700;
-  margin: 0 0 4px 0;
-  color: #000;
-}
-
-.editor-subtitle {
-  font-size: 13px;
-  color: #666;
-  margin: 0;
-}
-
-/* EDITOR CONTROLS */
-.editor-controls {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 16px;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.editor-badge {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.badge-count {
-  background: #333;
-  color: white;
-  padding: 2px 8px;
-  border-radius: 3px;
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.editor-actions {
-  display: flex;
-  gap: 8px;
-}
-
-.editor-actions button {
-  padding: 8px 12px;
-  background: white;
-  border: 1px solid #333;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 13px;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.editor-actions button:hover {
-  background: #fafafa;
-}
-
-.editor-actions i {
-  font-size: 14px;
-}
-
-/* ACTION BUTTONS */
-.action-buttons {
-  display: flex;
-  gap: 10px;
-  padding: 16px;
-  border-bottom: 2px solid #e0e0e0;
-}
-
-.action-btn {
-  flex: 1;
-  padding: 5px;
-  background: white;
-  border: 2px solid #333;
-  /* border-radius: 4px; */
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  transition: all 0.2s;
-}
-
-.action-btn:hover {
-  background: #000;
-  color: white;
-}
-
-.action-btn i {
-  font-size: 16px;
-}
-
-/* EMPTY STATE */
-.empty-state {
-  padding: 40px 16px;
-  text-align: center;
-  color: #666;
-}
-
-.empty-state-text {
-  font-size: 14px;
-  margin-bottom: 20px;
-}
-
-/* BET LIST */
-.bet-list {
-  padding: 0;
-}
-
-.bet-item {
-  padding: 16px;
-  border-bottom: 1px solid #e0e0e0;
-  display: flex;
-  gap: 12px;
-}
-
-.bet-item:hover {
-  background: #fafafa;
-}
-
-.bet-checkbox {
-  flex-shrink: 0;
-  width: 20px;
-  height: 20px;
-  border: 2px solid #333;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.bet-checkbox.checked {
-  background: #000;
-  position: relative;
-}
-
-.bet-checkbox.checked::after {
-  content: '';
-  color: white;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.bet-content {
-  flex: 1;
-}
-
-.bet-market {
-  font-size: 12px;
-  color: #666;
-  margin-bottom: 4px;
-}
-
-.bet-league {
-  font-size: 11px;
-  color: #999;
-  margin-bottom: 6px;
-}
-
-.bet-teams {
-  font-size: 14px;
-  font-weight: 600;
-  color: #000;
-  margin-bottom: 4px;
-}
-
-.bet-datetime {
-  font-size: 12px;
-  color: #666;
-}
-
-.bet-actions {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 8px;
-}
-
-.bet-remove {
-  background: none;
-  border: none;
-  color: #444;
-  cursor: pointer;
-  font-size: 16px;
-  padding: 4px;
-}
-
-.bet-edit {
-  color: #444;
-  font-size: 12px;
-  font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.bet-edit:hover {
-  text-decoration: underline;
-}
-
-/* FOOTER */
-.editor-footer {
-  padding: 16px;
-  border-top: 2px solid #e0e0e0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: white;
-}
-
-.total-odds {
-  font-size: 14px;
-  color: #333;
-}
-
-.total-odds strong {
-  font-size: 16px;
-  font-weight: 700;
-  color: #000;
-}
-
-.book-btn {
-  padding: 12px 24px;
-  background: #444;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-/* .book-btn:hover {
-  background: #444;
-  color: #fff;
-} */
-
-.book-btn:disabled {
-  background: #ccc;
-  cursor: not-allowed;
-}
-
-/* LOAD CODE MODAL */
-.load-code-section {
-  padding: 20px 16px;
-}
-
-.load-code-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.load-code-title {
-  font-size: 16px;
-  font-weight: 600;
-  color: #000;
-}
-
-.close-btn {
-  background: none;
-  border: none;
-  color: #333;
-  font-size: 20px;
-  cursor: pointer;
-  padding: 4px;
-}
-
-.form-group {
-  margin-bottom: 16px;
-}
-
-.form-label {
-  display: block;
-  font-size: 13px;
-  font-weight: 600;
-  margin-bottom: 6px;
-  color: #333;
-}
-
-.form-input,
-.form-select {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #333;
-  border-radius: 4px;
-  font-size: 14px;
-  background: white;
-}
-
-.form-input:focus,
-.form-select:focus {
-  outline: 2px solid #000;
-  outline-offset: 2px;
-}
-
-.load-btn {
-  width: 100%;
-  padding: 12px;
-  background: #000;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 10px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.load-btn:hover {
-  background: #333;
-}
-
- /* Enhanced styles for info card */
-    .editor-info-card {
-      background: #222;
-      border: 1px solid #444;
-      border-radius: 12px;
-      padding: 20px;
-      margin: 20px 0;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      animation: slideIn 0.3s ease-out;
-    }
-    
-    @keyframes slideIn {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    .info-card-header {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-    }
-    
-    .info-card-icon {
-      flex-shrink: 0;
-      width: 40px;
-      height: 40px;
-      background: #444;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 20px;
-    }
-    
-    .info-card-content {
-      flex: 1;
-    }
-    
-    .info-card-title {
-      font-size: 18px;
-      font-weight: 600;
-      color: #fff;
-      margin: 0 0 8px 0;
-    }
-    
-    .info-card-text {
-      font-size: 14px;
-      color: #fff;
-      margin: 0;
-      line-height: 1.6;
-    }
-/*     
-    .info-card-btn {
-      align-self: flex-start;
-      background: #2196f3;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      padding: 12px 24px;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.2s ease;
-    }
-     */
-    .info-card-btn:hover {
-      background: #444;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px #444
-    }
-    
-    .info-card-btn:active {
-      transform: translateY(0);
-    }
-    
-    /* Empty state improvements */
-    .empty-state {
-      text-align: center;
-      padding: 60px 20px;
-    }
-    
-    .empty-state-icon {
-      margin-bottom: 20px;
-    }
-    
-    .empty-state-text {
-      font-size: 18px;
-      font-weight: 600;
-      color: #424242;
-      margin: 0 0 12px 0;
-    }
-    
-    .empty-state-subtext {
-      font-size: 14px;
-      color: #757575;
-      margin: 0;
-      max-width: 400px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-
-@media (max-width: 480px) {
-  .editor-controls {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 10px;
-  }
-  
-  .action-buttons {
-    flex-direction: row;
-  }
-  
-  .editor-footer {
-    flex-direction: column;
-    gap: 12px;
-    align-items: stretch;
-  }
-  
-  .book-btn {
-    width: 100%;
-  }
-}
-
-/* Page Header Styles */
-.page-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 16px;
-  background: #fff;
-  border-bottom: 1px solid #e0e0e0;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.page-header .back-btn,
-.page-header .home-btn {
-  background: none;
-  border: none;
-  padding: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.page-header .back-btn svg,
-.page-header .home-btn svg {
-  width: 24px;
-  height: 24px;
-  stroke: #000;
-}
-
-.page-header .page-title {
-  font-size: 18px;
-  font-weight: 600;
-  margin: 0;
-  text-align: center;
-  flex-grow: 1;
-}
-
-
-/* ===== BET EDITOR DESKTOP RESPONSIVE ===== */
-
-/* Hide mobile nav on desktop */
-@media (min-width: 992px) {
-  #mobile-nav,
-  .page-header {
+@media (min-width: 1400px) {
+  .sidebar-right {
     display: none !important;
   }
 
-  #desktop-nav {
+  .adminuiux-content {
+    width: calc(100% - 600px) !important; 
+    margin-right: 300px !important; 
+  }
+
+  .footer-main {
+     width: calc(100% - 600px) !important; 
+  }
+
+  .rail-container {
+
+  }
+}
+
+/* ==================== BETSLIP RAIL OVERRIDES ==================== */
+
+/* Hide the floating badge on all screens */
+.rail-badge {
+  display: none !important;
+}
+
+/* Hide the overlay on all screens */
+.rail-overlay {
+  display: none !important;
+}
+
+/* Mobile: Make rail visible and full-width */
+@media (max-width: 767px) {
+  body {
+    margin-right: 0 !important;
+  }
+
+  /* Override the hidden state - make it always visible */
+  .rail-container {
+    display: flex !important; /* Always show */
+    position: static !important; /* Remove fixed positioning */
+    transform: none !important; /* Remove slide animation */
+    max-height: none !important; /* Remove height constraint */
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: #fff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .rail-container.active {
+    display: flex !important;
+  }
+
+  /* Make sure the header stays at top */
+  .rail-container .page-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #fff;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  /* Form styling for mobile */
+  .empty-load-form {
+    padding: 20px 16px;
+  }
+
+  .empty-form-group input,
+  .empty-form-group select {
+    width: 100%;
+    padding: 14px 12px;
+    font-size: 15px;
+    box-sizing: border-box;
+  }
+
+  .empty-input-wrapper input {
+    padding-right: 45px;
+  }
+
+  .empty-form-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .empty-cancel-btn,
+  .empty-submit-btn {
+    flex: 1;
+    padding: 14px 16px;
+    font-size: 15px;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+
+  .empty-submit-btn {
+    background: #1a1a1a;
+    color: white;
+    border: none;
+  }
+
+  .empty-cancel-btn {
+    background: #f5f5f5;
+    color: #666;
+    border: 1px solid #e0e0e0;
+  }
+}
+
+/* Desktop: Make rail full-width in main content */
+@media (min-width: 768px) {
+  /* Override sidebar positioning - make it static and full width */
+  .rail-container {
+    position: static !important; /* Remove fixed positioning */
+    transform: none !important; /* Remove any transforms */
+    width: 100% !important; /* Full width of parent */
+    max-width: 100% !important; /* Remove width constraint */
+    max-height: none !important; /* Remove height constraint */
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: #fff !important;
+    display: flex !important; /* Always visible */
+    flex-direction: column;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+    min-height: calc(100vh - 200px); /* Give it good height */
+  }
+
+  /* Page header styling for desktop */
+  .rail-container .page-header {
+    background: #fff;
+    border-bottom: 2px solid #e0e0e0;
+    padding: 20px 32px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .rail-container .page-header .page-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+
+  .rail-container .page-header .back-btn,
+  .rail-container .page-header .home-btn {
+    display: none; /* Hide back/home buttons on desktop */
+  }
+
+  /* Form container styling */
+  .empty-load-form {
+    padding: 48px 80px;
+    max-width: 700px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .empty-load-form-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .empty-load-form-header h4 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+  }
+
+  .empty-load-form-header p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+  }
+
+  /* Form groups with better spacing */
+  .empty-form-group {
+    margin-bottom: 28px;
+  }
+
+  .empty-form-group label {
     display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #1a1a1a;
   }
-}
 
-/* Desktop layout */
-@media (min-width: 992px) {
-
-
-  .bet-editor {
-    max-width: 100%;
+  .empty-input-wrapper {
+    position: relative;
     width: 100%;
-    margin-top: 70px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 
-  .editor-header,
-  .editor-controls,
-  .action-buttons,
-  .bet-item,
-  .editor-footer,
-  .load-code-section {
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-
-  .empty-state {
-    padding: 60px 32px;
-  }
-}
-
-/* Large desktop */
-@media (min-width: 1200px) {
-.bet-editor {
-    max-width: 100%;
+  .empty-input-wrapper input,
+  .empty-form-group select {
     width: 100%;
-    margin-top: 70px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #1a1a1a;
+    background: #fff;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+  }
+
+  .empty-input-wrapper input {
+    padding-right: 50px; /* Space for paste button */
+  }
+
+  .empty-input-wrapper input:focus,
+  .empty-form-group select:focus {
+    outline: none;
+    border-color: #1a1a1a;
+    box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
+  }
+
+  .empty-input-wrapper input::placeholder {
+    color: #bbb;
+  }
+
+  .empty-paste-btn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #f5f5f5;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+  }
+
+  .empty-paste-btn:hover {
+    background: #e0e0e0;
+    color: #1a1a1a;
+  }
+
+  /* Select dropdown styling */
+  .empty-form-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    padding-right: 50px;
+  }
+
+  /* Form buttons */
+  .empty-form-buttons {
+    display: flex;
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .empty-cancel-btn {
+    flex: 1;
+    padding: 16px 24px;
+    background: #f5f5f5;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .empty-cancel-btn:hover {
+    background: #e0e0e0;
+    border-color: #ccc;
+    color: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .empty-submit-btn {
+    flex: 2;
+    padding: 16px 32px;
+    background: #1a1a1a;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.2s ease;
+  }
+
+  .empty-submit-btn:hover {
+    background: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .empty-submit-btn:active {
+    transform: translateY(0);
+  }
+
+  /* Loading and error states */
+  .empty-loading-state,
+  .empty-error-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 40px;
+    text-align: center;
+  }
+
+  .empty-spinner {
+    width: 56px;
+    height: 56px;
+    border: 4px solid #f0f0f0;
+    border-top-color: #1a1a1a;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 24px;
+  }
+
+  .empty-loading-state p {
+    font-size: 16px;
+    color: #666;
+    margin: 0;
+  }
+
+  .empty-error-state i {
+    font-size: 56px;
+    color: #dc3545;
+    margin-bottom: 20px;
+  }
+
+  .empty-error-state p {
+    font-size: 16px;
+    color: #dc3545;
+    margin: 0 0 24px 0;
+  }
+
+  .empty-retry-btn {
+    padding: 14px 32px;
+    background: #1a1a1a;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .empty-retry-btn:hover {
+    background: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Nav tabs styling for desktop */
+  .empty-nav-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 2px solid #f0f0f0;
+    background: white;
+    padding: 0 32px;
+  }
+
+  .empty-nav-tab {
+    flex: 1;
+    padding: 16px 24px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    font-size: 14px;
+    font-weight: 500;
+    color: #999;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.2s ease;
+  }
+
+  .empty-nav-tab i {
+    font-size: 22px;
+  }
+
+  .empty-nav-tab.active {
+    color: #1a1a1a;
+    border-bottom-color: #1a1a1a;
+    font-weight: 600;
+  }
+
+  .empty-nav-tab:hover {
+    background: #fafafa;
+    color: #333;
+  }
+
+  /* Ensure content inside rail doesn't overflow */
+  .rail-bets-list {
+    padding: 16px 32px;
+  }
+
+  .rail-footer {
+    padding: 24px 32px;
+    border-top: 2px solid #e0e0e0;
   }
 }
 
-/* Extra large desktop */
-@media (min-width: 1400px) {
-.bet-editor {
-    max-width: 100%;
-    width: 100%;
-    margin-top: 70px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
-

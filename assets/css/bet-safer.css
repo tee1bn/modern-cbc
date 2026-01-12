@@ -1,60 +1,43 @@
-/* BET SAFER PAGE */
+
 .bet-safer-page {
   font-family: var(--adminuiux-content-font, 'Open Sans', sans-serif);
   background: #fff;
+  /* padding: 16px; */
 }
 
-/* HEADER */
-.safer-header {
-  padding: 16px;
-  border-bottom: 2px solid #e0e0e0;
-}
 
-.safer-title {
-  font-size: 24px;
-  font-weight: 700;
-  margin: 0 0 4px 0;
-  color: #000;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.safer-subtitle {
-  font-size: 13px;
-  color: #666;
-  margin: 0;
-}
-
-/* INPUT SECTION */
 .safer-input-section {
-  padding: 20px 16px;
-  border-bottom: 2px solid #e0e0e0;
+  max-width: 800px;
+  margin: 0 auto 24px;
+  padding: 20px;
+  background: #fff;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
 }
 
 /* INPUT TABS */
 .safer-input-tabs {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 8px;
   margin-bottom: 20px;
-  overflow-x: auto;
-  padding-bottom: 8px;
 }
 
 .safer-input-tab {
-  padding: 8px 16px;
+  padding: 12px 16px;
   background: #fff;
   color: #000;
-  border: 1px solid #333;
-  border-radius: 4px;
-  font-size: 13px;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  white-space: nowrap;
+  text-align: center;
   transition: all 0.2s;
 }
 
 .safer-input-tab:hover {
+  border-color: #333;
   background: #fafafa;
 }
 
@@ -64,297 +47,363 @@
   border-color: #000;
 }
 
+/* FORM GROUPS */
 .safer-form-group {
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .safer-form-label {
   display: block;
-  font-size: 12px;
-  font-weight: 600;
-  margin-bottom: 6px;
-  color: #333;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #000;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
 }
 
+/* INPUT WRAPPER */
 .safer-input-wrapper {
   position: relative;
   display: flex;
-  gap: 0;
+  align-items: stretch;
 }
 
 .safer-form-input {
   flex: 1;
-  padding: 10px 12px;
-  border: 1px solid #333;
-  border-right: none;
-  border-radius: 4px 0 0 4px;
-  font-size: 14px;
+  padding: 14px 16px;
+  border: 2px solid #333;
+  border-radius: 6px;
+  font-size: 15px;
   background: #fff;
+  transition: all 0.2s;
 }
 
 .safer-form-input:focus {
-  outline: 2px solid #000;
-  outline-offset: 2px;
-  z-index: 1;
+  outline: none;
+  border-color: #000;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
 }
 
 .safer-paste-btn {
-  padding: 10px 12px;
-  background: #fff;
-  border: 1px solid #333;
-  border-left: none;
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 8px;
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  transition: all 0.2s;
 }
 
 .safer-paste-btn:hover {
-  background: #fafafa;
+  background: #000;
+  border-color: #000;
+}
+
+.safer-paste-btn:hover svg {
+  color: #fff;
 }
 
 .safer-paste-btn svg {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
+  display: block;
 }
 
 .safer-form-select {
   width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #333;
-  border-radius: 4px;
-  font-size: 14px;
+  padding: 14px 16px;
+  border: 2px solid #333;
+  border-radius: 6px;
+  font-size: 15px;
   background: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
 .safer-form-select:focus {
-  outline: 2px solid #000;
-  outline-offset: 2px;
+  outline: none;
+  border-color: #000;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
 }
 
 /* UPLOAD AREA */
 .safer-upload-area {
-  border: 2px dashed #333;
-  border-radius: 4px;
+  border: 3px dashed #333;
+  border-radius: 8px;
   padding: 40px 20px;
   text-align: center;
   background: #fafafa;
   cursor: pointer;
-  transition: all 0.2s;
-  margin-bottom: 16px;
+  transition: all 0.3s;
 }
 
 .safer-upload-area:hover {
-  background: #f5f5f5;
+  background: #f0f0f0;
   border-color: #000;
 }
 
 .safer-upload-icon {
-  width: 48px;
-  height: 48px;
-  margin: 0 auto 12px;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
   color: #333;
 }
 
 .safer-upload-title {
-  font-size: 15px;
-  font-weight: 600;
-  margin: 0 0 4px 0;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
   color: #000;
 }
 
 .safer-upload-text {
-  font-size: 13px;
+  font-size: 14px;
   color: #666;
-  margin: 0;
+  margin: 0 0 16px 0;
 }
 
 .safer-browse-btn {
   display: inline-block;
-  margin-top: 12px;
-  padding: 8px 20px;
+  padding: 10px 24px;
   background: #000;
   color: #fff;
-  border-radius: 4px;
-  font-size: 13px;
+  border-radius: 6px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
+  transition: all 0.2s;
 }
 
 .safer-browse-btn:hover {
   background: #333;
 }
 
+/* AUTO DETECT BADGE */
 .auto-detect-badge {
   display: flex;
   align-items: center;
-  gap: 6px;
-  margin-top: 8px;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #f0f0f0;
+  border-radius: 6px;
   font-size: 13px;
   color: #000;
   font-weight: 600;
 }
 
 .auto-detect-badge i {
-  color: #000;
+  color: #28a745;
+  font-size: 16px;
 }
 
+/* ANALYZE BUTTON */
 .safer-analyze-btn {
   width: 100%;
-  padding: 12px;
+  padding: 16px;
   background: #000;
   color: #fff;
   border: none;
-  border-radius: 4px;
-  font-size: 14px;
+  border-radius: 6px;
+  font-size: 16px;
   font-weight: 700;
   cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .safer-analyze-btn:hover {
   background: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.safer-analyze-btn i {
+  font-size: 18px;
+}
+
+/* EMPTY STATE */
+.safer-empty-state {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 60px 20px;
+  text-align: center;
+  background: #fafafa;
+  border: 2px dashed #e0e0e0;
+  border-radius: 8px;
+}
+
+.safer-empty-text {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.6;
 }
 
 /* RESULTS SECTION */
 .safer-results {
-  padding: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* SELECTION CARD */
 .safer-selection-card {
   border: 2px solid #e0e0e0;
-  border-radius: 0;
-  margin-bottom: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
   background: #fff;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.safer-selection-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .safer-selection-header {
-  padding: 12px 16px;
+  padding: 16px 20px;
   background: #f9f9f9;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 2px solid #e0e0e0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .selection-number {
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 700;
   color: #000;
 }
 
 .risk-badge {
-  padding: 4px 10px;
-  border: 1px solid #333;
-  border-radius: 3px;
-  font-size: 11px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
+  white-space: nowrap;
 }
 
 .risk-high {
-  background: #f5f5f5;
-  color: #000;
+  background: #ffe5e5;
+  color: #d32f2f;
+  border: 2px solid #d32f2f;
 }
 
 .risk-medium {
-  background: #f5f5f5;
-  color: #000;
+  background: #fff8e1;
+  color: #f57c00;
+  border: 2px solid #f57c00;
 }
 
 .risk-low {
-  background: #fff;
-  color: #000;
+  background: #e8f5e9;
+  color: #388e3c;
+  border: 2px solid #388e3c;
 }
 
 .safer-selection-body {
-  padding: 16px;
+  padding: 20px;
 }
 
 /* ORIGINAL PICK */
 .original-pick {
-  margin-bottom: 16px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #e0e0e0;
 }
 
 .pick-info {
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: flex-start;
+  gap: 16px;
 }
 
 .pick-teams {
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
   color: #000;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .pick-market {
-  font-size: 13px;
+  font-size: 14px;
   color: #666;
 }
 
 .pick-odds {
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 700;
   color: #000;
+  white-space: nowrap;
 }
 
 /* SAFER ALTERNATIVE */
 .safer-alternative {
-  background: #fafafa;
+  background: #fff;
   border: 2px solid #333;
-  padding: 16px;
-  margin-bottom: 16px;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
 .safer-alt-header {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   font-size: 14px;
   font-weight: 700;
-  color: #000;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .safer-alt-header i {
-  font-size: 16px;
-}
-
-.safer-alt-content {
-  margin-bottom: 12px;
+  font-size: 18px;
 }
 
 .safer-alt-market {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
   color: #000;
-  margin-bottom: 4px;
-}
-
-.safer-alt-explanation {
-  font-size: 13px;
-  color: #333;
-  line-height: 1.5;
   margin-bottom: 12px;
 }
 
+.safer-alt-explanation {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.safer-alt-explanation i {
+  color: #388e3c;
+  margin-right: 4px;
+}
+
+/* COMPARISON */
 .safer-comparison {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
-  margin: 12px 0;
-  padding: 12px;
+  margin: 16px 0;
+  padding: 16px;
   background: #fff;
-  border: 1px solid #e0e0e0;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
 }
 
 .comparison-item {
@@ -365,163 +414,190 @@
   font-size: 11px;
   color: #666;
   text-transform: uppercase;
-  margin-bottom: 4px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
 }
 
 .comparison-value {
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 700;
   color: #000;
+  margin-bottom: 4px;
 }
 
 .comparison-subtext {
-  font-size: 11px;
+  font-size: 12px;
   color: #666;
-  margin-top: 2px;
+  font-weight: 600;
 }
 
+/* ACTION BUTTONS */
 .safer-actions {
-  display: flex;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
 }
 
 .btn-accept {
-  flex: 1;
-  padding: 10px;
+  padding: 14px 16px;
   background: #000;
   color: #fff;
   border: none;
-  border-radius: 4px;
-  font-size: 13px;
-  font-weight: 600;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-}
-
-.btn-accept:hover {
-  background: #333;
-}
-
-.btn-keep {
-  flex: 1;
-  padding: 10px;
-  background: #fff;
-  color: #000;
-  border: 1px solid #333;
-  border-radius: 4px;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.btn-keep:hover {
-  background: #fafafa;
-}
-
-/* ALREADY SAFE */
-.already-safe {
-  padding: 12px;
-  background: #f5f5f5;
-  border: 1px solid #333;
-  text-align: center;
-  color: #000;
-  font-size: 13px;
-  font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
+  transition: all 0.2s;
+}
+
+.btn-accept:hover {
+  background: #333;
+  transform: translateY(-2px);
+}
+
+.btn-keep {
+  padding: 14px 16px;
+  background: #fff;
+  color: #000;
+  border: 2px solid #333;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-keep:hover {
+  background: #fafafa;
+  transform: translateY(-2px);
+}
+
+/* ALREADY SAFE */
+.already-safe {
+  padding: 16px;
+  background: #e8f5e9;
+  border: 2px solid #388e3c;
+  border-radius: 6px;
+  text-align: center;
+  color: #1b5e20;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.already-safe i {
+  font-size: 18px;
 }
 
 /* ODDS COMPARISON */
 .odds-comparison {
   padding: 16px;
-  border: 1px solid #e0e0e0;
+  border: 2px solid #e0e0e0;
   background: #fafafa;
-  margin-top: 12px;
+  border-radius: 6px;
+  margin-top: 16px;
 }
 
 .odds-comparison-title {
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 12px;
   color: #000;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .bookie-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 12px;
+  padding: 12px 14px;
   background: #fff;
   border: 1px solid #e0e0e0;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
 }
 
 .bookie-row:last-child {
   margin-bottom: 0;
 }
 
-.bookie-row.best-odds {
-  background: #f5f5f5;
+.bookie-row:hover {
   border-color: #333;
-  border-width: 2px;
+}
+
+.bookie-row.best-odds {
+  background: #fff;
+  border: 2px solid #333;
 }
 
 .bookie-name {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   color: #000;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
 .best-badge {
-  background: #000;
+  background: #f57c00;
   color: #fff;
-  padding: 2px 6px;
+  padding: 3px 8px;
   border-radius: 3px;
   font-size: 10px;
   font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 .bookie-odds {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   color: #000;
 }
 
 /* FOOTER ACTIONS */
 .safer-footer-actions {
-  padding: 16px;
-  border-top: 2px solid #e0e0e0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  max-width: 1200px;
+  margin: 32px auto;
+  padding: 20px;
+  background: #fafafa;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  display: grid;
+  gap: 12px;
 }
 
 .safer-footer-btn {
   width: 100%;
-  padding: 14px;
+  padding: 16px 20px;
   background: #fff;
   color: #000;
   border: 2px solid #333;
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: 600;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 700;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
+  transition: all 0.2s;
 }
 
 .safer-footer-btn:hover {
-  background: #fafafa;
+  background: #f5f5f5;
+  transform: translateY(-2px);
 }
 
 .safer-footer-btn.primary {
@@ -536,47 +612,54 @@
 
 /* SHARE SECTION */
 .safer-share-section {
-  padding: 16px;
-  border-top: 2px solid #e0e0e0;
+  max-width: 800px;
+  margin: 32px auto;
+  padding: 24px;
   background: #f9f9f9;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
 }
 
 .share-section-title {
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 12px;
   color: #000;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
 .share-link-box {
   display: flex;
-  gap: 8px;
-  margin-bottom: 8px;
+  gap: 12px;
+  margin-bottom: 12px;
 }
 
 .share-input {
   flex: 1;
-  padding: 10px 12px;
-  border: 1px solid #333;
-  border-radius: 4px;
+  padding: 12px 16px;
+  border: 2px solid #333;
+  border-radius: 6px;
   font-size: 13px;
-  font-family: monospace;
+  font-family: 'Courier New', monospace;
   background: #fff;
 }
 
 .btn-copy {
-  padding: 10px 20px;
+  padding: 12px 20px;
   background: #000;
   color: #fff;
   border: none;
-  border-radius: 4px;
-  font-size: 13px;
-  font-weight: 600;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
   cursor: pointer;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
 }
 
 .btn-copy:hover {
@@ -584,50 +667,16 @@
 }
 
 .share-description {
-  font-size: 12px;
+  font-size: 13px;
   color: #666;
+  line-height: 1.5;
 }
 
-/* EMPTY STATE */
-.safer-empty-state {
-  padding: 40px 16px;
-  text-align: center;
-}
-
-.safer-empty-text {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 20px;
-}
-
-@media (max-width: 480px) {
-  .safer-title {
-    font-size: 20px;
-  }
-  
-  .safer-comparison {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-  
-  .safer-footer-actions {
-    padding: 12px;
-  }
-  
-  .share-link-box {
-    flex-direction: column;
-  }
-  
-  .btn-copy {
-    width: 100%;
-  }
-}
-
-/* SCROLL TO TOP BUTTON */
+/* SCROLL TO TOP */
 .scroll-to-top {
   position: fixed;
   bottom: 90px;
-  right: 0px;
+  right: 20px;
   width: 48px;
   height: 48px;
   background: #000;
@@ -638,11 +687,11 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   opacity: 0;
   visibility: hidden;
   transform: translateY(20px);
-  transition: all 0.3s ease;
+  transition: all 0.3s;
   z-index: 1000;
 }
 
@@ -654,279 +703,104 @@
 
 .scroll-to-top:hover {
   background: #333;
+  transform: scale(1.1);
 }
 
 .scroll-to-top i {
   font-size: 20px;
 }
 
-@media (min-width: 992px) {
-  /* Hide mobile navigation */
-  #mobile-nav {
-    display: none !important;
-  }
-  
-  .page-header {
-    display: none !important;
-  }
-  
-  #desktop-nav {
-    display: block !important;
-  }
-
-  /* Main container */
+/* TABLET & MOBILE RESPONSIVE */
+@media (max-width: 768px) {
   .bet-safer-page {
-    max-width: 1400px;
-    margin-top: 60px;
-    padding: 40px 60px 80px;
+    /* padding: 12px; */
   }
 
-  /* Header */
-  .safer-header {
-    padding: 40px 40px 30px;
-    border-radius: 8px;
-    margin-bottom: 30px;
-  }
-
-  .safer-title {
-    font-size: 36px;
-  }
-
-  .safer-subtitle {
-    font-size: 15px;
-  }
-
-  /* Input Section */
   .safer-input-section {
-    padding: 40px;
-    border-radius: 8px;
-    margin-bottom: 40px;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 16px;
   }
 
   .safer-input-tabs {
-    gap: 12px;
-    margin-bottom: 30px;
-    overflow-x: visible;
+    grid-template-columns: 1fr 1fr;
   }
 
   .safer-input-tab {
-    padding: 12px 24px;
-    font-size: 14px;
-  }
-
-  .safer-input-tab:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  }
-
-  .safer-form-group {
-    margin-bottom: 24px;
-  }
-
-  .safer-form-label {
+    padding: 10px 12px;
     font-size: 13px;
-    margin-bottom: 8px;
   }
 
-  .safer-form-input,
-  .safer-form-select {
-    padding: 14px 16px;
-    font-size: 15px;
-  }
-
-  .safer-paste-btn {
-    padding: 14px 16px;
-  }
-
-  .safer-upload-area {
-    padding: 60px 40px;
-    border-radius: 8px;
-  }
-
-  .safer-upload-area:hover {
-    transform: scale(1.01);
-  }
-
-  .safer-analyze-btn {
-    padding: 16px;
-    font-size: 16px;
-    border-radius: 8px;
-  }
-
-  .safer-analyze-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  }
-
-  /* Results Section - Two Column Layout */
-  .safer-results {
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-
-  .safer-selection-card {
-    border-radius: 8px;
-    margin-bottom: 0;
-    transition: all 0.3s ease;
-  }
-
-  .safer-selection-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-  }
-
-  .safer-selection-header {
-    padding: 16px 24px;
-  }
-
-  .safer-selection-body {
-    padding: 24px;
-  }
-
-  .original-pick {
-    margin-bottom: 24px;
-    padding-bottom: 24px;
-  }
-
-  .pick-teams {
-    font-size: 16px;
+  .pick-info {
+    flex-direction: column;
+    gap: 12px;
   }
 
   .pick-odds {
     font-size: 20px;
   }
 
-  .safer-alternative {
-    padding: 24px;
-    border-radius: 8px;
-    margin-bottom: 24px;
-  }
-
   .safer-comparison {
-    gap: 16px;
-    padding: 16px;
+    gap: 10px;
+    padding: 12px;
   }
 
   .comparison-value {
-    font-size: 22px;
-  }
-
-  .safer-actions {
-    gap: 12px;
-  }
-
-  .btn-accept,
-  .btn-keep {
-    padding: 12px 16px;
-    font-size: 14px;
-  }
-
-  .btn-accept:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  }
-
-  .btn-keep:hover {
-    transform: translateY(-2px);
-  }
-
-  .odds-comparison {
-    padding: 20px;
-    border-radius: 8px;
-  }
-
-  .bookie-row {
-    padding: 14px 16px;
-    border-radius: 4px;
-  }
-
-  .bookie-row:hover {
-    background: #f5f5f5;
-  }
-
-  /* Footer Actions */
-  .safer-footer-actions {
-    padding: 40px;
-    flex-direction: row;
-    gap: 16px;
-    max-width: 1400px;
-    margin: 40px auto 0;
-    border-radius: 8px;
-  }
-
-  .safer-footer-btn {
-    padding: 16px 24px;
-    font-size: 15px;
-    border-radius: 8px;
-  }
-
-  .safer-footer-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  }
-
-  /* Share Section */
-  .safer-share-section {
-    padding: 30px 40px;
-    max-width: 1000px;
-    margin: 0 auto;
-    border-radius: 8px;
+    font-size: 20px;
   }
 
   .share-link-box {
-    gap: 12px;
-  }
-
-  .share-input {
-    padding: 14px 16px;
+    flex-direction: column;
   }
 
   .btn-copy {
-    padding: 14px 24px;
+    width: 100%;
+  }
+}
+
+/* DESKTOP RESPONSIVE */
+@media (min-width: 992px) {
+  .bet-safer-page {
+    /* padding: 40px 60px 80px; */
   }
 
-  /* Empty State */
-  .safer-empty-state {
-    padding: 80px 40px;
+  .safer-input-section {
+    /* padding: 32px; */
   }
 
-  .safer-empty-text {
-    font-size: 16px;
+  .safer-input-tabs {
+    grid-template-columns: repeat(4, 1fr);
   }
 
-  /* Scroll to top button */
+  .safer-results {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .safer-selection-card {
+    margin-bottom: 0;
+  }
+
+  .safer-footer-actions {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 24px;
+  }
+
   .scroll-to-top {
     bottom: 40px;
     right: 40px;
     width: 56px;
     height: 56px;
   }
-
-  .scroll-to-top:hover {
-    transform: translateY(-4px);
-  }
 }
 
-/* Large Desktop - Single Row for all cards */
+/* LARGE DESKTOP */
 @media (min-width: 1400px) {
   .bet-safer-page {
     max-width: 1600px;
-    padding: 50px 80px 100px;
-  }
-
-  .safer-title {
-    font-size: 42px;
+    /* margin: 0 auto; */
   }
 
   .safer-results {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
+    gap: 32px;
   }
 }

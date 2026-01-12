@@ -1,0 +1,478 @@
+.desktop-header {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 60px;
+  transition: all 0.3s ease;
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, 1400px) 1fr;
+}
+
+.desktop-header.scrolled {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.desktop-header-container {
+  grid-column: 2;
+  padding: 0 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Left Section - Menu + Logo */
+.desktop-header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.desktop-menu-toggle {
+  background: transparent;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.desktop-menu-toggle:hover {
+  background: #f5f5f5;
+}
+
+.desktop-menu-toggle:active {
+  transform: scale(0.95);
+}
+
+.desktop-menu-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: all 0.3s ease;
+}
+
+.desktop-menu-icon span {
+  width: 100%;
+  height: 3px;
+  background: #000000;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.desktop-menu-toggle.active .desktop-menu-icon span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.desktop-menu-toggle.active .desktop-menu-icon span:nth-child(2) {
+  opacity: 0;
+}
+
+.desktop-menu-toggle.active .desktop-menu-icon span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.desktop-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #000000;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.desktop-logo:hover {
+  opacity: 0.8;
+}
+
+.desktop-logo-img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.desktop-logo:hover .desktop-logo-img {
+  transform: scale(1.05);
+}
+
+.desktop-logo-text {
+  font-size: 22px;
+  font-weight: 700;
+  color: #000000;
+}
+
+/* Right Section - Search + Auth Buttons */
+.desktop-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Search Button */
+.desktop-search-btn {
+  background: transparent;
+  border: 1px solid #e0e0e0;
+  padding: 10px 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #666666;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.desktop-search-btn:hover {
+  background: #f5f5f5;
+  border-color: #d0d0d0;
+  color: #000000;
+}
+
+.desktop-search-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Login Button */
+.desktop-login-btn {
+  background: transparent;
+  border: 1px solid #e0e0e0;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.desktop-login-btn:hover {
+  background: #f5f5f5;
+  border-color: #d0d0d0;
+}
+
+/* Join Now Button - Highlighted */
+.desktop-join-btn {
+  background: #000;
+  border: none;
+  padding: 10px 24px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.desktop-join-btn:hover {
+  background: #fff;
+  color: #000000;
+  transform: translateY(-2px);
+}
+
+.desktop-join-btn:active {
+  transform: translateY(0);
+}
+
+/* Account Button */
+.desktop-account-btn {
+  background: #000;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.desktop-account-btn:hover {
+  background: #fff;
+  color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(44, 62, 80, 0.3);
+}
+
+.desktop-account-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Mobile Search Overlay */
+.desktop-search-overlay {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 15px 20px;
+  z-index: 999;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, 1400px) 1fr;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.desktop-search-overlay.active {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.desktop-search-overlay-content {
+  grid-column: 2;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.desktop-search-close {
+  background: transparent;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.desktop-search-close:hover {
+  background: #f5f5f5;
+}
+
+.desktop-search-close:active {
+  transform: scale(0.95);
+}
+
+.desktop-search-box {
+  width: 100%;
+  background: #f8f8f8;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  height: 45px;
+  transition: all 0.3s ease;
+}
+
+.desktop-search-box:focus-within {
+  background: #ffffff;
+  border-color: #7ed321;
+  box-shadow: 0 0 0 3px rgba(126, 211, 33, 0.1);
+}
+
+.desktop-search-icon {
+  width: 20px;
+  height: 20px;
+  color: #666666;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.desktop-search-box:focus-within .desktop-search-icon {
+  color: #7ed321;
+}
+
+.desktop-search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+  color: #000000;
+}
+
+.desktop-search-input::placeholder {
+  color: #999999;
+}
+
+.desktop-search-filter {
+  background: transparent;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  color: #666666;
+  margin-left: 10px;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.desktop-search-filter:hover {
+  background: #e0e0e0;
+  color: #000000;
+}
+
+/* Responsive - Large Tablets */
+@media (max-width: 1400px) {
+  .desktop-header {
+    grid-template-columns: 0 1fr 0;
+  }
+}
+
+@media (max-width: 1200px) {
+  .desktop-header {
+    grid-template-columns: 1fr;
+  }
+  
+  .desktop-header-container {
+    grid-column: 1;
+  }
+  
+  .desktop-search-overlay {
+    grid-template-columns: 1fr;
+  }
+  
+  .desktop-search-overlay-content {
+    grid-column: 1;
+  }
+}
+
+/* Responsive - Tablets */
+@media (max-width: 991px) {
+  .desktop-search-btn span {
+    display: none;
+  }
+  
+  .desktop-search-btn {
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 768px) {
+  .desktop-header {
+    height: 55px;
+  }
+  
+  .desktop-search-overlay {
+    top: 55px;
+  }
+  
+  .desktop-header-container {
+    padding: 0 15px;
+  }
+  
+  .desktop-header-left {
+    gap: 12px;
+  }
+  
+  .desktop-logo-text {
+    font-size: 18px;
+  }
+  
+  .desktop-header-right {
+    gap: 8px;
+  }
+  
+  .desktop-login-btn,
+  .desktop-account-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+  
+  .desktop-join-btn {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+  
+  .desktop-account-btn span {
+    display: none;
+  }
+}
+
+/* Responsive - Small Mobile */
+@media (max-width: 480px) {
+  .desktop-header {
+    height: 50px;
+  }
+  
+  .desktop-search-overlay {
+    top: 50px;
+  }
+
+  .desktop-logo-img {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .desktop-logo-text {
+    font-size: 16px;
+  }
+  
+  .desktop-menu-toggle {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .desktop-menu-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .desktop-header-right {
+    gap: 6px;
+  }
+  
+  .desktop-login-btn {
+    display: none;
+  }
+  
+  .desktop-join-btn {
+    padding: 8px 12px;
+    font-size: 11px;
+  }
+  
+  .desktop-search-btn {
+    padding: 8px;
+    width: 36px;
+    height: 36px;
+  }
+  
+  .desktop-account-btn {
+    padding: 8px;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* Hide header on scroll down, show on scroll up */
+.desktop-header.hide-on-scroll {
+  transform: translateY(-100%);
+}
+
+.desktop-header.show-on-scroll {
+  transform: translateY(0);
+}

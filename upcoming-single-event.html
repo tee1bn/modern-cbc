@@ -14,42 +14,46 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&amp;family=SUSE:wght@100..800&amp;display=swap"
       rel="stylesheet"
     />
-    <style>
-      :root {
-        --adminuiux-content-font: "Open Sans", sans-serif;
-        --adminuiux-content-font-weight: 400;
-        --adminuiux-title-font: "SUSE", sans-serif;
-        --adminuiux-title-font-weight: 600;
-      }
-    </style>
     <script defer src="assets/js/app8051.js?bd1e16b080f637e63a80"></script>
     <link href="assets/css/app8051.css?bd1e16b080f637e63a80" rel="stylesheet" />
-    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/desktop.css" />
+    <link rel="stylesheet" href="assets/css/tab-nav.css" />
+    <link rel="stylesheet" href="assets/css/side-menu.css" />
+    <link rel="stylesheet" href="assets/css/footer.css" />
     <link rel="stylesheet" href="/assets/css/betslip-rail.css" />
     <link rel="stylesheet" href="./assets/css/upcoming-single-event.css" />
   </head>
 
-  <body
-    class="main-bg main-bg-opac adminuiux-header-standard theme-blue adminuiux-header-transparent adminuiux-sidebar-fill-white adminuiux-sidebar-standard bg-r-gradient scrollup"
-    data-theme="theme-blue"
-    data-sidebarfill="adminuiux-sidebar-fill-white"
-    data-sidebarlayout="adminuiux-sidebar-standard"
-    data-bs-spy="scroll"
-    data-bs-target="#list-example"
-    data-bs-smooth-scroll="true"
-    tabindex="0"
-    data-headerlayout="adminuiux-header-standard"
-    data-bggradient="bg-r-gradient"
-    data-headerfill="adminuiux-header-transparent"
-  >
+  <body>
+   <div id="desktop-nav"></div>
 
-    <div id="desktop-nav"></div>
+    <div id="tabsnav"></div>
+
     <div id="side-menu"></div>
 
-    <!-- main content -->
     <div class="adminuiux-wrap">
-      <main class="adminuiux-content has-sidebar" onclick="contentClick()">
-        <!-- Event Header -->
+      <aside class="ad-sidebar-left">
+        <div class="ad-container large">
+          <div class="ad-placeholder">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <rect
+                x="3"
+                y="3"
+                width="18"
+                height="18"
+                rx="2"
+                stroke-width="2"
+              />
+            </svg>
+            <p>Ad Space<br />300 x 600</p>
+          </div>
+        </div>
+      </aside>
+
+      <main class="adminuiux-content">
+        <div class="markets-container">
+
         <div class="event-header" id="eventHeader">
           <div class="header-top">
             <button class="header-back" onclick="history.back()">
@@ -59,15 +63,6 @@
             <div class="header-logo">
               <span class="header-title">Details</span>
               <span class="header-match-name">Leeds United vs Man Utd</span>
-            </div>
-
-            <div class="header-actions">
-              <button class="header-btn">
-                <i class="bi bi-search"></i>
-              </button>
-              <button class="header-btn">
-                <i class="bi bi-house"></i>
-              </button>
             </div>
           </div>
 
@@ -140,8 +135,6 @@
             <button class="market-tab">Specials</button>
           </div>
         </div>
-
-        <div class="markets-container">
           <!-- 1X2 Market -->
           <div class="market-group" data-market="1x2">
             <div class="market-header" onclick="toggleMarket(this)">
@@ -513,29 +506,37 @@
           </div>
         </div>
       </main>
+
+      <aside class="sidebar-right">
+        <div id="betslip-rail"></div>
+      </aside>
+
+      <aside class="ad-sidebar-right">
+        <div class="ad-container large">
+          <div class="ad-placeholder">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <rect
+                x="3"
+                y="3"
+                width="18"
+                height="18"
+                rx="2"
+                stroke-width="2"
+              />
+            </svg>
+            <p>Ad Space<br />300 x 600</p>
+          </div>
+        </div>
+      </aside>
     </div>
 
-    <div id="marketInfoModal" class="market-info-modal">
-      <div class="market-info-modal-content">
-        <div class="market-info-modal-header">
-          <h2 id="marketInfoTitle"></h2>
-          <button class="market-info-close">&times;</button>
-        </div>
-        <div class="market-info-modal-body">
-          <p id="marketInfoDescription"></p>
-        </div>
-      </div>
-    </div>
-
-     <div id="betslip-rail"></div>
-    <div id="filter-canvas"></div>
     <div id="footer"></div>
     <div id="mobile-nav"></div>
 
     <script src="assets/js/adminux/adminux-dashboard.js"></script>
     <script src="./components/AppLayout.js"></script>
     <script src="./components/betslip-rail.js"></script>
-        <script src="./components/market-edit-modal.js"></script>
     <script src="assets/js/upcoming-single-event.js"></script>
+    <script src="assets/js/app.js"></script>
   </body>
 </html>

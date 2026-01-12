@@ -1,4 +1,3 @@
-/* CONVERT PAGE - BLACK & WHITE - PHASE 1 IMPROVEMENTS */
 .convert-page {
   font-family: var(--adminuiux-content-font, 'Open Sans', sans-serif);
   background: #fff;
@@ -19,7 +18,7 @@
   background: #fff;
   color: #000;
   border: 1px solid #333;
-  border-radius: 0; /* Square corners */
+  border-radius: 0;
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
@@ -84,7 +83,7 @@
 /* CONTENT SECTIONS */
 .content-section {
   display: none;
-  padding: 20px; /* Reduced from 24px */
+  /* padding: 20px; */
 }
 
 .content-section.active {
@@ -94,26 +93,26 @@
 .content-section h2 {
   font-size: 20px;
   font-weight: 700;
-  margin: 0 0 4px 0; /* Reduced spacing */
+  margin: 0 0 4px 0;
   color: #000;
 }
 
 .content-section p {
   font-size: 14px;
   color: #666;
-  margin: 0 0 16px 0; /* Reduced spacing */
+  margin: 0 0 16px 0;
 }
 
 /* FORM ELEMENTS */
 .form-group {
-  margin-bottom: 16px; /* Reduced from 20px */
+  margin-bottom: 16px;
 }
 
 .form-group label {
   display: block;
   font-size: 12px;
   font-weight: 600;
-  margin-bottom: 6px; /* Reduced from 8px */
+  margin-bottom: 6px;
   color: #333;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -131,7 +130,7 @@ input[type="url"] {
   padding: 10px 12px;
   border: 1px solid #333;
   border-right: none;
-  border-radius: 0; /* Square corners */
+  border-radius: 0;
   font-size: 14px;
   background: #fff;
   color: #000;
@@ -149,7 +148,7 @@ input[type="url"]:focus {
   background: #fff;
   border: 1px solid #333;
   border-left: none;
-  border-radius: 0; /* Square corners */
+  border-radius: 0;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -170,7 +169,7 @@ select {
   width: 100%;
   padding: 10px 12px;
   border: 1px solid #333;
-  border-radius: 0; /* Square corners */
+  border-radius: 0;
   font-size: 14px;
   background: #fff;
   color: #000;
@@ -184,13 +183,13 @@ select:focus {
 /* UPLOAD AREA */
 .upload-area {
   border: 2px dashed #333;
-  border-radius: 0; /* Square corners */
-  padding: 32px 20px; /* Reduced from 40px */
+  border-radius: 0;
+  padding: 32px 20px;
   text-align: center;
   background: #fafafa;
   cursor: pointer;
   transition: all 0.2s;
-  margin-bottom: 16px; /* Reduced from 20px */
+  margin-bottom: 16px;
 }
 
 .upload-area:hover {
@@ -223,7 +222,7 @@ select:focus {
   padding: 8px 20px;
   background: #000;
   color: #fff;
-  border-radius: 0; /* Square corners */
+  border-radius: 0;
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
@@ -241,7 +240,7 @@ select:focus {
   background: #000;
   color: #fff;
   border: none;
-  border-radius: 0; /* Square corners */
+  border-radius: 0;
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
@@ -274,7 +273,7 @@ select:focus {
 /* RESPONSIVE ADJUSTMENTS */
 @media (max-width: 480px) {
   .content-section {
-    padding: 16px; /* Reduced for mobile */
+    padding: 16px;
   }
   
   .content-section h2 {
@@ -285,11 +284,6 @@ select:focus {
     margin-bottom: 14px;
   }
 }
-
-
-/* .adminuiux-content {
-  margin-top: 70px;
-} */
 
 /* Page Header Styles */
 .page-header {
@@ -330,7 +324,7 @@ select:focus {
   flex-grow: 1;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1400px) {
   .page-header {
     display: none;
   }
@@ -343,27 +337,11 @@ select:focus {
     display: flex;
   }
 
-  /* CENTER THE CARD */
-  .adminuiux-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 40px 20px;
-  }
-
-  .adminuiux-content {
-    margin-top: 0 !important; 
-  }
-
-  .adminuiux-wrap {
-    min-height: 100vh;
-  }
-
   .content-card {
-    max-width: 900px;
+    max-width: 1000px;
     width: 100%;
-    margin: 0 ;
+    margin-left: 0;
+    margin-right: 0;
   }
   
   .content-section {
@@ -380,6 +358,20 @@ select:focus {
   .form-group-row .form-group {
     margin-bottom: 0;
   }
+
+  .sidebar-right {
+    display: none !important;
+  }
+
+  .adminuiux-content {
+    width: calc(100% - 600px) !important; 
+    margin-right: 300px !important; 
+  }
+
+  .footer-main {
+     width: calc(100% - 600px) !important; 
+  }
+
 }
 
 /* Mobile Styles */
@@ -392,4 +384,3 @@ select:focus {
     padding-top: 0;
   }
 }
-

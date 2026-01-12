@@ -1,9 +1,9 @@
-// FREE BET CODES - UPDATED TO MATCH CODE HUB DESIGN
+
 
 (function() {
   'use strict';
 
-  // ==================== FILTER OPTIONS (CODE HUB STYLE) ====================
+
   const filterOptions = {
     time: [
       'All',
@@ -166,9 +166,9 @@
 
   const allCodes = [...mockFreeCodes, ...mockConvertedCodes];
 
-  // ==================== RENDER FILTERS (CODE HUB STYLE) ====================
+
   function renderFilters() {
-    // Time filter
+
     const timeList = document.getElementById('time-list');
     if (timeList) {
       timeList.innerHTML = filterOptions.time.map(option => `
@@ -261,7 +261,6 @@
     });
   }
 
-  // ==================== FILTER MODAL CONTROLS ====================
   function openFilter(filterType) {
     const modal = document.getElementById(`${filterType}-modal`);
     if (modal) {
@@ -288,6 +287,7 @@
     renderCodes();
     console.log('Applied filters:', filters);
   }
+
   function renderCodes() {
     const container = document.getElementById('codes-list');
     if (!container) return;
@@ -562,10 +562,10 @@
         window.betslipRail.flashBadge();
       }
 
-      // Show success
+      // Show dark
       setTimeout(() => {
         button.classList.remove('loading');
-        button.classList.add('success');
+        button.classList.add('dark');
         button.innerHTML = `<i class="bi bi-check-circle"></i> Added ${addedCount}!`;
 
         // Open betslip
@@ -577,7 +577,7 @@
 
         // Reset button
         setTimeout(() => {
-          button.classList.remove('success');
+          button.classList.remove('dark');
           button.disabled = false;
           button.innerHTML = originalText;
         }, 2000);

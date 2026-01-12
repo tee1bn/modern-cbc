@@ -20,66 +20,77 @@
     </style>
     <script defer src="assets/js/app8051.js?bd1e16b080f637e63a80"></script>
     <link href="assets/css/app8051.css?bd1e16b080f637e63a80" rel="stylesheet" />
-    <link rel="stylesheet" href="./assets/css/main.css" />
-    <link rel="stylesheet" href="./assets/css/predictions.css" />
-    <link rel="stylesheet" href="./assets/css/predictions-filters.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/desktop.css" />
+    <link rel="stylesheet" href="assets/css/tab-nav.css" />
+    <link rel="stylesheet" href="assets/css/side-menu.css" />
+    <link rel="stylesheet" href="assets/css/footer.css" />
     <link rel="stylesheet" href="./assets/css/betslip-rail.css" />
+    <link rel="stylesheet" href="./assets/css/predictions.css" />
+
   </head>
 
-  <body
-    class="main-bg main-bg-opac adminuiux-header-standard theme-blue adminuiux-header-transparent adminuiux-sidebar-fill-white adminuiux-sidebar-standard bg-r-gradient scrollup"
-  >
+  <body>
     <div id="desktop-nav"></div>
+
+     <div id="tabsnav"></div>
+
     <div id="side-menu"></div>
 
     <div class="adminuiux-wrap">
-      <main class="adminuiux-content has-sidebar" onclick="contentClick()">
-        <div class="predictions-page">
-          <div class="page-header">
-            <button class="back-btn" onclick="navigateTo('convert.html')">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
+      <aside class="ad-sidebar-left">
+        <div class="ad-container large">
+          <div class="ad-placeholder">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <rect
+                x="3"
+                y="3"
+                width="18"
+                height="18"
+                rx="2"
                 stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M15 18l-6-6 6-6" />
-              </svg>
-            </button>
-            <h1 class="page-title">Free Predictions</h1>
-            <button class="home-btn" onclick="navigateTo('index.html')">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                <polyline points="9 22 9 12 15 12 15 22" />
-              </svg>
-            </button>
+              />
+            </svg>
+            <p>Ad Space<br />300 x 600</p>
           </div>
+        </div>
+      </aside>
 
-          <!-- Sport Tabs with Icons -->
-          <div class="sport-filter-tabs" id="sport-tabs">
-            <div class="sport-filter-tab active" data-sport="football">
-              <i class="bi bi-dribbble"></i> Football
-            </div>
-            <div class="sport-filter-tab" data-sport="basketball">
-              <i class="bi bi-basket"></i> Basketball
-            </div>
-            <div class="sport-filter-tab" data-sport="tennis">
-              <i class="bi bi-trophy"></i> Tennis
+      <main class="adminuiux-content">
+        <div class="predictions-page">
+
+          <div class="sports-bar-wrapper">
+            <div class="sports-selector">
+              <input type="checkbox" id="sports-toggle" />
+              <label for="sports-toggle" class="sports-selector-label">
+                <div class="sports-selector-text">
+                  <span class="sports-selector-icon"
+                    ><i class="bi bi-dribbble"></i
+                  ></span>
+                  <span>Football</span>
+                </div>
+                <span class="sports-dropdown-arrow">
+                  <i class="bi bi-chevron-down"></i>
+                </span>
+              </label>
+
+              <div class="sports-dropdown-menu">
+                <a href="#" class="sports-dropdown-item">
+                  <span><i class="bi bi-dribbble"></i></span> Football
+                </a>
+                <a href="#" class="sports-dropdown-item">
+                  <span><i class="bi bi-dribbble"></i></span> Basketball
+                </a>
+                <a href="#" class="sports-dropdown-item">
+                  <span><i class="bi bi-dribbble"></i></span> Tennis
+                </a>
+                <a href="#" class="sports-dropdown-item">
+                  <span><i class="bi bi-dribbble"></i></span> Hockey
+                </a>
+                <a href="#" class="sports-dropdown-item active">
+                  <span><i class="bi bi-dribbble"></i></span> Volleyball
+                </a>
+              </div>
             </div>
           </div>
 
@@ -374,150 +385,192 @@
           </div>
         </div>
       </main>
-    </div>
 
-    <!-- Time Filter Modal -->
-    <div class="pred-filter-modal" id="time-modal">
-      <div class="pred-filter-modal-content">
-        <div class="pred-filter-modal-header">
-          <h3 class="pred-filter-modal-title">Time</h3>
-          <button class="pred-filter-close" onclick="closePredFilter('time')">
-            <i class="bi bi-x-lg"></i>
-          </button>
-        </div>
-        <div class="pred-filter-modal-body" id="time-list"></div>
-        <div class="pred-filter-modal-footer">
-          <button class="pred-filter-cancel" onclick="closePredFilter('time')">
-            Cancel
-          </button>
-          <button class="pred-filter-apply" onclick="applyPredFilter('time')">
-            Apply
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Market Filter Modal -->
-    <div class="pred-filter-modal" id="market-modal">
-      <div class="pred-filter-modal-content">
-        <div class="pred-filter-modal-header">
-          <h3 class="pred-filter-modal-title">Select Market</h3>
-          <button class="pred-filter-close" onclick="closePredFilter('market')">
-            <i class="bi bi-x-lg"></i>
-          </button>
-        </div>
-        <div class="pred-filter-modal-body" id="market-list"></div>
-        <div class="pred-filter-modal-footer">
-          <button
-            class="pred-filter-cancel"
-            onclick="closePredFilter('market')"
-          >
-            Cancel
-          </button>
-          <button class="pred-filter-apply" onclick="applyPredFilter('market')">
-            Apply
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- League Filter Modal -->
-    <div class="pred-filter-modal" id="league-modal">
-      <div class="pred-filter-modal-content">
-        <div class="pred-filter-modal-header">
-          <h3 class="pred-filter-modal-title">Leagues</h3>
-          <button class="pred-filter-close" onclick="closePredFilter('league')">
-            <i class="bi bi-x-lg"></i>
-          </button>
-        </div>
-        <div class="pred-filter-modal-body" id="league-list"></div>
-        <div class="pred-filter-modal-footer">
-          <button
-            class="pred-filter-cancel"
-            onclick="closePredFilter('league')"
-          >
-            Cancel
-          </button>
-          <button class="pred-filter-apply" onclick="applyPredFilter('league')">
-            Apply
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Odds Filter Modal -->
-    <div class="pred-filter-modal" id="odds-modal">
-      <div class="pred-filter-modal-content">
-        <div class="pred-filter-modal-header">
-          <h3 class="pred-filter-modal-title">Odds</h3>
-          <button class="pred-filter-close" onclick="closePredFilter('odds')">
-            <i class="bi bi-x-lg"></i>
-          </button>
-        </div>
-        <div class="pred-filter-modal-body">
-          <div class="pred-odds-filter-content">
-            <div class="pred-odds-values">
-              <div class="pred-odds-value-item">
-                <span class="pred-odds-value-label">Min</span>
-                <span class="pred-odds-value-number" id="pred-odds-min-value"
-                  >1.0</span
-                >
-              </div>
-              <div class="pred-odds-value-item">
-                <span class="pred-odds-value-label">Max</span>
-                <span class="pred-odds-value-number" id="pred-odds-max-value"
-                  >10.0</span
-                >
-              </div>
-            </div>
-
-            <div class="pred-odds-slider-container">
-              <div class="pred-odds-slider-track">
-                <div
-                  class="pred-odds-slider-progress"
-                  id="pred-odds-progress"
-                ></div>
-              </div>
-              <input
-                type="range"
-                min="1"
-                max="10"
-                step="0.1"
-                value="1"
-                class="pred-odds-slider"
-                id="pred-odds-min"
-              />
-              <input
-                type="range"
-                min="1"
-                max="10"
-                step="0.1"
-                value="10"
-                class="pred-odds-slider"
-                id="pred-odds-max"
-              />
-            </div>
+      <!-- Time Filter Modal -->
+      <div class="pred-filter-modal" id="time-modal">
+        <div class="pred-filter-modal-content">
+          <div class="pred-filter-modal-header">
+            <h3 class="pred-filter-modal-title">Time</h3>
+            <button class="pred-filter-close" onclick="closePredFilter('time')">
+              <i class="bi bi-x-lg"></i>
+            </button>
+          </div>
+          <div class="pred-filter-modal-body" id="time-list"></div>
+          <div class="pred-filter-modal-footer">
+            <button
+              class="pred-filter-cancel"
+              onclick="closePredFilter('time')"
+            >
+              Cancel
+            </button>
+            <button class="pred-filter-apply" onclick="applyPredFilter('time')">
+              Apply
+            </button>
           </div>
         </div>
-        <div class="pred-filter-modal-footer">
-          <button class="pred-filter-cancel" onclick="closePredFilter('odds')">
-            Cancel
-          </button>
-          <button class="pred-filter-apply" onclick="applyPredFilter('odds')">
-            Apply
-          </button>
+      </div>
+
+      <!-- Market Filter Modal -->
+      <div class="pred-filter-modal" id="market-modal">
+        <div class="pred-filter-modal-content">
+          <div class="pred-filter-modal-header">
+            <h3 class="pred-filter-modal-title">Select Market</h3>
+            <button
+              class="pred-filter-close"
+              onclick="closePredFilter('market')"
+            >
+              <i class="bi bi-x-lg"></i>
+            </button>
+          </div>
+          <div class="pred-filter-modal-body" id="market-list"></div>
+          <div class="pred-filter-modal-footer">
+            <button
+              class="pred-filter-cancel"
+              onclick="closePredFilter('market')"
+            >
+              Cancel
+            </button>
+            <button
+              class="pred-filter-apply"
+              onclick="applyPredFilter('market')"
+            >
+              Apply
+            </button>
+          </div>
         </div>
       </div>
+
+      <!-- League Filter Modal -->
+      <div class="pred-filter-modal" id="league-modal">
+        <div class="pred-filter-modal-content">
+          <div class="pred-filter-modal-header">
+            <h3 class="pred-filter-modal-title">Leagues</h3>
+            <button
+              class="pred-filter-close"
+              onclick="closePredFilter('league')"
+            >
+              <i class="bi bi-x-lg"></i>
+            </button>
+          </div>
+          <div class="pred-filter-modal-body" id="league-list"></div>
+          <div class="pred-filter-modal-footer">
+            <button
+              class="pred-filter-cancel"
+              onclick="closePredFilter('league')"
+            >
+              Cancel
+            </button>
+            <button
+              class="pred-filter-apply"
+              onclick="applyPredFilter('league')"
+            >
+              Apply
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Odds Filter Modal -->
+      <div class="pred-filter-modal" id="odds-modal">
+        <div class="pred-filter-modal-content">
+          <div class="pred-filter-modal-header">
+            <h3 class="pred-filter-modal-title">Odds</h3>
+            <button class="pred-filter-close" onclick="closePredFilter('odds')">
+              <i class="bi bi-x-lg"></i>
+            </button>
+          </div>
+          <div class="pred-filter-modal-body">
+            <div class="pred-odds-filter-content">
+              <div class="pred-odds-values">
+                <div class="pred-odds-value-item">
+                  <span class="pred-odds-value-label">Min</span>
+                  <span class="pred-odds-value-number" id="pred-odds-min-value"
+                    >1.0</span
+                  >
+                </div>
+                <div class="pred-odds-value-item">
+                  <span class="pred-odds-value-label">Max</span>
+                  <span class="pred-odds-value-number" id="pred-odds-max-value"
+                    >10.0</span
+                  >
+                </div>
+              </div>
+
+              <div class="pred-odds-slider-container">
+                <div class="pred-odds-slider-track">
+                  <div
+                    class="pred-odds-slider-progress"
+                    id="pred-odds-progress"
+                  ></div>
+                </div>
+                <input
+                  type="range"
+                  min="1"
+                  max="10"
+                  step="0.1"
+                  value="1"
+                  class="pred-odds-slider"
+                  id="pred-odds-min"
+                />
+                <input
+                  type="range"
+                  min="1"
+                  max="10"
+                  step="0.1"
+                  value="10"
+                  class="pred-odds-slider"
+                  id="pred-odds-max"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="pred-filter-modal-footer">
+            <button
+              class="pred-filter-cancel"
+              onclick="closePredFilter('odds')"
+            >
+              Cancel
+            </button>
+            <button class="pred-filter-apply" onclick="applyPredFilter('odds')">
+              Apply
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="sidebar-right">
+        <div id="betslip-rail"></div>
+      </aside>
+
+      <aside class="ad-sidebar-right">
+        <div class="ad-container large">
+          <div class="ad-placeholder">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <rect
+                x="3"
+                y="3"
+                width="18"
+                height="18"
+                rx="2"
+                stroke-width="2"
+              />
+            </svg>
+            <p>Ad Space<br />300 x 600</p>
+          </div>
+        </div>
+      </aside>
     </div>
 
     <div id="footer"></div>
     <div id="mobile-nav"></div>
-    <div id="betslip-rail"></div>
 
+    
     <script src="assets/js/adminux/adminux-dashboard.js"></script>
     <script src="./components/AppLayout.js"></script>
     <script src="assets/js/predictions-filters.js"></script>
     <script src="assets/js/prediction.js"></script>
     <script src="./components/betslip-rail.js"></script>
+    <script src="assets/js/app.js"></script>
+
   </body>
 </html>

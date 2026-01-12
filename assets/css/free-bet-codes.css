@@ -1,18 +1,15 @@
-/* FREE BET CODES PAGE - UPDATED TO MATCH CODE HUB */
-
 .free-codes-page {
   font-family: var(--adminuiux-content-font, "Open Sans", sans-serif);
   background: #fff;
 }
 
-/* ==================== HEADER ==================== */
 .codes-header {
   padding: 16px;
-  border-bottom: 2px solid #e0e0e0;
-  position: sticky; 
+  border-bottom: 1px solid #e0e0e0;
+  /* position: sticky; 
   top: 52px;
   z-index: 99;
-  background: white;
+  background: white; */
 }
 
 .codes-date {
@@ -45,7 +42,6 @@
   text-decoration: underline;
 }
 
-/* ==================== FILTER BAR (CODE HUB STYLE) ==================== */
 .hub-filters {
   background: white;
   padding: 12px 16px;
@@ -53,12 +49,11 @@
   gap: 8px;
   border-bottom: 1px solid #e0e0e0;
   overflow-x: auto;
-  scrollbar-width: none;
+  /* scrollbar-width: none;
   position: sticky;
   top: 162px; 
-  z-index: 98;
-  background: white;
-
+  z-index: 98; */
+  /* background: white; */
 }
 
 .hub-filters::-webkit-scrollbar {
@@ -69,7 +64,6 @@
   padding: 6px 16px;
   background: white;
   border: 1px solid #ddd;
-  border-radius: 4px;
   color: #333;
   font-size: 13px;
   font-weight: 600;
@@ -96,43 +90,26 @@
   border-bottom: 1px solid #e0e0e0;
 }
 
-.ad-placeholder {
-  width: 100%;
-  height: 100px;
-  background: #f5f5f5;
-  border: 2px dashed #ccc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #999;
-  font-size: 13px;
-  font-weight: 600;
-  border-radius: 4px;
-}
-
 /* ==================== CODES LIST ==================== */
 .codes-list {
-  padding: 12px 16px;
+  padding: 8px 12px;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-/* ==================== CODE CARD (CODE HUB STYLE) ==================== */
+/* ==================== CODE CARD ==================== */
 .code-card {
   background: white;
-  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   border: 1px solid #e0e0e0;
 }
 
 /* ==================== CODE HEADER ==================== */
 .code-header {
   background: #f5f5f5;
-  padding: 8px 12px;
+  padding: 12px 16px;
   display: flex;
-  /* flex-direction: column; */
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid #e0e0e0;
@@ -165,9 +142,8 @@
   font-size: 12px;
   font-weight: 600;
   color: #666;
-  padding: 4px 8px;
+  padding: 4px 10px;
   background: white;
-  border-radius: 4px;
   border: 1px solid #e0e0e0;
 }
 
@@ -205,10 +181,9 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 10px;
+  padding: 6px 12px;
   background: #fff;
   border: 1px solid #333;
-  border-radius: 4px;
   font-size: 12px;
   font-weight: 600;
 }
@@ -227,10 +202,10 @@
   color: #ff6b35;
 }
 
-/* ==================== CONVERTED CODE HEADER (IMPROVED SPACING) ==================== */
+/* ==================== CONVERTED CODE HEADER ==================== */
 .converted-header {
   background: #f5f5f5;
-  padding: 8px 12px;
+  padding: 12px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -316,7 +291,7 @@
 }
 
 .code-events.expanded {
-  max-height: 400px;
+  max-height: 600px;
   overflow-y: auto;
 }
 
@@ -330,7 +305,6 @@
 
 .code-events::-webkit-scrollbar-thumb {
   background: #ccc;
-  border-radius: 2px;
 }
 
 .code-event {
@@ -400,7 +374,6 @@
   flex: 1;
   padding: 10px;
   border: none;
-  border-radius: 4px;
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
@@ -459,7 +432,6 @@
   height: 14px;
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-top-color: white;
-  border-radius: 50%;
   animation: spin 0.6s linear infinite;
 }
 
@@ -474,7 +446,7 @@
 
 /* ==================== EXPAND/COLLAPSE TOGGLE ==================== */
 .code-expand-toggle {
-  padding: 8px 16px;
+  padding: 10px 16px;
   background: #fafafa;
   border: none;
   border-top: 1px solid #f0f0f0;
@@ -512,7 +484,7 @@
   flex-wrap: wrap;
   gap: 6px;
   padding: 20px 16px;
-  border-top: 2px solid #e0e0e0;
+  border-top: 1px solid #e0e0e0;
 }
 
 .codes-page-btn {
@@ -520,8 +492,7 @@
   height: 40px;
   padding: 8px 12px;
   background: #fff;
-  border: 2px solid #333;
-  border-radius: 4px;
+  border: 1px solid #333;
   font-size: 13px;
   font-weight: 600;
   color: #000;
@@ -554,7 +525,7 @@
   font-size: 14px;
 }
 
-/* ==================== FILTER MODALS (CODE HUB STYLE) ==================== */
+/* ==================== FILTER MODALS ==================== */
 .filter-modal {
   position: fixed;
   top: 0;
@@ -564,7 +535,8 @@
   background: rgba(0, 0, 0, 0.5);
   z-index: 1000;
   display: none;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
 }
 
 .filter-modal.active {
@@ -573,17 +545,17 @@
 
 .filter-modal-content {
   background: white;
-  width: 100%;
+  width: 90%;
+  max-width: 500px;
   max-height: 80vh;
-  border-radius: 16px 16px 0 0;
   display: flex;
   flex-direction: column;
-  animation: slideUp 0.3s ease;
+  animation: fadeIn 0.2s ease;
 }
 
-@keyframes slideUp {
-  from { transform: translateY(100%); }
-  to { transform: translateY(0); }
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 .filter-modal-header {
@@ -672,7 +644,6 @@
   flex: 1;
   padding: 10px;
   border: 1px solid #ddd;
-  border-radius: 4px;
   text-align: center;
   font-size: 14px;
 }
@@ -690,7 +661,6 @@
   width: 100%;
   height: 4px;
   background: #e0e0e0;
-  border-radius: 2px;
   outline: none;
   -webkit-appearance: none;
 }
@@ -700,7 +670,6 @@
   width: 20px;
   height: 20px;
   background: #2e7d32;
-  border-radius: 50%;
   cursor: pointer;
 }
 
@@ -708,7 +677,6 @@
   width: 20px;
   height: 20px;
   background: #2e7d32;
-  border-radius: 50%;
   cursor: pointer;
   border: none;
 }
@@ -731,7 +699,6 @@
 .filter-apply-btn {
   flex: 1;
   padding: 12px;
-  border-radius: 4px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -755,7 +722,7 @@
 }
 
 .filter-apply-btn:hover {
-  background: #1b5e20;
+  background: #1b1b1b;
 }
 
 /* ==================== RESPONSIVE ==================== */
@@ -770,7 +737,6 @@
 
   .converted-header {
     flex-direction: column;
-    /* align-items: flex-start; */
   }
 
   .converted-arrow-icon {
@@ -783,7 +749,6 @@
 
   .search-filter-content {
     max-height: 100vh;
-    border-radius: 0;
   }
 
   .codes-pagination {
@@ -800,18 +765,6 @@
 }
 
 @media (min-width: 992px) {
-  #mobile-nav,
-  .page-header {
-    display: none !important;
-  }
-
-  #desktop-nav {
-    display: block;
-  }
-
-  .free-codes-page {
-    margin-top: 60px;
-  }
   
   .free-codes-page .codes-header,
   .free-codes-page .hub-filters,
@@ -834,7 +787,7 @@
   }
 
   .free-codes-page .codes-list {
-    padding: 16px 32px;
+    padding: 8px 12px;
   }
 }
 
@@ -853,12 +806,5 @@
   .free-codes-page .codes-list,
   .free-codes-page .codes-pagination {
     max-width: 1600px;
-  }
-
-  .free-codes-page .codes-header,
-  .free-codes-page .hub-filters,
-  .free-codes-page .codes-list {
-    padding-left: 40px;
-    padding-right: 40px;
   }
 }

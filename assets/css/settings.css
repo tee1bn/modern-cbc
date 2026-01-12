@@ -532,7 +532,6 @@
 /* Tablets and Small Laptops */
 @media (min-width: 768px) {
   .settings-page {
-    max-width: 800px;
     margin: 0 auto;
   }
 
@@ -559,18 +558,15 @@
     }
     
     .save-btn {
-        max-width: 300px; /* Keep the existing max-width */
-        width: 100%; /* Ensure it takes full width of the footer */
+        max-width: 300px;
+        width: 100%; 
     }
 
     .settings-page {
-        margin-top: 100px;
-        padding-bottom: 120px; /* Add extra padding to prevent content being hidden behind footer */
+
+        padding-bottom: 120px;
     }
 
-    .settings-page {
-        margin-top: 100px;
-    }
   .page-header {
     padding: 16px 24px;
   }
@@ -592,6 +588,18 @@
     padding: 20px 24px;
   }
 
+  .sidebar-right {
+    display: none !important;
+  }
+
+  .adminuiux-content {
+    width: calc(100% - 600px) !important; 
+    margin-right: 300px !important; 
+  }
+
+  .footer-main {
+     width: calc(100% - 600px) !important; 
+  }
 
 }
 
