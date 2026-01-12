@@ -595,7 +595,7 @@ function renderRail() {
         </svg>
       </button>
     ` : ''}
-    <h1 class="page-title">Betslip (${bets.length})</h1>
+    <h1 class="page-title">Betslip ${bets.length}</h1>
     <div style="display: flex; align-items: center; gap: 8px;">
       <button class="rail-load-btn" id="rail-load-btn" title="Load New Bet Code">
         <i class="bi bi-download"></i>
