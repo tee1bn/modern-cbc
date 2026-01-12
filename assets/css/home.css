@@ -10,7 +10,6 @@ body {
   color: #000;
 }
 
-/* HERO SECTION - TWO COLUMN LAYOUT */
 .hero-section {
   background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 50%, #f0f0f0 100%);
   padding: 80px 20px;
@@ -19,7 +18,7 @@ body {
   overflow: hidden;
 }
 
-/* Subtle grid pattern overlay */
+
 .hero-section::before {
   content: '';
   position: absolute;
@@ -40,10 +39,14 @@ body {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20x;
+  gap: 40x;
   align-items: center;
   position: relative;
   z-index: 1;
+}
+
+.tabs-desktop {
+  display: none;
 }
 
 .tab-btn-desktop {
@@ -979,6 +982,7 @@ select:hover {
   .hero-container {
     grid-template-columns: 1fr;
     gap: 40px;
+    padding: 0 16px; 
   }
 
   .hero-content {
@@ -986,7 +990,7 @@ select:hover {
   }
 
   .hero-content h1 {
-    font-size: 32px;
+    font-size: 28px;
   }
 
   .features-list {
