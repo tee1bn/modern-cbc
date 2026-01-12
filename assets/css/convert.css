@@ -381,6 +381,6 @@ select:focus {
   }
 
   .content-section {
-    padding-top: 0;
+    padding: 10px;
   }
 }
