@@ -155,7 +155,7 @@ sideMenu: `
           <span class="side-menu-main-text">Home</span>
         </a>
         
-        <a class="side-menu-main-item"  onclick="navigateTo('convert.html')">
+        <a class="side-menu-main-item"  onclick="navigateTo('index.html')">
           <div class="side-menu-main-icon">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
@@ -382,7 +382,7 @@ tabsNav: `
             </div>
           </div> -->
 
-        <button class="tab-item" onclick="navigateTo('convert.html')">
+        <button class="tab-item" onclick="navigateTo('index.html')">
           <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
             <path
               d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"
