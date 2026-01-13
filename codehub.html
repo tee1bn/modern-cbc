@@ -6,14 +6,18 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>CodeHub - ConvertBetCodes</title>
+    <title>Code Hub - ConvertBetCodes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com/" />
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&amp;family=SUSE:wght@100..800&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&family=SUSE:wght@100..800&display=swap"
       rel="stylesheet"
     />
+    <style>
+      :root {
+        --adminuiux-content-font: "Open Sans", sans-serif;
+      }
+    </style>
     <script defer src="assets/js/app8051.js?bd1e16b080f637e63a80"></script>
     <link href="assets/css/app8051.css?bd1e16b080f637e63a80" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -22,10 +26,11 @@
     <link rel="stylesheet" href="assets/css/side-menu.css" />
     <link rel="stylesheet" href="assets/css/footer.css" />
     <link rel="stylesheet" href="assets/css/betslip-rail.css" />
-    <link rel="stylesheet" href="assets/css/code-hub.css" />
+    <link rel="stylesheet" href="assets/css/free-bet-codes.css" />
+    <link rel="stylesheet" href="components/layout/css/filters.css" />
   </head>
 
-  <body>
+  <body class="">
     <!-- desktop nav -->
     <header class="desktop-header">
       <div class="desktop-header-container">
@@ -188,7 +193,7 @@
             </div>
           </div> -->
 
-        <button class="tab-item" onclick="navigateTo('index.html')">
+        <button class="tab-item" onclick="navigateTo('convert.html')">
           <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
             <path
               d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"
@@ -663,7 +668,6 @@
       </div>
     </div>
 
-    <!-- content -->
     <div class="adminuiux-wrap">
       <aside class="ad-sidebar-left">
         <div class="ad-container large">
@@ -684,401 +688,870 @@
       </aside>
 
       <main class="adminuiux-content">
-        <!-- <div class="hub-header">
-          <button class="hub-back-btn" onclick="window.history.back()">
-            <i class="bi bi-chevron-left"></i>
-          </button>
-        </div> -->
-
-        <div class="hub-content" id="popular-content">
-          <!-- Filter Bar -->
-          <div class="hub-filters">
-            <button class="hub-filter-btn" id="time-filter-btn">
-              Time <i class="bi bi-chevron-down"></i>
-            </button>
-            <button class="hub-filter-btn" id="folds-filter-btn">
-              Folds <i class="bi bi-chevron-down"></i>
-            </button>
-            <button class="hub-filter-btn" id="odds-filter-btn">
-              Odds <i class="bi bi-chevron-down"></i>
-            </button>
-            <button class="hub-filter-btn" id="sort-filter-btn">
-              Sort <i class="bi bi-chevron-down"></i>
-            </button>
-          </div>
-
-          <!-- Codes List -->
-          <div class="hub-codes-list" id="codes-list" >
-            <!-- Code Card 1 -->
-            <div class="code-card">
-              <div class="code-header">
-                <!-- <div class="code-header-top" >
-                  <div class="code-stats" style="border: 1px solid red;">
-                    <div class="code-stat folds">
-                      <span class="label">Folds:</span>
-                      <span class="value">3</span>
-                    </div>
-                    <div class="code-stat odds">
-                      <span class="label">Odds:</span>
-                      <span class="value">32.57</span>
-                    </div>
-                  </div>
-                </div> -->
-
-                <div class="code-bookie-info">
-                  <div class="bookie-section origin">
-                    <span class="bookie-label">ORIGIN</span>
-                    <span class="bookie-name">M7XLN NG</span>
-                    <div class="bookie-odds">
-                      <span class="bookie-odds-label">Origin:</span>
-                      <span class="bookie-odds-value">8 @ 5.9</span>
-                    </div>
-                  </div>
-
-                  <i class="bi bi-arrow-right bookie-arrow"></i>
-
-                  <div class="bookie-section target">
-                    <span class="bookie-label">TARGET</span>
-                    <span class="bookie-name">HEYLN</span>
-                    <div class="bookie-odds">
-                      <span class="bookie-odds-label">Target:</span>
-                      <span class="bookie-odds-value">8 @ 6.38</span>
-                    </div>
-                  </div>
-
-                  <div class="code-stats">
-                    <div class="code-stat folds">
-                      <span class="label">Folds:</span>
-                      <span class="value">3</span>
-                    </div>
-                    <div class="code-stat odds">
-                      <span class="label">Odds:</span>
-                      <span class="value">32.57</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="code-events">
-                <div class="code-event">
-                  <i class="bi bi-trophy-fill event-icon draw"></i>
-                  <div class="event-details">
-                    <div class="event-outcome">Draw @2.93 | 1X2</div>
-                    <div class="event-teams">Guinea vs Cameroon</div>
-                    <div class="event-time">Today 20:00</div>
-                  </div>
-                  <i class="bi bi-graph-up-arrow event-chart"></i>
-                </div>
-
-                <div class="code-event">
-                  <i class="bi bi-trophy-fill event-icon draw"></i>
-                  <div class="event-details">
-                    <div class="event-outcome">Draw @3.23 | 1X2</div>
-                    <div class="event-teams">Algeria vs Congo DR</div>
-                    <div class="event-time">06/01 Tue 17:00</div>
-                  </div>
-                  <i class="bi bi-graph-up-arrow event-chart"></i>
-                </div>
-
-                <div class="code-event">
-                  <i class="bi bi-trophy-fill event-icon draw"></i>
-                  <div class="event-details">
-                    <div class="event-outcome">Draw @3.23 | 1X2</div>
-                    <div class="event-teams">Algeria vs Congo DR</div>
-                    <div class="event-time">06/01 Tue 17:00</div>
-                  </div>
-                  <i class="bi bi-graph-up-arrow event-chart"></i>
-                </div>
-
-                <div class="code-event">
-                  <i class="bi bi-trophy-fill event-icon draw"></i>
-                  <div class="event-details">
-                    <div class="event-outcome">Draw @3.46 | 1X2</div>
-                    <div class="event-teams">Ivory Coast vs Burkina Faso</div>
-                    <div class="event-time">06/01 Tue 20:00</div>
-                  </div>
-                  <i class="bi bi-graph-up-arrow event-chart"></i>
-                </div>
-              </div>
-
-              <div class="code-actions">
-                <button
-                  class="code-action-btn share"
-                  onclick="shareCode('T18GYT')"
+        <div class="free-codes-page">
+          <div class="filters-wrapper">
+            <!-- Filter Tabs Bar -->
+            <div class="filters-tabs">
+              <div class="filter-tab" data-filter="time">
+                <svg
+                  class="filter-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  <i class="bi bi-share"></i>
-                  Share
-                </button>
-                <button
-                  class="code-action-btn add"
-                  onclick="addCodeToBetslip('T18GYT')"
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path>
+                </svg>
+                <span>Time</span>
+                <svg
+                  class="arrow-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  <i class="bi bi-pencil"></i>
-                  Add to Betslip
-                </button>
-              </div>
-            </div>
-
-            <!-- Code Card 2 -->
-            <div class="code-card">
-              <div class="code-header">
-                <!-- <div class="code-header-top" >
-                  <div class="code-stats" style="border: 1px solid red;">
-                    <div class="code-stat folds">
-                      <span class="label">Folds:</span>
-                      <span class="value">3</span>
-                    </div>
-                    <div class="code-stat odds">
-                      <span class="label">Odds:</span>
-                      <span class="value">32.57</span>
-                    </div>
-                  </div>
-                </div> -->
-
-                <div class="code-bookie-info">
-                  <div class="bookie-section origin">
-                    <span class="bookie-label">ORIGIN</span>
-                    <span class="bookie-name">M7XLN NG</span>
-                    <div class="bookie-odds">
-                      <span class="bookie-odds-label">Origin:</span>
-                      <span class="bookie-odds-value">8 @ 5.9</span>
-                    </div>
-                  </div>
-
-                  <i class="bi bi-arrow-right bookie-arrow"></i>
-
-                  <div class="bookie-section target">
-                    <span class="bookie-label">TARGET</span>
-                    <span class="bookie-name">HEYLN</span>
-                    <div class="bookie-odds">
-                      <span class="bookie-odds-label">Target:</span>
-                      <span class="bookie-odds-value">8 @ 6.38</span>
-                    </div>
-                  </div>
-
-                  <div class="code-stats">
-                    <div class="code-stat folds">
-                      <span class="label">Folds:</span>
-                      <span class="value">3</span>
-                    </div>
-                    <div class="code-stat odds">
-                      <span class="label">Odds:</span>
-                      <span class="value">32.57</span>
-                    </div>
-                  </div>
-                </div>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
               </div>
 
-              <div class="code-events">
-                <div class="code-event">
-                  <i class="bi bi-trophy-fill event-icon draw"></i>
-                  <div class="event-details">
-                    <div class="event-outcome">Draw @2.93 | 1X2</div>
-                    <div class="event-teams">Guinea vs Cameroon</div>
-                    <div class="event-time">Today 20:00</div>
-                  </div>
-                  <i class="bi bi-graph-up-arrow event-chart"></i>
-                </div>
-
-                <div class="code-event">
-                  <i class="bi bi-trophy-fill event-icon draw"></i>
-                  <div class="event-details">
-                    <div class="event-outcome">Draw @3.23 | 1X2</div>
-                    <div class="event-teams">Algeria vs Congo DR</div>
-                    <div class="event-time">06/01 Tue 17:00</div>
-                  </div>
-                  <i class="bi bi-graph-up-arrow event-chart"></i>
-                </div>
-
-                <div class="code-event">
-                  <i class="bi bi-trophy-fill event-icon draw"></i>
-                  <div class="event-details">
-                    <div class="event-outcome">Draw @3.46 | 1X2</div>
-                    <div class="event-teams">Ivory Coast vs Burkina Faso</div>
-                    <div class="event-time">06/01 Tue 20:00</div>
-                  </div>
-                  <i class="bi bi-graph-up-arrow event-chart"></i>
-                </div>
-              </div>
-
-              <div class="code-actions">
-                <button
-                  class="code-action-btn share"
-                  onclick="shareCode('T18GYT')"
+              <div class="filter-tab" data-filter="folds">
+                <svg
+                  class="filter-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  <i class="bi bi-share"></i>
-                  Share
-                </button>
-                <button
-                  class="code-action-btn add"
-                  onclick="addCodeToBetslip('T18GYT')"
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+                  ></path>
+                </svg>
+                <span>Folds</span>
+                <svg
+                  class="arrow-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  <i class="bi bi-pencil"></i>
-                  Add to Betslip
-                </button>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </div>
+
+              <div class="filter-tab" data-filter="odds">
+                <svg
+                  class="filter-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                  ></path>
+                </svg>
+                <span>Odds</span>
+                <svg
+                  class="arrow-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </div>
+
+              <div class="filter-tab" data-filter="sort">
+                <svg
+                  class="filter-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12"
+                  ></path>
+                </svg>
+                <span>Sort</span>
+                <svg
+                  class="arrow-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Dropdown Content Area -->
+            <div class="filters-content">
+              <!-- Time Panel -->
+              <div class="filter-panel" data-panel="time">
+                <div id="time-options"></div>
+
+                <div class="filter-actions">
+                  <button class="btn-reset">Reset</button>
+                  <button class="btn-apply">Apply</button>
+                </div>
+              </div>
+
+              <!-- Folds Panel -->
+              <div class="filter-panel" data-panel="folds">
+                <div id="folds-options"></div>
+
+                <div class="filter-custom-range">
+                  <label>Custom Range</label>
+                  <div class="custom-range-inputs">
+                    <input
+                      type="number"
+                      id="folds-min"
+                      placeholder="1"
+                      min="1"
+                      max="50"
+                    />
+                    <span>~</span>
+                    <input
+                      type="number"
+                      id="folds-max"
+                      placeholder="50"
+                      min="1"
+                      max="50"
+                    />
+                  </div>
+                  <div class="range-slider">
+                    <input
+                      type="range"
+                      id="folds-slider"
+                      min="1"
+                      max="50"
+                      value="50"
+                    />
+                    <div class="range-label">1 ~ 50</div>
+                  </div>
+                </div>
+
+                <div class="filter-actions">
+                  <button class="btn-reset">Reset</button>
+                  <button class="btn-apply">Apply</button>
+                </div>
+              </div>
+
+              <!-- Odds Panel -->
+              <div class="filter-panel" data-panel="odds">
+                <div id="odds-options"></div>
+
+                <div class="filter-custom-range">
+                  <label>Custom Range</label>
+                  <div class="custom-range-inputs">
+                    <input
+                      type="number"
+                      id="odds-min"
+                      placeholder="1"
+                      min="1"
+                      max="2000"
+                      step="0.01"
+                    />
+                    <span>~</span>
+                    <input
+                      type="number"
+                      id="odds-max"
+                      placeholder="2000"
+                      min="1"
+                      max="2000"
+                      step="0.01"
+                    />
+                  </div>
+                  <div class="range-slider">
+                    <input
+                      type="range"
+                      id="odds-slider"
+                      min="1"
+                      max="2000"
+                      value="2000"
+                    />
+                    <div class="range-label">1 ~ 2000</div>
+                  </div>
+                </div>
+
+                <div class="filter-actions">
+                  <button class="btn-reset">Reset</button>
+                  <button class="btn-apply">Apply</button>
+                </div>
+              </div>
+
+              <!-- Sort Panel -->
+              <div class="filter-panel" data-panel="sort">
+                <div id="sort-options"></div>
+
+                <div class="filter-actions">
+                  <button class="btn-reset">Reset</button>
+                  <button class="btn-apply">Apply</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Time Filter Modal -->
-        <div class="filter-modal" id="time-modal">
-          <div class="filter-modal-content">
-            <div class="filter-modal-header">
-              <h3>Time</h3>
-              <button class="filter-close-btn" onclick="closeFilter('time')">
-                <i class="bi bi-x"></i>
-              </button>
-            </div>
-            <div class="filter-list" id="time-list">
-              <!-- Will be populated by JS -->
-            </div>
-            <div class="filter-modal-footer">
-              <button class="filter-reset-btn" onclick="resetFilter('time')">
-                Reset
-              </button>
-              <button class="filter-apply-btn" onclick="applyFilter('time')">
-                Apply
-              </button>
-            </div>
+                    <!-- Header -->
+          <div class="codes-header">
+            <div class="codes-date">SATURDAY 27TH, DEC 2025</div>
+            <h1 class="codes-title">bet codes for today</h1>
+            <p class="codes-subtitle">
+              Pg 1, showing 25 of 209 -
+              <a href="predictions.html">Get accurate predictions</a>.
+            </p>
           </div>
-        </div>
+          
 
-        <!-- Folds Filter Modal -->
-        <div class="filter-modal" id="folds-modal">
-          <div class="filter-modal-content">
-            <div class="filter-modal-header">
-              <h3>Folds</h3>
-              <button class="filter-close-btn" onclick="closeFilter('folds')">
-                <i class="bi bi-x"></i>
-              </button>
-            </div>
-            <div class="filter-list" id="folds-list">
-              <!-- Will be populated by JS -->
-            </div>
-            <div class="filter-custom-range">
-              <label>Custom Range</label>
-              <div class="custom-range-inputs">
-                <input
-                  type="number"
-                  id="folds-min"
-                  placeholder="40"
-                  min="1"
-                  max="50"
-                />
-                <span>~</span>
-                <input
-                  type="number"
-                  id="folds-max"
-                  placeholder="50"
-                  min="1"
-                  max="50"
-                />
-              </div>
-              <div class="range-slider">
-                <input
-                  type="range"
-                  id="folds-slider"
-                  min="1"
-                  max="50"
-                  value="50"
-                />
-                <div class="range-label">1 ~ 50</div>
-              </div>
-            </div>
-            <div class="filter-modal-footer">
-              <button class="filter-reset-btn" onclick="resetFilter('folds')">
-                Reset
-              </button>
-              <button class="filter-apply-btn" onclick="applyFilter('folds')">
-                Apply
-              </button>
-            </div>
+          <!-- Bet Codes List -->
+          <div class="codes-list">
+            <!-- FREE/GUEST BET CODE CARD -->
+<div class="code-card" data-code-id="425668">
+  <div class="code-header">
+    <div class="code-info">
+      <div class="code-id-section">
+        <div class="code-id">425668</div>
+        <span class="code-flag">🇳🇬</span>
+      </div>
+      <div class="code-bookie">betbaba</div>
+    </div>
+    <div class="code-stats">
+      <div class="code-stat">
+        <span class="label">Folds:</span>
+        <span class="value">3</span>
+      </div>
+      <div class="code-stat">
+        <span class="label">Odds:</span>
+        <span class="value">2.05</span>
+      </div>
+    </div>
+    <div class="code-badges">
+      <div class="code-badge guest">@guest</div>
+      <div class="code-badge">
+        <i class="bi bi-fire badge-fire"></i> 31+
+      </div>
+    </div>
+  </div>
+
+  <button class="code-expand-toggle" data-code-id="425668">
+    <span>View Events</span>
+    <i class="bi bi-chevron-down"></i>
+  </button>
+
+  <div class="code-events" data-code-id="425668">
+    <div class="code-event">
+      <i class="bi bi-house-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Home @1.45 | 1X2</div>
+        <div class="event-teams">Liverpool vs Wolves</div>
+        <div class="event-time">Sat 27/12, 16:00</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-airplane-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Away @1.62 | 1X2</div>
+        <div class="event-teams">Nottingham Forest vs Man City</div>
+        <div class="event-time">Sat 27/12, 13:30</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-house-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Home @1.39 | 1X2</div>
+        <div class="event-teams">AC Milan vs Verona</div>
+        <div class="event-time">Sun 28/12, 12:30</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+  </div>
+
+  <div class="code-actions">
+    <button class="code-action-btn share" onclick="shareCode('425668')">
+      <i class="bi bi-share"></i>
+      Share
+    </button>
+    <button class="code-action-btn primary" onclick="openBookie('betbaba', '425668')">
+      <i class="bi bi-play-circle"></i>
+      Play now
+    </button>
+  </div>
+</div>
+
+<!-- CONVERTED BET CODE CARD 1 -->
+<div class="code-card" data-code-id="converted-1">
+  <div class="converted-header">
+    <div class="converted-code-info">
+      <div class="converted-origin">
+        <div class="converted-label">ORIGIN</div>
+        <div class="converted-code-display">
+          <div class="converted-code-id">XUUKN</div>
+          <span class="code-flag">🇳🇬</span>
+        </div>
+        <div class="converted-bookie-name">22bet</div>
+      </div>
+
+      <i class="bi bi-arrow-right converted-arrow-icon"></i>
+
+      <div class="converted-target">
+        <div class="converted-label">TARGET</div>
+        <div class="converted-code-display">
+          <div class="converted-code-id">8ZZLN</div>
+        </div>
+        <div class="converted-bookie-name">1xbet</div>
+      </div>
+    </div>
+
+    <div class="code-stats">
+      <div class="code-stat">
+        <span class="label">Origin:</span>
+        <span class="value">6 @ 3.8</span>
+      </div>
+      <div class="code-stat">
+        <span class="label">Target:</span>
+        <span class="value">6 @ 4.2</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="converted-meta" style="padding: 8px 16px; background: #fafafa; border-bottom: 1px solid #f0f0f0;">
+    <div class="converted-time">
+      <i class="bi bi-clock"></i>
+      7 minutes ago • <i class="bi bi-heart"></i> 1
+    </div>
+  </div>
+
+  <button class="code-expand-toggle" data-code-id="converted-1">
+    <span>View Events</span>
+    <i class="bi bi-chevron-down"></i>
+  </button>
+
+  <div class="code-events" data-code-id="converted-1">
+    <div class="code-event">
+      <i class="bi bi-house-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Home @1.28 | 1X2</div>
+        <div class="event-teams">Liverpool vs Wolverhampton</div>
+        <div class="event-time">Sat 27/12, 16:00</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-house-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Home Handicap 0 @1.34 | Handicap</div>
+        <div class="event-teams">Chelsea vs Aston Villa</div>
+        <div class="event-time">Sat 27/12, 18:30</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-airplane-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Away Handicap 0 @1.05 | Handicap</div>
+        <div class="event-teams">Pisa 1909 vs Juventus</div>
+        <div class="event-time">Sat 27/12, 20:45</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-house-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Home @1.62 | 1X2</div>
+        <div class="event-teams">Nottingham Forest vs Man City</div>
+        <div class="event-time">Sat 27/12, 13:30</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-airplane-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Away @2.10 | 1X2</div>
+        <div class="event-teams">Real Sociedad vs Atletico</div>
+        <div class="event-time">Today 21:00</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-house-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Home @1.44 | 1X2</div>
+        <div class="event-teams">Inter vs Bologna</div>
+        <div class="event-time">Today 20:45</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+  </div>
+
+  <div class="code-actions">
+    <button class="code-action-btn share" onclick="shareCode('converted-1')">
+      <i class="bi bi-share"></i>
+      Share
+    </button>
+    <button class="code-action-btn add" onclick="addCodeToBetslip('converted-1')">
+      <i class="bi bi-plus-square"></i>
+      Add to Betslip
+    </button>
+  </div>
+</div>
+
+<!-- CONVERTED BET CODE CARD 2 -->
+<div class="code-card" data-code-id="converted-2">
+  <div class="converted-header">
+    <div class="converted-code-info">
+      <div class="converted-origin">
+        <div class="converted-label">ORIGIN</div>
+        <div class="converted-code-display">
+          <div class="converted-code-id">M7XLN</div>
+          <span class="code-flag">🇳🇬</span>
+        </div>
+        <div class="converted-bookie-name">1xbet</div>
+      </div>
+
+      <i class="bi bi-arrow-right converted-arrow-icon"></i>
+
+      <div class="converted-target">
+        <div class="converted-label">TARGET</div>
+        <div class="converted-code-display">
+          <div class="converted-code-id">HEYLN</div>
+        </div>
+        <div class="converted-bookie-name">1xbet</div>
+      </div>
+    </div>
+
+    <div class="code-stats">
+      <div class="code-stat">
+        <span class="label">Origin:</span>
+        <span class="value">8 @ 5.9</span>
+      </div>
+      <div class="code-stat">
+        <span class="label">Target:</span>
+        <span class="value">8 @ 6.38</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="converted-meta" style="padding: 8px 16px; background: #fafafa; border-bottom: 1px solid #f0f0f0;">
+    <div class="converted-time">
+      <i class="bi bi-clock"></i>
+      9 minutes ago • <i class="bi bi-heart"></i> 1
+    </div>
+  </div>
+
+  <button class="code-expand-toggle" data-code-id="converted-2">
+    <span>View Events</span>
+    <i class="bi bi-chevron-down"></i>
+  </button>
+
+  <div class="code-events" data-code-id="converted-2">
+    <div class="code-event">
+      <i class="bi bi-house-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Home @2.10 | 1X2</div>
+        <div class="event-teams">Barcelona vs Real Madrid</div>
+        <div class="event-time">Sun 28/12, 20:00</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-house-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Over 2.5 @1.75 | Over/Under</div>
+        <div class="event-teams">Bayern vs Dortmund</div>
+        <div class="event-time">Sun 28/12, 17:30</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-airplane-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Away @2.50 | 1X2</div>
+        <div class="event-teams">Man United vs Arsenal</div>
+        <div class="event-time">Mon 29/12, 20:00</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-house-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">GG Yes @1.65 | GG/NG</div>
+        <div class="event-teams">Inter vs AC Milan</div>
+        <div class="event-time">Mon 29/12, 19:45</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-house-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Home @1.39 | 1X2</div>
+        <div class="event-teams">PSG vs Lyon</div>
+        <div class="event-time">Sun 28/12, 21:00</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-airplane-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Away @1.88 | 1X2</div>
+        <div class="event-teams">Atletico vs Sevilla</div>
+        <div class="event-time">Sun 28/12, 18:30</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-dash-circle-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Draw @3.20 | 1X2</div>
+        <div class="event-teams">Roma vs Napoli</div>
+        <div class="event-time">Mon 29/12, 20:45</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-house-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Home @1.52 | 1X2</div>
+        <div class="event-teams">Juventus vs Fiorentina</div>
+        <div class="event-time">Mon 29/12, 18:00</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+  </div>
+
+  <div class="code-actions">
+    <button class="code-action-btn share" onclick="shareCode('converted-2')">
+      <i class="bi bi-share"></i>
+      Share
+    </button>
+    <button class="code-action-btn add" onclick="addCodeToBetslip('converted-2')">
+      <i class="bi bi-plus-square"></i>
+      Add to Betslip
+    </button>
+  </div>
+</div>
+
+<!-- CONVERTED BET CODE CARD 3 -->
+<div class="code-card" data-code-id="converted-3">
+  <div class="converted-header">
+    <div class="converted-code-info">
+      <div class="converted-origin">
+        <div class="converted-label">ORIGIN</div>
+        <div class="converted-code-display">
+          <div class="converted-code-id">3V5TFYB</div>
+          <span class="code-flag">🇳🇬</span>
+        </div>
+        <div class="converted-bookie-name">bet9ja</div>
+      </div>
+
+      <i class="bi bi-arrow-right converted-arrow-icon"></i>
+
+      <div class="converted-target">
+        <div class="converted-label">TARGET</div>
+        <div class="converted-code-display">
+          <div class="converted-code-id">JQ2MSX</div>
+          <span class="code-flag">🇳🇬</span>
+        </div>
+        <div class="converted-bookie-name">sportybet</div>
+      </div>
+    </div>
+
+    <div class="code-stats">
+      <div class="code-stat">
+        <span class="label">Origin:</span>
+        <span class="value">6 @ 10.66</span>
+      </div>
+      <div class="code-stat">
+        <span class="label">Target:</span>
+        <span class="value">4 @ 3.07</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="converted-meta" style="padding: 8px 16px; background: #fafafa; border-bottom: 1px solid #f0f0f0;">
+    <div class="converted-time">
+      <i class="bi bi-clock"></i>
+      9 minutes ago • <i class="bi bi-heart"></i> 3
+    </div>
+  </div>
+
+  <button class="code-expand-toggle" data-code-id="converted-3">
+    <span>View Events</span>
+    <i class="bi bi-chevron-down"></i>
+  </button>
+
+  <div class="code-events" data-code-id="converted-3">
+    <div class="code-event">
+      <i class="bi bi-house-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Home @2.50 | 1X2</div>
+        <div class="event-teams">Man United vs Arsenal</div>
+        <div class="event-time">Mon 29/12, 20:00</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-house-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">GG Yes @1.65 | GG/NG</div>
+        <div class="event-teams">Inter vs AC Milan</div>
+        <div class="event-time">Mon 29/12, 19:45</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-airplane-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Away @1.88 | 1X2</div>
+        <div class="event-teams">Atletico vs Sevilla</div>
+        <div class="event-time">Sun 28/12, 18:30</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-house-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Home @1.52 | 1X2</div>
+        <div class="event-teams">Juventus vs Fiorentina</div>
+        <div class="event-time">Mon 29/12, 18:00</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+  </div>
+
+  <div class="code-actions">
+    <button class="code-action-btn share" onclick="shareCode('converted-3')">
+      <i class="bi bi-share"></i>
+      Share
+    </button>
+    <button class="code-action-btn add" onclick="addCodeToBetslip('converted-3')">
+      <i class="bi bi-plus-square"></i>
+      Add to Betslip
+    </button>
+  </div>
+</div>
           </div>
-        </div>
 
-        <!-- Odds Filter Modal -->
-        <div class="filter-modal" id="odds-modal">
-          <div class="filter-modal-content">
-            <div class="filter-modal-header">
-              <h3>Odds</h3>
-              <button class="filter-close-btn" onclick="closeFilter('odds')">
-                <i class="bi bi-x"></i>
-              </button>
-            </div>
-            <div class="filter-list" id="odds-list">
-              <!-- Will be populated by JS -->
-            </div>
-            <div class="filter-custom-range">
-              <label>Custom Range</label>
-              <div class="custom-range-inputs">
-                <input
-                  type="number"
-                  id="odds-min"
-                  placeholder="200"
-                  min="1"
-                  max="2000"
-                />
-                <span>~</span>
-                <input
-                  type="number"
-                  id="odds-max"
-                  placeholder="2000"
-                  min="1"
-                  max="2000"
-                />
-              </div>
-              <div class="range-slider">
-                <input
-                  type="range"
-                  id="odds-slider"
-                  min="1"
-                  max="2000"
-                  value="2000"
-                />
-                <div class="range-label">1</div>
-              </div>
-            </div>
-            <div class="filter-modal-footer">
-              <button class="filter-reset-btn" onclick="resetFilter('odds')">
-                Reset
-              </button>
-              <button class="filter-apply-btn" onclick="applyFilter('odds')">
-                Apply
-              </button>
-            </div>
+          <!-- Pagination -->
+          <div class="codes-pagination">
+            <button class="codes-page-btn" disabled>
+              <i class="bi bi-chevron-double-left"></i>
+            </button>
+            <button class="codes-page-btn" disabled>
+              <i class="bi bi-chevron-left"></i>
+            </button>
+            <button class="codes-page-btn active">1</button>
+            <button class="codes-page-btn">2</button>
+            <button class="codes-page-btn">3</button>
+            <button class="codes-page-btn">
+              <i class="bi bi-chevron-right"></i>
+            </button>
+            <button class="codes-page-btn">
+              <i class="bi bi-chevron-double-right"></i>
+            </button>
           </div>
-        </div>
-
-        <!-- Sort Filter Modal -->
-        <div class="filter-modal" id="sort-modal">
-          <div class="filter-modal-content">
-            <div class="filter-modal-header">
-              <h3>Sort</h3>
-              <button class="filter-close-btn" onclick="closeFilter('sort')">
-                <i class="bi bi-x"></i>
-              </button>
-            </div>
-            <div class="filter-list" id="sort-list">
-              <!-- Will be populated by JS -->
-            </div>
-            <div class="filter-modal-footer">
-              <button class="filter-reset-btn" onclick="resetFilter('sort')">
-                Reset
-              </button>
-              <button class="filter-apply-btn" onclick="applyFilter('sort')">
-                Apply
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Loading Overlay -->
-        <div class="loading-overlay" id="loading-overlay">
-          <div class="loading-spinner"></div>
-          <p>Loading bet code...</p>
         </div>
       </main>
+
+      <div class="filter-modal" id="time-modal">
+        <div class="filter-modal-content">
+          <div class="filter-modal-header">
+            <h3>Time</h3>
+            <button class="filter-close-btn" id="close-time-filter">
+              <i class="bi bi-x"></i>
+            </button>
+          </div>
+          <div class="filter-list" id="time-list">
+            <!-- Will be populated by JS -->
+          </div>
+          <div class="filter-modal-footer">
+            <button class="filter-reset-btn" id="reset-time-filter">
+              Reset
+            </button>
+            <button class="filter-apply-btn" id="apply-time-filter">
+              Apply
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Folds Filter Modal -->
+      <div class="filter-modal" id="folds-modal">
+        <div class="filter-modal-content">
+          <div class="filter-modal-header">
+            <h3>Folds</h3>
+            <button class="filter-close-btn" id="close-folds-filter">
+              <i class="bi bi-x"></i>
+            </button>
+          </div>
+          <div class="filter-list" id="folds-list">
+            <!-- Will be populated by JS -->
+          </div>
+          <div class="filter-custom-range">
+            <label>Custom Range</label>
+            <div class="custom-range-inputs">
+              <input
+                type="number"
+                id="folds-min"
+                placeholder="1"
+                min="1"
+                max="50"
+              />
+              <span>~</span>
+              <input
+                type="number"
+                id="folds-max"
+                placeholder="50"
+                min="1"
+                max="50"
+              />
+            </div>
+            <div class="range-slider">
+              <input
+                type="range"
+                id="folds-slider"
+                min="1"
+                max="50"
+                value="50"
+              />
+              <div class="range-label">1 ~ 50</div>
+            </div>
+          </div>
+          <div class="filter-modal-footer">
+            <button class="filter-reset-btn" id="reset-folds-filter">
+              Reset
+            </button>
+            <button class="filter-apply-btn" id="apply-folds-filter">
+              Apply
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Odds Filter Modal -->
+      <div class="filter-modal" id="odds-modal">
+        <div class="filter-modal-content">
+          <div class="filter-modal-header">
+            <h3>Odds</h3>
+            <button class="filter-close-btn" id="close-odds-filter">
+              <i class="bi bi-x"></i>
+            </button>
+          </div>
+          <div class="filter-list" id="odds-list">
+            <!-- Will be populated by JS -->
+          </div>
+          <div class="filter-custom-range">
+            <label>Custom Range</label>
+            <div class="custom-range-inputs">
+              <input
+                type="number"
+                id="odds-min"
+                placeholder="1"
+                min="1"
+                max="2000"
+                step="0.01"
+              />
+              <span>~</span>
+              <input
+                type="number"
+                id="odds-max"
+                placeholder="2000"
+                min="1"
+                max="2000"
+                step="0.01"
+              />
+            </div>
+            <div class="range-slider">
+              <input
+                type="range"
+                id="odds-slider"
+                min="1"
+                max="2000"
+                value="2000"
+              />
+              <div class="range-label">1 ~ 2000</div>
+            </div>
+          </div>
+          <div class="filter-modal-footer">
+            <button class="filter-reset-btn" id="reset-odds-filter">
+              Reset
+            </button>
+            <button class="filter-apply-btn" id="apply-odds-filter">
+              Apply
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sort Filter Modal -->
+      <div class="filter-modal" id="sort-modal">
+        <div class="filter-modal-content">
+          <div class="filter-modal-header">
+            <h3>Sort</h3>
+            <button class="filter-close-btn" id="close-sort-filter">
+              <i class="bi bi-x"></i>
+            </button>
+          </div>
+          <div class="filter-list" id="sort-list">
+            <!-- Will be populated by JS -->
+          </div>
+          <div class="filter-modal-footer">
+            <button class="filter-reset-btn" id="reset-sort-filter">
+              Reset
+            </button>
+            <button class="filter-apply-btn" id="apply-sort-filter">
+              Apply
+            </button>
+          </div>
+        </div>
+      </div>
 
       <aside class="sidebar-right">
         <div id="betslip-rail"></div>
@@ -1104,7 +1577,7 @@
     </div>
 
     <!-- footer -->
-    <footer class="footer-main">
+<footer class="footer-main">
       <div class="container">
         <!-- Join Now Section -->
         <div class="footer-join-section">
@@ -1138,16 +1611,16 @@
         <!-- Footer Links -->
         <div class="footer-links-section">
           <div class="footer-links-grid">
-            <a href="#" class="footer-link-item">Home</a>
-            <a href="#" class="footer-link-item">About</a>
-            <a href="#" class="footer-link-item">Terms</a>
-            <a href="#" class="footer-link-item">Data Privacy Policy</a>
-            <a href="#" class="footer-link-item">Cookies Policy</a>
-            <a href="#" class="footer-link-item">Rules</a>
-            <a href="#" class="footer-link-item">Lottery Rules</a>
-            <a href="#" class="footer-link-item">Help</a>
-            <a href="#" class="footer-link-item">Responsible Gambling</a>
-            <a href="#" class="footer-link-item">News</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('index.html')">Home</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('about.html')">About</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('terms.html')">Terms</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('privacy.html')">Privacy Policy</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('cookies.html')">Cookies Policy</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('convert.html')">Convert Bet</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('pools-bet-codes.html')">Pools Bet</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('free-bet-codes.html')">Free Bet Codes</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('free-prediction.html')">Free Prediction</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('blog.html')">Blog</a>
           </div>
         </div>
 
@@ -1165,6 +1638,39 @@
             <span>Change</span>
           </div>
         </div>
+      </div>
+
+      <!-- Fixed Buttons -->
+      <div
+        class="position-fixed bottom-0 start-50 translate-middle-x mb-4 z-index-5"
+        id="fixedbuttons"
+      >
+        <br />
+        <button
+          id="backtotop"
+          class="shadow mt-2 d-none"
+          style="
+            background: #000;
+            color: #fff;
+            width: 100px;
+            height: 40px;
+            border: none;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+            transition: transform 0.2s ease, opacity 0.2s ease;
+          "
+          aria-label="Back to top"
+        >
+          <i class="bi bi-chevron-up"></i> Back to top
+        </button>
       </div>
     </footer>
 
@@ -1221,9 +1727,11 @@
       </div>
     </footer>
 
-    <script src="components/AppLayout.js"></script>
+    <script src="assets/js/adminux/adminux-dashboard.js"></script>
+    <script src="./components/AppLayout.js"></script>
+    <script src="./components/betslip-rail.js"></script>
+    <script src="assets/js/free-bet-codes.js"></script>
     <script src="assets/js/app.js"></script>
-    <script src="components/betslip-rail.js"></script>
-    <script src="assets/js/code-hub.js"></script>
+    <script src="components/layout/js/filters.js"></script>
   </body>
 </html>

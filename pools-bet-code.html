@@ -7,7 +7,7 @@
       content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Pools Events - ConvertBetCodes</title>
+    <title>Poosl bet - ConvertBetCodes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com/" />
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
     <link
@@ -31,10 +31,11 @@
     <link rel="stylesheet" href="assets/css/footer.css" />
     <link rel="stylesheet" href="assets/css/pools-bet.css" />
     <link rel="stylesheet" href="assets/css/betslip-rail.css" />
+    <link rel="stylesheet" href="components/layout/css/filters.css" />
   </head>
 
   <body>
-        <!-- desktop nav -->
+    <!-- desktop nav -->
     <header class="desktop-header">
       <div class="desktop-header-container">
         <!-- Left Section - Menu + Logo -->
@@ -196,7 +197,7 @@
             </div>
           </div> -->
 
-        <button class="tab-item">
+        <button class="tab-item" onclick="navigateTo('convert.html')">
           <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
             <path
               d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"
@@ -692,88 +693,280 @@
 
       <main class="adminuiux-content">
         <div class="page-main-content">
-          <div class="sports-bar-wrapper sticky-header" id="sports-bar">
-            <div class="sports-selector">
-              <input type="checkbox" id="sports-toggle" />
-              <label for="sports-toggle" class="sports-selector-label">
-                <div class="sports-selector-text">
-                  <span class="sports-selector-icon"
-                    ><i class="bi bi-dribbble"></i
-                  ></span>
-                  <span>Football</span>
+ <div class="filters-wrapper">
+  <!-- Filter Tabs Bar -->
+  <div class="filters-tabs">
+    <div class="filter-tab" data-filter="sports">
+      <svg
+        class="filter-icon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M12 2a10 10 0 0 0 0 20"></path>
+        <path d="M2 12h20"></path>
+      </svg>
+      <svg
+        class="arrow-icon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </div>
+
+    <div class="filter-tab" data-filter="leagues">
+      <span>Leagues</span>
+      <svg
+        class="arrow-icon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </div>
+
+    <div class="filter-tab" data-filter="markets">
+      <span>Markets</span>
+      <svg
+        class="arrow-icon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </div>
+
+    <div class="filter-tab" data-filter="week">
+      <span>Week</span>
+      <svg
+        class="arrow-icon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Dropdown Content Panels -->
+  <div class="filters-content">
+    <!-- Sports Panel - Auto-close on selection -->
+    <div class="filter-panel" data-panel="sports">
+      <div class="filter-option" data-value="football">
+        <svg
+          class="sport-icon"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <circle cx="12" cy="12" r="10"></circle>
+        </svg>
+        <span class="option-label">Football</span>
+        <span class="option-count">800</span>
+      </div>
+      <div class="filter-option" data-value="basketball">
+        <svg
+          class="sport-icon"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <circle cx="12" cy="12" r="10"></circle>
+        </svg>
+        <span class="option-label">Basketball</span>
+        <span class="option-count">138</span>
+      </div>
+      <div class="filter-option" data-value="efootball">
+        <svg
+          class="sport-icon"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <rect x="2" y="6" width="20" height="12" rx="2"></rect>
+        </svg>
+        <span class="option-label">eFootball</span>
+        <span class="option-count">24</span>
+      </div>
+      <div class="filter-option active" data-value="tennis">
+        <svg
+          class="sport-icon"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <circle cx="12" cy="12" r="10"></circle>
+        </svg>
+        <span class="option-label">Tennis</span>
+        <span class="option-count">206</span>
+      </div>
+    </div>
+
+    <!-- Leagues Panel - With checkboxes and action buttons -->
+              <div class="filter-panel" data-panel="leagues">
+                <div class="panel-section">
+                  <h4 class="section-title">POPULAR LEAGUES</h4>
+                  <div class="filter-option-checkbox">
+                    <input
+                      type="checkbox"
+                      id="league-popular-all"
+                      value="all"
+                    />
+                    <label for="league-popular-all">
+                      <span class="checkbox-label">All Popular Leagues</span>
+                      <span class="option-count">21</span>
+                    </label>
+                  </div>
+                  <div class="filter-option-checkbox">
+                    <input type="checkbox" id="league-gt" value="gt" />
+                    <label for="league-gt">
+                      <svg
+                        class="flag-icon"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <circle cx="12" cy="12" r="10"></circle>
+                      </svg>
+                      <span class="checkbox-label">Premier League</span>
+                      <span class="option-count">11</span>
+                    </label>
+                  </div>
+                  <div class="filter-option-checkbox">
+                    <input
+                      type="checkbox"
+                      id="league-eadriatic"
+                      value="eadriatic"
+                    />
+                    <label for="league-eadriatic">
+                      <svg
+                        class="flag-icon"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <circle cx="12" cy="12" r="10"></circle>
+                      </svg>
+                      <span class="checkbox-label">La Liga</span>
+                      <span class="option-count">10</span>
+                    </label>
+                  </div>
                 </div>
-                <span class="sports-dropdown-arrow">
-                  <i class="bi bi-chevron-down"></i>
-                </span>
-              </label>
 
-              <div class="sports-dropdown-menu">
-                <a href="#" class="sports-dropdown-item">
-                  <span><i class="bi bi-dribbble"></i></span> Football
-                </a>
-                <a href="#" class="sports-dropdown-item">
-                  <span><i class="bi bi-dribbble"></i></span> Basketball
-                </a>
-                <a href="#" class="sports-dropdown-item">
-                  <span><i class="bi bi-dribbble"></i></span> Tennis
-                </a>
-                <a href="#" class="sports-dropdown-item">
-                  <span><i class="bi bi-dribbble"></i></span> Hockey
-                </a>
-                <a href="#" class="sports-dropdown-item active">
-                  <span><i class="bi bi-dribbble"></i></span> Volleyball
-                </a>
-              </div>
-            </div>
-          </div>
+                <div class="panel-section">
+                  <h4 class="section-title">POPULAR COUNTRIES</h4>
+                  <div class="filter-option-checkbox">
+                    <input
+                      type="checkbox"
+                      id="country-international"
+                      value="international"
+                    />
+                    <label for="country-international">
+                      <svg
+                        class="flag-icon"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <circle cx="12" cy="12" r="10"></circle>
+                      </svg>
+                      <span class="checkbox-label">INTERNATIONAL</span>
+                      <span class="option-count">21</span>
+                    </label>
+                  </div>
+                  <div class="filter-option-checkbox">
+                    <input type="checkbox" id="country-gt" value="gt-leagues" />
+                    <label for="country-gt">
+                      <span class="checkbox-label">Spain</span>
+                      <span class="option-count">11</span>
+                    </label>
+                  </div>
+                  <div class="filter-option-checkbox">
+                    <input
+                      type="checkbox"
+                      id="country-eadriatic"
+                      value="eadriatic-league"
+                    />
+                    <label for="country-eadriatic">
+                      <span class="checkbox-label">England</span>
+                      <span class="option-count">10</span>
+                    </label>
+                  </div>
+                </div>
 
-          <div class="market-tabs-wrapper sticky-header" id="market-tabs">
-            <div class="market-tabs">
-              <div class="market-btn active" data-market="1x2">1X2</div>
-              <button class="market-btn" data-market="dc">Double Chance</button>
-              <button class="market-btn" data-market="handicap">
-                Handicap
-              </button>
-              <button class="market-btn" data-market="ou">Over/Under</button>
-              <button class="market-btn" data-market="btts">BTTS</button>
-              <button class="market-btn" data-market="ht">Half Time</button>
-            </div>
-          </div>
-
-          <div class="quick-filters-wrapper sticky-header" id="quick-filters">
-            <div class="quick-filters">
-              <!-- Date Filters -->
-              <div class="filter-group">
-                <span class="filter-label">Date:</span>
-                <button class="filter-btn active" data-filter="today">
-                  Today
-                </button>
-                <button class="filter-btn" data-filter="tomorrow">
-                  Tomorrow
-                </button>
-                <button class="filter-btn" data-filter="week">This Week</button>
+                <!-- Action Buttons for Leagues -->
+                <div class="filter-actions">
+                  <button class="btn-reset">RESET FILTERS</button>
+                  <button class="btn-apply">APPLY</button>
+                </div>
               </div>
 
-              <div class="filter-divider"></div>
+    <!-- Markets Panel - Auto-close on selection -->
+    <div class="filter-panel" data-panel="markets">
+      <div class="filter-option" data-value="winner">
+        <span class="option-label">Match Winner</span>
+      </div>
+      <div class="filter-option" data-value="total">
+        <span class="option-label">Total Games</span>
+      </div>
+      <div class="filter-option" data-value="handicap">
+        <span class="option-label">Game Handicap</span>
+      </div>
+    </div>
 
-              <!-- Time Filters -->
-              <div class="filter-group">
-                <span class="filter-label">Time:</span>
-                <button class="filter-btn" data-filter="starting-soon">
-                  Starting Soon
-                </button>
-                <button class="filter-btn" data-filter="morning">
-                  Morning
-                </button>
-                <button class="filter-btn" data-filter="afternoon">
-                  Afternoon
-                </button>
-                <button class="filter-btn" data-filter="evening">
-                  Evening
-                </button>
-              </div>
-            </div>
-          </div>
+    <!-- Week Panel - Auto-close on selection (NEW) -->
+    <div class="filter-panel" data-panel="week">
+      <div class="filter-option week-option active" data-value="week-2">
+        <div class="week-main">
+          <span class="week-label">WEEK 2</span>
+          <span class="week-badge current">CURRENT</span>
+          <span class="option-count">49</span>
+        </div>
+        <span class="week-date">Jan 13 - Jan 19, 2026</span>
+      </div>
+      
+      <div class="filter-option week-option" data-value="week-3">
+        <div class="week-main">
+          <span class="week-label">WEEK 3</span>
+          <span class="week-badge upcoming">UPCOMING</span>
+          <span class="option-count">49</span>
+        </div>
+        <span class="week-date">Jan 20 - Jan 26, 2026</span>
+      </div>
+      
+      <div class="filter-option week-option" data-value="week-4">
+        <div class="week-main">
+          <span class="week-label">WEEK 4</span>
+          <span class="week-badge upcoming">UPCOMING</span>
+          <span class="option-count">49</span>
+        </div>
+        <span class="week-date">Jan 27 - Feb 02, 2026</span>
+      </div>
+      
+      <div class="filter-option week-option" data-value="week-5">
+        <div class="week-main">
+          <span class="week-label">WEEK 5</span>
+          <span class="week-badge upcoming">UPCOMING</span>
+          <span class="option-count">49</span>
+        </div>
+        <span class="week-date">Feb 03 - Feb 09, 2026</span>
+      </div>
+      
+      <div class="filter-option week-option disabled" data-value="week-1">
+        <div class="week-main">
+          <span class="week-label">WEEK 1</span>
+          <span class="week-badge past">PAST</span>
+          <span class="option-count">49</span>
+        </div>
+        <span class="week-date">Jan 06 - Jan 12, 2026</span>
+      </div>
+    </div>
+  </div>
+</div>
 
           <div class="events-list">
             <div class="featured-events">
@@ -1108,7 +1301,7 @@
 
                   <div class="event-header">
                     <span class="event-time"
-                      >Sat 15:00
+                      ><span class="match-badge">11</span>Sat 15:00
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -1135,7 +1328,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Sat 15:00
+                      ><span class="match-badge">12</span>Sat 15:00
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -1162,7 +1355,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Sat 17:30
+                      ><span class="match-badge">13</span>Sat 17:30
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -1189,7 +1382,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Sun 14:00
+                      ><span class="match-badge">14</span>Sun 14:00
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -1216,7 +1409,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Sun 14:00
+                      ><span class="match-badge">15</span>Sun 14:00
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -1243,7 +1436,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Sun 16:30
+                      ><span class="match-badge">16</span>Sun 16:30
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -1270,7 +1463,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Sun 16:30
+                      ><span class="match-badge">17</span>Sun 16:30
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -1297,7 +1490,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Mon 20:00
+                      ><span class="match-badge">18</span>Mon 20:00
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -1344,7 +1537,7 @@
                   </div>
                   <div class="event-header">
                     <span class="event-time"
-                      >Sat 14:00
+                      ><span class="match-badge">19</span>Sat 14:00
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -1371,7 +1564,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Sat 16:15
+                      ><span class="match-badge">20</span>Sat 16:15
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -1398,7 +1591,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Sat 18:30
+                      ><span class="match-badge">21</span>Sat 18:30
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -1425,7 +1618,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Sun 16:00
+                      ><span class="match-badge">22</span>Sun 16:00
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -1452,7 +1645,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Sun 18:15
+                      ><span class="match-badge">23</span>Sun 18:15
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -1479,7 +1672,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Mon 21:00
+                      ><span class="match-badge">24</span>Mon 21:00
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -1526,7 +1719,7 @@
                   </div>
                   <div class="event-header">
                     <span class="event-time"
-                      >Sat 14:00
+                      ><span class="match-badge">25</span>Sat 14:00
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -1553,7 +1746,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Sat 16:15
+                      ><span class="match-badge">26</span>Sat 16:15
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -1580,7 +1773,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Sat 18:30
+                      ><span class="match-badge">27</span>Sat 18:30
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -1607,7 +1800,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Sun 16:00
+                      ><span class="match-badge">28</span>Sun 16:00
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -1634,7 +1827,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Sun 18:15
+                      ><span class="match-badge">29</span>Sun 18:15
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -1661,7 +1854,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Mon 21:00
+                      ><span class="match-badge">30</span>Mon 21:00
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -1708,7 +1901,7 @@
                   </div>
                   <div class="event-header">
                     <span class="event-time"
-                      >Sat 14:00
+                      ><span class="match-badge">31</span>Sat 14:00
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -1735,7 +1928,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Sat 16:15
+                      ><span class="match-badge">32</span>Sat 16:15
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -1762,7 +1955,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Sat 18:30
+                      ><span class="match-badge">33</span>Sat 18:30
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -1789,7 +1982,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Sun 16:00
+                      ><span class="match-badge">34</span>Sun 16:00
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -1816,7 +2009,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Sun 18:15
+                      ><span class="match-badge">35</span>Sun 18:15
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -1843,7 +2036,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Mon 21:00
+                      ><span class="match-badge">36</span>Mon 21:00
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -1890,7 +2083,7 @@
                   </div>
                   <div class="event-header">
                     <span class="event-time"
-                      >Sat 14:00
+                      ><span class="match-badge">37</span>Sat 14:00
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -1917,7 +2110,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Sat 16:15
+                      ><span class="match-badge">38</span>Sat 16:15
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -1944,7 +2137,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Sat 18:30
+                      ><span class="match-badge">39</span>Sat 18:30
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -1971,7 +2164,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Sun 16:00
+                      ><span class="match-badge">40</span>Sun 16:00
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -1998,7 +2191,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Sun 18:15
+                      ><span class="match-badge">41</span>Sun 18:15
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -2025,7 +2218,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Mon 21:00
+                      ><span class="match-badge">42</span>Mon 21:00
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -2072,7 +2265,7 @@
                   </div>
                   <div class="event-header">
                     <span class="event-time"
-                      >Sat 14:00
+                      ><span class="match-badge">43</span>Sat 14:00
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -2099,7 +2292,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Sat 16:15
+                      ><span class="match-badge">44</span>Sat 16:15
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -2126,7 +2319,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Sat 18:30
+                      ><span class="match-badge">45</span>Sat 18:30
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -2153,7 +2346,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Sun 16:00
+                      ><span class="match-badge">46</span>Sun 16:00
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -2180,7 +2373,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Sun 18:15
+                      ><span class="match-badge">47</span>Sun 18:15
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -2207,7 +2400,7 @@
                 <div class="event-card">
                   <div class="event-header">
                     <span class="event-time"
-                      >Mon 21:00
+                      ><span class="match-badge">48</span>Mon 21:00
                       <span
                         class="event-extra"
                         onclick="navigateTo('upcoming-single-event.html')"
@@ -2259,8 +2452,8 @@
       </aside>
     </div>
 
-        <!-- footer -->
-    <footer class="footer-main">
+    <!-- footer -->
+<footer class="footer-main">
       <div class="container">
         <!-- Join Now Section -->
         <div class="footer-join-section">
@@ -2294,16 +2487,16 @@
         <!-- Footer Links -->
         <div class="footer-links-section">
           <div class="footer-links-grid">
-            <a href="#" class="footer-link-item">Home</a>
-            <a href="#" class="footer-link-item">About</a>
-            <a href="#" class="footer-link-item">Terms</a>
-            <a href="#" class="footer-link-item">Data Privacy Policy</a>
-            <a href="#" class="footer-link-item">Cookies Policy</a>
-            <a href="#" class="footer-link-item">Rules</a>
-            <a href="#" class="footer-link-item">Lottery Rules</a>
-            <a href="#" class="footer-link-item">Help</a>
-            <a href="#" class="footer-link-item">Responsible Gambling</a>
-            <a href="#" class="footer-link-item">News</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('index.html')">Home</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('about.html')">About</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('terms.html')">Terms</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('privacy.html')">Privacy Policy</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('cookies.html')">Cookies Policy</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('convert.html')">Convert Bet</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('pools-bet-codes.html')">Pools Bet</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('free-bet-codes.html')">Free Bet Codes</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('free-prediction.html')">Free Prediction</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('blog.html')">Blog</a>
           </div>
         </div>
 
@@ -2320,68 +2513,6 @@
             <span>Nigeria</span>
             <span>Change</span>
           </div>
-        </div>
-      </div>
-      <!-- Footer Info -->
-      <div class="footer-info">
-        <div class="container">
-          <p class="footer-info-text">
-            Your bets and payouts are processed by Choplife Gaming Limited,
-            which is licensed and regulated by the Lagos State Lotteries and
-            Gaming Authority of Nigeria.
-          </p>
-          <p class="footer-license">Licence No. LSLGA/OP/OSB/CL071124</p>
-        </div>
-      </div>
-
-      <!-- Footer Warning -->
-      <div class="footer-warning">
-        <div class="container">
-          <p class="footer-warning-text">
-            You have to be 18 years and above to bet.
-          </p>
-          <p class="footer-warning-text">
-            Betting is addictive and can be psychologically harmful.
-          </p>
-          <p class="footer-warning-text">
-            Contact an experienced counsellor at any time 24/7 Monday to Sunday
-            via toll free numbers:
-          </p>
-
-          <div class="footer-contact">
-            <a href="tel:09117581454" class="footer-contact-item"
-              >Phone: 0911 758 1454</a
-            >
-            <a href="tel:09078884268" class="footer-contact-item"
-              >Phone: 0907 888 4268</a
-            >
-          </div>
-
-          <p class="footer-warning-text" style="margin-top: 15px">
-            or WhatsApp only: 0907 888 4268 or email via
-            <a href="mailto:eap@tranquilandquest.org.ng" style="color: #c8ff00"
-              >eap@tranquilandquest.org.ng</a
-            >
-          </p>
-          <p class="footer-warning-text">
-            Please only contact the number above if you need counselling. For
-            help related to your account, contact our
-            <a href="#" style="color: #c8ff00">Customer Support Team</a>
-          </p>
-
-          <div class="footer-support-links">
-            <a href="#" class="footer-support-link">Tranquil & Quest</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Copyright -->
-      <div class="footer-copyright">
-        <div class="container">
-          <p>
-            Copyright @2025, Designed by
-            <a href="https://adminuiux.com/" target="_blank">convertbetcodes</a>
-          </p>
         </div>
       </div>
 
@@ -2472,10 +2603,12 @@
       </div>
     </footer>
 
+    
     <script src="assets/js/adminux/adminux-dashboard.js"></script>
-    <script src="./components/AppLayout.js"></script>
-    <script src="./components/betslip-rail.js"></script>
-    <script src="assets/js/pools-bet-code.js"></script>
+    <script src="components/betslip-rail.js"></script>
+    <script src="components/AppLayout.js"></script>
+    <script src="assets/js/upcoming-events.js"></script>
     <script src="assets/js/app.js"></script>
+    <script src="components/layout/js/filters.js"></script>
   </body>
 </html>

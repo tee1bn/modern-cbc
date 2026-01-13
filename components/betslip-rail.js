@@ -579,6 +579,7 @@ function toggleFullScreen() {
 }
 
 // ==================== RENDERING ====================
+
 function renderRail() {
   const rail = document.getElementById('rail-container');
   if (!rail) return;
@@ -586,33 +587,63 @@ function renderRail() {
   const totalOdds = calculateTotalOdds();
   const selectedCount = bets.filter(b => b.selected).length;
 
+  // Helper function to get sport icon
+  function getSportIcon(bet) {
+    const league = (bet.league || '').toLowerCase();
+    
+    if (league.includes('premier league') || league.includes('serie a') || league.includes('bundesliga') || league.includes('la liga') || league.includes('ligue 1')) {
+      return '<i class="bi bi-dribbble"></i>'; // Football
+    } else if (league.includes('nba') || league.includes('basketball')) {
+      return '<i class="bi bi-dribbble"></i>'; // Basketball
+    } else if (league.includes('atp') || league.includes('wta') || league.includes('tennis')) {
+      return '<i class="bi bi-circle-fill"></i>'; // Tennis
+    } else {
+      return '<i class="bi bi-dribbble"></i>'; 
+    }
+  }
+
+  // Helper function to get sport class name
+  function getSportClass(bet) {
+    const league = (bet.league || '').toLowerCase();
+    
+    if (league.includes('premier league') || league.includes('serie a') || league.includes('bundesliga') || league.includes('la liga') || league.includes('ligue 1')) {
+      return 'football';
+    } else if (league.includes('nba') || league.includes('basketball')) {
+      return 'basketball';
+    } else if (league.includes('atp') || league.includes('wta') || league.includes('tennis')) {
+      return 'tennis';
+    } else {
+      return 'football';
+    }
+  }
+
   rail.innerHTML = `
-     <div class="page-header">
-    ${window.innerWidth < 768 ? `
-      <button class="back-btn" onclick="window.betslipRail.closeRail()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M15 18l-6-6 6-6" />
-        </svg>
-      </button>
-    ` : ''}
-    <h1 class="page-title">Betslip ${bets.length}</h1>
-    <div style="display: flex; align-items: center; gap: 8px;">
-      <button class="rail-load-btn" id="rail-load-btn" title="Load New Bet Code">
-        <i class="bi bi-download"></i>
-      </button>
+    <div class="page-header">
       ${window.innerWidth < 768 ? `
-        <button class="rail-action-btn" id="rail-expand-btn" title="${rail && rail.classList.contains('fullscreen') ? 'Exit Fullscreen' : 'Fullscreen'}">
-          <i class="bi bi-arrows-fullscreen"></i>
-        </button>
-        <button class="home-btn" onclick="window.location.href='index.html'">
+        <button class="back-btn" onclick="window.betslipRail.closeRail()">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-            <polyline points="9 22 9 12 15 12 15 22" />
+            <path d="M15 18l-6-6 6-6" />
           </svg>
         </button>
       ` : ''}
+      <h1 class="page-title">Editor ${bets.length}</h1>
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <button class="rail-load-btn" id="rail-load-btn" title="Load New Bet Code">
+          <i class="bi bi-download"></i> 
+        </button>
+        ${window.innerWidth < 768 ? `
+          <button class="rail-action-btn" id="rail-expand-btn" title="${rail && rail.classList.contains('fullscreen') ? 'Exit Fullscreen' : 'Fullscreen'}">
+            <i class="bi bi-arrows-fullscreen"></i>
+          </button>
+          <button class="home-btn" onclick="window.location.href='index.html'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              <polyline points="9 22 9 12 15 12 15 22" />
+            </svg>
+          </button>
+        ` : ''}
+      </div>
     </div>
-  </div>
 
     <!-- Always show navigation tabs -->
     <div class="empty-nav-tabs">
@@ -627,64 +658,29 @@ function renderRail() {
     </div>
 
     ${bets.length === 0 ? `
-      <!-- Empty state: Show load form -->
-      <div class="empty-load-form">
-        <div class="empty-load-form-header">
-          <h4>Please insert booking code</h4>
-          <i class="bi bi-info-circle" title="Enter your bet code to load selections"></i>
+      <!-- Empty state -->
+      <div class="rail-empty-state">
+        <div class="rail-empty-icon">
+          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="100" cy="100" r="80" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="2"/>
+            <path d="M100 60 L140 120 L60 120 Z" fill="#ccc"/>
+            <circle cx="100" cy="145" r="15" fill="#ccc"/>
+            <rect x="70" y="50" width="60" height="4" rx="2" fill="#999"/>
+          </svg>
         </div>
-
-        <form id="empty-load-code-form">
-          <div class="empty-form-group">
-            <label>Bet Code</label>
-            <div class="empty-input-wrapper">
-              <input 
-                type="text" 
-                id="empty-bet-code-input"
-                placeholder="Enter bet code (e.g., M8BULE)"
-                required
-              />
-              <button type="button" id="empty-paste-btn" class="empty-paste-btn">
-                <i class="bi bi-clipboard"></i>
-              </button>
-            </div>
-          </div>
-
-          <div class="empty-form-group">
-            <label>Select Origin Bookie</label>
-            <select id="empty-origin-bookie" required>
-              <option value="">Choose a bookie</option>
-              <option value="sportybet-nigeria">Sportybet - Nigeria</option>
-              <option value="sportybet-ghana">Sportybet - Ghana</option>
-              <option value="sportybet-kenya">Sportybet - Kenya</option>
-              <option value="bet9ja-nigeria">Bet9ja - Nigeria</option>
-              <option value="betking-nigeria">BetKing - Nigeria</option>
-              <option value="1xbet-nigeria">1xBet - Nigeria</option>
-              <option value="22bet-nigeria">22bet - Nigeria</option>
-            </select>
-          </div>
-
-          <div class="empty-form-buttons">
-            <button type="button" id="empty-cancel-btn" class="empty-cancel-btn">
-              Cancel
-            </button>
-            <button type="submit" class="empty-submit-btn">
-              <i class="bi bi-download"></i> Load Code
-            </button>
-          </div>
-        </form>
-
-        <!-- Loading State -->
-        <div id="empty-loading-state" class="empty-loading-state" style="display: none;">
-          <div class="empty-spinner"></div>
-          <p>Loading bet code...</p>
-        </div>
-
-        <!-- Error State -->
-        <div id="empty-error-state" class="empty-error-state" style="display: none;">
-          <i class="bi bi-exclamation-circle"></i>
-          <p>Failed to load bet code. Please try again.</p>
-          <button id="empty-retry-btn" class="empty-retry-btn">Retry</button>
+        <h2 class="rail-empty-title">Editor is empty</h2>
+        <p class="rail-empty-description">
+          Load a bet code from your favorite bookie to get started, or create a custom multi bet from scratch.
+        </p>
+        <div class="rail-empty-actions">
+          <button class="rail-empty-btn secondary" id="learn-how-btn">
+            <i class="bi bi-question-circle"></i>
+            Learn How to Use
+          </button>
+          <button class="rail-empty-btn primary" id="load-code-btn">
+            <i class="bi bi-download"></i>
+            Load Bet Code
+          </button>
         </div>
       </div>
     ` : `
@@ -705,14 +701,20 @@ function renderRail() {
             <div class="rail-bet-checkbox">
               <input type="checkbox" class="bet-checkbox" data-match-id="${bet.matchId}" ${bet.selected ? 'checked' : ''} />
             </div>
+            
+            <!-- Sport Icon -->
+            <div class="rail-bet-sport-icon ${getSportClass(bet)}">
+              ${getSportIcon(bet)}
+            </div>
+            
             <div class="rail-bet-content" data-match-id="${bet.matchId}" style="cursor: pointer;">
               <div class="rail-bet-teams">${bet.teams || 'Unknown Match'}</div>
               <div class="rail-bet-market">${bet.market || '1x2'}: ${bet.value || 'home'}</div>
               <div class="rail-bet-meta">
                 <span class="rail-bet-date">${bet.date || ''}</span>
               </div>
-              ${bet.league ? `<div class="rail-bet-league-tag">${bet.league}</div>` : ''}
             </div>
+            
             <div class="rail-bet-actions">
               <div class="rail-bet-odd">${bet.odd || bet.odds || '—'}</div>
               <div class="rail-bet-action-icons">
@@ -946,6 +948,23 @@ function attachEventListeners() {
     });
   }
 
+  // Empty state buttons
+  const loadCodeBtn = document.getElementById('load-code-btn');
+  if (loadCodeBtn) {
+    loadCodeBtn.addEventListener('click', () => {
+      renderEmptyLoadForm();
+    });
+  }
+
+  const learnHowBtn = document.getElementById('learn-how-btn');
+  if (learnHowBtn) {
+    learnHowBtn.addEventListener('click', () => {
+      // You can link this to a tutorial page or modal
+      alert('Tutorial: Load a bet code or create a custom multi bet to get started!');
+      // Or: window.location.href = 'tutorial.html';
+    });
+  }
+
   const expandBtn = document.getElementById('rail-expand-btn');
   if (expandBtn) {
     expandBtn.addEventListener('click', toggleFullScreen);
@@ -961,65 +980,11 @@ function attachEventListeners() {
     });
   }
 
-  // Multi Maker tab - Navigate to add games page
+  // Multi Maker tab
   const multiMakerBtn = document.getElementById('empty-multi-maker-btn');
   if (multiMakerBtn) {
     multiMakerBtn.addEventListener('click', () => {
       window.location.href = 'bet-editor-add.html';
-    });
-  }
-
-  // Empty state form handlers
-  const emptyPasteBtn = document.getElementById('empty-paste-btn');
-  const emptyCodeInput = document.getElementById('empty-bet-code-input');
-  if (emptyPasteBtn && emptyCodeInput) {
-    emptyPasteBtn.addEventListener('click', async () => {
-      try {
-        const text = await navigator.clipboard.readText();
-        emptyCodeInput.value = text.trim();
-      } catch (err) {
-        console.log('Paste failed:', err);
-      }
-    });
-  }
-
-  const emptyCancelBtn = document.getElementById('empty-cancel-btn');
-  if (emptyCancelBtn) {
-    emptyCancelBtn.addEventListener('click', () => {
-      closeRail();
-    });
-  }
-
-  const emptyLoadForm = document.getElementById('empty-load-code-form');
-  if (emptyLoadForm) {
-    emptyLoadForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      
-      const code = document.getElementById('empty-bet-code-input').value.trim();
-      const bookie = document.getElementById('empty-origin-bookie').value;
-      
-      if (!code || !bookie) {
-        alert('Please fill in all fields');
-        return;
-      }
-
-      emptyLoadForm.style.display = 'none';
-      document.getElementById('empty-loading-state').style.display = 'flex';
-
-      try {
-        await loadBetCodeFromEmpty(code, bookie);
-      } catch (error) {
-        document.getElementById('empty-loading-state').style.display = 'none';
-        document.getElementById('empty-error-state').style.display = 'flex';
-      }
-    });
-  }
-
-  const emptyRetryBtn = document.getElementById('empty-retry-btn');
-  if (emptyRetryBtn) {
-    emptyRetryBtn.addEventListener('click', () => {
-      document.getElementById('empty-error-state').style.display = 'none';
-      document.getElementById('empty-load-code-form').style.display = 'block';
     });
   }
 
@@ -1047,26 +1012,24 @@ function attachEventListeners() {
     });
   });
 
-  // Click on bet content to navigate to single event page
+  // Click on bet content
   document.querySelectorAll('.rail-bet-content').forEach(content => {
     content.addEventListener('click', (e) => {
       const matchId = e.currentTarget.dataset.matchId;
       const bet = bets.find(b => b.matchId == matchId);
       if (bet) {
-        // Navigate to single event page
         window.location.href = 'upcoming-single-event.html';
       }
     });
   });
 
-  // Edit button - also navigate to single event page
+  // Edit button
   document.querySelectorAll('.rail-bet-edit-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
       const matchId = e.currentTarget.dataset.matchId;
       const bet = bets.find(b => b.matchId == matchId);
       if (bet) {
-        // Navigate to single event page
         window.location.href = 'upcoming-single-event.html';
       }
     });

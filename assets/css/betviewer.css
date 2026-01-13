@@ -4,7 +4,7 @@
   --btv-border: #e0e0e0;
   --btv-muted: #666666;
 
-  font-family: var(--adminuiux-content-font, 'Open Sans', sans-serif);
+  font-family: var(--adminuiux-content-font, "Open Sans", sans-serif);
   font-size: 14px;
   line-height: 1.5;
   width: 100%;
@@ -565,18 +565,17 @@
    EXTRA LARGE DESKTOP (1400px and up)
    ========================================== */
 @media (min-width: 1400px) {
-
   .sidebar-right {
     display: none !important;
   }
 
   .adminuiux-content {
-    width: calc(100% - 600px) !important; 
-    margin-right: 300px !important; 
+    width: calc(100% - 600px) !important;
+    margin-right: 300px !important;
   }
 
   .footer-main {
-     width: calc(100% - 600px) !important; 
+    width: calc(100% - 600px) !important;
   }
 
   .btv-header {
@@ -627,7 +626,6 @@
   }
 }
 
-
 @media (max-width: 480px) {
   .btv-form {
     padding: 16px;
@@ -643,8 +641,11 @@
   }
 
   .btv-header-content {
-    flex-direction: column;
-    align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
   }
 
   .btv-header-right {

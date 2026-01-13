@@ -1,15 +1,14 @@
-
 .bet-safer-page {
   font-family: var(--adminuiux-content-font, 'Open Sans', sans-serif);
   background: #fff;
-  /* padding: 16px; */
+  padding: 0;
 }
 
-
+/* INPUT SECTION */
 .safer-input-section {
   max-width: 800px;
-  margin: 0 auto 24px;
-  padding: 20px;
+  margin: 0 auto 20px;
+  padding: 16px;
   background: #fff;
   border: 2px solid #e0e0e0;
   border-radius: 8px;
@@ -20,16 +19,16 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .safer-input-tab {
-  padding: 12px 16px;
+  padding: 10px 12px;
   background: #fff;
   color: #000;
   border: 2px solid #e0e0e0;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   text-align: center;
@@ -49,14 +48,18 @@
 
 /* FORM GROUPS */
 .safer-form-group {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+}
+
+.safer-form-group:last-child {
+  margin-bottom: 0;
 }
 
 .safer-form-label {
   display: block;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   color: #000;
   text-transform: uppercase;
   letter-spacing: 0.3px;
@@ -71,10 +74,11 @@
 
 .safer-form-input {
   flex: 1;
-  padding: 14px 16px;
+  padding: 12px 14px;
+  padding-right: 48px;
   border: 2px solid #333;
   border-radius: 6px;
-  font-size: 15px;
+  font-size: 14px;
   background: #fff;
   transition: all 0.2s;
 }
@@ -87,10 +91,10 @@
 
 .safer-paste-btn {
   position: absolute;
-  right: 8px;
+  right: 6px;
   top: 50%;
   transform: translateY(-50%);
-  padding: 8px;
+  padding: 6px;
   background: #f5f5f5;
   border: 1px solid #e0e0e0;
   border-radius: 4px;
@@ -108,17 +112,17 @@
 }
 
 .safer-paste-btn svg {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   display: block;
 }
 
 .safer-form-select {
   width: 100%;
-  padding: 14px 16px;
+  padding: 12px 14px;
   border: 2px solid #333;
   border-radius: 6px;
-  font-size: 15px;
+  font-size: 14px;
   background: #fff;
   cursor: pointer;
   transition: all 0.2s;
@@ -134,7 +138,7 @@
 .safer-upload-area {
   border: 3px dashed #333;
   border-radius: 8px;
-  padding: 40px 20px;
+  padding: 32px 16px;
   text-align: center;
   background: #fafafa;
   cursor: pointer;
@@ -147,32 +151,32 @@
 }
 
 .safer-upload-icon {
-  width: 56px;
-  height: 56px;
-  margin: 0 auto 16px;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 12px;
   color: #333;
 }
 
 .safer-upload-title {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
-  margin: 0 0 8px 0;
+  margin: 0 0 6px 0;
   color: #000;
 }
 
 .safer-upload-text {
-  font-size: 14px;
+  font-size: 13px;
   color: #666;
-  margin: 0 0 16px 0;
+  margin: 0 0 12px 0;
 }
 
 .safer-browse-btn {
   display: inline-block;
-  padding: 10px 24px;
+  padding: 8px 20px;
   background: #000;
   color: #fff;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
@@ -186,30 +190,31 @@
 .auto-detect-badge {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-top: 10px;
-  padding: 8px 12px;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 6px 10px;
   background: #f0f0f0;
   border-radius: 6px;
-  font-size: 13px;
+  font-size: 12px;
   color: #000;
   font-weight: 600;
 }
 
 .auto-detect-badge i {
   color: #28a745;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 /* ANALYZE BUTTON */
 .safer-analyze-btn {
   width: 100%;
-  padding: 16px;
+  padding: 14px;
+  margin-top: 16px;
   background: #000;
   color: #fff;
   border: none;
   border-radius: 6px;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s;
@@ -226,14 +231,14 @@
 }
 
 .safer-analyze-btn i {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 /* EMPTY STATE */
 .safer-empty-state {
   max-width: 600px;
-  margin: 40px auto;
-  padding: 60px 20px;
+  margin: 20px auto;
+  padding: 48px 16px;
   text-align: center;
   background: #fafafa;
   border: 2px dashed #e0e0e0;
@@ -241,22 +246,24 @@
 }
 
 .safer-empty-text {
-  font-size: 15px;
+  font-size: 14px;
   color: #666;
   line-height: 1.6;
+  margin: 0;
 }
 
 /* RESULTS SECTION */
 .safer-results {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 16px;
 }
 
 /* SELECTION CARD */
 .safer-selection-card {
   border: 2px solid #e0e0e0;
   border-radius: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   background: #fff;
   overflow: hidden;
   transition: all 0.3s;
@@ -267,31 +274,31 @@
 }
 
 .safer-selection-header {
-  padding: 16px 20px;
+  padding: 12px 16px;
   background: #f9f9f9;
   border-bottom: 2px solid #e0e0e0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
 }
 
 .selection-number {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   color: #000;
 }
 
 .risk-badge {
-  padding: 6px 12px;
+  padding: 5px 10px;
   border-radius: 4px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   white-space: nowrap;
 }
 
@@ -314,13 +321,13 @@
 }
 
 .safer-selection-body {
-  padding: 20px;
+  padding: 16px;
 }
 
 /* ORIGINAL PICK */
 .original-pick {
-  margin-bottom: 20px;
-  padding-bottom: 20px;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
   border-bottom: 2px solid #e0e0e0;
 }
 
@@ -328,23 +335,23 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 16px;
+  gap: 12px;
 }
 
 .pick-teams {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   color: #000;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .pick-market {
-  font-size: 14px;
+  font-size: 13px;
   color: #666;
 }
 
 .pick-odds {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
   color: #000;
   white-space: nowrap;
@@ -355,16 +362,16 @@
   background: #fff;
   border: 2px solid #333;
   border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 20px;
+  padding: 16px;
+  margin-bottom: 16px;
 }
 
 .safer-alt-header {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 16px;
-  font-size: 14px;
+  gap: 6px;
+  margin-bottom: 12px;
+  font-size: 13px;
   font-weight: 700;
   color: #333;
   text-transform: uppercase;
@@ -372,21 +379,21 @@
 }
 
 .safer-alt-header i {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .safer-alt-market {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   color: #000;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .safer-alt-explanation {
-  font-size: 14px;
+  font-size: 13px;
   color: #333;
-  line-height: 1.7;
-  margin-bottom: 16px;
+  line-height: 1.6;
+  margin-bottom: 12px;
 }
 
 .safer-alt-explanation i {
@@ -398,9 +405,9 @@
 .safer-comparison {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin: 16px 0;
-  padding: 16px;
+  gap: 10px;
+  margin: 12px 0;
+  padding: 12px;
   background: #fff;
   border: 2px solid #e0e0e0;
   border-radius: 6px;
@@ -411,23 +418,23 @@
 }
 
 .comparison-label {
-  font-size: 11px;
+  font-size: 10px;
   color: #666;
   text-transform: uppercase;
   font-weight: 700;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   letter-spacing: 0.5px;
 }
 
 .comparison-value {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
   color: #000;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 
 .comparison-subtext {
-  font-size: 12px;
+  font-size: 11px;
   color: #666;
   font-weight: 600;
 }
@@ -436,23 +443,23 @@
 .safer-actions {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 16px;
+  gap: 10px;
+  margin-top: 12px;
 }
 
 .btn-accept {
-  padding: 14px 16px;
+  padding: 12px 14px;
   background: #000;
   color: #fff;
   border: none;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 5px;
   transition: all 0.2s;
 }
 
@@ -462,12 +469,12 @@
 }
 
 .btn-keep {
-  padding: 14px 16px;
+  padding: 12px 14px;
   background: #fff;
   color: #000;
   border: 2px solid #333;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s;
@@ -480,37 +487,37 @@
 
 /* ALREADY SAFE */
 .already-safe {
-  padding: 16px;
+  padding: 12px;
   background: #e8f5e9;
   border: 2px solid #388e3c;
   border-radius: 6px;
   text-align: center;
   color: #1b5e20;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .already-safe i {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 /* ODDS COMPARISON */
 .odds-comparison {
-  padding: 16px;
+  padding: 12px;
   border: 2px solid #e0e0e0;
   background: #fafafa;
   border-radius: 6px;
-  margin-top: 16px;
+  margin-top: 12px;
 }
 
 .odds-comparison-title {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   color: #000;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -520,10 +527,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 14px;
+  padding: 10px 12px;
   background: #fff;
   border: 1px solid #e0e0e0;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   border-radius: 4px;
   transition: all 0.2s;
 }
@@ -542,26 +549,26 @@
 }
 
 .bookie-name {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: #000;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .best-badge {
   background: #f57c00;
   color: #fff;
-  padding: 3px 8px;
+  padding: 2px 6px;
   border-radius: 3px;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.5px;
 }
 
 .bookie-odds {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   color: #000;
 }
@@ -569,18 +576,18 @@
 /* FOOTER ACTIONS */
 .safer-footer-actions {
   max-width: 1200px;
-  margin: 32px auto;
-  padding: 10px;
+  margin: 20px auto;
+  padding: 12px;
   background: #fafafa;
   border: 2px solid #e0e0e0;
   border-radius: 8px;
   display: grid;
-  gap: 12px;
+  gap: 10px;
 }
 
 .safer-footer-btn {
   width: 100%;
-  padding: 8px 12px;
+  padding: 12px 16px;
   background: #fff;
   color: #000;
   border: 2px solid #333;
@@ -591,7 +598,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 6px;
   transition: all 0.2s;
 }
 
@@ -613,52 +620,52 @@
 /* SHARE SECTION */
 .safer-share-section {
   max-width: 800px;
-  margin: 32px auto;
-  padding: 24px;
+  margin: 20px auto;
+  padding: 16px;
   background: #f9f9f9;
   border: 2px solid #e0e0e0;
   border-radius: 8px;
 }
 
 .share-section-title {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   color: #000;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .share-link-box {
   display: flex;
-  gap: 12px;
-  margin-bottom: 12px;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
 .share-input {
   flex: 1;
-  padding: 12px 16px;
+  padding: 10px 12px;
   border: 2px solid #333;
   border-radius: 6px;
-  font-size: 13px;
+  font-size: 12px;
   font-family: 'Courier New', monospace;
   background: #fff;
 }
 
 .btn-copy {
-  padding: 12px 20px;
+  padding: 10px 16px;
   background: #000;
   color: #fff;
   border: none;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   cursor: pointer;
   white-space: nowrap;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   transition: all 0.2s;
 }
 
@@ -667,18 +674,19 @@
 }
 
 .share-description {
-  font-size: 13px;
+  font-size: 12px;
   color: #666;
   line-height: 1.5;
+  margin: 0;
 }
 
 /* SCROLL TO TOP */
 .scroll-to-top {
   position: fixed;
   bottom: 90px;
-  right: 20px;
-  width: 48px;
-  height: 48px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
   background: #000;
   color: #fff;
   border: none;
@@ -707,44 +715,44 @@
 }
 
 .scroll-to-top i {
-  font-size: 20px;
+  font-size: 18px;
 }
 
-/* TABLET & MOBILE RESPONSIVE */
-@media (max-width: 768px) {
-  .bet-safer-page {
-    /* padding: 12px; */
-  }
-
+/* TABLET RESPONSIVE (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
   .safer-input-section {
-    padding: 16px;
+    padding: 18px;
   }
 
   .safer-input-tabs {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
 
   .safer-input-tab {
-    padding: 10px 12px;
+    padding: 11px 14px;
     font-size: 13px;
   }
 
-  .pick-info {
-    flex-direction: column;
-    gap: 12px;
+  .safer-results {
+    padding: 0 16px;
   }
 
-  .pick-odds {
-    font-size: 20px;
+  .safer-selection-card {
+    margin-bottom: 18px;
+  }
+
+  .safer-selection-body {
+    padding: 18px;
   }
 
   .safer-comparison {
-    gap: 10px;
-    padding: 12px;
+    gap: 12px;
+    padding: 14px;
   }
 
   .comparison-value {
-    font-size: 20px;
+    font-size: 22px;
   }
 
   .share-link-box {
@@ -753,27 +761,26 @@
 
   .btn-copy {
     width: 100%;
+    justify-content: center;
   }
 }
 
-/* DESKTOP RESPONSIVE */
-@media (min-width: 992px) {
-  .bet-safer-page {
-    /* padding: 40px 60px 80px; */
-  }
-
+/* DESKTOP RESPONSIVE (769px - 991px) */
+@media (min-width: 769px) and (max-width: 991px) {
   .safer-input-section {
-    /* padding: 32px; */
+    padding: 20px;
   }
 
   .safer-input-tabs {
     grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
   }
 
   .safer-results {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    gap: 20px;
+    padding: 0 20px;
   }
 
   .safer-selection-card {
@@ -781,26 +788,345 @@
   }
 
   .safer-footer-actions {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    padding: 16px;
+  }
+}
+
+/* LARGE DESKTOP (992px+) */
+@media (min-width: 992px) {
+  .safer-input-section {
     padding: 24px;
+  }
+
+  .safer-input-tabs {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+
+  .safer-input-tab {
+    /* padding: 12px 16px; */
+    font-size: 14px;
+  }
+
+  .safer-form-group {
+    margin-bottom: 20px;
+  }
+
+  .safer-results {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    padding: 0 24px;
+  }
+
+  .safer-selection-card {
+    margin-bottom: 0;
+  }
+
+  .safer-selection-body {
+    padding: 20px;
+  }
+
+  .safer-footer-actions {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 20px;
+    gap: 12px;
+  }
+
+  .safer-footer-btn {
+    padding: 14px 18px;
+    font-size: 14px;
   }
 
   .scroll-to-top {
     bottom: 40px;
     right: 40px;
-    width: 56px;
-    height: 56px;
+    width: 52px;
+    height: 52px;
+  }
+
+  .scroll-to-top i {
+    font-size: 20px;
   }
 }
 
-/* LARGE DESKTOP */
+/* EXTRA LARGE DESKTOP (1400px+) */
 @media (min-width: 1400px) {
   .bet-safer-page {
     max-width: 1600px;
-    /* margin: 0 auto; */
+    margin: 0 auto;
   }
 
   .safer-results {
     gap: 32px;
+  }
+
+  .safer-selection-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .safer-selection-card:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* MOBILE SPECIFIC (max-width: 480px) */
+@media (max-width: 480px) {
+  .safer-input-section {
+    padding: 14px;
+    margin-bottom: 16px;
+  }
+
+  .safer-input-tabs {
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+
+  .safer-input-tab {
+    padding: 9px 10px;
+    font-size: 12px;
+  }
+
+  .safer-form-group {
+    margin-bottom: 14px;
+  }
+
+  .safer-form-label {
+    font-size: 11px;
+    margin-bottom: 5px;
+  }
+
+  .safer-form-input,
+  .safer-form-select {
+    padding: 10px 12px;
+    padding-right: 44px;
+    font-size: 13px;
+  }
+
+  .safer-paste-btn {
+    right: 5px;
+    padding: 5px;
+  }
+
+  .safer-paste-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .safer-upload-area {
+    padding: 24px 12px;
+  }
+
+  .safer-upload-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .safer-upload-title {
+    font-size: 14px;
+  }
+
+  .safer-upload-text {
+    font-size: 12px;
+  }
+
+  .safer-analyze-btn {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .safer-empty-state {
+    padding: 32px 12px;
+    margin: 16px auto;
+  }
+
+  .safer-empty-text {
+    font-size: 13px;
+  }
+
+  .safer-results {
+    padding: 0 12px;
+  }
+
+  .safer-selection-card {
+    margin-bottom: 14px;
+  }
+
+  .safer-selection-header {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .selection-number {
+    font-size: 12px;
+  }
+
+  .risk-badge {
+    padding: 4px 8px;
+    font-size: 10px;
+    gap: 4px;
+  }
+
+  .safer-selection-body {
+    padding: 12px;
+  }
+
+  .original-pick {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+  }
+
+  .pick-info {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .pick-teams {
+    font-size: 14px;
+  }
+
+  .pick-market {
+    font-size: 12px;
+  }
+
+  .pick-odds {
+    font-size: 20px;
+  }
+
+  .safer-alternative {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+
+  .safer-alt-header {
+    font-size: 12px;
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+
+  .safer-alt-market {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .safer-alt-explanation {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .safer-comparison {
+    gap: 8px;
+    padding: 10px;
+    margin: 10px 0;
+  }
+
+  .comparison-label {
+    font-size: 9px;
+  }
+
+  .comparison-value {
+    font-size: 18px;
+  }
+
+  .comparison-subtext {
+    font-size: 10px;
+  }
+
+  .safer-actions {
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .btn-accept,
+  .btn-keep {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+
+  .already-safe {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .odds-comparison {
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  .odds-comparison-title {
+    font-size: 11px;
+    margin-bottom: 8px;
+  }
+
+  .bookie-row {
+    padding: 8px 10px;
+    margin-bottom: 5px;
+  }
+
+  .bookie-name {
+    font-size: 12px;
+  }
+
+  .best-badge {
+    font-size: 8px;
+    padding: 2px 5px;
+  }
+
+  .bookie-odds {
+    font-size: 14px;
+  }
+
+  .safer-footer-actions {
+    margin: 16px auto;
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .safer-footer-btn {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+
+  .safer-share-section {
+    margin: 16px auto;
+    padding: 12px;
+  }
+
+  .share-section-title {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  .share-link-box {
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .share-input {
+    padding: 9px 10px;
+    font-size: 11px;
+  }
+
+  .btn-copy {
+    width: 100%;
+    padding: 9px 14px;
+    font-size: 12px;
+  }
+
+  .share-description {
+    font-size: 11px;
+  }
+
+  .scroll-to-top {
+    bottom: 80px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .scroll-to-top i {
+    font-size: 16px;
   }
 }

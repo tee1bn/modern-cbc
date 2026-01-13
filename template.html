@@ -7,7 +7,7 @@
       content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>CodeHub - ConvertBetCodes</title>
+    <title>Multi Maker - ConvertBetCodes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com/" />
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
     <link
@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="assets/css/side-menu.css" />
     <link rel="stylesheet" href="assets/css/footer.css" />
     <link rel="stylesheet" href="assets/css/betslip-rail.css" />
-    <link rel="stylesheet" href="assets/css/code-hub.css">
+    <link rel="stylesheet" href="assets/css/multi-maker.css">
   </head>
 
   <body>
@@ -711,7 +711,7 @@
     </div>
 
     <!-- footer -->
-    <footer class="footer-main">
+<footer class="footer-main">
       <div class="container">
         <!-- Join Now Section -->
         <div class="footer-join-section">
@@ -745,16 +745,16 @@
         <!-- Footer Links -->
         <div class="footer-links-section">
           <div class="footer-links-grid">
-            <a href="#" class="footer-link-item">Home</a>
-            <a href="#" class="footer-link-item">About</a>
-            <a href="#" class="footer-link-item">Terms</a>
-            <a href="#" class="footer-link-item">Data Privacy Policy</a>
-            <a href="#" class="footer-link-item">Cookies Policy</a>
-            <a href="#" class="footer-link-item">Rules</a>
-            <a href="#" class="footer-link-item">Lottery Rules</a>
-            <a href="#" class="footer-link-item">Help</a>
-            <a href="#" class="footer-link-item">Responsible Gambling</a>
-            <a href="#" class="footer-link-item">News</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('index.html')">Home</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('about.html')">About</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('terms.html')">Terms</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('privacy.html')">Privacy Policy</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('cookies.html')">Cookies Policy</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('convert.html')">Convert Bet</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('pools-bet-codes.html')">Pools Bet</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('free-bet-codes.html')">Free Bet Codes</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('free-prediction.html')">Free Prediction</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('blog.html')">Blog</a>
           </div>
         </div>
 
@@ -772,6 +772,39 @@
             <span>Change</span>
           </div>
         </div>
+      </div>
+
+      <!-- Fixed Buttons -->
+      <div
+        class="position-fixed bottom-0 start-50 translate-middle-x mb-4 z-index-5"
+        id="fixedbuttons"
+      >
+        <br />
+        <button
+          id="backtotop"
+          class="shadow mt-2 d-none"
+          style="
+            background: #000;
+            color: #fff;
+            width: 100px;
+            height: 40px;
+            border: none;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+            transition: transform 0.2s ease, opacity 0.2s ease;
+          "
+          aria-label="Back to top"
+        >
+          <i class="bi bi-chevron-up"></i> Back to top
+        </button>
       </div>
     </footer>
 
@@ -831,6 +864,5 @@
     <script src="components/AppLayout.js"></script>
     <script src="assets/js/app.js"></script>
     <script src="components/betslip-rail.js"></script>
-    <script src="assets/js/home.js"></script>
   </body>
 </html>

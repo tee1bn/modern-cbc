@@ -1,5 +1,3 @@
-// predictions.js - Phase 7 Fix
-
 (function() {
   'use strict';
 

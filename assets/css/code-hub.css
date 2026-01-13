@@ -10,6 +10,7 @@ body {
   padding-bottom: 80px;
 }
 
+
 .hub-header {
   background: #fff;
   color: white;
@@ -247,6 +248,8 @@ body {
     width: 100%;
   }
 }
+
+
 
 /* Code Events - SCROLLABLE CONTAINER */
 .code-events {
@@ -533,7 +536,7 @@ body {
   background: #e0e0e0;
   border-radius: 2px;
   outline: none;
-  -webkit-appearance: none;
+  /* -webkit-appearance: none; */
 }
 
 .range-slider input[type="range"]::-webkit-slider-thumb {
@@ -786,7 +789,7 @@ n-btn.loading {
 .code-action-btn.success {
   background: #333 !important;
 }
-*/
+
 
 /* COMMENTED OUT - Not needed with popup modals */
 /*

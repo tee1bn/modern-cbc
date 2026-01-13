@@ -4,7 +4,7 @@
 .markets-container {
   width: 100%;
   max-width: 100%;
-  overflow: hidden;
+  overflow: visible;
   position: relative;
 }
 
@@ -13,8 +13,8 @@
    ========================================== */
 .event-header {
   position: sticky;
-  top: 0;
-  z-index: 100;
+  top: 105px;
+  z-index: 997;
   background: #fff;
   width: 100%;
   max-width: 100%;
@@ -33,6 +33,10 @@
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: inherit;
 }
 
 .header-back {
@@ -86,6 +90,13 @@
   justify-content: center;
 }
 
+/* Hidden state */
+.event-header.collapsed .match-info {
+  max-height: 0;
+  opacity: 0;
+}
+
+
 /* ==========================================
    MATCH INFO
    ========================================== */
@@ -93,6 +104,10 @@
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
+    overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.25s ease;
+  max-height: 200px;
+  opacity: 1;
 }
 
 .match-league {
@@ -197,6 +212,7 @@
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
+  transition: margin-top 0.3s ease;
 }
 
 .action-tab {
@@ -241,6 +257,11 @@
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
+    position: sticky;
+  top: 56px; /* height of header-top */
+  z-index: 55;
+  background: inherit;
+  padding-top: 6px;
 }
 
 .market-filter-bar::-webkit-scrollbar {
@@ -254,6 +275,16 @@
 .market-filter-bar::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 4px;
+}
+
+.market-filter-bar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255,255,255,0.06);
 }
 
 .filter {
@@ -656,9 +687,33 @@
   .odd-dash {
     min-width: 50px;
   }
+
+  .event-header {
+    top: 80px;
+  }
+
+  .action-tabs {
+    position: sticky;
+    top: 55px; 
+    z-index: 54;
+    background: #fff;
+  }
+
+  .market-filter-bar {
+    top: 100px; /* event-header + action-tabs */
+    z-index: 53;
+  }
 }
 
 @media (max-width: 480px) {
+    .action-tabs {
+    top: 50px;
+  }
+
+  .market-filter-bar {
+    top: 100px;
+  }
+
   .header-match-name {
     font-size: 0.75rem;
   }
@@ -720,6 +775,10 @@
   .option-header {
     min-width: 44px;
     font-size: 0.75rem;
+  }
+
+    .event-header {
+    top: 90px;
   }
 }
 

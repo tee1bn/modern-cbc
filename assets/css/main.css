@@ -67,7 +67,7 @@ body {
     margin-right: 650px; 
     margin-top: 0;
     padding: 0px;
-    overflow-y: auto;
+    overflow: visible;
     min-height: calc(100vh - 105px);
     border-right: 1px solid #e0e0e0;
     border-left: 1px solid #e0e0e0;
@@ -79,7 +79,7 @@ body {
     right: 300px; 
     top: 105px; 
     width: 350px;
-    height: calc(100vh - 105px);
+    height: calc(100vh - 100px);
     overflow-y:auto;
     z-index: 50;
     background: #fff;
@@ -111,7 +111,7 @@ body {
   .adminuiux-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    /* padding: 20px; */
   }
 
   .ad-sidebar-left,
@@ -130,7 +130,7 @@ body {
 
   .adminuiux-content {
     max-width: 100%;
-    padding: 20px;
+    /* padding: 20px; */
   }
 
   .ad-sidebar-left,
@@ -162,7 +162,7 @@ body {
   }
 
   .adminuiux-content {
-    padding: 10px;
+    /* padding: 10px; */
   }
 }
 
@@ -176,7 +176,7 @@ body {
 .ad-sidebar-left,
 .ad-sidebar-right {
   display: none; 
-  background: #d1d5db8c;
+  background: #ffffff22;
   margin: 0;
 }
 

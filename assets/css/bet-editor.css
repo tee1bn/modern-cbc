@@ -11,10 +11,6 @@
   .footer-main {
      width: calc(100% - 600px) !important; 
   }
-
-  .rail-container {
-
-  }
 }
 
 /* ==================== BETSLIP RAIL OVERRIDES ==================== */
@@ -29,18 +25,409 @@
   display: none !important;
 }
 
-/* Mobile: Make rail visible and full-width */
+.empty-nav-tab,
+.rail-action-btn,
+.home-btn {
+  display: none !important;
+}
+
+/* ==================== SPORT ICON STYLING ==================== */
+.rail-bet-sport-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 20px;
+  color: #666;
+  border: 1px solid #e0e0e0;
+  transition: all 0.2s ease;
+}
+
+.rail-bet-sport-icon.football {
+  background: #333;
+  color: #fff;
+  border-color: #3333;
+}
+
+.rail-bet-sport-icon.basketball {
+  background: #333;
+  color: #fff;
+  border-color: #3333;
+}
+
+.rail-bet-sport-icon.tennis {
+  background: #333;
+  color: #fff;
+  border-color: #3333;
+}
+
+/* Hide league tags */
+.rail-bet-league-tag {
+  display: none !important;
+}
+
+/* ==================== BET ITEM LAYOUT ==================== */
+.rail-bet-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 12px;
+  border-bottom: 1px solid #e0e0e0;
+  background: #fff;
+  transition: all 0.2s ease;
+}
+
+.rail-bet-item:hover {
+  background: #f9f9f9;
+}
+
+.rail-bet-item:last-child {
+  border-bottom: none;
+}
+
+.rail-bet-checkbox {
+  flex-shrink: 0;
+  margin-top: 0;
+}
+
+.rail-bet-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #000;
+}
+
+.rail-bet-content {
+  flex: 1;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.rail-bet-teams {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.rail-bet-market {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.rail-bet-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: #999;
+  margin-top: 4px;
+}
+
+.rail-bet-date {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.rail-bet-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.rail-bet-odd {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+  min-width: 50px;
+  text-align: right;
+  background: #f5f5f5;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+}
+
+.rail-bet-action-icons {
+  display: flex;
+  gap: 6px;
+}
+
+.rail-bet-edit-btn,
+.rail-bet-remove-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  color: #999;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+.rail-bet-edit-btn:hover {
+  background: #333;
+  color: #fff;
+}
+
+.rail-bet-remove-btn:hover {
+  background: #333;
+  color: #fff;
+}
+
+/* ==================== EMPTY STATE STYLING ==================== */
+.rail-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+  min-height: 400px;
+}
+
+.rail-empty-icon {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 24px;
+}
+
+.rail-empty-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.rail-empty-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 12px 0;
+}
+
+.rail-empty-description {
+  font-size: 15px;
+  color: #666;
+  margin: 0 0 32px 0;
+  max-width: 400px;
+  line-height: 1.6;
+}
+
+.rail-empty-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.rail-empty-btn {
+  padding: 14px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.rail-empty-btn.primary {
+  background: #1a1a1a;
+  color: white;
+}
+
+.rail-empty-btn.primary:hover {
+  background: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.rail-empty-btn.secondary {
+  background: #f5f5f5;
+  color: #1a1a1a;
+  border: 1px solid #e0e0e0;
+}
+
+.rail-empty-btn.secondary:hover {
+  background: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+/* ==================== BULK ACTIONS ==================== */
+.rail-bulk-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-bottom: 2px solid #e0e0e0;
+  background: #fafafa;
+  flex-shrink: 0;
+}
+
+.rail-checkbox-all {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  flex: 1;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.rail-checkbox-all input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #000;
+}
+
+.rail-bulk-btn {
+  padding: 8px 16px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  color: #666;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.rail-bulk-btn:hover {
+  background: #f5f5f5;
+  border-color: #ccc;
+  color: #333;
+}
+
+/* ==================== FOOTER ==================== */
+.rail-footer {
+  border-top: 2px solid #e0e0e0;
+  padding: 16px;
+  background: #fff;
+  flex-shrink: 0;
+}
+
+.rail-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.rail-total-label {
+  color: #666;
+}
+
+.rail-total-value {
+  color: #000;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.rail-bookie-select {
+  margin-bottom: 14px;
+}
+
+.rail-bookie-dropdown {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.rail-bookie-dropdown:hover {
+  border-color: #ccc;
+}
+
+.rail-bookie-dropdown:focus {
+  outline: none;
+  border-color: #000;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.rail-book-btn {
+  width: 100%;
+  padding: 14px 16px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.rail-book-btn:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.rail-book-btn:active {
+  transform: translateY(0);
+}
+
+/* ==================== MOBILE RESPONSIVE ==================== */
 @media (max-width: 767px) {
   body {
     margin-right: 0 !important;
   }
 
-  /* Override the hidden state - make it always visible */
+  .rail-load-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  height: 18px;
+  padding: 0 6px;
+  background: #000;
+  color: #fff;
+  font-size: 0.688rem;
+  font-weight: 700;
+  border-radius: 3px;
+  margin-right: 6px;
+  vertical-align: middle;
+  flex-shrink: 0;
+  }
+
+
   .rail-container {
-    display: flex !important; /* Always show */
-    position: static !important; /* Remove fixed positioning */
-    transform: none !important; /* Remove slide animation */
-    max-height: none !important; /* Remove height constraint */
+    display: flex !important;
+    position: static !important;
+    transform: none !important; 
+    max-height: none !important; 
     width: 100% !important;
     max-width: 100% !important;
     border-radius: 0 !important;
@@ -54,7 +441,6 @@
     display: flex !important;
   }
 
-  /* Make sure the header stays at top */
   .rail-container .page-header {
     position: sticky;
     top: 0;
@@ -63,7 +449,6 @@
     border-bottom: 1px solid #e0e0e0;
   }
 
-  /* Form styling for mobile */
   .empty-load-form {
     padding: 20px 16px;
   }
@@ -106,29 +491,106 @@
     color: #666;
     border: 1px solid #e0e0e0;
   }
+
+  /* Mobile sport icon */
+  .rail-bet-sport-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+
+  .rail-bet-item {
+    padding: 12px 10px;
+    gap: 10px;
+  }
+
+  .rail-bet-teams {
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+
+  .rail-bet-market {
+    font-size: 11px;
+  }
+
+  .rail-bet-meta {
+    font-size: 10px;
+    gap: 6px;
+  }
+
+  .rail-bet-odd {
+    font-size: 16px;
+    padding: 4px 10px;
+    min-width: 45px;
+  }
+
+  .rail-bet-edit-btn,
+  .rail-bet-remove-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 13px;
+  }
+
+  .rail-empty-state {
+    padding: 40px 20px;
+    min-height: 300px;
+  }
+
+  .rail-empty-icon {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+  }
+
+  .rail-empty-title {
+    font-size: 20px;
+  }
+
+  .rail-empty-description {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .rail-empty-actions {
+    max-width: 100%;
+  }
 }
 
-/* Desktop: Make rail full-width in main content */
+/* ==================== DESKTOP RESPONSIVE ==================== */
 @media (min-width: 768px) {
-  /* Override sidebar positioning - make it static and full width */
+.rail-load-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  height: 18px;
+  padding: 0 6px;
+  background: #000;
+  color: #fff;
+  font-size: 0.688rem;
+  font-weight: 900;
+  margin-right: 6px;
+  vertical-align: middle;
+  flex-shrink: 0;
+  }
+
   .rail-container {
-    position: static !important; /* Remove fixed positioning */
-    transform: none !important; /* Remove any transforms */
-    width: 100% !important; /* Full width of parent */
-    max-width: 100% !important; /* Remove width constraint */
-    max-height: none !important; /* Remove height constraint */
+    position: static !important; 
+    transform: none !important; 
+    width: 100% !important;
+    max-width: 100% !important; 
+    max-height: none !important; 
     border-radius: 0 !important;
     box-shadow: none !important;
     background: #fff !important;
-    display: flex !important; /* Always visible */
+    display: flex !important; 
     flex-direction: column;
     margin: 0 !important;
     padding: 0 !important;
     height: auto !important;
-    min-height: calc(100vh - 200px); /* Give it good height */
+    min-height: calc(100vh - 200px);
   }
 
-  /* Page header styling for desktop */
   .rail-container .page-header {
     background: #fff;
     border-bottom: 2px solid #e0e0e0;
@@ -144,12 +606,10 @@
     color: #1a1a1a;
   }
 
-  .rail-container .page-header .back-btn,
   .rail-container .page-header .home-btn {
-    display: none; /* Hide back/home buttons on desktop */
+    display: none;
   }
 
-  /* Form container styling */
   .empty-load-form {
     padding: 48px 80px;
     max-width: 700px;
@@ -176,7 +636,6 @@
     margin: 0;
   }
 
-  /* Form groups with better spacing */
   .empty-form-group {
     margin-bottom: 28px;
   }
@@ -208,7 +667,7 @@
   }
 
   .empty-input-wrapper input {
-    padding-right: 50px; /* Space for paste button */
+    padding-right: 50px;
   }
 
   .empty-input-wrapper input:focus,
@@ -242,7 +701,6 @@
     color: #1a1a1a;
   }
 
-  /* Select dropdown styling */
   .empty-form-group select {
     cursor: pointer;
     appearance: none;
@@ -252,7 +710,6 @@
     padding-right: 50px;
   }
 
-  /* Form buttons */
   .empty-form-buttons {
     display: flex;
     gap: 16px;
@@ -307,7 +764,6 @@
     transform: translateY(0);
   }
 
-  /* Loading and error states */
   .empty-loading-state,
   .empty-error-state {
     display: flex;
@@ -364,7 +820,6 @@
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
   }
 
-  /* Nav tabs styling for desktop */
   .empty-nav-tabs {
     display: flex;
     gap: 0;
@@ -406,7 +861,6 @@
     color: #333;
   }
 
-  /* Ensure content inside rail doesn't overflow */
   .rail-bets-list {
     padding: 16px 32px;
   }
@@ -415,8 +869,130 @@
     padding: 24px 32px;
     border-top: 2px solid #e0e0e0;
   }
+
+  /* Desktop sport icon */
+  .rail-bet-sport-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 22px;
+  }
+
+  .rail-bet-item {
+    padding: 16px 14px;
+  }
+
+  .rail-bet-teams {
+    font-size: 15px;
+  }
+
+  .rail-bet-odd {
+    font-size: 19px;
+    padding: 8px 14px;
+    min-width: 60px;
+  }
+
+  .rail-empty-state {
+    padding: 80px 40px;
+    min-height: 500px;
+  }
+
+  .rail-empty-icon {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 32px;
+  }
+
+  .rail-empty-title {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+
+  .rail-empty-description {
+    font-size: 16px;
+    margin-bottom: 40px;
+    max-width: 500px;
+  }
+
+  .rail-empty-actions {
+    flex-direction: row;
+    max-width: 500px;
+  }
+
+  .rail-empty-btn {
+    padding: 16px 32px;
+    font-size: 16px;
+  }
 }
 
+/* ==================== TABLET ==================== */
+@media (min-width: 768px) and (max-width: 991px) {
+  .rail-bet-sport-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
+  }
+
+  .rail-bet-item {
+    padding: 14px 12px;
+  }
+
+  .rail-bet-teams {
+    font-size: 14px;
+  }
+
+  .rail-bet-odd {
+    font-size: 17px;
+  }
+}
+
+/* ==================== LARGE DESKTOP ==================== */
+@media (min-width: 1400px) {
+  .rail-bet-sport-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+  }
+
+  .rail-bet-item {
+    padding: 18px 16px;
+  }
+
+  .rail-bet-teams {
+    font-size: 16px;
+  }
+
+  .rail-bet-market {
+    font-size: 13px;
+  }
+
+  .rail-bet-odd {
+    font-size: 20px;
+  }
+}
+
+/* ==================== ANIMATIONS ==================== */
 @keyframes spin {
   to { transform: rotate(360deg); }
+}
+
+/* ==================== SCROLLBAR ==================== */
+.rail-bets-list {
+  scroll-behavior: smooth;
+}
+
+.rail-bets-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.rail-bets-list::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+
+.rail-bets-list::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.rail-bets-list::-webkit-scrollbar-thumb:hover {
+  background: #999;
 }

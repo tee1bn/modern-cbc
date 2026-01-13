@@ -27,10 +27,11 @@
     <link rel="stylesheet" href="assets/css/footer.css" />
     <link rel="stylesheet" href="assets/css/betslip-rail.css" />
     <link rel="stylesheet" href="assets/css/free-bet-codes.css" />
+    <link rel="stylesheet" href="components/layout/css/filters.css" />
   </head>
 
   <body class="">
-        <!-- desktop nav -->
+    <!-- desktop nav -->
     <header class="desktop-header">
       <div class="desktop-header-container">
         <!-- Left Section - Menu + Logo -->
@@ -192,7 +193,7 @@
             </div>
           </div> -->
 
-        <button class="tab-item">
+        <button class="tab-item" onclick="navigateTo('convert.html')">
           <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
             <path
               d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"
@@ -687,56 +688,716 @@
       </aside>
 
       <main class="adminuiux-content">
-          <div class="free-codes-page">
-            <!-- Header -->
-            <div class="codes-header">
-              <div class="codes-date">SATURDAY 27TH, DEC 2025</div>
-              <h1 class="codes-title">bet codes for today</h1>
-              <p class="codes-subtitle">
-                Pg 1, showing 25 of 209 -
-                <a href="predictions.html">Get accurate predictions</a>.
-              </p>
+        <div class="free-codes-page">
+          <div class="filters-wrapper">
+            <!-- Filter Tabs Bar -->
+            <div class="filters-tabs">
+              <div class="filter-tab" data-filter="time">
+                <svg
+                  class="filter-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path>
+                </svg>
+                <span>Time</span>
+                <svg
+                  class="arrow-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </div>
+
+              <div class="filter-tab" data-filter="folds">
+                <svg
+                  class="filter-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+                  ></path>
+                </svg>
+                <span>Folds</span>
+                <svg
+                  class="arrow-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </div>
+
+              <div class="filter-tab" data-filter="odds">
+                <svg
+                  class="filter-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                  ></path>
+                </svg>
+                <span>Odds</span>
+                <svg
+                  class="arrow-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </div>
+
+              <div class="filter-tab" data-filter="sort">
+                <svg
+                  class="filter-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12"
+                  ></path>
+                </svg>
+                <span>Sort</span>
+                <svg
+                  class="arrow-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </div>
             </div>
 
-            <div class="hub-filters">
-              <button class="hub-filter-btn" id="time-filter-btn">
-                Time <i class="bi bi-chevron-down"></i>
-              </button>
-              <button class="hub-filter-btn" id="folds-filter-btn">
-                Folds <i class="bi bi-chevron-down"></i>
-              </button>
-              <button class="hub-filter-btn" id="odds-filter-btn">
-                Odds <i class="bi bi-chevron-down"></i>
-              </button>
-              <button class="hub-filter-btn" id="sort-filter-btn">
-                Sort <i class="bi bi-chevron-down"></i>
-              </button>
-            </div>
+            <!-- Dropdown Content Area -->
+            <div class="filters-content">
+              <!-- Time Panel -->
+              <div class="filter-panel" data-panel="time">
+                <div id="time-options"></div>
 
-            <!-- Bet Codes List -->
-            <div class="codes-list" id="codes-list">
-              
-            </div>
+                <div class="filter-actions">
+                  <button class="btn-reset">Reset</button>
+                  <button class="btn-apply">Apply</button>
+                </div>
+              </div>
 
-            <!-- Pagination -->
-            <div class="codes-pagination">
-              <button class="codes-page-btn" disabled>
-                <i class="bi bi-chevron-double-left"></i>
-              </button>
-              <button class="codes-page-btn" disabled>
-                <i class="bi bi-chevron-left"></i>
-              </button>
-              <button class="codes-page-btn active">1</button>
-              <button class="codes-page-btn">2</button>
-              <button class="codes-page-btn">3</button>
-              <button class="codes-page-btn">
-                <i class="bi bi-chevron-right"></i>
-              </button>
-              <button class="codes-page-btn">
-                <i class="bi bi-chevron-double-right"></i>
-              </button>
+              <!-- Folds Panel -->
+              <div class="filter-panel" data-panel="folds">
+                <div id="folds-options"></div>
+
+                <div class="filter-custom-range">
+                  <label>Custom Range</label>
+                  <div class="custom-range-inputs">
+                    <input
+                      type="number"
+                      id="folds-min"
+                      placeholder="1"
+                      min="1"
+                      max="50"
+                    />
+                    <span>~</span>
+                    <input
+                      type="number"
+                      id="folds-max"
+                      placeholder="50"
+                      min="1"
+                      max="50"
+                    />
+                  </div>
+                  <div class="range-slider">
+                    <input
+                      type="range"
+                      id="folds-slider"
+                      min="1"
+                      max="50"
+                      value="50"
+                    />
+                    <div class="range-label">1 ~ 50</div>
+                  </div>
+                </div>
+
+                <div class="filter-actions">
+                  <button class="btn-reset">Reset</button>
+                  <button class="btn-apply">Apply</button>
+                </div>
+              </div>
+
+              <!-- Odds Panel -->
+              <div class="filter-panel" data-panel="odds">
+                <div id="odds-options"></div>
+
+                <div class="filter-custom-range">
+                  <label>Custom Range</label>
+                  <div class="custom-range-inputs">
+                    <input
+                      type="number"
+                      id="odds-min"
+                      placeholder="1"
+                      min="1"
+                      max="2000"
+                      step="0.01"
+                    />
+                    <span>~</span>
+                    <input
+                      type="number"
+                      id="odds-max"
+                      placeholder="2000"
+                      min="1"
+                      max="2000"
+                      step="0.01"
+                    />
+                  </div>
+                  <div class="range-slider">
+                    <input
+                      type="range"
+                      id="odds-slider"
+                      min="1"
+                      max="2000"
+                      value="2000"
+                    />
+                    <div class="range-label">1 ~ 2000</div>
+                  </div>
+                </div>
+
+                <div class="filter-actions">
+                  <button class="btn-reset">Reset</button>
+                  <button class="btn-apply">Apply</button>
+                </div>
+              </div>
+
+              <!-- Sort Panel -->
+              <div class="filter-panel" data-panel="sort">
+                <div id="sort-options"></div>
+
+                <div class="filter-actions">
+                  <button class="btn-reset">Reset</button>
+                  <button class="btn-apply">Apply</button>
+                </div>
+              </div>
             </div>
           </div>
+
+                    <!-- Header -->
+          <div class="codes-header">
+            <div class="codes-date">SATURDAY 27TH, DEC 2025</div>
+            <h1 class="codes-title">bet codes for today</h1>
+            <p class="codes-subtitle">
+              Pg 1, showing 25 of 209 -
+              <a href="predictions.html">Get accurate predictions</a>.
+            </p>
+          </div>
+          
+
+          <!-- Bet Codes List -->
+          <div class="codes-list">
+            <!-- FREE/GUEST BET CODE CARD -->
+<div class="code-card" data-code-id="425668">
+  <div class="code-header">
+    <div class="code-info">
+      <div class="code-id-section">
+        <div class="code-id">425668</div>
+        <span class="code-flag">🇳🇬</span>
+      </div>
+      <div class="code-bookie">betbaba</div>
+    </div>
+    <div class="code-stats">
+      <div class="code-stat">
+        <span class="label">Folds:</span>
+        <span class="value">3</span>
+      </div>
+      <div class="code-stat">
+        <span class="label">Odds:</span>
+        <span class="value">2.05</span>
+      </div>
+    </div>
+    <div class="code-badges">
+      <div class="code-badge guest">@guest</div>
+      <div class="code-badge">
+        <i class="bi bi-fire badge-fire"></i> 31+
+      </div>
+    </div>
+  </div>
+
+  <button class="code-expand-toggle" data-code-id="425668">
+    <span>View Events</span>
+    <i class="bi bi-chevron-down"></i>
+  </button>
+
+  <div class="code-events" data-code-id="425668">
+    <div class="code-event">
+      <i class="bi bi-house-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Home @1.45 | 1X2</div>
+        <div class="event-teams">Liverpool vs Wolves</div>
+        <div class="event-time">Sat 27/12, 16:00</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-airplane-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Away @1.62 | 1X2</div>
+        <div class="event-teams">Nottingham Forest vs Man City</div>
+        <div class="event-time">Sat 27/12, 13:30</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-house-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Home @1.39 | 1X2</div>
+        <div class="event-teams">AC Milan vs Verona</div>
+        <div class="event-time">Sun 28/12, 12:30</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+  </div>
+
+  <div class="code-actions">
+    <button class="code-action-btn share" onclick="shareCode('425668')">
+      <i class="bi bi-share"></i>
+      Share
+    </button>
+    <button class="code-action-btn primary" onclick="openBookie('betbaba', '425668')">
+      <i class="bi bi-play-circle"></i>
+      Play now
+    </button>
+  </div>
+</div>
+
+<!-- CONVERTED BET CODE CARD 1 -->
+<div class="code-card" data-code-id="converted-1">
+  <div class="converted-header">
+    <div class="converted-code-info">
+      <div class="converted-origin">
+        <div class="converted-label">ORIGIN</div>
+        <div class="converted-code-display">
+          <div class="converted-code-id">XUUKN</div>
+          <span class="code-flag">🇳🇬</span>
+        </div>
+        <div class="converted-bookie-name">22bet</div>
+      </div>
+
+      <i class="bi bi-arrow-right converted-arrow-icon"></i>
+
+      <div class="converted-target">
+        <div class="converted-label">TARGET</div>
+        <div class="converted-code-display">
+          <div class="converted-code-id">8ZZLN</div>
+        </div>
+        <div class="converted-bookie-name">1xbet</div>
+      </div>
+    </div>
+
+    <div class="code-stats">
+      <div class="code-stat">
+        <span class="label">Origin:</span>
+        <span class="value">6 @ 3.8</span>
+      </div>
+      <div class="code-stat">
+        <span class="label">Target:</span>
+        <span class="value">6 @ 4.2</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="converted-meta" style="padding: 8px 16px; background: #fafafa; border-bottom: 1px solid #f0f0f0;">
+    <div class="converted-time">
+      <i class="bi bi-clock"></i>
+      7 minutes ago • <i class="bi bi-heart"></i> 1
+    </div>
+  </div>
+
+  <button class="code-expand-toggle" data-code-id="converted-1">
+    <span>View Events</span>
+    <i class="bi bi-chevron-down"></i>
+  </button>
+
+  <div class="code-events" data-code-id="converted-1">
+    <div class="code-event">
+      <i class="bi bi-house-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Home @1.28 | 1X2</div>
+        <div class="event-teams">Liverpool vs Wolverhampton</div>
+        <div class="event-time">Sat 27/12, 16:00</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-house-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Home Handicap 0 @1.34 | Handicap</div>
+        <div class="event-teams">Chelsea vs Aston Villa</div>
+        <div class="event-time">Sat 27/12, 18:30</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-airplane-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Away Handicap 0 @1.05 | Handicap</div>
+        <div class="event-teams">Pisa 1909 vs Juventus</div>
+        <div class="event-time">Sat 27/12, 20:45</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-house-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Home @1.62 | 1X2</div>
+        <div class="event-teams">Nottingham Forest vs Man City</div>
+        <div class="event-time">Sat 27/12, 13:30</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-airplane-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Away @2.10 | 1X2</div>
+        <div class="event-teams">Real Sociedad vs Atletico</div>
+        <div class="event-time">Today 21:00</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-house-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Home @1.44 | 1X2</div>
+        <div class="event-teams">Inter vs Bologna</div>
+        <div class="event-time">Today 20:45</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+  </div>
+
+  <div class="code-actions">
+    <button class="code-action-btn share" onclick="shareCode('converted-1')">
+      <i class="bi bi-share"></i>
+      Share
+    </button>
+    <button class="code-action-btn add" onclick="addCodeToBetslip('converted-1')">
+      <i class="bi bi-plus-square"></i>
+      Add to Betslip
+    </button>
+  </div>
+</div>
+
+<!-- CONVERTED BET CODE CARD 2 -->
+<div class="code-card" data-code-id="converted-2">
+  <div class="converted-header">
+    <div class="converted-code-info">
+      <div class="converted-origin">
+        <div class="converted-label">ORIGIN</div>
+        <div class="converted-code-display">
+          <div class="converted-code-id">M7XLN</div>
+          <span class="code-flag">🇳🇬</span>
+        </div>
+        <div class="converted-bookie-name">1xbet</div>
+      </div>
+
+      <i class="bi bi-arrow-right converted-arrow-icon"></i>
+
+      <div class="converted-target">
+        <div class="converted-label">TARGET</div>
+        <div class="converted-code-display">
+          <div class="converted-code-id">HEYLN</div>
+        </div>
+        <div class="converted-bookie-name">1xbet</div>
+      </div>
+    </div>
+
+    <div class="code-stats">
+      <div class="code-stat">
+        <span class="label">Origin:</span>
+        <span class="value">8 @ 5.9</span>
+      </div>
+      <div class="code-stat">
+        <span class="label">Target:</span>
+        <span class="value">8 @ 6.38</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="converted-meta" style="padding: 8px 16px; background: #fafafa; border-bottom: 1px solid #f0f0f0;">
+    <div class="converted-time">
+      <i class="bi bi-clock"></i>
+      9 minutes ago • <i class="bi bi-heart"></i> 1
+    </div>
+  </div>
+
+  <button class="code-expand-toggle" data-code-id="converted-2">
+    <span>View Events</span>
+    <i class="bi bi-chevron-down"></i>
+  </button>
+
+  <div class="code-events" data-code-id="converted-2">
+    <div class="code-event">
+      <i class="bi bi-house-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Home @2.10 | 1X2</div>
+        <div class="event-teams">Barcelona vs Real Madrid</div>
+        <div class="event-time">Sun 28/12, 20:00</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-house-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Over 2.5 @1.75 | Over/Under</div>
+        <div class="event-teams">Bayern vs Dortmund</div>
+        <div class="event-time">Sun 28/12, 17:30</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-airplane-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Away @2.50 | 1X2</div>
+        <div class="event-teams">Man United vs Arsenal</div>
+        <div class="event-time">Mon 29/12, 20:00</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-house-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">GG Yes @1.65 | GG/NG</div>
+        <div class="event-teams">Inter vs AC Milan</div>
+        <div class="event-time">Mon 29/12, 19:45</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-house-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Home @1.39 | 1X2</div>
+        <div class="event-teams">PSG vs Lyon</div>
+        <div class="event-time">Sun 28/12, 21:00</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-airplane-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Away @1.88 | 1X2</div>
+        <div class="event-teams">Atletico vs Sevilla</div>
+        <div class="event-time">Sun 28/12, 18:30</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-dash-circle-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Draw @3.20 | 1X2</div>
+        <div class="event-teams">Roma vs Napoli</div>
+        <div class="event-time">Mon 29/12, 20:45</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-house-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Home @1.52 | 1X2</div>
+        <div class="event-teams">Juventus vs Fiorentina</div>
+        <div class="event-time">Mon 29/12, 18:00</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+  </div>
+
+  <div class="code-actions">
+    <button class="code-action-btn share" onclick="shareCode('converted-2')">
+      <i class="bi bi-share"></i>
+      Share
+    </button>
+    <button class="code-action-btn add" onclick="addCodeToBetslip('converted-2')">
+      <i class="bi bi-plus-square"></i>
+      Add to Betslip
+    </button>
+  </div>
+</div>
+
+<!-- CONVERTED BET CODE CARD 3 -->
+<div class="code-card" data-code-id="converted-3">
+  <div class="converted-header">
+    <div class="converted-code-info">
+      <div class="converted-origin">
+        <div class="converted-label">ORIGIN</div>
+        <div class="converted-code-display">
+          <div class="converted-code-id">3V5TFYB</div>
+          <span class="code-flag">🇳🇬</span>
+        </div>
+        <div class="converted-bookie-name">bet9ja</div>
+      </div>
+
+      <i class="bi bi-arrow-right converted-arrow-icon"></i>
+
+      <div class="converted-target">
+        <div class="converted-label">TARGET</div>
+        <div class="converted-code-display">
+          <div class="converted-code-id">JQ2MSX</div>
+          <span class="code-flag">🇳🇬</span>
+        </div>
+        <div class="converted-bookie-name">sportybet</div>
+      </div>
+    </div>
+
+    <div class="code-stats">
+      <div class="code-stat">
+        <span class="label">Origin:</span>
+        <span class="value">6 @ 10.66</span>
+      </div>
+      <div class="code-stat">
+        <span class="label">Target:</span>
+        <span class="value">4 @ 3.07</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="converted-meta" style="padding: 8px 16px; background: #fafafa; border-bottom: 1px solid #f0f0f0;">
+    <div class="converted-time">
+      <i class="bi bi-clock"></i>
+      9 minutes ago • <i class="bi bi-heart"></i> 3
+    </div>
+  </div>
+
+  <button class="code-expand-toggle" data-code-id="converted-3">
+    <span>View Events</span>
+    <i class="bi bi-chevron-down"></i>
+  </button>
+
+  <div class="code-events" data-code-id="converted-3">
+    <div class="code-event">
+      <i class="bi bi-house-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Home @2.50 | 1X2</div>
+        <div class="event-teams">Man United vs Arsenal</div>
+        <div class="event-time">Mon 29/12, 20:00</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-house-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">GG Yes @1.65 | GG/NG</div>
+        <div class="event-teams">Inter vs AC Milan</div>
+        <div class="event-time">Mon 29/12, 19:45</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-airplane-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Away @1.88 | 1X2</div>
+        <div class="event-teams">Atletico vs Sevilla</div>
+        <div class="event-time">Sun 28/12, 18:30</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+
+    <div class="code-event">
+      <i class="bi bi-house-fill event-icon"></i>
+      <div class="event-details">
+        <div class="event-outcome">Home @1.52 | 1X2</div>
+        <div class="event-teams">Juventus vs Fiorentina</div>
+        <div class="event-time">Mon 29/12, 18:00</div>
+      </div>
+      <i class="bi bi-graph-up-arrow event-chart"></i>
+    </div>
+  </div>
+
+  <div class="code-actions">
+    <button class="code-action-btn share" onclick="shareCode('converted-3')">
+      <i class="bi bi-share"></i>
+      Share
+    </button>
+    <button class="code-action-btn add" onclick="addCodeToBetslip('converted-3')">
+      <i class="bi bi-plus-square"></i>
+      Add to Betslip
+    </button>
+  </div>
+</div>
+          </div>
+
+          <!-- Pagination -->
+          <div class="codes-pagination">
+            <button class="codes-page-btn" disabled>
+              <i class="bi bi-chevron-double-left"></i>
+            </button>
+            <button class="codes-page-btn" disabled>
+              <i class="bi bi-chevron-left"></i>
+            </button>
+            <button class="codes-page-btn active">1</button>
+            <button class="codes-page-btn">2</button>
+            <button class="codes-page-btn">3</button>
+            <button class="codes-page-btn">
+              <i class="bi bi-chevron-right"></i>
+            </button>
+            <button class="codes-page-btn">
+              <i class="bi bi-chevron-double-right"></i>
+            </button>
+          </div>
+        </div>
       </main>
 
       <div class="filter-modal" id="time-modal">
@@ -915,8 +1576,8 @@
       </aside>
     </div>
 
-        <!-- footer -->
-    <footer class="footer-main">
+    <!-- footer -->
+<footer class="footer-main">
       <div class="container">
         <!-- Join Now Section -->
         <div class="footer-join-section">
@@ -950,16 +1611,16 @@
         <!-- Footer Links -->
         <div class="footer-links-section">
           <div class="footer-links-grid">
-            <a href="#" class="footer-link-item">Home</a>
-            <a href="#" class="footer-link-item">About</a>
-            <a href="#" class="footer-link-item">Terms</a>
-            <a href="#" class="footer-link-item">Data Privacy Policy</a>
-            <a href="#" class="footer-link-item">Cookies Policy</a>
-            <a href="#" class="footer-link-item">Rules</a>
-            <a href="#" class="footer-link-item">Lottery Rules</a>
-            <a href="#" class="footer-link-item">Help</a>
-            <a href="#" class="footer-link-item">Responsible Gambling</a>
-            <a href="#" class="footer-link-item">News</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('index.html')">Home</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('about.html')">About</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('terms.html')">Terms</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('privacy.html')">Privacy Policy</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('cookies.html')">Cookies Policy</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('convert.html')">Convert Bet</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('pools-bet-codes.html')">Pools Bet</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('free-bet-codes.html')">Free Bet Codes</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('free-prediction.html')">Free Prediction</a>
+            <a href="#" class="footer-link-item" onclick="navigateTo('blog.html')">Blog</a>
           </div>
         </div>
 
@@ -976,68 +1637,6 @@
             <span>Nigeria</span>
             <span>Change</span>
           </div>
-        </div>
-      </div>
-      <!-- Footer Info -->
-      <div class="footer-info">
-        <div class="container">
-          <p class="footer-info-text">
-            Your bets and payouts are processed by Choplife Gaming Limited,
-            which is licensed and regulated by the Lagos State Lotteries and
-            Gaming Authority of Nigeria.
-          </p>
-          <p class="footer-license">Licence No. LSLGA/OP/OSB/CL071124</p>
-        </div>
-      </div>
-
-      <!-- Footer Warning -->
-      <div class="footer-warning">
-        <div class="container">
-          <p class="footer-warning-text">
-            You have to be 18 years and above to bet.
-          </p>
-          <p class="footer-warning-text">
-            Betting is addictive and can be psychologically harmful.
-          </p>
-          <p class="footer-warning-text">
-            Contact an experienced counsellor at any time 24/7 Monday to Sunday
-            via toll free numbers:
-          </p>
-
-          <div class="footer-contact">
-            <a href="tel:09117581454" class="footer-contact-item"
-              >Phone: 0911 758 1454</a
-            >
-            <a href="tel:09078884268" class="footer-contact-item"
-              >Phone: 0907 888 4268</a
-            >
-          </div>
-
-          <p class="footer-warning-text" style="margin-top: 15px">
-            or WhatsApp only: 0907 888 4268 or email via
-            <a href="mailto:eap@tranquilandquest.org.ng" style="color: #c8ff00"
-              >eap@tranquilandquest.org.ng</a
-            >
-          </p>
-          <p class="footer-warning-text">
-            Please only contact the number above if you need counselling. For
-            help related to your account, contact our
-            <a href="#" style="color: #c8ff00">Customer Support Team</a>
-          </p>
-
-          <div class="footer-support-links">
-            <a href="#" class="footer-support-link">Tranquil & Quest</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Copyright -->
-      <div class="footer-copyright">
-        <div class="container">
-          <p>
-            Copyright @2025, Designed by
-            <a href="https://adminuiux.com/" target="_blank">convertbetcodes</a>
-          </p>
         </div>
       </div>
 
@@ -1133,5 +1732,6 @@
     <script src="./components/betslip-rail.js"></script>
     <script src="assets/js/free-bet-codes.js"></script>
     <script src="assets/js/app.js"></script>
+    <script src="components/layout/js/filters.js"></script>
   </body>
 </html>
