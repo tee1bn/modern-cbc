@@ -118,12 +118,12 @@
   background: #a3a3a3;
 }
 
-/* Main Navigation Items - Grid Layout */
+/* Main Navigation Items - Compact 5-Column Grid Layout */
 .side-menu-main-nav {
   padding: 2px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 5px;
+  gap: 2px;
   border-bottom: 1px solid #e5e5e5;
   background: #e5e5e5;
 }
@@ -140,7 +140,8 @@
   position: relative;
   background: #ffffff;
   border: none;
-  min-height: 85px;
+  min-height: 65px;
+  padding: 8px 4px;
 }
 
 .side-menu-main-item:hover {
@@ -160,14 +161,14 @@
 }
 
 .side-menu-main-icon {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   position: relative;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .side-menu-main-item.active .side-menu-main-icon {
@@ -175,30 +176,32 @@
 }
 
 .side-menu-main-icon svg {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
 }
 
 .side-menu-main-text {
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 500;
   text-align: center;
   line-height: 1.2;
-  letter-spacing: -0.2px;
+  letter-spacing: -0.1px;
+  padding: 0 2px;
 }
 
 .side-menu-main-badge {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 4px;
+  right: 4px;
   background: #000000;
   color: #ffffff;
-  font-size: 10px;
-  padding: 2px 6px;
-  border-radius: 10px;
-  min-width: 20px;
+  font-size: 9px;
+  padding: 2px 5px;
+  border-radius: 8px;
+  min-width: 18px;
   text-align: center;
   font-weight: 700;
+  line-height: 1;
 }
 
 .side-menu-main-item.active .side-menu-main-badge {
@@ -428,8 +431,12 @@
   }
   
   .side-menu-main-nav {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+  }
+  
+  .side-menu-main-item {
+    min-height: 60px;
   }
 }
 
@@ -441,27 +448,34 @@
   
   .side-menu-main-nav {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1px;
+    gap: 2px;
     padding: 2px;
   }
   
   .side-menu-main-item {
-    min-height: 75px;
-    padding: 12px 6px;
+    min-height: 58px;
+    padding: 6px 4px;
   }
   
   .side-menu-main-icon {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
+    margin-bottom: 3px;
   }
   
   .side-menu-main-icon svg {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
   }
   
   .side-menu-main-text {
-    font-size: 12px;
+    font-size: 10px;
+  }
+  
+  .side-menu-main-badge {
+    font-size: 8px;
+    padding: 1px 4px;
+    min-width: 16px;
   }
   
   .side-menu-header {
@@ -478,6 +492,20 @@
   
   .side-menu-item-content {
     padding: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .side-menu-main-nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .side-menu-main-item {
+    min-height: 65px;
+  }
+  
+  .side-menu-main-text {
+    font-size: 11px;
   }
 }
 
@@ -505,3 +533,4 @@
 .side-menu-overlay.active .side-menu-main-item:nth-child(6) { animation-delay: 0.20s; }
 .side-menu-overlay.active .side-menu-main-item:nth-child(7) { animation-delay: 0.23s; }
 .side-menu-overlay.active .side-menu-main-item:nth-child(8) { animation-delay: 0.26s; }
+.side-menu-overlay.active .side-menu-main-item:nth-child(9) { animation-delay: 0.29s; }

@@ -33,7 +33,7 @@
   </head>
 
   <body>
-       <!-- desktop nav -->
+    <!-- desktop nav -->
     <header class="desktop-header">
       <div class="desktop-header-container">
         <!-- Left Section - Menu + Logo -->
@@ -823,7 +823,6 @@
                 <div class="settings-group">
                   <div class="group-title">Editor Preferences</div>
 
-
                   <div class="settings-item">
                     <div class="item-left">
                       <i class="bi bi-shield-check"></i>
@@ -852,105 +851,48 @@
                 <div class="settings-group">
                   <div class="group-title">Affiliate Codes</div>
 
-                  <div class="settings-item">
-                    <div class="item-left">
-                      <i class="bi bi-code-slash"></i>
-                      <span class="item-label">SportyBet Code</span>
-                    </div>
-                    <input
-                      type="text"
-                      class="settings-input"
-                      placeholder="Enter code"
-                    />
-                  </div>
+                  <div id="affiliate-codes-container">
+                    <!-- First Row - Default -->
+                    <div class="affiliate-code-row">
+                      <select class="affiliate-select">
+                        <option value="">Select Bookmaker</option>
+                        <option value="sportybet">SportyBet</option>
+                        <option value="bet9ja">Bet9ja</option>
+                        <option value="1xbet">1xBet</option>
+                        <option value="betking">BetKing</option>
+                        <option value="22bet">22Bet</option>
+                        <option value="nairabet">NairaBet</option>
+                        <option value="betway">Betway</option>
+                        <option value="msport">MSport</option>
+                      </select>
 
-                  <div class="settings-item">
-                    <div class="item-left">
-                      <i class="bi bi-code-slash"></i>
-                      <span class="item-label">Bet9ja Code</span>
-                    </div>
-                    <input
-                      type="text"
-                      class="settings-input"
-                      placeholder="Enter code"
-                    />
-                  </div>
+                      <input
+                        type="text"
+                        class="affiliate-code-input"
+                        placeholder="Enter affiliate code"
+                      />
 
-                  <div class="settings-item">
-                    <div class="item-left">
-                      <i class="bi bi-code-slash"></i>
-                      <span class="item-label">1xBet Code</span>
-                    </div>
-                    <input
-                      type="text"
-                      class="settings-input"
-                      placeholder="Enter code"
-                    />
-                  </div>
+                      <button
+                        class="affiliate-btn"
+                        onclick="addAffiliateRow()"
+                        type="button"
+                      >
+                        <i class="bi bi-plus-lg"></i>
+                      </button>
 
+                      <button
+                        class="affiliate-btn"
+                        onclick="removeAffiliateRow(this)"
+                        type="button"
+                        disabled
+                      >
+                        <i class="bi bi-dash-lg"></i>
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-
-            <!-- Notifications Section -->
-            <!-- <div class="settings-section">
-              <button class="section-header" onclick="toggleSection(this)">
-                <div class="section-header-left">
-                  <i class="bi bi-bell section-icon"></i>
-                  <span class="section-title">Notifications</span>
-                </div>
-                <i class="bi bi-chevron-down toggle-icon"></i>
-              </button>
-
-              <div class="section-content collapsed">
-                <div class="settings-group">
-                  <div class="group-title">Notification Preferences</div>
-                  <div class="settings-item">
-                    <div class="item-left">
-                      <i class="bi bi-bell-fill"></i>
-                      <span class="item-label">Push Notifications</span>
-                    </div>
-                    <label class="toggle-switch">
-                      <input type="checkbox" checked />
-                      <span class="toggle-slider"></span>
-                    </label>
-                  </div>
-
-                  <div class="settings-item">
-                    <div class="item-left">
-                      <i class="bi bi-graph-up"></i>
-                      <span class="item-label">Odds Change Alerts</span>
-                    </div>
-                    <label class="toggle-switch">
-                      <input type="checkbox" />
-                      <span class="toggle-slider"></span>
-                    </label>
-                  </div>
-
-                  <div class="settings-item">
-                    <div class="item-left">
-                      <i class="bi bi-lightbulb"></i>
-                      <span class="item-label">New Predictions</span>
-                    </div>
-                    <label class="toggle-switch">
-                      <input type="checkbox" checked />
-                      <span class="toggle-slider"></span>
-                    </label>
-                  </div>
-
-                  <div class="settings-item">
-                    <div class="item-left">
-                      <i class="bi bi-envelope"></i>
-                      <span class="item-label">Email Notifications</span>
-                    </div>
-                    <label class="toggle-switch">
-                      <input type="checkbox" />
-                      <span class="toggle-slider"></span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div> -->
 
             <!-- Privacy & Security Section -->
             <div class="settings-section">
@@ -980,7 +922,7 @@
             </div>
 
             <!-- About Section -->
-            <div class="settings-section">
+            <div class="settings-section" >
               <button class="section-header" onclick="toggleSection(this)">
                 <div class="section-header-left">
                   <i class="bi bi-info-circle section-icon"></i>
@@ -990,41 +932,39 @@
               </button>
 
               <div class="section-content collapsed">
-
-                  <div class="settings-item clickable">
-                    <div class="item-left">
-                      <i class="bi bi-file-text"></i>
-                      <span class="item-label">Terms of Service</span>
-                    </div>
-                    <i class="bi bi-chevron-right"></i>
+                <div class="settings-item clickable" style="margin-left: 10px;">
+                  <div class="item-left">
+                    <i class="bi bi-file-text"></i>
+                    <span class="item-label">Terms of Service</span>
                   </div>
+                  <i class="bi bi-chevron-right"></i>
+                </div>
 
-                  <div class="settings-item clickable">
-                    <div class="item-left">
-                      <i class="bi bi-shield"></i>
-                      <span class="item-label">Privacy Policy</span>
-                    </div>
-                    <i class="bi bi-chevron-right"></i>
+                <div class="settings-item clickable" style="margin-left: 10px;">
+                  <div class="item-left">
+                    <i class="bi bi-shield"></i>
+                    <span class="item-label">Privacy Policy</span>
                   </div>
+                  <i class="bi bi-chevron-right"></i>
+                </div>
 
-                  <div class="settings-item clickable">
-                    <div class="item-left">
-                      <i class="bi bi-question-circle"></i>
-                      <span class="item-label">Help & Support</span>
-                    </div>
-                    <i class="bi bi-chevron-right"></i>
+                <div class="settings-item clickable" style="margin-left: 10px;">
+                  <div class="item-left">
+                    <i class="bi bi-question-circle"></i>
+                    <span class="item-label">Help & Support</span>
                   </div>
+                  <i class="bi bi-chevron-right"></i>
                 </div>
               </div>
             </div>
+          </div>
 
-            <!-- Save Button -->
-            <div class="settings-footer">
-              <button class="save-btn" onclick="saveSettings()">
-                <i class="bi bi-check-circle"></i>
-                Save Changes
-              </button>
-            </div>
+          <!-- Save Button -->
+          <div class="settings-footer">
+            <button class="save-btn" onclick="saveSettings()">
+              <i class="bi bi-check-circle"></i>
+              Save Changes
+            </button>
           </div>
         </div>
       </main>
@@ -1096,8 +1036,8 @@
       </div>
     </div>
 
-        <!-- footer -->
-<footer class="footer-main">
+    <!-- footer -->
+    <footer class="footer-main">
       <div class="container">
         <!-- Join Now Section -->
         <div class="footer-join-section">
@@ -1131,16 +1071,66 @@
         <!-- Footer Links -->
         <div class="footer-links-section">
           <div class="footer-links-grid">
-            <a href="#" class="footer-link-item" onclick="navigateTo('index.html')">Home</a>
-            <a href="#" class="footer-link-item" onclick="navigateTo('about.html')">About</a>
-            <a href="#" class="footer-link-item" onclick="navigateTo('terms.html')">Terms</a>
-            <a href="#" class="footer-link-item" onclick="navigateTo('privacy.html')">Privacy Policy</a>
-            <a href="#" class="footer-link-item" onclick="navigateTo('cookies.html')">Cookies Policy</a>
-            <a href="#" class="footer-link-item" onclick="navigateTo('convert.html')">Convert Bet</a>
-            <a href="#" class="footer-link-item" onclick="navigateTo('pools-bet-codes.html')">Pools Bet</a>
-            <a href="#" class="footer-link-item" onclick="navigateTo('free-bet-codes.html')">Free Bet Codes</a>
-            <a href="#" class="footer-link-item" onclick="navigateTo('free-prediction.html')">Free Prediction</a>
-            <a href="#" class="footer-link-item" onclick="navigateTo('blog.html')">Blog</a>
+            <a
+              href="#"
+              class="footer-link-item"
+              onclick="navigateTo('index.html')"
+              >Home</a
+            >
+            <a
+              href="#"
+              class="footer-link-item"
+              onclick="navigateTo('about.html')"
+              >About</a
+            >
+            <a
+              href="#"
+              class="footer-link-item"
+              onclick="navigateTo('terms.html')"
+              >Terms</a
+            >
+            <a
+              href="#"
+              class="footer-link-item"
+              onclick="navigateTo('privacy.html')"
+              >Privacy Policy</a
+            >
+            <a
+              href="#"
+              class="footer-link-item"
+              onclick="navigateTo('cookies.html')"
+              >Cookies Policy</a
+            >
+            <a
+              href="#"
+              class="footer-link-item"
+              onclick="navigateTo('convert.html')"
+              >Convert Bet</a
+            >
+            <a
+              href="#"
+              class="footer-link-item"
+              onclick="navigateTo('pools-bet-codes.html')"
+              >Pools Bet</a
+            >
+            <a
+              href="#"
+              class="footer-link-item"
+              onclick="navigateTo('free-bet-codes.html')"
+              >Free Bet Codes</a
+            >
+            <a
+              href="#"
+              class="footer-link-item"
+              onclick="navigateTo('free-prediction.html')"
+              >Free Prediction</a
+            >
+            <a
+              href="#"
+              class="footer-link-item"
+              onclick="navigateTo('blog.html')"
+              >Blog</a
+            >
           </div>
         </div>
 

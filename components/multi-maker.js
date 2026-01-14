@@ -38,25 +38,36 @@
 
 })();
 
-// Handle sticky header scroll effects
-document.addEventListener('DOMContentLoaded', () => {
-  const sportTabs = document.querySelector('.sport-tabs');
-  const filterBar = document.querySelector('.filter-bar');
-  
-  if (sportTabs && filterBar) {
-    window.addEventListener('scroll', () => {
-      // Add shadow effects when scrolling
-      if (window.scrollY > 52) {
-        sportTabs.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
-      } else {
-        sportTabs.style.boxShadow = 'none';
-      }
-      
-      if (window.scrollY > 96) {
-        filterBar.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
-      } else {
-        filterBar.style.boxShadow = 'none';
-      }
-    });
-  }
+// Master checkbox functionality
+const masterCheckbox = document.getElementById('select-all');
+const matchCheckboxes = document.querySelectorAll('.match-check-input');
+
+masterCheckbox.addEventListener('change', function() {
+  matchCheckboxes.forEach(checkbox => {
+    checkbox.checked = this.checked;
+  });
+  updateSelectionCount();
 });
+
+// Individual checkbox change
+matchCheckboxes.forEach(checkbox => {
+  checkbox.addEventListener('change', function() {
+    updateMasterCheckbox();
+    updateSelectionCount();
+  });
+});
+
+// Update master checkbox based on individual checkboxes
+function updateMasterCheckbox() {
+  const totalCheckboxes = matchCheckboxes.length;
+  const checkedCheckboxes = document.querySelectorAll('.match-check-input:checked').length;
+  
+  masterCheckbox.checked = totalCheckboxes === checkedCheckboxes;
+  masterCheckbox.indeterminate = checkedCheckboxes > 0 && checkedCheckboxes < totalCheckboxes;
+}
+
+// Update selection count
+function updateSelectionCount() {
+  const checkedCount = document.querySelectorAll('.match-check-input:checked').length;
+  document.getElementById('selections-count').textContent = checkedCount;
+}

@@ -1,19 +1,18 @@
 (function () {
   "use strict";
 
-
-function updateBadgeVisibility() {
-  const badge = document.getElementById('rail-badge');
-  if (badge) {
-    if (window.innerWidth >= 768) {
-      badge.style.display = 'none'; // Always hide on desktop
-    } else {
-      badge.style.display = 'flex'; // Show on mobile
+  function updateBadgeVisibility() {
+    const badge = document.getElementById("rail-badge");
+    if (badge) {
+      if (window.innerWidth >= 768) {
+        badge.style.display = "none"; 
+      } else {
+        badge.style.display = "flex"; 
+      }
     }
   }
-}
-window.addEventListener('resize', updateBadgeVisibility);
-document.addEventListener('DOMContentLoaded', updateBadgeVisibility);
+  window.addEventListener("resize", updateBadgeVisibility);
+  document.addEventListener("DOMContentLoaded", updateBadgeVisibility);
 
   // ==================== STATE ====================
   let bets = [];
@@ -152,23 +151,23 @@ document.addEventListener('DOMContentLoaded', updateBadgeVisibility);
   }
 
   // ==================== UI CONTROLS ====================
-function openRail() {
-  // Only handle overlay/modal behavior on mobile
-  if (window.innerWidth < 768) {
-    isRailOpen = true;
-    const overlay = document.getElementById("rail-overlay");
-    const rail = document.getElementById("rail-container");
+  function openRail() {
+    // Only handle overlay/modal behavior on mobile
+    if (window.innerWidth < 768) {
+      isRailOpen = true;
+      const overlay = document.getElementById("rail-overlay");
+      const rail = document.getElementById("rail-container");
 
-    if (overlay && rail) {
-      overlay.classList.add("active");
-      rail.classList.add("active");
-      rail.classList.add("fullscreen");
-      document.body.style.overflow = "hidden";
+      if (overlay && rail) {
+        overlay.classList.add("active");
+        rail.classList.add("active");
+        rail.classList.add("fullscreen");
+        document.body.style.overflow = "hidden";
+      }
     }
+    // On desktop, sidebar is always visible, so just ensure it's rendered
+    renderRail();
   }
-  // On desktop, sidebar is always visible, so just ensure it's rendered
-  renderRail();
-}
 
   function expandFullScreen() {
     const rail = document.getElementById("rail-container");
@@ -184,21 +183,21 @@ function openRail() {
     }
   }
 
- function closeRail() {
-  // Only close on mobile
-  if (window.innerWidth < 768) {
-    isRailOpen = false;
-    const overlay = document.getElementById("rail-overlay");
-    const rail = document.getElementById("rail-container");
+  function closeRail() {
+    // Only close on mobile
+    if (window.innerWidth < 768) {
+      isRailOpen = false;
+      const overlay = document.getElementById("rail-overlay");
+      const rail = document.getElementById("rail-container");
 
-    if (overlay && rail) {
-      overlay.classList.remove("active");
-      rail.classList.remove("active");
-      document.body.style.overflow = "";
+      if (overlay && rail) {
+        overlay.classList.remove("active");
+        rail.classList.remove("active");
+        document.body.style.overflow = "";
+      }
     }
+    // On desktop, sidebar stays visible
   }
-  // On desktop, sidebar stays visible
-}
 
   function toggleMinimize() {
     isMinimized = !isMinimized;
@@ -497,142 +496,174 @@ function openRail() {
   // This function is removed to prevent conflicts
   // The empty state now directly shows the load form
 
-async function loadBetCodeFromEmpty(code, bookie) {
-  await new Promise((resolve) => setTimeout(resolve, 1500));
+  async function loadBetCodeFromEmpty(code, bookie) {
+    await new Promise((resolve) => setTimeout(resolve, 1500));
 
-  const mockBets = [
-    {
-      matchId: "load-" + Date.now() + "-1",
-      teams: "Nottingham Forest vs Man City",
-      date: "Sat 12/27/25, 13:30",
-      market: "1x2",
-      value: "Away",
-      odd: "1.62",
-      league: "Premier League",
-      selected: true,
-      bookieSource: bookie || "sportybet-nigeria", // ADD THIS
-      bookingCode: code // ADD THIS
-    },
-    {
-      matchId: "load-" + Date.now() + "-2",
-      teams: "AC Milan vs Verona",
-      date: "Sun 12/28/25, 12:30",
-      market: "1x2",
-      value: "Home",
-      odd: "1.39",
-      league: "Serie A",
-      selected: true,
-      bookieSource: bookie || "sportybet-nigeria", // ADD THIS
-      bookingCode: code // ADD THIS
-    },
-    {
-      matchId: "load-" + Date.now() + "-3",
-      teams: "Liverpool vs Wolves",
-      date: "Sat 12/27/25, 16:00",
-      market: "1x2",
-      value: "Home",
-      odd: "1.26",
-      league: "Premier League",
-      selected: true,
-      bookieSource: bookie || "sportybet-nigeria", // ADD THIS
-      bookingCode: code // ADD THIS
-    },
-  ];
+    const mockBets = [
+      {
+        matchId: "load-" + Date.now() + "-1",
+        teams: "Nottingham Forest vs Man City",
+        date: "Sat 12/27/25, 13:30",
+        market: "1x2",
+        value: "Away",
+        odd: "1.62",
+        league: "Premier League",
+        selected: true,
+        bookieSource: bookie || "sportybet-nigeria", // ADD THIS
+        bookingCode: code, // ADD THIS
+      },
+      {
+        matchId: "load-" + Date.now() + "-2",
+        teams: "AC Milan vs Verona",
+        date: "Sun 12/28/25, 12:30",
+        market: "1x2",
+        value: "Home",
+        odd: "1.39",
+        league: "Serie A",
+        selected: true,
+        bookieSource: bookie || "sportybet-nigeria", // ADD THIS
+        bookingCode: code, // ADD THIS
+      },
+      {
+        matchId: "load-" + Date.now() + "-3",
+        teams: "Liverpool vs Wolves",
+        date: "Sat 12/27/25, 16:00",
+        market: "1x2",
+        value: "Home",
+        odd: "1.26",
+        league: "Premier League",
+        selected: true,
+        bookieSource: bookie || "sportybet-nigeria", // ADD THIS
+        bookingCode: code, // ADD THIS
+      },
+    ];
 
-  // APPEND instead of replace
-  mockBets.forEach((bet) => {
-    bets.push(bet);
-  });
+    // APPEND instead of replace
+    mockBets.forEach((bet) => {
+      bets.push(bet);
+    });
 
-  saveToStorage();
-  renderRail();
-  updateBadge();
-  flashBadge();
+    saveToStorage();
+    renderRail();
+    updateBadge();
+    flashBadge();
 
-  setTimeout(() => {
-    alert(`Loaded ${mockBets.length} bets from ${code}`);
-  }, 300);
-}
+    setTimeout(() => {
+      alert(`Loaded ${mockBets.length} bets from ${code}`);
+    }, 300);
+  }
 
-function formatBookieName(bookieCode) {
-  const bookieNames = {
-    'sportybet-nigeria': 'Sportybet NG',
-    'sportybet-ghana': 'Sportybet GH',
-    'sportybet-kenya': 'Sportybet KE',
-    'bet9ja-nigeria': 'Bet9ja NG',
-    'betking-nigeria': 'BetKing NG',
-    '1xbet-nigeria': '1xBet NG',
-    '22bet-nigeria': '22bet NG'
-  };
-  return bookieNames[bookieCode] || bookieCode;
-}
+  function formatBookieName(bookieCode) {
+    const bookieNames = {
+      "sportybet-nigeria": "Sportybet NG",
+      "sportybet-ghana": "Sportybet GH",
+      "sportybet-kenya": "Sportybet KE",
+      "bet9ja-nigeria": "Bet9ja NG",
+      "betking-nigeria": "BetKing NG",
+      "1xbet-nigeria": "1xBet NG",
+      "22bet-nigeria": "22bet NG",
+    };
+    return bookieNames[bookieCode] || bookieCode;
+  }
 
-function toggleFullScreen() {
+  function toggleFullScreen() {
+    if (window.innerWidth < 768) {
+      const rail = document.getElementById("rail-container");
+      if (rail) {
+        rail.classList.toggle("fullscreen");
+        renderRail();
+      }
+    }
+  }
 
-  if (window.innerWidth < 768) {
+  // ==================== RENDERING ====================
+
+  function renderRail() {
     const rail = document.getElementById("rail-container");
-    if (rail) {
-      rail.classList.toggle("fullscreen");
-      renderRail(); 
+    if (!rail) return;
+
+    const totalOdds = calculateTotalOdds();
+    const selectedCount = bets.filter((b) => b.selected).length;
+
+    // Helper function to get sport icon
+    function getSportIcon(bet) {
+      const league = (bet.league || "").toLowerCase();
+
+      if (
+        league.includes("premier league") ||
+        league.includes("serie a") ||
+        league.includes("bundesliga") ||
+        league.includes("la liga") ||
+        league.includes("ligue 1")
+      ) {
+        return '<i class="bi bi-dribbble"></i>'; // Football
+      } else if (league.includes("nba") || league.includes("basketball")) {
+        return '<i class="bi bi-dribbble"></i>'; // Basketball
+      } else if (
+        league.includes("atp") ||
+        league.includes("wta") ||
+        league.includes("tennis")
+      ) {
+        return '<i class="bi bi-circle-fill"></i>'; // Tennis
+      } else {
+        return '<i class="bi bi-dribbble"></i>';
+      }
     }
-  }
-}
 
-// ==================== RENDERING ====================
+    // Helper function to get sport class name
+    function getSportClass(bet) {
+      const league = (bet.league || "").toLowerCase();
 
-function renderRail() {
-  const rail = document.getElementById('rail-container');
-  if (!rail) return;
-
-  const totalOdds = calculateTotalOdds();
-  const selectedCount = bets.filter(b => b.selected).length;
-
-  // Helper function to get sport icon
-  function getSportIcon(bet) {
-    const league = (bet.league || '').toLowerCase();
-    
-    if (league.includes('premier league') || league.includes('serie a') || league.includes('bundesliga') || league.includes('la liga') || league.includes('ligue 1')) {
-      return '<i class="bi bi-dribbble"></i>'; // Football
-    } else if (league.includes('nba') || league.includes('basketball')) {
-      return '<i class="bi bi-dribbble"></i>'; // Basketball
-    } else if (league.includes('atp') || league.includes('wta') || league.includes('tennis')) {
-      return '<i class="bi bi-circle-fill"></i>'; // Tennis
-    } else {
-      return '<i class="bi bi-dribbble"></i>'; 
+      if (
+        league.includes("premier league") ||
+        league.includes("serie a") ||
+        league.includes("bundesliga") ||
+        league.includes("la liga") ||
+        league.includes("ligue 1")
+      ) {
+        return "football";
+      } else if (league.includes("nba") || league.includes("basketball")) {
+        return "basketball";
+      } else if (
+        league.includes("atp") ||
+        league.includes("wta") ||
+        league.includes("tennis")
+      ) {
+        return "tennis";
+      } else {
+        return "football";
+      }
     }
-  }
 
-  // Helper function to get sport class name
-  function getSportClass(bet) {
-    const league = (bet.league || '').toLowerCase();
-    
-    if (league.includes('premier league') || league.includes('serie a') || league.includes('bundesliga') || league.includes('la liga') || league.includes('ligue 1')) {
-      return 'football';
-    } else if (league.includes('nba') || league.includes('basketball')) {
-      return 'basketball';
-    } else if (league.includes('atp') || league.includes('wta') || league.includes('tennis')) {
-      return 'tennis';
-    } else {
-      return 'football';
-    }
-  }
-
-  rail.innerHTML = `
+    rail.innerHTML = `
     <div class="page-header">
-      ${window.innerWidth < 768 ? `
+      ${
+        window.innerWidth < 768
+          ? `
         <button class="back-btn" onclick="window.betslipRail.closeRail()">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M15 18l-6-6 6-6" />
           </svg>
         </button>
-      ` : ''}
-      <h1 class="page-title">Editor ${bets.length}</h1>
+      `
+          : ""
+      }
+      <h1 class="page-title">
+        Editor 
+        <span class="editor-badge ${bets.length === 0 ? 'empty' : ''}">${bets.length}</span>
+      </h1>
       <div style="display: flex; align-items: center; gap: 8px;">
         <button class="rail-load-btn" id="rail-load-btn" title="Load New Bet Code">
           <i class="bi bi-download"></i> 
         </button>
-        ${window.innerWidth < 768 ? `
-          <button class="rail-action-btn" id="rail-expand-btn" title="${rail && rail.classList.contains('fullscreen') ? 'Exit Fullscreen' : 'Fullscreen'}">
+        ${
+          window.innerWidth < 768
+            ? `
+          <button class="rail-action-btn" id="rail-expand-btn" title="${
+            rail && rail.classList.contains("fullscreen")
+              ? "Exit Fullscreen"
+              : "Fullscreen"
+          }">
             <i class="bi bi-arrows-fullscreen"></i>
           </button>
           <button class="home-btn" onclick="window.location.href='index.html'">
@@ -641,7 +672,9 @@ function renderRail() {
               <polyline points="9 22 9 12 15 12 15 22" />
             </svg>
           </button>
-        ` : ''}
+        `
+            : ""
+        }
       </div>
     </div>
 
@@ -657,7 +690,9 @@ function renderRail() {
       </button>
     </div>
 
-    ${bets.length === 0 ? `
+    ${
+      bets.length === 0
+        ? `
       <!-- Empty state -->
       <div class="rail-empty-state">
         <div class="rail-empty-icon">
@@ -683,11 +718,14 @@ function renderRail() {
           </button>
         </div>
       </div>
-    ` : `
+    `
+        : `
       <!-- Bets loaded: Show bulk actions and bets list -->
       <div class="rail-bulk-actions">
         <label class="rail-checkbox-all">
-          <input type="checkbox" id="select-all-checkbox" ${bets.every(b => b.selected) ? 'checked' : ''} />
+          <input type="checkbox" id="select-all-checkbox" ${
+            bets.every((b) => b.selected) ? "checked" : ""
+          } />
           <span>Select All</span>
         </label>
         <button class="rail-bulk-btn" id="clear-all-btn">
@@ -696,38 +734,54 @@ function renderRail() {
       </div>
 
       <div class="rail-bets-list">
-        ${bets.map((bet, index) => `
-          <div class="rail-bet-item ${bet.selected ? 'selected' : ''}" data-match-id="${bet.matchId}">
-            <div class="rail-bet-checkbox">
-              <input type="checkbox" class="bet-checkbox" data-match-id="${bet.matchId}" ${bet.selected ? 'checked' : ''} />
-            </div>
-            
-            <!-- Sport Icon -->
-            <div class="rail-bet-sport-icon ${getSportClass(bet)}">
-              ${getSportIcon(bet)}
-            </div>
-            
-            <div class="rail-bet-content" data-match-id="${bet.matchId}" style="cursor: pointer;">
-              <div class="rail-bet-teams">${bet.teams || 'Unknown Match'}</div>
-              <div class="rail-bet-market">${bet.market || '1x2'}: ${bet.value || 'home'}</div>
-              <div class="rail-bet-meta">
-                <span class="rail-bet-date">${bet.date || ''}</span>
-              </div>
-            </div>
-            
-            <div class="rail-bet-actions">
-              <div class="rail-bet-odd">${bet.odd || bet.odds || '—'}</div>
-              <div class="rail-bet-action-icons">
-                <button class="rail-bet-edit-btn" data-match-id="${bet.matchId}" title="Edit">
-                  <i class="bi bi-pencil"></i>
-                </button>
-                <button class="rail-bet-remove-btn" data-match-id="${bet.matchId}" title="Remove">
-                  <i class="bi bi-x-lg"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-        `).join('')}
+        ${bets
+          .map(
+            (bet, index) => `
+  <div class="rail-bet-item ${bet.selected ? "selected" : ""}" data-match-id="${
+              bet.matchId
+            }">
+    <div class="rail-bet-checkbox">
+      <input type="checkbox" class="bet-checkbox" data-match-id="${
+        bet.matchId
+      }" ${bet.selected ? "checked" : ""} />
+    </div>
+    
+    <div class="rail-bet-content" data-match-id="${bet.matchId}">
+      <!-- NEW: Teams row with icon -->
+      <div class="rail-bet-teams-row">
+        <div class="rail-bet-sport-icon ${getSportClass(bet)}">
+          ${getSportIcon(bet)}
+        </div>
+        <div class="rail-bet-teams">${bet.teams || "Unknown Match"}</div>
+      </div>
+      
+      <div class="rail-bet-market">${bet.market || "1x2"}: ${
+              bet.value || "home"
+            }</div>
+      <div class="rail-bet-meta">
+        <span class="rail-bet-date">${bet.date || ""}</span>
+      </div>
+    </div>
+    
+    <div class="rail-bet-actions">
+      <div class="rail-bet-odd">${bet.odd || bet.odds || "—"}</div>
+      <div class="rail-bet-action-icons">
+        <button class="rail-bet-edit-btn" data-match-id="${
+          bet.matchId
+        }" title="Edit">
+          <i class="bi bi-pencil"></i>
+        </button>
+        <button class="rail-bet-remove-btn" data-match-id="${
+          bet.matchId
+        }" title="Remove">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+`
+          )
+          .join("")}
       </div>
 
       <div class="rail-footer">
@@ -748,34 +802,43 @@ function renderRail() {
           Book All (${bets.length})
         </button>
       </div>
-    `}
+    `
+    }
   `;
 
-  attachEventListeners();
-}
+    attachEventListeners();
+  }
 
-function renderEmptyLoadForm() {
-  const rail = document.getElementById('rail-container');
-  if (!rail) return;
+  function renderEmptyLoadForm() {
+    const rail = document.getElementById("rail-container");
+    if (!rail) return;
 
-  rail.innerHTML = `
+    rail.innerHTML = `
    <div class="page-header">
-    ${window.innerWidth < 768 ? `
+    ${
+      window.innerWidth < 768
+        ? `
       <button class="back-btn" id="load-back-btn">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M15 18l-6-6 6-6" />
         </svg>
       </button>
-    ` : ''}
+    `
+        : ""
+    }
     <h1 class="page-title">Load Bet Code</h1>
-    ${window.innerWidth < 768 ? `
+    ${
+      window.innerWidth < 768
+        ? `
       <button class="home-btn" onclick="window.location.href='index.html'">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
           <polyline points="9 22 9 12 15 12 15 22" />
         </svg>
       </button>
-    ` : ''}
+    `
+        : ""
+    }
   </div>
 
     <!-- Navigation tabs -->
@@ -849,216 +912,221 @@ function renderEmptyLoadForm() {
     </div>
   `;
 
-  attachLoadFormEventListeners();
-}
-
-function attachLoadFormEventListeners() {
-  // Back button - return to betslip view
-  const loadBackBtn = document.getElementById('load-back-btn');
-  if (loadBackBtn) {
-    loadBackBtn.addEventListener('click', () => {
-      renderRail(); // Return to betslip view
-    });
+    attachLoadFormEventListeners();
   }
 
-  // Code Hub tab - navigate to codehub page
-  const codeHubBtn = document.getElementById('empty-code-hub-btn');
-  if (codeHubBtn) {
-    codeHubBtn.addEventListener('click', () => {
-      window.location.href = 'codehub.html';
-    });
+  function attachLoadFormEventListeners() {
+    // Back button - return to betslip view
+    const loadBackBtn = document.getElementById("load-back-btn");
+    if (loadBackBtn) {
+      loadBackBtn.addEventListener("click", () => {
+        renderRail(); // Return to betslip view
+      });
+    }
+
+    // Code Hub tab - navigate to codehub page
+    const codeHubBtn = document.getElementById("empty-code-hub-btn");
+    if (codeHubBtn) {
+      codeHubBtn.addEventListener("click", () => {
+        window.location.href = "codehub.html";
+      });
+    }
+
+    // Multi Maker tab - navigate to add games page
+    const multiMakerBtn = document.getElementById("empty-multi-maker-btn");
+    if (multiMakerBtn) {
+      multiMakerBtn.addEventListener("click", () => {
+        window.location.href = "bet-editor-add.html";
+      });
+    }
+
+    const emptyPasteBtn = document.getElementById("empty-paste-btn");
+    const emptyCodeInput = document.getElementById("empty-bet-code-input");
+    if (emptyPasteBtn && emptyCodeInput) {
+      emptyPasteBtn.addEventListener("click", async () => {
+        try {
+          const text = await navigator.clipboard.readText();
+          emptyCodeInput.value = text.trim();
+        } catch (err) {
+          console.log("Paste failed:", err);
+        }
+      });
+    }
+
+    // Cancel button - return to betslip view
+    const emptyCancelBtn = document.getElementById("empty-cancel-btn");
+    if (emptyCancelBtn) {
+      emptyCancelBtn.addEventListener("click", () => {
+        renderRail(); // Return to betslip view
+      });
+    }
+
+    const emptyLoadForm = document.getElementById("empty-load-code-form");
+    if (emptyLoadForm) {
+      emptyLoadForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const code = document
+          .getElementById("empty-bet-code-input")
+          .value.trim();
+        const bookie = document.getElementById("empty-origin-bookie").value;
+
+        if (!code || !bookie) {
+          alert("Please fill in all fields");
+          return;
+        }
+
+        emptyLoadForm.style.display = "none";
+        document.getElementById("empty-loading-state").style.display = "flex";
+
+        try {
+          await loadBetCodeFromEmpty(code, bookie);
+          renderRail(); // Return to betslip view after loading
+        } catch (error) {
+          document.getElementById("empty-loading-state").style.display = "none";
+          document.getElementById("empty-error-state").style.display = "flex";
+        }
+      });
+    }
+
+    const emptyRetryBtn = document.getElementById("empty-retry-btn");
+    if (emptyRetryBtn) {
+      emptyRetryBtn.addEventListener("click", () => {
+        document.getElementById("empty-error-state").style.display = "none";
+        document.getElementById("empty-load-code-form").style.display = "block";
+      });
+    }
   }
 
-  // Multi Maker tab - navigate to add games page
-  const multiMakerBtn = document.getElementById('empty-multi-maker-btn');
-  if (multiMakerBtn) {
-    multiMakerBtn.addEventListener('click', () => {
-      window.location.href = 'bet-editor-add.html';
+  // ==================== EVENT LISTENERS ====================
+  function attachEventListeners() {
+    const closeBtn = document.getElementById("rail-close-btn");
+    if (closeBtn) closeBtn.addEventListener("click", closeRail);
+
+    const minimizeBtn = document.getElementById("rail-minimize-btn");
+    if (minimizeBtn) minimizeBtn.addEventListener("click", toggleMinimize);
+
+    const loadBtn = document.getElementById("rail-load-btn");
+    if (loadBtn) {
+      loadBtn.addEventListener("click", () => {
+        renderEmptyLoadForm();
+      });
+    }
+
+    // Empty state buttons
+    const loadCodeBtn = document.getElementById("load-code-btn");
+    if (loadCodeBtn) {
+      loadCodeBtn.addEventListener("click", () => {
+        renderEmptyLoadForm();
+      });
+    }
+
+    const learnHowBtn = document.getElementById("learn-how-btn");
+    if (learnHowBtn) {
+      learnHowBtn.addEventListener("click", () => {
+        // You can link this to a tutorial page or modal
+        alert(
+          "Tutorial: Load a bet code or create a custom multi bet to get started!"
+        );
+        // Or: window.location.href = 'tutorial.html';
+      });
+    }
+
+    const expandBtn = document.getElementById("rail-expand-btn");
+    if (expandBtn) {
+      expandBtn.addEventListener("click", toggleFullScreen);
+    }
+
+    // Code Hub tab
+    const codeHubBtn = document.getElementById("empty-code-hub-btn");
+    if (codeHubBtn) {
+      codeHubBtn.addEventListener("click", () => {
+        document
+          .querySelectorAll(".empty-nav-tab")
+          .forEach((tab) => tab.classList.remove("active"));
+        codeHubBtn.classList.add("active");
+        window.location.href = "codehub.html";
+      });
+    }
+
+    // Multi Maker tab
+    const multiMakerBtn = document.getElementById("empty-multi-maker-btn");
+    if (multiMakerBtn) {
+      multiMakerBtn.addEventListener("click", () => {
+        window.location.href = "bet-editor-add.html";
+      });
+    }
+
+    const selectAllCheckbox = document.getElementById("select-all-checkbox");
+    if (selectAllCheckbox) {
+      selectAllCheckbox.addEventListener("change", (e) => {
+        if (e.target.checked) selectAll();
+        else bets.forEach((b) => (b.selected = false));
+        saveToStorage();
+        renderRail();
+      });
+    }
+
+    const clearAllBtn = document.getElementById("clear-all-btn");
+    if (clearAllBtn) {
+      clearAllBtn.addEventListener("click", () => {
+        if (confirm("Clear all bets?")) clearAll();
+      });
+    }
+
+    // Checkbox selection
+    document.querySelectorAll(".bet-checkbox").forEach((cb) => {
+      cb.addEventListener("change", (e) => {
+        toggleSelection(e.target.dataset.matchId);
+      });
     });
+
+    // Click on bet content
+    document.querySelectorAll(".rail-bet-content").forEach((content) => {
+      content.addEventListener("click", (e) => {
+        const matchId = e.currentTarget.dataset.matchId;
+        const bet = bets.find((b) => b.matchId == matchId);
+        if (bet) {
+          window.location.href = "upcoming-single-event.html";
+        }
+      });
+    });
+
+    // Edit button
+    document.querySelectorAll(".rail-bet-edit-btn").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const matchId = e.currentTarget.dataset.matchId;
+        const bet = bets.find((b) => b.matchId == matchId);
+        if (bet) {
+          window.location.href = "upcoming-single-event.html";
+        }
+      });
+    });
+
+    // Remove button
+    document.querySelectorAll(".rail-bet-remove-btn").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const matchId = e.currentTarget.dataset.matchId;
+        removeSelection(matchId);
+      });
+    });
+
+    const bookBtn = document.getElementById("rail-book-btn");
+    const bookieSelect = document.getElementById("rail-bookie-select");
+    if (bookBtn && bookieSelect) {
+      bookBtn.addEventListener("click", () => {
+        bookSelections(bookieSelect.value);
+      });
+    }
   }
 
-  const emptyPasteBtn = document.getElementById('empty-paste-btn');
-  const emptyCodeInput = document.getElementById('empty-bet-code-input');
-  if (emptyPasteBtn && emptyCodeInput) {
-    emptyPasteBtn.addEventListener('click', async () => {
-      try {
-        const text = await navigator.clipboard.readText();
-        emptyCodeInput.value = text.trim();
-      } catch (err) {
-        console.log('Paste failed:', err);
-      }
-    });
-  }
+  function initRailHTML() {
+    const container = document.getElementById("betslip-rail");
+    if (!container) return;
 
-  // Cancel button - return to betslip view
-  const emptyCancelBtn = document.getElementById('empty-cancel-btn');
-  if (emptyCancelBtn) {
-    emptyCancelBtn.addEventListener('click', () => {
-      renderRail(); // Return to betslip view
-    });
-  }
-
-  const emptyLoadForm = document.getElementById('empty-load-code-form');
-  if (emptyLoadForm) {
-    emptyLoadForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      
-      const code = document.getElementById('empty-bet-code-input').value.trim();
-      const bookie = document.getElementById('empty-origin-bookie').value;
-      
-      if (!code || !bookie) {
-        alert('Please fill in all fields');
-        return;
-      }
-
-      emptyLoadForm.style.display = 'none';
-      document.getElementById('empty-loading-state').style.display = 'flex';
-
-      try {
-        await loadBetCodeFromEmpty(code, bookie);
-        renderRail(); // Return to betslip view after loading
-      } catch (error) {
-        document.getElementById('empty-loading-state').style.display = 'none';
-        document.getElementById('empty-error-state').style.display = 'flex';
-      }
-    });
-  }
-
-  const emptyRetryBtn = document.getElementById('empty-retry-btn');
-  if (emptyRetryBtn) {
-    emptyRetryBtn.addEventListener('click', () => {
-      document.getElementById('empty-error-state').style.display = 'none';
-      document.getElementById('empty-load-code-form').style.display = 'block';
-    });
-  }
-}
-
-// ==================== EVENT LISTENERS ====================
-function attachEventListeners() {
-  const closeBtn = document.getElementById('rail-close-btn');
-  if (closeBtn) closeBtn.addEventListener('click', closeRail);
-
-  const minimizeBtn = document.getElementById('rail-minimize-btn');
-  if (minimizeBtn) minimizeBtn.addEventListener('click', toggleMinimize);
-
-  const loadBtn = document.getElementById('rail-load-btn');
-  if (loadBtn) {
-    loadBtn.addEventListener('click', () => {
-      renderEmptyLoadForm();
-    });
-  }
-
-  // Empty state buttons
-  const loadCodeBtn = document.getElementById('load-code-btn');
-  if (loadCodeBtn) {
-    loadCodeBtn.addEventListener('click', () => {
-      renderEmptyLoadForm();
-    });
-  }
-
-  const learnHowBtn = document.getElementById('learn-how-btn');
-  if (learnHowBtn) {
-    learnHowBtn.addEventListener('click', () => {
-      // You can link this to a tutorial page or modal
-      alert('Tutorial: Load a bet code or create a custom multi bet to get started!');
-      // Or: window.location.href = 'tutorial.html';
-    });
-  }
-
-  const expandBtn = document.getElementById('rail-expand-btn');
-  if (expandBtn) {
-    expandBtn.addEventListener('click', toggleFullScreen);
-  }
-
-  // Code Hub tab
-  const codeHubBtn = document.getElementById('empty-code-hub-btn');
-  if (codeHubBtn) {
-    codeHubBtn.addEventListener('click', () => {
-      document.querySelectorAll('.empty-nav-tab').forEach(tab => tab.classList.remove('active'));
-      codeHubBtn.classList.add('active');
-      window.location.href = 'codehub.html';
-    });
-  }
-
-  // Multi Maker tab
-  const multiMakerBtn = document.getElementById('empty-multi-maker-btn');
-  if (multiMakerBtn) {
-    multiMakerBtn.addEventListener('click', () => {
-      window.location.href = 'bet-editor-add.html';
-    });
-  }
-
-  const selectAllCheckbox = document.getElementById('select-all-checkbox');
-  if (selectAllCheckbox) {
-    selectAllCheckbox.addEventListener('change', (e) => {
-      if (e.target.checked) selectAll();
-      else bets.forEach(b => b.selected = false);
-      saveToStorage();
-      renderRail();
-    });
-  }
-
-  const clearAllBtn = document.getElementById('clear-all-btn');
-  if (clearAllBtn) {
-    clearAllBtn.addEventListener('click', () => {
-      if (confirm('Clear all bets?')) clearAll();
-    });
-  }
-
-  // Checkbox selection
-  document.querySelectorAll('.bet-checkbox').forEach(cb => {
-    cb.addEventListener('change', (e) => {
-      toggleSelection(e.target.dataset.matchId);
-    });
-  });
-
-  // Click on bet content
-  document.querySelectorAll('.rail-bet-content').forEach(content => {
-    content.addEventListener('click', (e) => {
-      const matchId = e.currentTarget.dataset.matchId;
-      const bet = bets.find(b => b.matchId == matchId);
-      if (bet) {
-        window.location.href = 'upcoming-single-event.html';
-      }
-    });
-  });
-
-  // Edit button
-  document.querySelectorAll('.rail-bet-edit-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const matchId = e.currentTarget.dataset.matchId;
-      const bet = bets.find(b => b.matchId == matchId);
-      if (bet) {
-        window.location.href = 'upcoming-single-event.html';
-      }
-    });
-  });
-
-  // Remove button
-  document.querySelectorAll('.rail-bet-remove-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const matchId = e.currentTarget.dataset.matchId;
-      removeSelection(matchId);
-    });
-  });
-
-  const bookBtn = document.getElementById('rail-book-btn');
-  const bookieSelect = document.getElementById('rail-bookie-select');
-  if (bookBtn && bookieSelect) {
-    bookBtn.addEventListener('click', () => {
-      bookSelections(bookieSelect.value);
-    });
-  }
-}
-
-
-function initRailHTML() {
-  const container = document.getElementById("betslip-rail");
-  if (!container) return;
-
-  container.innerHTML = `
+    container.innerHTML = `
     <div class="rail-badge ${bets.length === 0 ? "empty" : ""}" id="rail-badge">
       <span class="rail-badge-count" id="rail-badge-count">${bets.length}</span>
       <span>Betslip</span>
@@ -1066,24 +1134,26 @@ function initRailHTML() {
 
     <div class="rail-overlay" id="rail-overlay"></div>
 
-    <div class="rail-container ${window.innerWidth >= 768 ? 'active' : ''}" id="rail-container">
+    <div class="rail-container ${
+      window.innerWidth >= 768 ? "active" : ""
+    }" id="rail-container">
     </div>
   `;
 
-  const badge = document.getElementById("rail-badge");
-  if (badge) {
-    badge.addEventListener("click", openRail);
-  }
+    const badge = document.getElementById("rail-badge");
+    if (badge) {
+      badge.addEventListener("click", openRail);
+    }
 
-  const overlay = document.getElementById("rail-overlay");
-  if (overlay) {
-    overlay.addEventListener("click", closeRail);
-  }
+    const overlay = document.getElementById("rail-overlay");
+    if (overlay) {
+      overlay.addEventListener("click", closeRail);
+    }
 
-  renderRail();
-  updateBadge();
-  updateBadgeVisibility();
-}
+    renderRail();
+    updateBadge();
+    updateBadgeVisibility();
+  }
   // ==================== PUBLIC API ====================
   window.betslipRail = {
     addSelection,
@@ -1133,8 +1203,7 @@ function initRailHTML() {
     }
   });
 
-
-  window.addEventListener('resize', () => {
+  window.addEventListener("resize", () => {
     updateBadgeVisibility();
     renderRail();
   });

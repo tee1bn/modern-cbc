@@ -273,11 +273,12 @@ body {
 }
 
 .match-lock {
-  font-size: 18px;
+  /* font-size: 18px;
   color: var(--text-muted);
   cursor: pointer;
   transition: color 0.2s;
-  padding: 0px 4px;
+  padding: 0px 4px; */
+  display: none;
 }
 
 .match-lock:hover {
@@ -286,6 +287,130 @@ body {
 
 .match-lock.locked {
   color: var(--primary-color);
+}
+
+/* Match Checkbox */
+.match-checkbox {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.match-check-input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  width: 0;
+  height: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #fff;
+  border: 2px solid var(--border-color);
+  border-radius: 3px;
+  transition: all 0.2s;
+}
+
+.match-checkbox:hover .checkmark {
+  border-color: var(--primary-color);
+}
+
+.match-check-input:checked ~ .checkmark {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 5px;
+  top: 2px;
+  width: 5px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.match-check-input:checked ~ .checkmark::after {
+  display: block;
+}
+
+/* Master Checkbox at Bottom */
+.select-all-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.master-checkbox {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.master-check-input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  width: 0;
+  height: 0;
+}
+
+.master-checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #fff;
+  border: 2px solid var(--border-color);
+  border-radius: 3px;
+  transition: all 0.2s;
+}
+
+.master-checkbox:hover .master-checkmark {
+  border-color: var(--primary-color);
+}
+
+.master-check-input:checked ~ .master-checkmark {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.master-checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 5px;
+  top: 2px;
+  width: 5px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.master-check-input:checked ~ .master-checkmark::after {
+  display: block;
+}
+
+.select-all-label {
+  font-size: 13px;
+  color: var(--text-dark);
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
 }
 
 /* Bottom Actions */
@@ -817,6 +942,8 @@ body {
   .match-content {
     padding: 10px 12px;
   }
+
+  
 
   .match-teams {
     font-size: 13px;

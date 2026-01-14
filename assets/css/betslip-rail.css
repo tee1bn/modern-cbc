@@ -11,6 +11,30 @@
   --rail-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
+.page-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Badge styling */
+.editor-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 8px;
+  background: #333;
+  color: white;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+}
 .rail-badge {
   position: fixed;
   bottom: 140px; 
@@ -416,7 +440,7 @@
 
 .rail-bet-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   padding: 12px 10px;
   margin-bottom: 0;
@@ -437,7 +461,7 @@
 
 .rail-bet-checkbox {
   flex-shrink: 0;
-  margin-top: 2px;
+  margin-top: 6px;
 }
 
 .rail-bet-checkbox input[type="checkbox"] {
@@ -447,22 +471,32 @@
 }
 
 .rail-bet-content {
-  flex: 1;
-  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+
+.rail-bet-teams-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
 }
 
 .rail-bet-teams {
-  font-size: 12px;
+ font-size: 13px;
   font-weight: 600;
   color: var(--rail-text);
-  margin-bottom: 6px;
-  line-height: 1.4;
+  line-height: 1.3;
+  margin: 0;
+  flex: 1;
 }
 
 .rail-bet-market {
   font-size: 12px;
   color: var(--rail-text-secondary);
-  margin-bottom: 6px;
+  margin: 0;
 }
 
 .rail-bet-meta {
@@ -987,6 +1021,17 @@
 
 /* ==================== RESPONSIVE ==================== */
 @media (min-width: 768px) {
+   .page-title {
+    font-size: 1.125rem;
+  }
+  
+  .editor-badge {
+    min-width: 22px;
+    height: 22px;
+    padding: 0 6px;
+    font-size: 0.7rem;
+  }
+  
   .rail-container {
     left: auto;
     right: 20px;
@@ -1497,8 +1542,5 @@
   .rail-container.active {
     display: flex; 
     
-  }
-   .rail-container .page-header .home-btn {
-    display: none; 
   }
 }

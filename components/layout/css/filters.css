@@ -1,14 +1,12 @@
-/* Filter Component Styles - Accordion Layout */
 .filters-wrapper {
   width: 100%;
   background-color: #f5f5f5;
-  border: 1px solid #e0e0e0;
+  /* border: 1px solid #e0e0e0; */
   position: sticky;
   top: 105px;
   z-index: 996;
 }
 
-/* Filter Tabs Bar */
 .filters-tabs {
   display: flex;
   background-color: #e8e8e8;
@@ -63,16 +61,23 @@
 
 /* Dropdown Content Area */
 .filters-content {
+position: absolute;  /* ADD THIS */
+  top: 100%;           /* ADD THIS - positions right below tabs */
+  left: 0;             /* ADD THIS */
+  right: 0;            /* ADD THIS */
   background-color: #ffffff;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);  /* ADD THIS - shadow for overlay effect */
+  z-index: 1000;       /* ADD THIS - ensure it's above content */
 }
 
 .filters-content.open {
-  max-height: 600px;
+ max-height: 600px;
   overflow-y: auto;
-  border-bottom: 1px solid #e0e0e0;
+  border: 1px solid #e0e0e0;  /* ADD THIS - visible border when open */
+  border-top: none;   
 }
 
 /* Filter Panels */

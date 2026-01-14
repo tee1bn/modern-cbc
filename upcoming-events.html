@@ -768,6 +768,67 @@
                   <polyline points="6 9 12 15 18 9"></polyline>
                 </svg>
               </div>
+
+              
+              <div class="filter-tab" data-filter="odds">
+                <svg
+                  class="filter-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                  ></path>
+                </svg>
+                <span>Odds</span>
+                <svg
+                  class="arrow-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </div>
+
+              <div class="filter-tab" data-filter="sort">
+                <svg
+                  class="filter-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12"
+                  ></path>
+                </svg>
+                <!-- <span>Sort</span> -->
+                <svg
+                  class="arrow-icon"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </div>
             </div>
 
             <!-- Dropdown Content Panels -->
@@ -962,6 +1023,59 @@
                 <div class="filter-option" data-value="sunday">
                   <span class="option-label">Sunday</span>
                   <span class="option-count">0</span>
+                </div>
+              </div>
+
+                            <!-- Odds Panel -->
+              <div class="filter-panel" data-panel="odds">
+                <div id="odds-options"></div>
+
+                <div class="filter-custom-range">
+                  <label>Custom Range</label>
+                  <div class="custom-range-inputs">
+                    <input
+                      type="number"
+                      id="odds-min"
+                      placeholder="1"
+                      min="1"
+                      max="2000"
+                      step="0.01"
+                    />
+                    <span>~</span>
+                    <input
+                      type="number"
+                      id="odds-max"
+                      placeholder="2000"
+                      min="1"
+                      max="2000"
+                      step="0.01"
+                    />
+                  </div>
+                  <div class="range-slider">
+                    <input
+                      type="range"
+                      id="odds-slider"
+                      min="1"
+                      max="2000"
+                      value="2000"
+                    />
+                    <div class="range-label">1 ~ 2000</div>
+                  </div>
+                </div>
+
+                <div class="filter-actions">
+                  <button class="btn-reset">Reset</button>
+                  <button class="btn-apply">Apply</button>
+                </div>
+              </div>
+
+              <!-- Sort Panel -->
+              <div class="filter-panel" data-panel="sort">
+                <div id="sort-options"></div>
+
+                <div class="filter-actions">
+                  <button class="btn-reset">Reset</button>
+                  <button class="btn-apply">Apply</button>
                 </div>
               </div>
             </div>
@@ -2452,7 +2566,7 @@
     </div>
 
     <!-- footer -->
-<footer class="footer-main">
+    <footer class="footer-main">
       <div class="container">
         <!-- Join Now Section -->
         <div class="footer-join-section">

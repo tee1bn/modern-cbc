@@ -1012,9 +1012,10 @@
                 <div class="match-datetime">26/12 Fri 21:00</div>
               </div>
               <div class="match-odd-box">1.54</div>
-              <button class="match-lock">
-                <i class="bi bi-unlock"></i>
-              </button>
+              <label class="match-checkbox">
+                <input type="checkbox" class="match-check-input" />
+                <span class="checkmark"></span>
+              </label>
             </div>
           </div>
 
@@ -1038,9 +1039,10 @@
                 <div class="match-datetime">27/12 Sat 13:30</div>
               </div>
               <div class="match-odd-box">1.62</div>
-              <button class="match-lock">
-                <i class="bi bi-unlock"></i>
-              </button>
+              <label class="match-checkbox">
+                <input type="checkbox" class="match-check-input" />
+                <span class="checkmark"></span>
+              </label>
             </div>
           </div>
 
@@ -1064,9 +1066,10 @@
                 <div class="match-datetime">28/12 Sun 12:30</div>
               </div>
               <div class="match-odd-box">1.39</div>
-              <button class="match-lock locked">
-                <i class="bi bi-lock-fill"></i>
-              </button>
+ <label class="match-checkbox">
+  <input type="checkbox" class="match-check-input">
+  <span class="checkmark"></span>
+</label>
             </div>
           </div>
 
@@ -1090,9 +1093,10 @@
                 <div class="match-datetime">27/12 Sat 16:00</div>
               </div>
               <div class="match-odd-box">1.28</div>
-              <button class="match-lock">
-                <i class="bi bi-unlock"></i>
-              </button>
+              <label class="match-checkbox">
+                <input type="checkbox" class="match-check-input" />
+                <span class="checkmark"></span>
+              </label>
             </div>
           </div>
 
@@ -1116,11 +1120,13 @@
                 <div class="match-datetime">28/12 Sun 15:00</div>
               </div>
               <div class="match-odd-box">2.10</div>
-              <button class="match-lock">
-                <i class="bi bi-unlock"></i>
-              </button>
+              <label class="match-checkbox">
+                <input type="checkbox" class="match-check-input" />
+                <span class="checkmark"></span>
+              </label>
             </div>
           </div>
+
           <!-- bottom action -->
           <div class="bottom-actions">
             <div class="actions-top">
@@ -1146,13 +1152,13 @@
                 >
                   <i class="bi bi-x-lg"></i>
                 </button>
-                <button
-                  class="action-icon-btn"
-                  id="lock-all-btn"
-                  title="Lock All"
-                >
-                  <i class="bi bi-unlock"></i>
-                </button>
+<div class="select-all-wrapper">
+    <label class="master-checkbox">
+      <input type="checkbox" class="master-check-input" id="select-all">
+      <span class="master-checkmark"></span>
+    </label>
+    <label for="select-all" class="select-all-label">Select All</label>
+  </div>
               </div>
             </div>
             <div class="actions-bottom">
@@ -1201,7 +1207,7 @@
     </div>
 
     <!-- footer -->
-<footer class="footer-main">
+    <footer class="footer-main">
       <div class="container">
         <!-- Join Now Section -->
         <div class="footer-join-section">
@@ -1235,16 +1241,66 @@
         <!-- Footer Links -->
         <div class="footer-links-section">
           <div class="footer-links-grid">
-            <a href="#" class="footer-link-item" onclick="navigateTo('index.html')">Home</a>
-            <a href="#" class="footer-link-item" onclick="navigateTo('about.html')">About</a>
-            <a href="#" class="footer-link-item" onclick="navigateTo('terms.html')">Terms</a>
-            <a href="#" class="footer-link-item" onclick="navigateTo('privacy.html')">Privacy Policy</a>
-            <a href="#" class="footer-link-item" onclick="navigateTo('cookies.html')">Cookies Policy</a>
-            <a href="#" class="footer-link-item" onclick="navigateTo('convert.html')">Convert Bet</a>
-            <a href="#" class="footer-link-item" onclick="navigateTo('pools-bet-codes.html')">Pools Bet</a>
-            <a href="#" class="footer-link-item" onclick="navigateTo('free-bet-codes.html')">Free Bet Codes</a>
-            <a href="#" class="footer-link-item" onclick="navigateTo('free-prediction.html')">Free Prediction</a>
-            <a href="#" class="footer-link-item" onclick="navigateTo('blog.html')">Blog</a>
+            <a
+              href="#"
+              class="footer-link-item"
+              onclick="navigateTo('index.html')"
+              >Home</a
+            >
+            <a
+              href="#"
+              class="footer-link-item"
+              onclick="navigateTo('about.html')"
+              >About</a
+            >
+            <a
+              href="#"
+              class="footer-link-item"
+              onclick="navigateTo('terms.html')"
+              >Terms</a
+            >
+            <a
+              href="#"
+              class="footer-link-item"
+              onclick="navigateTo('privacy.html')"
+              >Privacy Policy</a
+            >
+            <a
+              href="#"
+              class="footer-link-item"
+              onclick="navigateTo('cookies.html')"
+              >Cookies Policy</a
+            >
+            <a
+              href="#"
+              class="footer-link-item"
+              onclick="navigateTo('convert.html')"
+              >Convert Bet</a
+            >
+            <a
+              href="#"
+              class="footer-link-item"
+              onclick="navigateTo('pools-bet-codes.html')"
+              >Pools Bet</a
+            >
+            <a
+              href="#"
+              class="footer-link-item"
+              onclick="navigateTo('free-bet-codes.html')"
+              >Free Bet Codes</a
+            >
+            <a
+              href="#"
+              class="footer-link-item"
+              onclick="navigateTo('free-prediction.html')"
+              >Free Prediction</a
+            >
+            <a
+              href="#"
+              class="footer-link-item"
+              onclick="navigateTo('blog.html')"
+              >Blog</a
+            >
           </div>
         </div>
 

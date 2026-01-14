@@ -48,8 +48,8 @@
 }
 
 .rail-bet-sport-icon.football {
-  background: #333;
-  color: #fff;
+  /* background: #333; */
+  color: #333;
   border-color: #3333;
 }
 
@@ -73,9 +73,9 @@
 /* ==================== BET ITEM LAYOUT ==================== */
 .rail-bet-item {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px 12px;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
   border-bottom: 1px solid #e0e0e0;
   background: #fff;
   transition: all 0.2s ease;
@@ -91,7 +91,7 @@
 
 .rail-bet-checkbox {
   flex-shrink: 0;
-  margin-top: 0;
+  margin-top: 4px;
 }
 
 .rail-bet-checkbox input[type="checkbox"] {
@@ -105,6 +105,9 @@
   flex: 1;
   min-width: 0;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
 
 .rail-bet-teams {
@@ -113,6 +116,13 @@
   color: #1a1a1a;
   margin-bottom: 6px;
   line-height: 1.4;
+}
+
+.rail-bet-teams-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
 }
 
 .rail-bet-market {
@@ -493,33 +503,51 @@
   }
 
   /* Mobile sport icon */
-  .rail-bet-sport-icon {
-    width: 36px;
-    height: 36px;
-    font-size: 18px;
-  }
+.rail-bet-sport-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 16px;
+    color: #fff;
+    border: 1px solid #333;
+}
 
   .rail-bet-item {
     padding: 12px 10px;
     gap: 10px;
   }
 
-  .rail-bet-teams {
-    font-size: 13px;
-    margin-bottom: 4px;
-  }
+.rail-bet-teams {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  line-height: 1.4;
+  margin: 0;
+  flex: 1;
+}
 
-  .rail-bet-market {
-    font-size: 11px;
-  }
+.rail-bet-market {
+  font-size: 12px;
+  color: #666;
+  margin: 0;
+  font-weight: 500;
+}
 
-  .rail-bet-meta {
-    font-size: 10px;
-    gap: 6px;
-  }
+.rail-bet-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: #999;
+}
 
   .rail-bet-odd {
-    font-size: 16px;
+    font-size: 14px;
     padding: 4px 10px;
     min-width: 45px;
   }
@@ -862,7 +890,7 @@
   }
 
   .rail-bets-list {
-    padding: 16px 32px;
+    /* padding: 16px 32px; */
   }
 
   .rail-footer {
@@ -872,13 +900,13 @@
 
   /* Desktop sport icon */
   .rail-bet-sport-icon {
-    width: 44px;
-    height: 44px;
-    font-size: 22px;
+     width: 36px;
+    height: 36px;
+    font-size: 18px;
   }
 
   .rail-bet-item {
-    padding: 16px 14px;
+    padding: 12px 14px;
   }
 
   .rail-bet-teams {
@@ -887,7 +915,7 @@
 
   .rail-bet-odd {
     font-size: 19px;
-    padding: 8px 14px;
+    padding: 8px 12px;
     min-width: 60px;
   }
 
@@ -927,30 +955,31 @@
 /* ==================== TABLET ==================== */
 @media (min-width: 768px) and (max-width: 991px) {
   .rail-bet-sport-icon {
-    width: 42px;
-    height: 42px;
-    font-size: 20px;
-  }
-
-  .rail-bet-item {
-    padding: 14px 12px;
-  }
-
-  .rail-bet-teams {
+    width: 25px;
+    height: 25px;
     font-size: 14px;
   }
 
+  .rail-bet-item {
+    padding: 8px 10px;
+    gap: 8px;
+  }
+
+  .rail-bet-teams {
+    font-size: 13px;
+  }
+
   .rail-bet-odd {
-    font-size: 17px;
+    font-size: 14px;
   }
 }
 
 /* ==================== LARGE DESKTOP ==================== */
 @media (min-width: 1400px) {
   .rail-bet-sport-icon {
-    width: 48px;
-    height: 48px;
-    font-size: 24px;
+    width: 25px;
+    height: 25px;
+    font-size: 12px;
   }
 
   .rail-bet-item {
@@ -966,7 +995,7 @@
   }
 
   .rail-bet-odd {
-    font-size: 20px;
+    font-size: 15px;
   }
 }
 

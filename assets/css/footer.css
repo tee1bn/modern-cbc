@@ -1,5 +1,5 @@
 .footer-main {
-  background: #2c3e50;
+  background: #333;
   color: #ffffff;
   padding: 40px 20px 20px;
   width: 100%;
@@ -59,7 +59,7 @@
 }
 
 .footer-sports-link:hover {
-  color: #3498db;
+  color: gray;
 }
 
 /* Social Icons */
@@ -83,7 +83,7 @@
 }
 
 .footer-social-link:hover {
-  background: #3498db;
+  background: #999999;
   transform: scale(1.1);
 }
 
@@ -120,7 +120,7 @@
 }
 
 .footer-link-item:hover {
-  color: #3498db;
+  color: #999999;
 }
 
 /* Footer Logo & Country Section */
@@ -142,7 +142,7 @@
 }
 
 .footer-logo-highlight {
-  color: #3498db;
+  color: #999999;
 }
 
 .footer-country {

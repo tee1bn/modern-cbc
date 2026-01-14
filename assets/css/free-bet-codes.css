@@ -6,10 +6,6 @@
 .codes-header {
   padding: 16px;
   border-bottom: 1px solid #e0e0e0;
-  /* position: sticky; 
-  top: 52px;
-  z-index: 99;
-  background: white; */
 }
 
 .codes-date {
@@ -49,11 +45,6 @@
   gap: 8px;
   border-bottom: 1px solid #e0e0e0;
   overflow-x: auto;
-  /* scrollbar-width: none;
-  position: sticky;
-  top: 162px; 
-  z-index: 98; */
-  /* background: white; */
 }
 
 .hub-filters::-webkit-scrollbar {
@@ -106,44 +97,47 @@
   border: 1px solid #e0e0e0;
 }
 
-/* ==================== CODE HEADER ==================== */
+/* ==================== IMPROVED CODE HEADER ==================== */
 .code-header {
   background: #f5f5f5;
-  padding: 12px 16px;
+  padding: 10px 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid #e0e0e0;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .code-info {
   flex: 1;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 10px;
+  min-width: 0;
 }
 
 .code-id-section {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .code-id {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   color: #000;
 }
 
 .code-flag {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .code-bookie {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   color: #666;
-  padding: 4px 10px;
+  padding: 4px 8px;
   background: white;
   border: 1px solid #e0e0e0;
 }
@@ -151,14 +145,15 @@
 .code-stats {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 12px;
+  gap: 10px;
+  font-size: 11px;
 }
 
 .code-stat {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 3px;
+  white-space: nowrap;
 }
 
 .code-stat .label {
@@ -173,20 +168,20 @@
 
 .code-badges {
   display: flex;
-  flex-direction: column;
   gap: 6px;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .code-badge {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
+  gap: 4px;
+  padding: 4px 8px;
   background: #fff;
   border: 1px solid #333;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .code-badge.guest {
@@ -196,53 +191,50 @@
 }
 
 .code-badge i {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .badge-fire {
   color: #ff6b35;
 }
 
-/* ==================== CONVERTED CODE HEADER ==================== */
+/* ==================== IMPROVED CONVERTED CODE HEADER ==================== */
 .converted-header {
   background: #f5f5f5;
-  padding: 12px 16px;
+  padding: 10px 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid #e0e0e0;
-  gap: 16px;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .converted-code-info {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  gap: 10px;
   flex: 1;
+  min-width: 0;
 }
 
 .converted-origin,
 .converted-target {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  flex: 1;
+  display: none; /* Hide target, simplify origin */
 }
 
 .converted-origin {
-  text-align: left;
-}
-
-.converted-target {
-  text-align: right;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .converted-label {
-  font-size: 10px;
+  font-size: 9px;
   color: #999;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  font-weight: 600;
 }
 
 .converted-code-display {
@@ -252,7 +244,7 @@
 }
 
 .converted-code-id {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   color: #000;
 }
@@ -261,26 +253,34 @@
   font-size: 11px;
   font-weight: 600;
   color: #666;
+  padding: 4px 8px;
+  background: white;
+  border: 1px solid #e0e0e0;
 }
 
 .converted-arrow-icon {
-  font-size: 20px;
-  color: #ccc;
-  margin: 0 4px;
+  display: none; /* Hide arrow */
 }
 
 .converted-meta {
-  font-size: 11px;
+  font-size: 10px;
   color: #999;
   display: flex;
   align-items: center;
   gap: 8px;
+  padding: 8px 12px;
+  background: #fafafa;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 .converted-time {
   display: flex;
   align-items: center;
   gap: 4px;
+}
+
+.converted-time i {
+  font-size: 11px;
 }
 
 /* ==================== CODE EVENTS (SCROLLABLE) ==================== */
@@ -364,7 +364,7 @@
 
 /* ==================== CODE ACTIONS ==================== */
 .code-actions {
-  padding: 12px 16px;
+  padding: 10px 12px;
   display: flex;
   gap: 8px;
   border-top: 1px solid #f0f0f0;
@@ -373,9 +373,9 @@
 
 .code-action-btn {
   flex: 1;
-  padding: 10px;
+  padding: 9px;
   border: none;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   cursor: pointer;
   display: flex;
@@ -447,7 +447,7 @@
 
 /* ==================== EXPAND/COLLAPSE TOGGLE ==================== */
 .code-expand-toggle {
-  padding: 10px 16px;
+  padding: 8px 12px;
   background: #fafafa;
   border: none;
   border-top: 1px solid #f0f0f0;
@@ -456,7 +456,7 @@
   align-items: center;
   justify-content: center;
   gap: 6px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   color: #666;
   cursor: pointer;
@@ -469,7 +469,7 @@
 }
 
 .code-expand-toggle i {
-  font-size: 14px;
+  font-size: 12px;
   transition: transform 0.3s ease;
 }
 
@@ -727,21 +727,88 @@
 }
 
 /* ==================== RESPONSIVE ==================== */
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .codes-title {
     font-size: 24px;
+  }
+
+  /* Regular Header Mobile */
+  .code-header {
+    padding: 8px 10px;
+    gap: 8px;
+  }
+
+  .code-info {
+    gap: 8px;
   }
 
   .code-id {
     font-size: 14px;
   }
 
-  .converted-header {
-    flex-direction: column;
+  .code-flag {
+    font-size: 15px;
   }
 
-  .converted-arrow-icon {
-    transform: rotate(90deg);
+  .code-bookie {
+    font-size: 10px;
+    padding: 3px 6px;
+  }
+
+  .code-stats {
+    font-size: 10px;
+    gap: 8px;
+    width: 100%;
+    order: 3;
+  }
+
+  .code-badges {
+    width: 100%;
+    order: 4;
+  }
+
+  .code-badge {
+    font-size: 10px;
+    padding: 3px 6px;
+  }
+
+  /* Converted Header Mobile */
+  .converted-header {
+    padding: 8px 10px;
+    gap: 8px;
+  }
+
+  .converted-code-info {
+    gap: 8px;
+  }
+
+  .converted-code-id {
+    font-size: 14px;
+  }
+
+  .converted-bookie-name {
+    font-size: 10px;
+    padding: 3px 6px;
+  }
+
+  .code-stats {
+    flex-wrap: wrap;
+  }
+
+  .converted-meta {
+    padding: 6px 10px;
+    font-size: 9px;
+    gap: 6px;
+  }
+
+  /* Actions Mobile */
+  .code-actions {
+    padding: 8px 10px;
+  }
+
+  .code-action-btn {
+    font-size: 11px;
+    padding: 8px;
   }
 
   .search-filter-modal {
