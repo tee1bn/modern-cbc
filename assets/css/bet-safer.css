@@ -260,12 +260,12 @@
   font-size: 13px;
   font-weight: 600;
   color: #000;
-  position: sticky;
+  /* position: sticky;
   top: 105px;
   z-index: 997;
   width: 100%;
   left: 0;
-  right: 0;
+  right: 0; */
   margin-bottom: 20px;
 }
 
@@ -1036,7 +1036,7 @@
   .safer-results-header {
     display: flex;
     padding: 10px 12px;
-    top: 89px;
+    /* top: 89px; */
     /* margin-bottom: 12px; */
 
   }
@@ -1226,7 +1226,7 @@
   .safer-results-header {
     display: flex;
     padding: 16px 16px;
-    top: 90px;
+    /* top: 90px; */
     /* margin-bottom: 12px; */
 
   }
