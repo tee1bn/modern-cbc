@@ -54,14 +54,14 @@
 }
 
 .rail-bet-sport-icon.basketball {
-  background: #333;
-  color: #fff;
+  /* background: #333; */
+  color: #333;
   border-color: #3333;
 }
 
 .rail-bet-sport-icon.tennis {
-  background: #333;
-  color: #fff;
+  /* background: #333; */
+  color: #333;
   border-color: #3333;
 }
 
@@ -504,10 +504,10 @@
 
   /* Mobile sport icon */
 .rail-bet-sport-icon {
-    width: 32px;
-    height: 32px;
+    width: 25px;
+    height: 25px;
     border-radius: 6px;
-    background: #333;
+    /* background: #333; */
     display: flex;
     align-items: center;
     justify-content: center;
