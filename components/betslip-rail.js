@@ -658,7 +658,7 @@
       </h1>
       <div style="display: flex; align-items: center; gap: 8px;">
         <button class="rail-load-btn" id="rail-load-btn" title="Load New Bet Code">
-          <i class="bi bi-download"></i> 
+          <i class="bi bi-plus-square"></i> 
         </button>
         ${
           window.innerWidth < 768
@@ -670,12 +670,7 @@
           }">
             <i class="bi bi-arrows-fullscreen"></i>
           </button>
-          <button class="home-btn" onclick="window.location.href='index.html'">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-              <polyline points="9 22 9 12 15 12 15 22" />
-            </svg>
-          </button>
+ 
         `
             : ""
         }
@@ -707,7 +702,7 @@
             Learn How to Use
           </button>
           <button class="rail-empty-btn primary" id="load-code-btn">
-            <i class="bi bi-download"></i>
+            <i class="bi bi-plus-square"></i>
             Load Bet Code
           </button>
         </div>
@@ -899,7 +894,7 @@ ${
     `
         : ""
     }
-    <h1 class="page-title">Load Bet Code</h1>
+    <h1 class="page-title">Load Bet Code </h1>
     ${
       window.innerWidth < 768
         ? `
@@ -957,7 +952,7 @@ ${
             Cancel
           </button>
           <button type="submit" class="empty-submit-btn">
-            <i class="bi bi-download"></i> Load Code
+            <i class="bi bi-plus-square"></i> Load Code
           </button>
         </div>
       </form>
