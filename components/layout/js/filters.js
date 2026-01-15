@@ -484,3 +484,137 @@
   }
 
 })();
+
+// Week Filter with Search Functionality
+(function() {
+  'use strict';
+
+  // Week filter search functionality
+  const weekSearchInput = document.getElementById('weekSearchInput');
+  const weekOptionsList = document.getElementById('weekOptionsList');
+  const weekNoResults = document.getElementById('weekNoResults');
+
+  if (weekSearchInput && weekOptionsList) {
+    weekSearchInput.addEventListener('input', function() {
+      const searchTerm = this.value.toLowerCase().trim();
+      const weekOptions = weekOptionsList.querySelectorAll('.week-option');
+      let hasVisibleResults = false;
+
+      weekOptions.forEach(option => {
+        const weekLabel = option.querySelector('.week-label').textContent.toLowerCase();
+        const weekDate = option.querySelector('.week-date').textContent.toLowerCase();
+        const weekBadge = option.querySelector('.week-badge');
+        const badgeText = weekBadge ? weekBadge.textContent.toLowerCase() : '';
+        
+        // Check if search term matches week label, date, or badge
+        const matches = weekLabel.includes(searchTerm) || 
+                       weekDate.includes(searchTerm) || 
+                       badgeText.includes(searchTerm);
+
+        if (matches) {
+          option.classList.remove('hidden');
+          hasVisibleResults = true;
+        } else {
+          option.classList.add('hidden');
+        }
+      });
+
+      // Show/hide no results message
+      if (weekNoResults) {
+        if (hasVisibleResults) {
+          weekNoResults.style.display = 'none';
+        } else {
+          weekNoResults.style.display = 'block';
+        }
+      }
+    });
+
+    // Clear search when panel closes
+    const weekTab = document.querySelector('[data-filter="week"]');
+    if (weekTab) {
+      weekTab.addEventListener('click', function() {
+        // Small delay to check if panel is being opened
+        setTimeout(() => {
+          const weekPanel = document.querySelector('[data-panel="week"]');
+          if (weekPanel && !weekPanel.classList.contains('active')) {
+            // Panel is closing, clear search
+            weekSearchInput.value = '';
+            const weekOptions = weekOptionsList.querySelectorAll('.week-option');
+            weekOptions.forEach(option => option.classList.remove('hidden'));
+            if (weekNoResults) {
+              weekNoResults.style.display = 'none';
+            }
+          }
+        }, 50);
+      });
+    }
+  }
+
+  // Handle week option selection (auto-close)
+  const weekOptions = document.querySelectorAll('.filter-option.week-option');
+  weekOptions.forEach(option => {
+    option.addEventListener('click', function() {
+      // Don't allow selecting disabled weeks
+      if (this.classList.contains('disabled')) {
+        return;
+      }
+
+      // Remove active from all week options
+      weekOptions.forEach(opt => opt.classList.remove('active'));
+      
+      // Add active to clicked option
+      this.classList.add('active');
+      
+      const value = this.getAttribute('data-value');
+      const weekLabel = this.querySelector('.week-label').textContent;
+      const weekDate = this.querySelector('.week-date').textContent;
+      
+      console.log(`Selected Week: ${weekLabel} - ${weekDate} (${value})`);
+      
+      // Auto-close the panel after selection
+      setTimeout(() => {
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const filterPanels = document.querySelectorAll('.filter-panel');
+        const filtersContent = document.querySelector('.filters-content');
+        
+        filterTabs.forEach(tab => tab.classList.remove('active'));
+        filterPanels.forEach(panel => panel.classList.remove('active'));
+        if (filtersContent) {
+          filtersContent.classList.remove('open');
+        }
+        
+        // Clear search
+        if (weekSearchInput) {
+          weekSearchInput.value = '';
+          weekOptions.forEach(opt => opt.classList.remove('hidden'));
+          if (weekNoResults) {
+            weekNoResults.style.display = 'none';
+          }
+        }
+      }, 200);
+      
+      // Dispatch custom event for parent page to listen to
+      document.dispatchEvent(new CustomEvent('weekFilterChanged', { 
+        detail: { 
+          value: value,
+          label: weekLabel,
+          date: weekDate
+        }
+      }));
+    });
+  });
+
+  // Focus search input when week panel opens
+  const weekFilterTab = document.querySelector('[data-filter="week"]');
+  if (weekFilterTab) {
+    weekFilterTab.addEventListener('click', function() {
+      setTimeout(() => {
+        const weekPanel = document.querySelector('[data-panel="week"]');
+        if (weekPanel && weekPanel.classList.contains('active') && weekSearchInput) {
+          weekSearchInput.focus();
+        }
+      }, 100);
+    });
+  }
+
+})();

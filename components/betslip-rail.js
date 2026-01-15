@@ -5,9 +5,9 @@
     const badge = document.getElementById("rail-badge");
     if (badge) {
       if (window.innerWidth >= 768) {
-        badge.style.display = "none"; 
+        badge.style.display = "none";
       } else {
-        badge.style.display = "flex"; 
+        badge.style.display = "flex";
       }
     }
   }
@@ -582,6 +582,8 @@
     const rail = document.getElementById("rail-container");
     if (!rail) return;
 
+    const isBetSaferPage = window.location.pathname.includes("bet-safer");
+
     const totalOdds = calculateTotalOdds();
     const selectedCount = bets.filter((b) => b.selected).length;
 
@@ -650,7 +652,9 @@
       }
       <h1 class="page-title">
         Editor 
-        <span class="editor-badge ${bets.length === 0 ? 'empty' : ''}">${bets.length}</span>
+        <span class="editor-badge ${bets.length === 0 ? "empty" : ""}">${
+      bets.length
+    }</span>
       </h1>
       <div style="display: flex; align-items: center; gap: 8px;">
         <button class="rail-load-btn" id="rail-load-btn" title="Load New Bet Code">
@@ -679,16 +683,6 @@
     </div>
 
     <!-- Always show navigation tabs -->
-    <div class="empty-nav-tabs">
-      <button class="empty-nav-tab active" id="empty-code-hub-btn">
-        <i class="bi bi-code-square"></i>
-        <span>Code Hub</span>
-      </button>
-      <button class="empty-nav-tab" id="empty-multi-maker-btn">
-        <i class="bi bi-plus-square"></i>
-        <span>Multi Maker</span>
-      </button>
-    </div>
 
     ${
       bets.length === 0
@@ -785,6 +779,85 @@
       </div>
 
       <div class="rail-footer">
+
+
+
+${
+  isBetSaferPage
+    ? `
+  <!-- Bookmaker Comparison Section -->
+  <div class="rail-bookmaker-section" id="rail-bookmaker-section">
+
+
+    <div class="bookmaker-list" id="bookmaker-list">
+      <!-- Top 3 bookmakers (always visible) -->
+      <div class="bookmaker-item">
+        <div class="bookmaker-name">
+          <span class="bookie-logo">1xBet</span>
+          <span class="best-badge">BEST ODDS</span>
+        </div>
+        <div class="bookmaker-odds">
+          <span class="odds-value">@2.65</span>
+        </div>
+      </div>
+
+      <div class="bookmaker-item">
+        <div class="bookmaker-name">
+          <span class="bookie-logo">BetKing</span>
+        </div>
+        <div class="bookmaker-odds">
+          <span class="odds-value">@2.52</span>
+        </div>
+      </div>
+
+      <div class="bookmaker-item">
+        <div class="bookmaker-name">
+          <span class="bookie-logo">SportyBet</span>
+          <span class="current-badge">CURRENT</span>
+        </div>
+        <div class="bookmaker-odds">
+          <span class="odds-value">@2.38</span>
+        </div>
+      </div>
+
+      <!-- Hidden bookmakers (shown when expanded) -->
+      <div class="bookmaker-item hidden" data-expandable>
+        <div class="bookmaker-name">
+          <span class="bookie-logo">Bet9ja</span>
+        </div>
+        <div class="bookmaker-odds">
+          <span class="odds-value">@2.31</span>
+        </div>
+      </div>
+
+      <div class="bookmaker-item hidden" data-expandable>
+        <div class="bookmaker-name">
+          <span class="bookie-logo">22bet</span>
+        </div>
+        <div class="bookmaker-odds">
+          <span class="odds-value">@2.28</span>
+        </div>
+      </div>
+
+      <div class="bookmaker-item hidden" data-expandable>
+        <div class="bookmaker-name">
+          <span class="bookie-logo">NairaBet</span>
+        </div>
+        <div class="bookmaker-odds">
+          <span class="odds-value">@2.25</span>
+        </div>
+      </div>
+    </div>
+
+    <button class="show-more-bookies" id="show-more-bookies-rail">
+      <i class="bi bi-chevron-down"></i>
+      <span>Compare More Bookmakers</span>
+    </button>
+  </div>
+`
+    : ""
+}
+
         <div class="rail-total">
           <span class="rail-total-label">Total Odds:</span>
           <span class="rail-total-value">${totalOdds}</span>
@@ -842,16 +915,6 @@
   </div>
 
     <!-- Navigation tabs -->
-    <div class="empty-nav-tabs">
-      <button class="empty-nav-tab active" id="empty-code-hub-btn">
-        <i class="bi bi-code-square"></i>
-        <span>Code Hub</span>
-      </button>
-      <button class="empty-nav-tab" id="empty-multi-maker-btn">
-        <i class="bi bi-plus-square"></i>
-        <span>Multi Maker</span>
-      </button>
-    </div>
 
     <div class="empty-load-form">
       <div class="empty-load-form-header">
@@ -1012,6 +1075,36 @@
         renderEmptyLoadForm();
       });
     }
+
+   const showMoreBtn = document.getElementById("show-more-bookies-rail");
+  if (showMoreBtn) {
+    showMoreBtn.addEventListener("click", () => {
+      const expandableItems = document.querySelectorAll('[data-expandable]');
+      const chevron = showMoreBtn.querySelector('i');
+      const isExpanded = expandableItems[0]?.classList.contains('hidden');
+
+      expandableItems.forEach(item => {
+        if (isExpanded) {
+          item.classList.remove('hidden');
+          item.classList.add('expanded');
+        } else {
+          item.classList.add('hidden');
+          item.classList.remove('expanded');
+        }
+      });
+
+      // Rotate chevron
+      if (isExpanded) {
+        chevron.classList.remove('bi-chevron-down');
+        chevron.classList.add('bi-chevron-up');
+        showMoreBtn.querySelector('span').textContent = 'Show Less';
+      } else {
+        chevron.classList.add('bi-chevron-down');
+        chevron.classList.remove('bi-chevron-up');
+        showMoreBtn.querySelector('span').textContent = 'Compare More Bookmakers';
+      }
+    });
+  }
 
     // Empty state buttons
     const loadCodeBtn = document.getElementById("load-code-btn");
