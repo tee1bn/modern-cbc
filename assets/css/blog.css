@@ -477,10 +477,10 @@
 
 @media (min-width: 1400px) {
   .blog-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 
-    .adminuiux-content {
+  .adminuiux-content {
     width: calc(100% - 600px) !important; 
     margin-right: 300px !important; 
   }
