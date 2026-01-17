@@ -1,0 +1,666 @@
+.filters-wrapper {
+  width: 100%;
+  background-color: #f5f5f5;
+  /* border: 1px solid #e0e0e0; */
+  position: sticky;
+  top: 105px;
+  z-index: 996;
+}
+
+.filters-tabs {
+  display: flex;
+  background-color: #e8e8e8;
+  border-bottom: 1px solid #d0d0d0;
+}
+
+.filter-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 16px;
+  background-color: #e8e8e8;
+  border-right: 1px solid #d0d0d0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.filter-tab:last-child {
+  border-right: none;
+}
+
+.filter-tab:hover {
+  background-color: #d8d8d8;
+}
+
+.filter-tab.active {
+  background-color: #ffffff;
+  border-bottom: 2px solid #333;
+}
+
+.filter-icon {
+  width: 18px;
+  height: 18px;
+  stroke: #555;
+}
+
+.arrow-icon {
+  width: 14px;
+  height: 14px;
+  stroke: #555;
+  transition: transform 0.3s ease;
+}
+
+.filter-tab.active .arrow-icon {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Content Area */
+.filters-content {
+position: absolute;  /* ADD THIS */
+  top: 100%;           /* ADD THIS - positions right below tabs */
+  left: 0;             /* ADD THIS */
+  right: 0;            /* ADD THIS */
+  background-color: #ffffff;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);  /* ADD THIS - shadow for overlay effect */
+  z-index: 1000;       /* ADD THIS - ensure it's above content */
+}
+
+.filters-content.open {
+ max-height: 600px;
+  overflow-y: auto;
+  border: 1px solid #e0e0e0;  /* ADD THIS - visible border when open */
+  border-top: none;   
+}
+
+/* Filter Panels */
+.filter-panel {
+  display: none;
+  padding: 0;
+}
+
+.filter-panel.active {
+  display: block;
+}
+
+/* Filter Options - For Sports, Markets (auto-close) */
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.filter-option:last-child {
+  border-bottom: none;
+}
+
+.filter-option:hover {
+  background-color: #f9f9f9;
+}
+
+.filter-option.active {
+  background-color: #fff;
+  border-left: 3px solid #000;
+}
+
+/* Week Filter Options - Enhanced Two-line Layout */
+.filter-option.week-option {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 16px 20px;
+  transition: all 0.2s ease;
+}
+
+.filter-option.week-option:hover {
+  background-color: #fafafa;
+}
+
+.filter-option.week-option.active {
+  background-color: #ffffff;
+  border-left: 4px solid #000;
+}
+
+.filter-option.week-option.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #f5f5f5;
+}
+
+.filter-option.week-option.disabled:hover {
+  background-color: #f5f5f5;
+}
+
+.week-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.week-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: 0.3px;
+}
+
+.week-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 3px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.week-badge.current {
+  background-color: #000;
+  color: #fff;
+}
+
+.week-badge.upcoming {
+  background-color: #e8e8e8;
+  color: #333;
+}
+
+.week-badge.past {
+  background-color: #f5f5f5;
+  color: #999;
+  border: 1px solid #e0e0e0;
+}
+
+.week-date {
+  font-size: 13px;
+  color: #666;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.filter-option.week-option .option-count {
+  margin-left: auto;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+/* Checkbox Options - For Leagues (with Apply button) */
+.filter-option-checkbox {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s ease;
+}
+
+.filter-option-checkbox:last-of-type {
+  border-bottom: none;
+}
+
+.filter-option-checkbox:hover {
+  background-color: #f9f9f9;
+}
+
+.filter-option-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  margin-right: 12px;
+  cursor: pointer;
+  accent-color: #000;
+}
+
+.filter-option-checkbox label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  user-select: none;
+}
+
+.checkbox-label {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.sport-icon,
+.flag-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.option-label {
+  flex: 1;
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+.option-count {
+  font-size: 14px;
+  color: #666;
+  font-weight: 600;
+  margin-left: auto;
+}
+
+/* Panel Sections */
+.panel-section {
+  padding: 16px 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.panel-section:last-child {
+  border-bottom: none;
+}
+
+.back-link {
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+.back-link:hover {
+  color: #000;
+}
+
+.section-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #666;
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+/* Action Buttons - Only for Leagues */
+.filter-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background-color: #fff;
+  border-top: 1px solid #e0e0e0;
+}
+
+.btn-reset,
+.btn-apply {
+  padding: 14px 20px;
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-reset {
+  background-color: #3a3a3a;
+  color: #ffffff;
+  border-right: 1px solid #555;
+}
+
+.btn-reset:hover {
+  background-color: #2a2a2a;
+}
+
+.btn-apply {
+  background-color: #e8e8e8;
+  color: #1a1a1a;
+}
+
+.btn-apply:hover {
+  background-color: #d0d0d0;
+}
+
+/* Scrollbar Styles */
+.filters-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.filters-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.filters-content::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.filters-content::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+/* Week Search Box */
+.week-search-box {
+  padding: 16px;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.week-search-wrapper {
+  position: relative;
+}
+
+.week-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  stroke: #999;
+  pointer-events: none;
+}
+
+.week-search-input {
+  width: 100%;
+  padding: 10px 12px 10px 38px;
+  border: 1px solid #d0d0d0;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #333;
+  background-color: #fafafa;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.week-search-input:focus {
+  border-color: #000;
+  background-color: #ffffff;
+}
+
+.week-search-input::placeholder {
+  color: #999;
+}
+
+/* Week Options List Container */
+.week-options-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* Week Filter Options - Enhanced Two-line Layout */
+.filter-option.week-option {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 16px 20px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.filter-option.week-option:hover {
+  background-color: #fafafa;
+}
+
+.filter-option.week-option.active {
+  background-color: #f5f5f5;
+  border-left: 4px solid #000;
+}
+
+.filter-option.week-option.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #f9f9f9;
+}
+
+.filter-option.week-option.disabled:hover {
+  background-color: #f9f9f9;
+}
+
+/* Hide disabled/past weeks from search by default (optional) */
+.filter-option.week-option.hidden {
+  display: none;
+}
+
+.week-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.week-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: 0.3px;
+}
+
+.week-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 3px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.week-badge.current {
+  background-color: #000;
+  color: #fff;
+}
+
+.week-badge.upcoming {
+  background-color: #e8e8e8;
+  color: #333;
+}
+
+.week-badge.past {
+  background-color: #f5f5f5;
+  color: #999;
+  border: 1px solid #e0e0e0;
+}
+
+.week-date {
+  font-size: 13px;
+  color: #666;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.filter-option.week-option .option-count {
+  margin-left: auto;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+/* No Results State */
+.week-no-results {
+  padding: 60px 20px;
+  text-align: center;
+  color: #999;
+}
+
+.week-no-results svg {
+  margin: 0 auto 16px;
+  opacity: 0.5;
+}
+
+.week-no-results p {
+  font-size: 14px;
+  margin: 0;
+  color: #999;
+}
+
+/* Scrollbar for Week List */
+.week-options-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.week-options-list::-webkit-scrollbar-track {
+  background: #f9f9f9;
+}
+
+.week-options-list::-webkit-scrollbar-thumb {
+  background: #d0d0d0;
+  border-radius: 3px;
+}
+
+.week-options-list::-webkit-scrollbar-thumb:hover {
+  background: #b0b0b0;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+  .filters-wrapper {
+    top: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .week-search-box {
+    padding: 12px;
+  }
+
+  .week-search-input {
+    font-size: 13px;
+    padding: 9px 12px 9px 36px;
+  }
+
+  .filter-option.week-option {
+    padding: 14px 16px;
+  }
+
+  .week-label {
+    font-size: 14px;
+  }
+
+  .week-date {
+    font-size: 12px;
+  }
+
+  .week-badge {
+    font-size: 9px;
+    padding: 2px 6px;
+  }
+
+  .week-options-list {
+    max-height: 300px;
+  }
+
+  .filter-tab {
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+
+  .filter-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .filter-option,
+  .filter-option-checkbox {
+    padding: 12px 16px;
+  }
+
+  .filter-option.week-option {
+    padding: 14px 16px;
+  }
+
+  .week-label {
+    font-size: 14px;
+  }
+
+  .week-date {
+    font-size: 12px;
+  }
+
+  .week-badge {
+    font-size: 9px;
+    padding: 2px 6px;
+  }
+
+  .panel-section {
+    padding: 12px 16px;
+  }
+
+  .filter-actions {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .btn-reset,
+  .btn-apply {
+    padding: 12px 16px;
+    font-size: 12px;
+  }
+
+  .filters-wrapper {
+    top: 99px;
+  }
+}
+
+@media (max-width: 480px) {
+    .week-search-box {
+    padding: 10px;
+  }
+
+  .filter-option.week-option {
+    padding: 12px 14px;
+  }
+
+  .week-main {
+    gap: 8px;
+  }
+
+  .week-label {
+    font-size: 13px;
+  }
+
+  .week-date {
+    font-size: 11px;
+  }
+
+  .week-options-list {
+    max-height: 250px;
+  }
+  
+  .filter-tab {
+    padding: 8px 4px;
+  }
+
+  .filters-content.open {
+    max-height: 400px;
+  }
+
+  .filter-option.week-option {
+    padding: 12px 14px;
+  }
+
+  .week-main {
+    gap: 8px;
+  }
+
+  .week-label {
+    font-size: 13px;
+  }
+
+  .week-date {
+    font-size: 11px;
+  }
+
+  .filters-wrapper {
+    top: 92px;
+  }
+}
