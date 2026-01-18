@@ -1,0 +1,947 @@
+
+/* ========================================
+   HERO SECTION - SIMPLIFIED
+   ======================================== */
+.share-code-hero {
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 20px 16px;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.code-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.code-text {
+  font-family: var(--adminuiux-title-font);
+  font-size: 32px;
+  font-weight: 700;
+  color: #000;
+  letter-spacing: 0.05em;
+}
+
+.icon-btn {
+  background: #000;
+  color: #fff;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.icon-btn:hover {
+  transform: scale(1.1);
+}
+
+.icon-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.bookie-badge {
+  background: #f0f0f0;
+  color: #333;
+  border: 1px solid #ddd;
+  padding: 4px 10px;
+  border-radius: 0;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.shared-by {
+  color: #666;
+  font-size: 13px;
+}
+
+.shared-by strong {
+  color: #000;
+  font-weight: 600;
+}
+
+.share-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.share-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: #fff;
+  border: 1px solid #333;
+  border-radius: 0;
+  color: #000;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.share-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+.share-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ========================================
+   ORIGINAL BET CARD - USING GAME CARD PATTERN
+   ======================================== */
+.original-bet-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 0;
+  padding: 16px;
+  margin: 16px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: border-color 0.2s;
+}
+
+.original-bet-card:hover {
+  border-color: #333;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.card-title {
+  font-family: var(--adminuiux-title-font);
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  color: #000;
+}
+
+.events-list {
+  margin-bottom: 12px;
+}
+
+
+.event-row {
+  display: flex;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 0;
+  margin-bottom: 8px;
+  transition: border-color 0.2s;
+  background: #fff;
+}
+
+.event-row:hover {
+  border-color: #333;
+  background: #fafafa;
+}
+
+.event-serial {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: #000;
+  color: #fff;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 11px;
+  flex-shrink: 0;
+}
+
+.event-info {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  gap: 12px;
+}
+
+.event-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.event-title {
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 3px;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.event-league {
+  color: #666;
+  font-size: 11px;
+  margin-bottom: 3px;
+}
+
+.event-market {
+  color: #333;
+  font-size: 12px;
+}
+
+.event-market strong {
+  color: #000;
+  font-weight: 600;
+}
+
+.event-side {
+  text-align: right;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.event-odds {
+  font-weight: 700;
+  font-size: 14px;
+  color: #000;
+}
+
+.event-date,
+.event-time {
+  color: #666;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+/* TOGGLE EVENTS BUTTON */
+.toggle-events {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 8px;
+  background: none;
+  border: 1px solid #e0e0e0;
+  border-radius: 0;
+  color: #000;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 12px;
+  transition: all 0.2s;
+}
+
+.toggle-events:hover {
+  border-color: #333;
+  background: #fafafa;
+}
+
+.toggle-events svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s;
+}
+
+.toggle-events.expanded svg {
+  transform: rotate(180deg);
+}
+
+.events-list .event-row:nth-child(n+3) {
+  display: none;
+}
+
+.events-list.expanded .event-row {
+  display: flex;
+}
+
+/* CARD SUMMARY */
+.card-summary {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 0;
+  margin-bottom: 12px;
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.summary-label {
+  color: #666;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.summary-value {
+  color: #000;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/* CTA BUTTON */
+.cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 0;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.primary-btn {
+  background: #000;
+  color: #fff;
+  border: 1px solid #000;
+}
+
+.primary-btn:hover {
+  background: #333;
+}
+
+.secondary-btn {
+  background: #fff;
+  color: #000;
+  border: 1px solid #333;
+}
+
+.secondary-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+.cta-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ========================================
+   BEST CONVERSION SUMMARY - SUBTLE CARD
+   ======================================== */
+.best-conversion-summary {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 0;
+  padding: 16px;
+  margin: 16px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: border-color 0.2s;
+}
+
+.best-conversion-summary:hover {
+  border-color: #333;
+}
+
+.best-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.best-header h2 {
+  font-family: var(--adminuiux-title-font);
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0;
+  color: #000;
+}
+
+.best-header svg {
+  width: 18px;
+  height: 18px;
+  color: #000;
+}
+
+.best-card {
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  padding: 12px;
+  border-radius: 0;
+}
+
+.best-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.bookie-name {
+  font-weight: 700;
+  font-size: 14px;
+  color: #000;
+}
+
+.best-badge {
+  background: #000;
+  color: #fff;
+  padding: 3px 8px;
+  border-radius: 0;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.best-card-stats {
+  display: flex;
+  justify-content: space-around;
+  gap: 16px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  text-align: center;
+  flex: 1;
+}
+
+.stat-label {
+  color: #666;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.stat-value {
+  color: #000;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* ========================================
+   ALL CONVERSIONS SECTION
+   ======================================== */
+.all-conversions {
+  padding: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.conversions-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  gap: 12px;
+}
+
+.section-title {
+  font-family: var(--adminuiux-title-font);
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  color: #000;
+}
+
+.sort-dropdown {
+  padding: 8px 12px;
+  border: 1px solid #333;
+  border-radius: 0;
+  background: #fff;
+  color: #000;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.sort-dropdown:focus {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
+.conversions-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+/* ========================================
+   BOOKIE CARD - GAME CARD STYLE
+   ======================================== */
+.bookie-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 0;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+.bookie-card:hover {
+  border-color: #333;
+  background: #fafafa;
+}
+
+.bookie-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-bottom: 1px solid #e0e0e0;
+  background: #fff;
+}
+
+.bookie-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bookie-name {
+  font-weight: 700;
+  font-size: 14px;
+  color: #000;
+}
+
+.status-badge {
+  padding: 3px 8px;
+  border-radius: 0;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-badge.success {
+  background: #000;
+  color: #fff;
+}
+
+.status-badge.warning {
+  background: #f0f0f0;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.expand-btn {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: #000;
+  transition: transform 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.expand-btn:hover {
+  opacity: 0.7;
+}
+
+.expand-btn.expanded {
+  transform: rotate(180deg);
+}
+
+.expand-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.bookie-card-body {
+  padding: 14px;
+}
+
+.odds-comparison {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.odds-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.odds-label {
+  color: #666;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.odds-value {
+  color: #000;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.odds-diff {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.odds-diff.positive {
+  color: #000;
+}
+
+.odds-diff.negative {
+  color: #666;
+}
+
+.odds-diff svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* EVENTS SUMMARY - COLLAPSIBLE */
+.events-summary {
+  margin-bottom: 12px;
+  max-height: 400px;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.events-summary.collapsed {
+  max-height: 0;
+}
+
+.summary-header {
+  margin-bottom: 8px;
+}
+
+.summary-title {
+  font-weight: 600;
+  color: #000;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.mini-events-list {
+  margin-bottom: 10px;
+}
+
+.mini-event {
+  padding: 6px 8px;
+  font-size: 12px;
+  color: #333;
+  border-left: 2px solid #000;
+  padding-left: 10px;
+  margin-bottom: 4px;
+  background: #fafafa;
+}
+
+.mini-event.missing {
+  border-left-color: #ccc;
+  color: #999;
+  background: #fff;
+}
+
+.missing-events {
+  margin-top: 10px;
+}
+
+.missing-title {
+  display: block;
+  font-weight: 600;
+  color: #666;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-bottom: 6px;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+.event-row,
+.bookie-card {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 480px) {
+  .code-text {
+    font-size: 28px;
+  }
+
+  .share-actions {
+    width: 100%;
+  }
+
+  .share-btn {
+    flex: 1;
+    min-width: 0;
+    justify-content: center;
+  }
+
+  .event-info {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .event-side {
+    text-align: left;
+  }
+}
+
+@media (min-width: 768px) {
+  .conversions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .original-bet-card,
+  .best-conversion-summary {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .conversions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+
+
+.generate-versions-section {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 0;
+  padding: 16px;
+  margin: 16px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.generate-header {
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.generate-header h2 {
+  font-family: var(--adminuiux-title-font);
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  color: #000;
+}
+
+.generate-header p {
+  font-size: 12px;
+  color: #666;
+  margin: 0;
+}
+
+.generate-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 8px;
+}
+
+.generate-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 12px;
+  background: #fff;
+  border: 1px solid #333;
+  border-radius: 0;
+  color: #000;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.generate-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+.generate-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: #ccc;
+  color: #999;
+}
+
+.generate-btn:disabled:hover {
+  background: #fff;
+  color: #999;
+}
+
+.generate-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.generate-btn.more-bookies {
+  border-style: dashed;
+}
+
+.generate-btn.generated {
+  background: #f0f0f0;
+  border-color: #ccc;
+  color: #666;
+}
+
+@media (max-width: 480px) {
+  .generate-buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+
+  .share-code-hero {
+    padding: 50px 40px;
+    margin-bottom: 40px;
+  }
+
+  .code-text {
+    font-size: 48px;
+  }
+
+  .hero-content {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .original-bet-card,
+  .best-conversion-summary,
+  .generate-versions-section {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+  }
+
+  .event-row {
+    padding: 16px 20px;
+    border-radius: 8px;
+  }
+
+  .event-row:hover {
+    transform: translateX(4px);
+  }
+
+  .all-conversions {
+    padding: 40px 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .conversions-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .bookie-card {
+    border-radius: 8px;
+  }
+
+  .bookie-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  }
+
+  .info-section {
+    max-width: 1000px;
+    padding: 0 60px;
+  }
+
+  .accordion-item {
+    border-radius: 8px;
+  }
+
+    .sidebar-right {
+    display: none !important;
+  }
+
+  .adminuiux-content {
+    width: calc(100% - 600px) !important; 
+    margin-right: 300px !important; 
+  }
+
+  .footer-main {
+     width: calc(100% - 600px) !important; 
+  }
+}
+
+@media (min-width: 1200px) {
+  .code-text {
+    font-size: 56px;
+  }
+
+
+  .conversions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

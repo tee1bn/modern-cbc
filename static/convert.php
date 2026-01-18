@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>Convert - ConvertBetCodes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com/" />
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&amp;family=SUSE:wght@100..800&amp;display=swap"
+    rel="stylesheet" />
+  <script defer src="assets/js/app8051.js?bd1e16b080f637e63a80"></script>
+  <link href="assets/css/app8051.css?bd1e16b080f637e63a80" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/layouts.css">
+  <link rel="stylesheet" href="assets/css/convert.css" />
+</head>
+
+<body>
+
+  <!-- desktop nav -->
+  <?php include("layouts/Header.php") ?>
+
+  <!-- tabs nav -->
+  <?php include("layouts/TabNabvs.php") ?>
+
+  <!-- side menu -->
+  <?php include("layouts/SideMenu.php")  ?>
+
+  <!-- content -->
+  <div class="adminuiux-wrap">
+    <aside class="ad-sidebar-left">
+      <div class="ad-container large">
+        <div class="ad-placeholder">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <rect
+              x="3"
+              y="3"
+              width="18"
+              height="18"
+              rx="2"
+              stroke-width="2" />
+          </svg>
+          <p>Ad Space<br />300 x 600</p>
+        </div>
+      </div>
+    </aside>
+
+    <main class="adminuiux-content">
+      <section class="hero-section">
+        <div class="hero-container">
+          <div class="hero-content">
+            <h1>Convert Bet Codes Between Any Bookmaker</h1>
+            <p>
+              Transfer your betting slips seamlessly across different
+              platforms. Never miss out on great odds because your code isn't
+              compatible with your preferred bookie.
+            </p>
+          </div>
+
+          <div class="content-card">
+            <!-- Mobile Tabs -->
+            <div class="tabs-mobile">
+              <button
+                class="tab-btn active"
+                onclick="switchTab('betting-code')">
+                Betting Code
+              </button>
+              <button class="tab-btn" onclick="switchTab('ticket-code')">
+                Ticket Code
+              </button>
+              <button class="tab-btn" onclick="switchTab('bet-link')">
+                Bet Link
+              </button>
+              <button class="tab-btn" onclick="switchTab('upload-file')">
+                Upload File
+              </button>
+            </div>
+
+            <div class="tabs-desktop">
+              <button
+                class="tab-btn-desktop active"
+                onclick="switchTab('betting-code')">
+                Betting Code
+              </button>
+              <button
+                class="tab-btn-desktop"
+                onclick="switchTab('ticket-code')">
+                Ticket Code
+              </button>
+              <button class="tab-btn-desktop" onclick="switchTab('bet-link')">
+                Bet Link
+              </button>
+              <button
+                class="tab-btn-desktop"
+                onclick="switchTab('upload-file')">
+                Upload File
+              </button>
+            </div>
+
+            <div id="betting-code" class="content-section active">
+              <!-- <h2>Betting Code</h2>
+            <p>Enter your betting code to convert</p> -->
+
+              <form>
+                <div class="form-group">
+                  <label>Betting code</label>
+                  <div class="input-wrapper">
+                    <input type="text" placeholder="Enter betting code" />
+                    <button type="button" class="paste-btn" title="Paste">
+                      <svg
+                        width="20"
+                        height="20"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <rect
+                          width="8"
+                          height="4"
+                          x="8"
+                          y="2"
+                          rx="1"
+                          stroke-width="2" />
+                        <path
+                          d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                          stroke-width="2" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="form-group-row">
+                  <div class="form-group">
+                    <label>Source Bookie</label>
+                    <select>
+                      <option>Select source bookie</option>
+                      <option>Bet9ja</option>
+                      <option>1xBet</option>
+                      <option>SportyBet</option>
+                      <option>NairaBet</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Target Bookie</label>
+                    <select>
+                      <option>Select target bookie</option>
+                      <option>Bet9ja</option>
+                      <option>1xBet</option>
+                      <option>SportyBet</option>
+                      <option>NairaBet</option>
+                    </select>
+                  </div>
+                </div>
+
+                <a href="convertresult.php">
+                  <button
+                    type="button"
+                    class="convert-btn">
+                    Convert
+                  </button>
+                </a>
+
+              </form>
+            </div>
+
+            <div id="ticket-code" class="content-section">
+              <!-- <h2>Ticket Code</h2>
+            <p>Enter your ticket code to convert</p> -->
+
+              <form>
+                <div class="form-group">
+                  <label>Ticket code</label>
+                  <div class="input-wrapper">
+                    <input type="text" placeholder="Enter ticket code" />
+                    <button type="button" class="paste-btn" title="Paste">
+                      <svg
+                        width="20"
+                        height="20"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <rect
+                          width="8"
+                          height="4"
+                          x="8"
+                          y="2"
+                          rx="1"
+                          stroke-width="2" />
+                        <path
+                          d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                          stroke-width="2" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="form-group-row">
+                  <div class="form-group">
+                    <label>Source Bookie</label>
+                    <select>
+                      <option>Select source bookie</option>
+                      <option>Bet9ja</option>
+                      <option>1xBet</option>
+                      <option>SportyBet</option>
+                      <option>NairaBet</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Target Bookie</label>
+                    <select>
+                      <option>Select target bookie</option>
+                      <option>Bet9ja</option>
+                      <option>1xBet</option>
+                      <option>SportyBet</option>
+                      <option>NairaBet</option>
+                    </select>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  onclick="navigateTo('convertresult-success.html')"
+                  class="convert-btn">
+                  Convert
+                </button>
+              </form>
+            </div>
+
+            <div id="bet-link" class="content-section">
+              <!-- <h2>Bet Link</h2>
+            <p>Paste your bet link - we'll auto-detect the bookie</p> -->
+
+              <form>
+                <div class="form-group">
+                  <label>Bet Link</label>
+                  <div class="input-wrapper">
+                    <input
+                      type="url"
+                      id="betLinkInput"
+                      placeholder="https://sportybet.com/share/xyz123" />
+                    <button type="button" class="paste-btn" title="Paste">
+                      <svg
+                        width="20"
+                        height="20"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <rect
+                          width="8"
+                          height="4"
+                          x="8"
+                          y="2"
+                          rx="1"
+                          stroke-width="2" />
+                        <path
+                          d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                          stroke-width="2" />
+                      </svg>
+                    </button>
+                  </div>
+                  <small
+                    id="detectedBookie"
+                    style="
+                        display: none;
+                        color: #666;
+                        margin-top: 4px;
+                        display: block;
+                      ">
+                    <strong>Detected:</strong> <span id="bookieName"></span>
+                  </small>
+                </div>
+
+                <div class="form-group">
+                  <label>Target Bookie</label>
+                  <select>
+                    <option>Select target bookie</option>
+                    <option>Bet9ja</option>
+                    <option>1xBet</option>
+                    <option>SportyBet</option>
+                    <option>NairaBet</option>
+                  </select>
+                </div>
+
+                <button type="submit" class="convert-btn">Convert</button>
+              </form>
+            </div>
+
+            <div id="upload-file" class="content-section">
+              <!-- <h2>Upload File</h2>
+            <p>Upload your betting slip image</p> -->
+
+              <form>
+                <div class="upload-area">
+                  <svg
+                    class="upload-icon"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                  </svg>
+                  <h3>Browse Files or drag & drop here</h3>
+                  <p>JPEG, PNG, and CSV formats up to 2MB</p>
+                  <input
+                    type="file"
+                    style="display: none"
+                    id="fileInput"
+                    accept=".jpg,.jpeg,.png,.csv" />
+                  <label for="fileInput" class="browse-btn">Browse Files</label>
+                </div>
+
+                <div class="form-group-row">
+                  <div class="form-group">
+                    <label>Source Bookie</label>
+                    <select>
+                      <option>Select source bookie</option>
+                      <option>Bet9ja</option>
+                      <option>1xBet</option>
+                      <option>SportyBet</option>
+                      <option>NairaBet</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Target Bookie</label>
+                    <select>
+                      <option>Select target bookie</option>
+                      <option>Bet9ja</option>
+                      <option>1xBet</option>
+                      <option>SportyBet</option>
+                      <option>NairaBet</option>
+                    </select>
+                  </div>
+                </div>
+
+                <button type="submit" class="convert-btn">Convert</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- <section class="stats-section">
+          <div class="stats-container">
+            <div class="stat-item">
+              <span class="stat-number">15,234</span>
+              <span class="stat-label">Codes Converted Today</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">50+</span>
+              <span class="stat-label">Bookmakers Supported</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">99.8%</span>
+              <span class="stat-label">Success Rate</span>
+            </div>
+          </div>
+        </section> -->
+
+      <section class="section">
+        <h2 class="section-title">Recently Converted Codes</h2>
+        <p class="section-subtitle">
+          See what others are converting right now. Join thousands of bettors
+          using our platform daily.
+        </p>
+
+        <div class="conversions-grid">
+          <div class="conversion-card">
+            <div class="conversion-header">39 EVENTS • 6794.7 ODDS</div>
+            <div class="conversion-flow">
+              <div class="bookie-info">
+                <div class="bookie-code">B2MP7PZ</div>
+                <div class="bookie-name">msport</div>
+              </div>
+              <div class="arrow">→</div>
+              <div class="bookie-info">
+                <div class="bookie-code">CSAQL5</div>
+                <div class="bookie-name">sportybet</div>
+              </div>
+            </div>
+            <div class="conversion-meta">
+              <span>12 min ago</span>
+              <span>❤️ 3</span>
+            </div>
+          </div>
+
+          <div class="conversion-card">
+            <div class="conversion-header">3 EVENTS • 5.43 ODDS</div>
+            <div class="conversion-flow">
+              <div class="bookie-info">
+                <div class="bookie-code">72RJ0A</div>
+                <div class="bookie-name">1xbet</div>
+              </div>
+              <div class="arrow">→</div>
+              <div class="bookie-info">
+                <div class="bookie-code">HNHMA</div>
+                <div class="bookie-name">bet9ja</div>
+              </div>
+            </div>
+            <div class="conversion-meta">
+              <span>14 min ago</span>
+              <span>❤️ 9</span>
+            </div>
+          </div>
+
+          <div class="conversion-card">
+            <div class="conversion-header">18 EVENTS • 68.95 ODDS</div>
+            <div class="conversion-flow">
+              <div class="bookie-info">
+                <div class="bookie-code">Sdh79</div>
+                <div class="bookie-name">bet9ja</div>
+              </div>
+              <div class="arrow">→</div>
+              <div class="bookie-info">
+                <div class="bookie-code">4Q8MA</div>
+                <div class="bookie-name">betking</div>
+              </div>
+            </div>
+            <div class="conversion-meta">
+              <span>14 min ago</span>
+              <span>❤️ 1</span>
+            </div>
+          </div>
+
+          <div class="conversion-card">
+            <div class="conversion-header">32 EVENTS • 66736.68 ODDS</div>
+            <div class="conversion-flow">
+              <div class="bookie-info">
+                <div class="bookie-code">ZP4V3J</div>
+                <div class="bookie-name">sportybet</div>
+              </div>
+              <div class="arrow">→</div>
+              <div class="bookie-info">
+                <div class="bookie-code">BKRMA</div>
+                <div class="bookie-name">betwinner</div>
+              </div>
+            </div>
+            <div class="conversion-meta">
+              <span>32 min ago</span>
+              <span>❤️ 3</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="background: #fafafa">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">
+          Three simple steps to convert any bet code to your preferred
+          bookmaker
+        </p>
+
+        <div class="steps-grid">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Enter Your Code</h3>
+            <p>
+              Paste your betting code, ticket number, or share link from any
+              supported bookmaker. We'll automatically detect the format.
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Select Bookmakers</h3>
+            <p>
+              Choose your source and target bookmakers from our list of 50+
+              supported platforms. Auto-detection available for bet links.
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>Get Converted Code</h3>
+            <p>
+              Receive your converted bet code instantly. Ready to place on
+              your preferred bookmaker with the same selections and odds.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="bookmakers-section">
+        <h2 class="section-title">Supported Bookmakers</h2>
+        <p class="section-subtitle">
+          Convert between any of these popular betting platforms
+        </p>
+
+        <div class="bookmakers-wrapper">
+          <div class="bookmakers-track">
+            <!-- First Set -->
+            <div class="bookie-card" tabindex="0">Bet9ja</div>
+            <div class="bookie-card" tabindex="0">SportyBet</div>
+            <div class="bookie-card" tabindex="0">1xBet</div>
+            <div class="bookie-card" tabindex="0">BetPawa</div>
+            <div class="bookie-card" tabindex="0">NairaBet</div>
+            <div class="bookie-card" tabindex="0">22Bet</div>
+            <div class="bookie-card" tabindex="0">BetKing</div>
+            <div class="bookie-card" tabindex="0">BetWinner</div>
+            <div class="bookie-card" tabindex="0">MSport</div>
+            <div class="bookie-card" tabindex="0">Betway</div>
+            <div class="bookie-card" tabindex="0">MerryBet</div>
+            <div class="bookie-card" tabindex="0">Bet365</div>
+
+            <!-- Duplicate Set for Seamless Loop -->
+            <div class="bookie-card" tabindex="0">Bet9ja</div>
+            <div class="bookie-card" tabindex="0">SportyBet</div>
+            <div class="bookie-card" tabindex="0">1xBet</div>
+            <div class="bookie-card" tabindex="0">BetPawa</div>
+            <div class="bookie-card" tabindex="0">NairaBet</div>
+            <div class="bookie-card" tabindex="0">22Bet</div>
+            <div class="bookie-card" tabindex="0">BetKing</div>
+            <div class="bookie-card" tabindex="0">BetWinner</div>
+            <div class="bookie-card" tabindex="0">MSport</div>
+            <div class="bookie-card" tabindex="0">Betway</div>
+            <div class="bookie-card" tabindex="0">MerryBet</div>
+            <div class="bookie-card" tabindex="0">Bet365</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="testimonials-section">
+        <h2 class="section-title">What Our Users Say</h2>
+        <p class="section-subtitle">
+          Join thousands of satisfied bettors who trust our platform for
+          seamless bet code conversions
+        </p>
+
+        <div class="testimonials-wrapper">
+          <div class="testimonials-track">
+            <!-- First Set of Testimonials -->
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">NM</div>
+                <div class="testimonial-info">
+                  <div class="testimonial-name">Nick M.</div>
+                  <div class="testimonial-meta">Massachusetts</div>
+                </div>
+              </div>
+              <div class="testimonial-quote">
+                Data-driven sportsbetting has completely changed how I look at
+                time and money. I went from working a job to full-time
+                sportsbettor in just under a year.
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">MC</div>
+                <div class="testimonial-info">
+                  <div class="testimonial-name">Matt C.</div>
+                  <div class="testimonial-meta">New York</div>
+                </div>
+              </div>
+              <div class="testimonial-quote">
+                I went from losing thousands a month to making $30k, all from
+                Arbitrage. I used to just bet who I thought could win...
+                Trusting the data changed everything.
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">CG</div>
+                <div class="testimonial-info">
+                  <div class="testimonial-name">Clark G.</div>
+                  <div class="testimonial-meta">Indiana</div>
+                </div>
+              </div>
+              <div class="testimonial-quote">
+                Was betting based off "gut" until this month and now I'm up
+                over $500 to start the year. I've been doing it all from my
+                phone for an hour or two each day.
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">AH</div>
+                <div class="testimonial-info">
+                  <div class="testimonial-name">Andrew H.</div>
+                  <div class="testimonial-meta">New York</div>
+                </div>
+              </div>
+              <div class="testimonial-quote">
+                Betting on my favorite teams was fun, but I never really made
+                any money. Now, I just do an hour of arbitrage before my night
+                security shift.
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">JD</div>
+                <div class="testimonial-info">
+                  <div class="testimonial-name">John D.</div>
+                  <div class="testimonial-meta">Lagos</div>
+                </div>
+              </div>
+              <div class="testimonial-quote">
+                Converting bet codes between bookmakers used to be such a
+                hassle. This platform saves me hours every week and I never
+                miss good odds anymore.
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">SA</div>
+                <div class="testimonial-info">
+                  <div class="testimonial-name">Sarah A.</div>
+                  <div class="testimonial-meta">Abuja</div>
+                </div>
+              </div>
+              <div class="testimonial-quote">
+                The accuracy is incredible! Every code I've converted has
+                worked perfectly. The interface is clean and fast - exactly
+                what I needed.
+              </div>
+            </div>
+
+            <!-- Duplicate Set for Seamless Loop -->
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">NM</div>
+                <div class="testimonial-info">
+                  <div class="testimonial-name">Nick M.</div>
+                  <div class="testimonial-meta">Massachusetts</div>
+                </div>
+              </div>
+              <div class="testimonial-quote">
+                Data-driven sportsbetting has completely changed how I look at
+                time and money. I went from working a job to full-time
+                sportsbettor in just under a year.
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">MC</div>
+                <div class="testimonial-info">
+                  <div class="testimonial-name">Matt C.</div>
+                  <div class="testimonial-meta">New York</div>
+                </div>
+              </div>
+              <div class="testimonial-quote">
+                I went from losing thousands a month to making $30k, all from
+                Arbitrage. I used to just bet who I thought could win...
+                Trusting the data changed everything.
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">CG</div>
+                <div class="testimonial-info">
+                  <div class="testimonial-name">Clark G.</div>
+                  <div class="testimonial-meta">Indiana</div>
+                </div>
+              </div>
+              <div class="testimonial-quote">
+                Was betting based off "gut" until this month and now I'm up
+                over $500 to start the year. I've been doing it all from my
+                phone for an hour or two each day.
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">AH</div>
+                <div class="testimonial-info">
+                  <div class="testimonial-name">Andrew H.</div>
+                  <div class="testimonial-meta">New York</div>
+                </div>
+              </div>
+              <div class="testimonial-quote">
+                Betting on my favorite teams was fun, but I never really made
+                any money. Now, I just do an hour of arbitrage before my night
+                security shift.
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">JD</div>
+                <div class="testimonial-info">
+                  <div class="testimonial-name">John D.</div>
+                  <div class="testimonial-meta">Lagos</div>
+                </div>
+              </div>
+              <div class="testimonial-quote">
+                Converting bet codes between bookmakers used to be such a
+                hassle. This platform saves me hours every week and I never
+                miss good odds anymore.
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <div class="testimonial-avatar">SA</div>
+                <div class="testimonial-info">
+                  <div class="testimonial-name">Sarah A.</div>
+                  <div class="testimonial-meta">Abuja</div>
+                </div>
+              </div>
+              <div class="testimonial-quote">
+                The accuracy is incredible! Every code I've converted has
+                worked perfectly. The interface is clean and fast - exactly
+                what I needed.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="api-section">
+        <h2>Developer API Available</h2>
+        <p>
+          Integrate our powerful bet code conversion engine into your app,
+          website, or platform. Offer seamless bet conversion to your users
+          with our reliable API.
+        </p>
+        <a href="#" class="api-btn">Request API Key</a>
+      </section>
+    </main>
+
+    <aside class="ad-sidebar-right">
+      <div class="ad-container large">
+        <div class="ad-placeholder">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <rect
+              x="3"
+              y="3"
+              width="18"
+              height="18"
+              rx="2"
+              stroke-width="2" />
+          </svg>
+          <p>Ad Space<br />300 x 600</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- footer -->
+  <?php include("layouts/Footer.php") ?>
+
+  <!-- mobile nav -->
+  <?php include("layouts/MobileNav.php") ?>
+
+
+  <script src="assets/js/app.js"></script>
+  <script>
+    function switchTab(tabName) {
+      document.querySelectorAll(".content-section").forEach((section) => {
+        section.classList.remove("active");
+      });
+      document.querySelectorAll(".tab-btn").forEach((btn) => {
+        btn.classList.remove("active");
+      });
+      document.querySelectorAll(".tab-btn-desktop").forEach((btn) => {
+        btn.classList.remove("active");
+      });
+      document.getElementById(tabName).classList.add("active");
+      event.target.classList.add("active");
+    }
+  </script>
+
+</body>
+
+</html>

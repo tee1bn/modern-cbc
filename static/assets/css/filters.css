@@ -1,0 +1,716 @@
+:root {
+  /* Primary Colors */
+  --filter-primary: #000000;
+  --filter-primary-dark: #1a1a1a;
+  
+  /* Backgrounds */
+  --filter-bg-tabs: #e8e8e8;
+  --filter-bg-tab-hover: #d8d8d8;
+  --filter-bg-tab-active: #ffffff;
+  --filter-bg-panel: #ffffff;
+  --filter-bg-option-hover: #f9f9f9;
+  --filter-bg-option-active: #ffffff;
+  --filter-bg-disabled: #f5f5f5;
+  --filter-bg-search: #fafafa;
+  --filter-bg-section: #f5f5f5;
+  
+  /* Text Colors */
+  --filter-text-primary: #333333;
+  --filter-text-secondary: #666666;
+  --filter-text-muted: #999999;
+  --filter-text-dark: #1a1a1a;
+  --filter-text-white: #ffffff;
+  
+  /* Border Colors */
+  --filter-border-light: #f0f0f0;
+  --filter-border-medium: #e0e0e0;
+  --filter-border-dark: #d0d0d0;
+  --filter-border-active: #000000;
+  
+  /* Icon Colors */
+  --filter-icon-default: #555555;
+  
+  /* Badge Colors */
+  --filter-badge-current-bg: #000000;
+  --filter-badge-current-text: #ffffff;
+  --filter-badge-upcoming-bg: #e8e8e8;
+  --filter-badge-upcoming-text: #333333;
+  --filter-badge-past-bg: #f5f5f5;
+  --filter-badge-past-text: #999999;
+  --filter-badge-past-border: #e0e0e0;
+  
+  /* Button Colors */
+  --filter-btn-reset-bg: #3a3a3a;
+  --filter-btn-reset-hover: #2a2a2a;
+  --filter-btn-reset-text: #ffffff;
+  --filter-btn-reset-border: #555555;
+  --filter-btn-apply-bg: #e8e8e8;
+  --filter-btn-apply-hover: #d0d0d0;
+  --filter-btn-apply-text: #1a1a1a;
+  
+  /* Effects */
+  --filter-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  
+  /* Scrollbar */
+  --filter-scrollbar-track: #f1f1f1;
+  --filter-scrollbar-thumb: #c1c1c1;
+  --filter-scrollbar-thumb-hover: #a1a1a1;
+  --filter-scrollbar-week-track: #f9f9f9;
+  --filter-scrollbar-week-thumb: #d0d0d0;
+  --filter-scrollbar-week-hover: #b0b0b0;
+}
+
+/* ============================================
+   FILTER WRAPPER
+   ============================================ */
+.filters-wrapper {
+  width: 100%;
+  background-color: var(--filter-bg-section);
+  position: sticky;
+  top: 105px;
+  z-index: 996;
+}
+
+/* ============================================
+   FILTER TABS
+   ============================================ */
+.filters-tabs {
+  display: flex;
+  background-color: var(--filter-bg-tabs);
+  border-bottom: 1px solid var(--filter-border-dark);
+}
+
+.filter-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 16px;
+  background-color: var(--filter-bg-tabs);
+  border-right: 1px solid var(--filter-border-dark);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--filter-text-primary);
+}
+
+.filter-tab:last-child {
+  border-right: none;
+}
+
+.filter-tab:hover {
+  background-color: var(--filter-bg-tab-hover);
+}
+
+.filter-tab.active {
+  background-color: var(--filter-bg-tab-active);
+  border-bottom: 2px solid var(--filter-primary);
+}
+
+.filter-icon {
+  width: 18px;
+  height: 18px;
+  stroke: var(--filter-icon-default);
+}
+
+.arrow-icon {
+  width: 14px;
+  height: 14px;
+  stroke: var(--filter-icon-default);
+  transition: transform 0.3s ease;
+}
+
+.filter-tab.active .arrow-icon {
+  transform: rotate(180deg);
+}
+
+/* ============================================
+   DROPDOWN CONTENT AREA
+   ============================================ */
+.filters-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--filter-bg-panel);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  box-shadow: var(--filter-shadow);
+  z-index: 1000;
+}
+
+.filters-content.open {
+  max-height: 600px;
+  overflow-y: auto;
+  border: 1px solid var(--filter-border-medium);
+  border-top: none;
+}
+
+/* ============================================
+   FILTER PANELS
+   ============================================ */
+.filter-panel {
+  display: none;
+  padding: 0;
+}
+
+.filter-panel.active {
+  display: block;
+}
+
+/* ============================================
+   FILTER OPTIONS (Auto-close: Sports, Markets, Date)
+   ============================================ */
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--filter-border-light);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.filter-option:last-child {
+  border-bottom: none;
+}
+
+.filter-option:hover {
+  background-color: var(--filter-bg-option-hover);
+}
+
+.filter-option.active {
+  background-color: var(--filter-bg-option-active);
+  border-left: 3px solid var(--filter-border-active);
+}
+
+/* ============================================
+   WEEK FILTER OPTIONS (Two-line Layout)
+   ============================================ */
+.filter-option.week-option {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 16px 20px;
+  transition: all 0.2s ease;
+}
+
+.filter-option.week-option:hover {
+  background-color: var(--filter-bg-search);
+}
+
+.filter-option.week-option.active {
+  background-color: var(--filter-bg-tab-active);
+  border-left: 4px solid var(--filter-border-active);
+}
+
+.filter-option.week-option.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: var(--filter-bg-disabled);
+}
+
+.filter-option.week-option.disabled:hover {
+  background-color: var(--filter-bg-disabled);
+}
+
+.week-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.week-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--filter-text-dark);
+  letter-spacing: 0.3px;
+}
+
+.week-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 3px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.week-badge.current {
+  background-color: var(--filter-badge-current-bg);
+  color: var(--filter-badge-current-text);
+}
+
+.week-badge.upcoming {
+  background-color: var(--filter-badge-upcoming-bg);
+  color: var(--filter-badge-upcoming-text);
+}
+
+.week-badge.past {
+  background-color: var(--filter-badge-past-bg);
+  color: var(--filter-badge-past-text);
+  border: 1px solid var(--filter-badge-past-border);
+}
+
+.week-date {
+  font-size: 13px;
+  color: var(--filter-text-secondary);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.filter-option.week-option .option-count {
+  margin-left: auto;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--filter-text-dark);
+}
+
+/* ============================================
+   CHECKBOX OPTIONS (Leagues with Apply button)
+   ============================================ */
+.filter-option-checkbox {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--filter-border-light);
+  transition: background-color 0.2s ease;
+}
+
+.filter-option-checkbox:last-of-type {
+  border-bottom: none;
+}
+
+.filter-option-checkbox:hover {
+  background-color: var(--filter-bg-option-hover);
+}
+
+.filter-option-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  margin-right: 12px;
+  cursor: pointer;
+  accent-color: var(--filter-primary);
+}
+
+.filter-option-checkbox label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--filter-text-primary);
+  user-select: none;
+}
+
+.checkbox-label {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--filter-text-primary);
+}
+
+/* ============================================
+   ICONS
+   ============================================ */
+.sport-icon,
+.flag-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.option-label {
+  flex: 1;
+  font-size: 14px;
+  color: var(--filter-text-primary);
+  font-weight: 500;
+}
+
+.option-count {
+  font-size: 14px;
+  color: var(--filter-text-secondary);
+  font-weight: 600;
+  margin-left: auto;
+}
+
+/* ============================================
+   PANEL SECTIONS
+   ============================================ */
+.panel-section {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--filter-border-light);
+}
+
+.panel-section:last-child {
+  border-bottom: none;
+}
+
+.section-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--filter-text-secondary);
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+/* ============================================
+   ACTION BUTTONS (Leagues, Odds, Sort)
+   ============================================ */
+.filter-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background-color: var(--filter-bg-panel);
+  border-top: 1px solid var(--filter-border-medium);
+}
+
+.btn-reset,
+.btn-apply {
+  padding: 14px 20px;
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-reset {
+  background-color: var(--filter-btn-reset-bg);
+  color: var(--filter-btn-reset-text);
+  border-right: 1px solid var(--filter-btn-reset-border);
+}
+
+.btn-reset:hover {
+  background-color: var(--filter-btn-reset-hover);
+}
+
+.btn-apply {
+  background-color: var(--filter-btn-apply-bg);
+  color: var(--filter-btn-apply-text);
+}
+
+.btn-apply:hover {
+  background-color: var(--filter-btn-apply-hover);
+}
+
+/* ============================================
+   WEEK SEARCH BOX
+   ============================================ */
+.week-search-box {
+  padding: 16px;
+  border-bottom: 1px solid var(--filter-border-medium);
+  background-color: var(--filter-bg-panel);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.week-search-wrapper {
+  position: relative;
+}
+
+.week-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  stroke: var(--filter-text-muted);
+  pointer-events: none;
+}
+
+.week-search-input {
+  width: 100%;
+  padding: 10px 12px 10px 38px;
+  border: 1px solid var(--filter-border-dark);
+  border-radius: 6px;
+  font-size: 14px;
+  color: var(--filter-text-primary);
+  background-color: var(--filter-bg-search);
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.week-search-input:focus {
+  border-color: var(--filter-primary);
+  background-color: var(--filter-bg-panel);
+}
+
+.week-search-input::placeholder {
+  color: var(--filter-text-muted);
+}
+
+/* ============================================
+   WEEK OPTIONS LIST
+   ============================================ */
+.week-options-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.filter-option.week-option.hidden {
+  display: none;
+}
+
+/* ============================================
+   NO RESULTS STATE
+   ============================================ */
+.week-no-results {
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--filter-text-muted);
+}
+
+.week-no-results svg {
+  margin: 0 auto 16px;
+  opacity: 0.5;
+}
+
+.week-no-results p {
+  font-size: 14px;
+  margin: 0;
+  color: var(--filter-text-muted);
+}
+
+/* ============================================
+   CUSTOM RANGE INPUTS (Folds, Odds)
+   ============================================ */
+.filter-custom-range {
+  padding: 16px 20px;
+  border-top: 1px solid var(--filter-border-light);
+}
+
+.filter-custom-range label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--filter-text-secondary);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.custom-range-inputs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.custom-range-inputs input[type="number"] {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--filter-border-dark);
+  border-radius: 4px;
+  font-size: 14px;
+  color: var(--filter-text-primary);
+  background-color: var(--filter-bg-panel);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.custom-range-inputs input[type="number"]:focus {
+  border-color: var(--filter-primary);
+}
+
+.custom-range-inputs span {
+  color: var(--filter-text-secondary);
+  font-weight: 500;
+}
+
+.range-slider {
+  margin-top: 8px;
+}
+
+.range-slider input[type="range"] {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--filter-border-medium);
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.range-slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--filter-primary);
+  cursor: pointer;
+}
+
+.range-slider input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--filter-primary);
+  cursor: pointer;
+  border: none;
+}
+
+.range-label {
+  font-size: 12px;
+  color: var(--filter-text-secondary);
+  margin-top: 6px;
+  text-align: center;
+}
+
+/* ============================================
+   SCROLLBAR STYLES
+   ============================================ */
+.filters-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.filters-content::-webkit-scrollbar-track {
+  background: var(--filter-scrollbar-track);
+}
+
+.filters-content::-webkit-scrollbar-thumb {
+  background: var(--filter-scrollbar-thumb);
+  border-radius: 3px;
+}
+
+.filters-content::-webkit-scrollbar-thumb:hover {
+  background: var(--filter-scrollbar-thumb-hover);
+}
+
+.week-options-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.week-options-list::-webkit-scrollbar-track {
+  background: var(--filter-scrollbar-week-track);
+}
+
+.week-options-list::-webkit-scrollbar-thumb {
+  background: var(--filter-scrollbar-week-thumb);
+  border-radius: 3px;
+}
+
+.week-options-list::-webkit-scrollbar-thumb:hover {
+  background: var(--filter-scrollbar-week-hover);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 991px) {
+  .filters-wrapper {
+    top: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .filters-wrapper {
+    top: 99px;
+  }
+
+  .filter-tab {
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+
+  .filter-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .filter-option,
+  .filter-option-checkbox {
+    padding: 12px 16px;
+  }
+
+  .filter-option.week-option {
+    padding: 14px 16px;
+  }
+
+  .week-search-box {
+    padding: 12px;
+  }
+
+  .week-search-input {
+    font-size: 13px;
+    padding: 9px 12px 9px 36px;
+  }
+
+  .week-label {
+    font-size: 14px;
+  }
+
+  .week-date {
+    font-size: 12px;
+  }
+
+  .week-badge {
+    font-size: 9px;
+    padding: 2px 6px;
+  }
+
+  .week-options-list {
+    max-height: 300px;
+  }
+
+  .panel-section {
+    padding: 12px 16px;
+  }
+
+  .filter-actions {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .btn-reset,
+  .btn-apply {
+    padding: 12px 16px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .filters-wrapper {
+    top: 92px;
+  }
+
+  .filter-tab {
+    padding: 8px 4px;
+  }
+
+  .filters-content.open {
+    max-height: 400px;
+  }
+
+  .filter-option.week-option {
+    padding: 12px 14px;
+  }
+
+  .week-search-box {
+    padding: 10px;
+  }
+
+  .week-main {
+    gap: 8px;
+  }
+
+  .week-label {
+    font-size: 13px;
+  }
+
+  .week-date {
+    font-size: 11px;
+  }
+
+  .week-options-list {
+    max-height: 250px;
+  }
+}

@@ -1,0 +1,1183 @@
+
+.bet-safer-page {
+  font-family: var(--adminuiux-content-font, 'Open Sans', sans-serif);
+  background: #fff;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.safer-input-section {
+  max-width: 800px;
+  margin: 0 auto 16px;
+  padding: 14px;
+  background: #fff;
+}
+
+/* INPUT TABS */
+.safer-input-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.safer-input-tab {
+  padding: 10px 12px;
+  background: #fff;
+  color: #000;
+  border: 2px solid #333;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.safer-input-tab:hover {
+  border-color: #000;
+  background: #fafafa;
+}
+
+.safer-input-tab.active {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+/* FORM GROUPS */
+.safer-form-group {
+  margin-bottom: 12px;
+}
+
+.safer-form-group:last-child {
+  margin-bottom: 0;
+}
+
+.safer-form-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* INPUT WRAPPER */
+.safer-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+}
+
+.safer-form-input {
+  flex: 1;
+  padding: 11px 12px;
+  padding-right: 44px;
+  border: 2px solid #333;
+  border-radius: 6px;
+  font-size: 14px;
+  background: #fff;
+  transition: all 0.2s;
+}
+
+.safer-form-input:focus {
+  outline: none;
+  border-color: #000;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.safer-paste-btn {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 5px;
+  background: #f5f5f5;
+  border: 1px solid #333;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.safer-paste-btn:hover {
+  background: #000;
+  border-color: #000;
+}
+
+.safer-paste-btn:hover svg {
+  color: #fff;
+}
+
+.safer-paste-btn svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.safer-form-select {
+  width: 100%;
+  padding: 11px 12px;
+  border: 2px solid #333;
+  border-radius: 6px;
+  font-size: 14px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.safer-form-select:focus {
+  outline: none;
+  border-color: #000;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+/* UPLOAD AREA */
+.safer-upload-area {
+  border: 3px dashed #333;
+  border-radius: 8px;
+  padding: 24px 14px;
+  text-align: center;
+  background: #fafafa;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.safer-upload-area:hover {
+  background: #f0f0f0;
+  border-color: #000;
+}
+
+.safer-upload-icon {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 10px;
+  color: #333;
+}
+
+.safer-upload-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 5px 0;
+  color: #000;
+}
+
+.safer-upload-text {
+  font-size: 12px;
+  color: #666;
+  margin: 0 0 10px 0;
+}
+
+.safer-browse-btn {
+  display: inline-block;
+  padding: 7px 16px;
+  background: #000;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.safer-browse-btn:hover {
+  background: #333;
+}
+
+/* ANALYZE BUTTON */
+.safer-analyze-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.safer-analyze-btn:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.safer-analyze-btn i {
+  font-size: 15px;
+}
+
+/* ==========================================
+   EMPTY STATE
+   ========================================== */
+.safer-empty-state {
+  max-width: 600px;
+  margin: 16px 10px;
+  padding: 40px 14px;
+  text-align: center;
+  background: #fafafa;
+  border: 1px solid #333;
+}
+
+.safer-empty-text {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ==========================================
+   2. RESULTS SECTION
+   ========================================== */
+.safer-results {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+}
+
+/* RESULTS HEADER */
+.safer-results-header {
+  padding: 16px;
+  background: #f5f5f5;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #000;
+  position: sticky;
+  top: 105px;
+  z-index: 997;
+  width: 100%;
+  left: 0;
+  right: 0;
+  margin-bottom: 20px;
+}
+
+.safer-results-header i {
+  font-size: 16px;
+}
+
+.header-text strong {
+  font-weight: 700;
+}
+
+/* EVENT CARD */
+.safer-event-card {
+  border-bottom: 1px solid #e0e0e0;
+  background: #fff;
+}
+
+.safer-event-card:last-of-type {
+  border-bottom: none;
+}
+
+/* EVENT HEADER */
+.event-header {
+  padding: 10px 16px;
+  background: #fafafa;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.event-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.event-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: #000;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.event-info i {
+  font-size: 14px;
+  color: #666;
+}
+
+.event-match {
+  font-size: 13px;
+  font-weight: 600;
+  color: #000;
+}
+
+.accept-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.accept-event {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  accent-color: #000;
+}
+
+/* PICKS LIST */
+.picks-list {
+  padding: 8px 16px;
+}
+
+.pick-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.pick-item:hover {
+  background: #f9f9f9;
+}
+
+.pick-item.indent {
+  padding-left: 20px;
+}
+
+.pick-item input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #000;
+  flex-shrink: 0;
+}
+
+.pick-text {
+  font-size: 13px;
+  color: #333;
+  font-weight: 500;
+}
+
+.pick-item input[type="radio"]:checked + .pick-text {
+  font-weight: 700;
+  color: #000;
+}
+
+.odds-summary-box {
+  max-width: 800px;
+  padding: 10px;
+  background: #e0e0e05e;
+  margin: auto 10px;
+  border: 1px solid #e0e0e0;
+
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.summary-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.summary-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #333;
+  text-transform: uppercase;
+}
+
+.summary-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: #333;
+}
+
+
+/* bookmaker */
+.bookmaker-comparison-section {
+  max-width: 800px;
+  margin: 16px auto;
+  padding: 14px;
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+}
+
+.bookmaker-comparison-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.bookmaker-comparison-header i {
+  font-size: 16px;
+  color: #333;
+}
+
+.bookmaker-comparison-subtitle {
+  font-size: 12px;
+  color: #666;
+  margin: 0 0 12px 0;
+  font-weight: 500;
+}
+
+/* BULK ACTIONS */
+.bulk-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 12px 16px;
+  border-top: 1px solid #e0e0e0;
+  background: #fafafa;
+}
+
+.bulk-btn {
+  padding: 8px 12px;
+  background: #fff;
+  color: #000;
+  border: 1px solid #333;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.bulk-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+.bulk-btn i {
+  font-size: 14px;
+}
+
+/* ADD TO EDITOR BUTTON */
+.add-editor-btn {
+  width: calc(100% - 32px);
+  margin: 12px 16px;
+  padding: 12px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.add-editor-btn:hover {
+  background: #333;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.add-editor-btn i {
+  font-size: 16px;
+}
+
+
+/* ==========================================
+   3. ODDS COMPARISON SECTION
+   ========================================== */
+.safer-odds-comparison-section {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 14px;
+  background: #fafafa;
+  border: 2px solid #333;
+  border-radius: 8px;
+}
+
+.odds-section-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.odds-section-title i {
+  font-size: 16px;
+  color: #000;
+}
+
+/* SELECTED PICKS LIST */
+.selected-picks-list {
+  margin-bottom: 14px;
+}
+
+.selected-pick-item {
+  padding: 10px 12px;
+  background: #fff;
+  border: 2px solid #333;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.selected-pick-item:last-child {
+  margin-bottom: 0;
+}
+
+.pick-info-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 4px;
+}
+
+.pick-info-row i {
+  font-size: 14px;
+  color: #000;
+  flex-shrink: 0;
+}
+
+.pick-match-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #000;
+}
+
+.pick-market-row {
+  padding-left: 21px;
+}
+
+.pick-market-text {
+  font-size: 12px;
+  color: #666;
+  font-weight: 600;
+}
+
+/* TOTAL ODDS */
+.total-odds-row {
+  padding: 12px 14px;
+  background: #000;
+  color: #fff;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.total-odds-label {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.total-odds-value {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* BOOKMAKERS COMPARISON */
+.bookmakers-comparison-list {
+  margin-bottom: 14px;
+}
+
+.bookie-comparison-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  background: #fff;
+  border: 2px solid #333;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  transition: all 0.2s;
+}
+
+.bookie-comparison-row:last-child {
+  margin-bottom: 0;
+}
+
+.bookie-comparison-row:hover {
+  border-color: #000;
+  background: #fafafa;
+}
+
+.bookie-comparison-row.best {
+  background: #fafafa;
+  border-color: #000;
+  border-width: 3px;
+}
+
+.bookie-comparison-row.current {
+  background: #f5f5f5;
+  border-color: #000;
+  border-width: 2px;
+}
+
+.bookie-info {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex: 1;
+}
+
+.bookie-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #000;
+}
+
+.current-badge {
+  padding: 2px 6px;
+  background: #000;
+  color: #fff;
+  border-radius: 3px;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.bookie-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bookie-odds {
+  font-size: 15px;
+  font-weight: 700;
+  color: #000;
+  min-width: 50px;
+  text-align: right;
+}
+
+.bookie-select-btn {
+  padding: 6px 12px;
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.bookie-select-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+.bookie-select-btn.active {
+  background: #000;
+  color: #fff;
+  padding: 6px 10px;
+}
+
+.bookie-select-btn.active i {
+  font-size: 12px;
+}
+
+.bookie-select-btn.selected {
+  background: #333;
+  color: #fff;
+  border-color: #333;
+}
+
+/* EXPANDABLE BOOKMAKERS */
+.bookmakers-expandable {
+  margin-top: 8px;
+}
+
+/* SHOW ALL BUTTON */
+.show-all-bookies-btn {
+  width: 100%;
+  padding: 10px 12px;
+  background: #fff;
+  color: #000;
+  border: 2px dashed #333;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.show-all-bookies-btn:hover {
+  background: #fafafa;
+  border-style: solid;
+  border-color: #000;
+}
+
+.show-all-bookies-btn i {
+  font-size: 14px;
+}
+
+/* ADD TO BETSLIP BUTTON */
+.add-to-betslip-btn {
+  width: 100%;
+  padding: 14px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 16px;
+}
+
+.add-to-betslip-btn:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.add-to-betslip-btn i {
+  font-size: 16px;
+}
+
+/* ==========================================
+   SCROLL TO TOP BUTTON
+   ========================================== */
+.scroll-to-top {
+  position: fixed;
+  bottom: 90px;
+  right: 14px;
+  width: 42px;
+  height: 42px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s;
+  z-index: 1000;
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+  background: #333;
+  transform: scale(1.1);
+}
+
+.scroll-to-top i {
+  font-size: 16px;
+}
+
+/* ==========================================
+   RESPONSIVE - MOBILE (max-width: 480px)
+   ========================================== */
+@media (max-width: 480px) {
+  .bet-safer-page {
+    margin: 0px;
+  }
+  .safer-input-section {
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+
+  .safer-input-tabs {
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .safer-input-tab {
+    padding: 9px 10px;
+    font-size: 12px;
+  }
+
+  .safer-form-group {
+    margin-bottom: 10px;
+  }
+
+  .safer-form-label {
+    font-size: 10px;
+    margin-bottom: 4px;
+  }
+
+  .safer-form-input,
+  .safer-form-select {
+    padding: 10px 11px;
+    padding-right: 42px;
+    font-size: 13px;
+  }
+
+  .safer-analyze-btn {
+    padding: 11px;
+    font-size: 13px;
+    margin-top: 10px;
+  }
+
+  .safer-empty-state {
+    padding: 32px 12px;
+    margin: 12px auto;
+  }
+
+  .safer-results {
+    /* padding: 0 12px; */
+  }
+
+  .safer-results-header {
+    display: flex;
+    padding: 10px 12px;
+    top: 89px;
+    /* margin-bottom: 12px; */
+
+  }
+
+  .results-bookie-info {
+    font-size: 13px;
+    gap: 5px;
+    flex-direction: column;
+  }
+
+  .safer-event-card {
+    margin-bottom: 12px;
+  }
+
+  .safer-event-header {
+    padding: 9px 12px;
+  }
+
+  .event-title {
+    font-size: 12px;
+  }
+
+  .checkbox-label {
+    font-size: 11px;
+  }
+
+  .event-accept-checkbox input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+  }
+
+  .safer-event-body {
+    padding: 10px 12px;
+  }
+
+  .event-original-pick,
+  .event-alternative-pick {
+    padding: 9px 10px;
+    margin-bottom: 7px;
+  }
+
+  .event-alternative-pick {
+    margin-left: 12px;
+  }
+
+  .pick-header {
+    gap: 6px;
+    margin-bottom: 5px;
+  }
+
+  .pick-sport-icon {
+    font-size: 14px;
+  }
+
+  .pick-match {
+    font-size: 13px;
+  }
+
+  .pick-market {
+    font-size: 12px;
+  }
+
+  .pick-checkbox input[type="radio"] {
+    width: 16px;
+    height: 16px;
+  }
+
+  .safer-odds-comparison-section {
+    margin: 16px auto;
+    padding: 12px;
+  }
+
+  .odds-section-title {
+    font-size: 13px;
+    margin-bottom: 10px;
+    gap: 6px;
+  }
+
+  .selected-pick-item {
+    padding: 9px 10px;
+    margin-bottom: 7px;
+  }
+
+  .pick-info-row {
+    gap: 6px;
+  }
+
+  .pick-info-row i {
+    font-size: 13px;
+  }
+
+  .pick-match-name {
+    font-size: 12px;
+  }
+
+  .pick-market-row {
+    padding-left: 19px;
+  }
+
+  .pick-market-text {
+    font-size: 11px;
+  }
+
+  .total-odds-row {
+    padding: 10px 12px;
+    margin-bottom: 14px;
+  }
+
+  .total-odds-label {
+    font-size: 12px;
+  }
+
+  .total-odds-value {
+    font-size: 18px;
+  }
+
+  .bookie-comparison-row {
+    padding: 9px 10px;
+    margin-bottom: 7px;
+  }
+
+  .bookie-name {
+    font-size: 12px;
+  }
+
+  .current-badge {
+    font-size: 8px;
+    padding: 2px 5px;
+  }
+
+  .bookie-odds {
+    font-size: 14px;
+    min-width: 45px;
+  }
+
+  .bookie-select-btn {
+    padding: 5px 10px;
+    font-size: 10px;
+  }
+
+  .bookie-select-btn.active {
+    padding: 5px 8px;
+  }
+
+  .show-all-bookies-btn {
+    padding: 9px 10px;
+    font-size: 11px;
+    margin-top: 7px;
+  }
+
+  .add-to-betslip-btn {
+    padding: 12px;
+    font-size: 13px;
+    margin-top: 14px;
+  }
+
+  .scroll-to-top {
+    bottom: 80px;
+    right: 12px;
+    width: 38px;
+    height: 38px;
+  }
+
+  .scroll-to-top i {
+    font-size: 15px;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE - TABLET (481px - 768px)
+   ========================================== */
+@media (min-width: 481px) and (max-width: 768px) {
+  .safer-input-section {
+    padding: 10px;
+  }
+
+  .safer-input-tabs {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .safer-results {
+    /* padding: 0 16px; */
+  }
+
+
+  .safer-results-header {
+    display: flex;
+    padding: 16px 16px;
+    top: 90px;
+    /* margin-bottom: 12px; */
+
+  }
+  .safer-event-card {
+    margin-bottom: 16px;
+  }
+
+  .safer-event-body {
+    padding: 14px;
+  }
+
+  .event-alternative-pick {
+    margin-left: 18px;
+  }
+
+  .safer-odds-comparison-section {
+    padding: 16px;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE - DESKTOP (769px - 991px)
+   ========================================== */
+@media (min-width: 769px) and (max-width: 991px) {
+  .safer-input-section {
+    padding: 18px;
+  }
+
+  .safer-input-tabs {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE - LARGE DESKTOP (992px+)
+   ========================================== */
+@media (min-width: 992px) {
+  .safer-input-section {
+    padding: 14px;
+  }
+
+  .safer-input-tabs {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+
+  .safer-form-group {
+    margin-bottom: 16px;
+  }
+
+  .safer-results {
+    /* padding: 0 20px; */
+  }
+
+
+
+  .safer-event-body {
+    padding: 16px;
+  }
+
+  .event-alternative-pick {
+    margin-left: 24px;
+  }
+
+  .safer-odds-comparison-section {
+    padding: 18px;
+  }
+
+  .scroll-to-top {
+    bottom: 100px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .scroll-to-top i {
+    font-size: 18px;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE - EXTRA LARGE (1400px+)
+   ========================================== */
+@media (min-width: 1400px) {
+  .bet-safer-page {
+    max-width: 1600px;
+    /* margin: 0 auto; */
+  }
+
+  .safer-results {
+    /* padding: 0 24px; */
+  }
+
+  .safer-event-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .safer-event-card:hover {
+    transform: translateY(-3px);
+  }
+}

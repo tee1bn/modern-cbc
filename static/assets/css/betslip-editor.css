@@ -1,0 +1,870 @@
+:root {
+  --rail-primary: #000000;
+  --rail-primary-dark: #1a1a1a;
+  --rail-danger: #000000;
+  --rail-success: #000000;
+  --rail-text: #000000;
+  --rail-text-secondary: #666666;
+  --rail-border: #e0e0e0;
+  --rail-bg: #ffffff;
+  --rail-overlay: rgba(0, 0, 0, 0.5);
+}
+
+/* ==================== COMMON ELEMENTS ==================== */
+.page-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.editor-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 8px;
+  background: #333;
+  color: white;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* ==================== BADGE (MOBILE ONLY) ==================== */
+.rail-badge {
+  position: fixed;
+  bottom: 140px; 
+  right: 0px;
+  width: 55px;
+  height: 60px;
+  background: var(--rail-primary);
+  color: white;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.rail-badge:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.rail-badge:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.rail-badge-count {
+  font-size: 12px;
+  background-color: #fff;
+  color: #111;
+  padding: 7px 10px;
+  border-radius: 50%;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.rail-badge span {
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+/* ==================== OVERLAY ==================== */
+.rail-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--rail-overlay);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* ==================== RAIL CONTAINER ==================== */
+.rail-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-height: 80vh;
+  background: var(--rail-bg);
+  border-radius: 20px 20px 0 0;
+  box-shadow: var(--rail-shadow);
+  z-index: 12000;
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.rail-container * {
+  box-sizing: border-box;
+}
+
+.rail-container.fullscreen {
+  max-height: 100vh;
+  max-width: 100vw;
+  border-radius: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+
+/* ==================== PAGE HEADER ==================== */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  position: sticky;
+  top: 0;
+  z-index: 101;
+  flex-shrink: 0;
+  min-height: 52px;
+}
+
+.page-header .back-btn,
+.page-header .home-btn {
+  background: none;
+  border: none;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.page-header .back-btn svg,
+.page-header .home-btn svg {
+  width: 24px;
+  height: 24px;
+  stroke: #000;
+}
+
+.rail-load-btn,
+.rail-action-btn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  color: var(--rail-text-secondary);
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  font-size: 16px;
+  padding: 0;
+}
+
+.rail-load-btn:hover,
+.rail-action-btn:hover {
+  background: #f5f5f5;
+  color: var(--rail-text);
+}
+
+/* ==================== BULK ACTIONS ==================== */
+.rail-bulk-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--rail-border);
+  background: #f9f9f9;
+  flex-shrink: 0;
+  position: sticky;
+  top: 65px;
+  z-index: 100;
+}
+
+.rail-checkbox-all {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+  user-select: none;
+  flex: 1;
+}
+
+.rail-checkbox-all input[type="checkbox"] {
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+}
+
+.rail-checkbox-all span {
+  font-size: 13px;
+  margin-left: 2px;
+}
+
+.rail-bulk-btn {
+  padding: 8px 12px;
+  border: 1px solid var(--rail-border);
+  background: white;
+  color: var(--rail-text);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.rail-bulk-btn:hover {
+  background: #f5f5f5;
+  border-color: var(--rail-text-secondary);
+}
+
+/* ==================== BETS LIST ==================== */
+.rail-bets-list {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 2px 2px;
+  -webkit-overflow-scrolling: touch;
+  min-height: 0;
+}
+
+.rail-bet-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 10px;
+  margin-bottom: 0;
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+  max-width: 100%;
+}
+
+.rail-bet-item:hover {
+  background: #f9f9f9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.rail-bet-item.selected {
+  border-color: #000000;
+  background: #f5f5f5;
+}
+
+.rail-bet-item:last-child {
+  border-bottom: none;
+}
+
+.rail-bet-checkbox {
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.rail-bet-checkbox input[type="checkbox"] {
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+}
+
+.rail-bet-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  gap: 2px;
+}
+
+.rail-bet-teams-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.rail-bet-teams {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--rail-text);
+  line-height: 1.3;
+}
+
+.rail-bet-market {
+  font-size: 11px;
+  color: var(--rail-text-secondary);
+}
+
+.rail-bet-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-size: 10px;
+  color: var(--rail-text-secondary);
+}
+
+.rail-bet-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.rail-bet-odd {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--rail-text);
+  min-width: 45px;
+  text-align: right;
+}
+
+.rail-bet-action-icons {
+  display: flex;
+  gap: 4px;
+}
+
+.rail-bet-edit-btn,
+.rail-bet-remove-btn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  color: var(--rail-text-secondary);
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  font-size: 13px;
+}
+
+.rail-bet-edit-btn:hover {
+  background: #e3f2fd;
+  color: var(--rail-primary);
+}
+
+.rail-bet-remove-btn:hover {
+  background: #ffebee;
+  color: var(--rail-danger);
+}
+
+/* ==================== FOOTER ==================== */
+.rail-footer {
+  border-top: 2px solid var(--rail-border);
+  padding: 8px 12px;
+  background: white;
+  flex-shrink: 0;
+}
+
+.rail-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.rail-total-label {
+  color: var(--rail-text-secondary);
+}
+
+.rail-total-value {
+  color: var(--rail-success);
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.rail-bookie-select {
+  margin-bottom: 12px;
+}
+
+.rail-bookie-dropdown {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--rail-border);
+  border-radius: 8px;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.rail-bookie-dropdown:hover {
+  border-color: var(--rail-primary);
+}
+
+.rail-bookie-dropdown:focus {
+  outline: none;
+  border-color: var(--rail-primary);
+  box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+}
+
+.rail-book-btn {
+  width: 100%;
+  padding: 8px 12px;
+  background: var(--rail-primary);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.rail-book-btn:hover {
+  background: var(--rail-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(33, 150, 243, 0.4);
+}
+
+.rail-book-btn:active {
+  transform: translateY(0);
+}
+
+/* ==================== BOOKMAKER COMPARISON ==================== */
+.rail-bookmaker-section {
+  padding: 8px 12px;
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 8px;
+}
+
+.bookmaker-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.bookmaker-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.bookmaker-item:hover {
+  border-color: #333;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.bookmaker-item.hidden {
+  display: none;
+}
+
+.bookmaker-item.expanded {
+  display: flex;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bookmaker-name {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+}
+
+.bookie-logo {
+  font-size: 12px;
+  font-weight: 700;
+  color: #000;
+  padding: 3px 8px;
+  background: #fff;
+  border: 1px solid #333;
+  border-radius: 3px;
+  min-width: 70px;
+  text-align: center;
+}
+
+.best-badge {
+  font-size: 9px;
+  font-weight: 700;
+  color: #fff;
+  padding: 2px 6px;
+  background: #333;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.current-badge {
+  font-size: 9px;
+  font-weight: 700;
+  color: #333;
+  padding: 2px 6px;
+  background: #fff;
+  border: 1px solid #333;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.bookmaker-odds {
+  display: flex;
+  align-items: center;
+}
+
+.bookmaker-odds .odds-value {
+  font-size: 15px;
+  font-weight: 700;
+  color: #000;
+  min-width: 50px;
+  text-align: right;
+}
+
+.show-more-bookies {
+  width: 100%;
+  padding: 8px 10px;
+  background: #fff;
+  color: #666;
+  border: 1px dashed #e0e0e0;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  transition: all 0.2s ease;
+}
+
+.show-more-bookies:hover {
+  background: #fafafa;
+  border-color: #333;
+  border-style: solid;
+  color: #000;
+}
+
+.show-more-bookies i {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.show-more-bookies i.bi-chevron-up {
+  transform: rotate(180deg);
+}
+
+/* ==================== LOAD CODE FORM ==================== */
+.empty-load-form {
+  padding: 12px;
+}
+
+.empty-load-form-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.empty-load-form-header h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  color: #1a1a1a;
+}
+
+.empty-load-form-header i {
+  font-size: 14px;
+  color: #999;
+  cursor: pointer;
+}
+
+.empty-form-group {
+  margin-bottom: 16px;
+}
+
+.empty-form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1a1a1a;
+}
+
+.empty-input-wrapper {
+  position: relative;
+}
+
+.empty-input-wrapper input {
+  width: 100%;
+  padding: 12px 40px 12px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #1a1a1a;
+  background: white;
+  box-sizing: border-box;
+}
+
+.empty-input-wrapper input:focus {
+  outline: none;
+  border-color: #1a1a1a;
+}
+
+.empty-input-wrapper input::placeholder {
+  color: #bbb;
+}
+
+.empty-paste-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px;
+  transition: color 0.2s;
+}
+
+.empty-paste-btn:hover {
+  color: #1a1a1a;
+}
+
+.empty-form-group select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #1a1a1a;
+  background: white;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.empty-form-group select:focus {
+  outline: none;
+  border-color: #1a1a1a;
+}
+
+.empty-form-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.empty-cancel-btn {
+  flex: 1;
+  padding: 12px;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.empty-cancel-btn:hover {
+  background: #f5f5f5;
+  border-color: #ccc;
+}
+
+.empty-submit-btn {
+  flex: 2;
+  padding: 12px;
+  background: #1a1a1a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.empty-submit-btn:hover {
+  background: #000;
+}
+
+/* ==================== MOBILE SPECIFIC ==================== */
+@media (max-width: 767px) {
+  .rail-badge {
+    display: flex;
+  }
+
+  .rail-container {
+    display: none;
+    transform: translateY(100%);
+  }
+
+  .rail-overlay {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+
+  #rail-toggle:checked ~ .rail-badge {
+    display: none;
+  }
+
+  #rail-toggle:checked ~ .rail-overlay {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  #rail-toggle:checked ~ .rail-container {
+    display: flex;
+    transform: translateY(0);
+    max-height: 85vh;
+  }
+
+  /* Fullscreen state (100vh) */
+  .rail-container.fullscreen {
+    max-height: 100vh !important;
+    border-radius: 0 !important;
+  }
+
+  #betslip-view,
+  #load-form-view {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  /* Prevent body scroll when modal is open */
+  body:has(#rail-toggle:checked) {
+    overflow: hidden;
+  }
+
+  /* Show expand/fullscreen button on mobile */
+  .rail-action-btn {
+    display: flex !important;
+  }
+}
+
+/* ==================== DESKTOP SIDEBAR ==================== */
+@media (min-width: 768px) {
+  .rail-badge {
+    display: none !important;
+  }
+
+  .rail-action-btn {
+    display: none !important;
+  }
+
+  .rail-overlay {
+    display: none !important;
+  }
+
+  .page-title {
+    font-size: 1.125rem;
+  }
+
+  .editor-badge {
+    min-width: 22px;
+    height: 22px;
+    padding: 0 6px;
+    font-size: 0.7rem;
+  }
+
+  .rail-container {
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 350px;
+    max-width: 350px;
+    max-height: 100vh;
+    height: 100%;
+    border-radius: 0;
+    transform: none !important;
+    background: transparent;
+    box-shadow: none;
+    z-index: 1;
+    overflow-y: auto !important;
+  }
+
+  .rail-container .page-header {
+    background: white;
+    border-bottom: 2px solid #e0e0e0;
+    padding: 16px 20px;
+  }
+
+  .rail-container .page-header .back-btn,
+  .rail-container .page-header .home-btn {
+    display: none;
+  }
+
+  #betslip-view {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+
+  .rail-bookmaker-section {
+    padding: 12px 16px;
+    background: #fafafa;
+    border-radius: 4px;
+  }
+
+  .bookmaker-item:hover {
+    transform: translateY(-1px);
+  }
+
+  .show-more-bookies:hover {
+    transform: translateY(-1px);
+  }
+
+  .empty-load-form {
+    padding: 24px;
+  }
+
+}

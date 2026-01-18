@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Conversion Result - ConvertBetCodes</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&amp;family=SUSE:wght@100..800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --adminuiux-content-font: "Open Sans", sans-serif;
+        --adminuiux-content-font-weight: 400;
+        --adminuiux-title-font: "SUSE", sans-serif;
+        --adminuiux-title-font-weight: 600;
+      }
+    </style>
+    <script defer src="assets/js/app8051.js?bd1e16b080f637e63a80"></script>
+    <link href="assets/css/app8051.css?bd1e16b080f637e63a80" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/layouts.css">
+    <link rel="stylesheet" href="assets/css/convert-result.css" />
+  </head>
+
+  <body>
+    <!-- desktop nav -->
+    <?php  include("layouts/Header.php") ?>
+
+    <!-- tabs nav -->
+     <?php  include("layouts/TabNabvs.php") ?>
+
+    <!-- side menu -->
+    <?php include("layouts/SideMenu.php")  ?>
+
+    <div class="adminuiux-wrap">
+      
+      <aside class="ad-sidebar-left">
+        <div class="ad-container large">
+          <div class="ad-placeholder">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <rect
+                x="3"
+                y="3"
+                width="18"
+                height="18"
+                rx="2"
+                stroke-width="2"
+              />
+            </svg>
+            <p>Ad Space<br />300 x 600</p>
+          </div>
+        </div>
+      </aside>
+
+      <main class="adminuiux-content">
+          <div class="result-container">
+            <!-- Conversion summary -->
+            <div class="conversion-summary">
+              <div class="summary-left">
+                <div class="summary-count">6 games @10.53 odds</div>
+                <div class="summary-code">
+                  <span data-code="49382KL">49382KL</span>
+                  <span
+                    class="icon copy-icon"
+                    data-copy="49382KL"
+                    title="Copy code"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z"
+                      />
+                    </svg>
+                  </span>
+                </div>
+                <div class="summary-bookie">1xBet</div>
+                <div class="events-left-info">6 events total</div>
+              </div>
+
+              <div class="summary-arrow">→</div>
+
+              <div class="summary-right">
+                <div class="summary-count">4 games @7.21 odds</div>
+                <div class="summary-code">
+                  <span data-code="7849362019">7849362019</span>
+                  <span
+                    class="icon copy-icon"
+                    data-copy="7849362019"
+                    title="Copy code"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z"
+                      />
+                    </svg>
+                  </span>
+                  <span class="icon share-icon" title="Share">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z"
+                      />
+                    </svg>
+                  </span>
+                </div>
+                <div class="summary-bookie">Bet9ja</div>
+                <div class="events-left-info">4 events left</div>
+              </div>
+            </div>
+
+            <!-- View toggle with badges and matches counter -->
+            <div class="view-toggle-section">
+              <div class="view-toggle">
+                <button class="toggle-btn active" data-view="grouped">
+                  Grouped <span class="view-badge">6</span>
+                </button>
+                <button class="toggle-btn" data-view="origin">
+                  Origin Only <span class="view-badge">6</span>
+                </button>
+                <button class="toggle-btn" data-view="target">
+                  Target Only <span class="view-badge">4</span>
+                </button>
+              </div>
+              <div class="matches-left-counter">4 matches left</div>
+            </div>
+
+            <!-- Games list - All events shown statically -->
+            <ul class="games-list view-grouped" id="gamesList">
+              <!-- Event 1: Converted -->
+              <div class="conversion-group" data-status="converted">
+                <li class="game-card card-origin">
+                  <div class="game-header">
+                    <span class="game-serial">1</span>
+                    <span class="game-league">
+                      Women Bundesliga
+                      <i class="bi bi-dribbble"></i>
+                    </span>
+                    <span class="bookie-badge bookie-origin">1xBet</span>
+                  </div>
+                  <div class="game-info-row">
+                    <div class="game-main-info">
+                      <div class="game-title">
+                        Werder Bremen vs Bayer Leverkusen
+                      </div>
+                      <div class="game-market">Over/Under</div>
+                      <div class="game-market"><strong>Over 0.5</strong></div>
+                    </div>
+                    <div class="game-side-info">
+                      <div class="game-odds">1.03</div>
+                      <div class="game-date">Sat 12/12/25</div>
+                      <div class="game-date">18:30</div>
+                    </div>
+                  </div>
+                </li>
+
+                <div class="conversion-connector">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <polyline points="19 12 12 19 5 12" />
+                  </svg>
+                </div>
+
+                <li class="game-card card-target">
+                  <div class="game-header">
+                    <span class="game-serial">1</span>
+                    <span class="game-league"
+                      >Women Bundesliga <i class="bi bi-dribbble"></i
+                    ></span>
+                    <span class="bookie-badge bookie-target">Bet9ja</span>
+                  </div>
+                  <div class="game-info-row">
+                    <div class="game-main-info">
+                      <div class="game-title">
+                        Werder Bremen vs Bayer Leverkusen
+                      </div>
+                      <div class="game-market">Over/Under</div>
+                      <div class="game-market"><strong>Over 0.5</strong></div>
+                    </div>
+                    <div class="game-side-info">
+                      <div class="game-odds">1.03</div>
+                      <div class="game-date">Sat 12/12/25</div>
+                      <div class="game-date">18:30</div>
+                    </div>
+                  </div>
+                  <div class="game-status-indicator">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"
+                      />
+                      <path d="m9 12 2 2 4-4" />
+                    </svg>
+                  </div>
+                </li>
+              </div>
+
+              <!-- Event 2: Converted -->
+              <div class="conversion-group" data-status="converted">
+                <li class="game-card card-origin">
+                  <div class="game-header">
+                    <span class="game-serial">2</span>
+                    <span class="game-league"
+                      >English Premier League <i class="bi bi-dribbble"></i
+                    ></span>
+                    <span class="bookie-badge bookie-origin">1xBet</span>
+                  </div>
+                  <div class="game-info-row">
+                    <div class="game-main-info">
+                      <div class="game-title">
+                        Manchester United vs Liverpool
+                      </div>
+                      <div class="game-market">Full Time Result</div>
+                      <div class="game-market"><strong>Home Win</strong></div>
+                    </div>
+                    <div class="game-side-info">
+                      <div class="game-odds">2.15</div>
+                      <div class="game-date">Sun 13/12/25</div>
+                      <div class="game-date">15:00</div>
+                    </div>
+                  </div>
+                </li>
+
+                <div class="conversion-connector">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <polyline points="19 12 12 19 5 12" />
+                  </svg>
+                </div>
+
+                <li class="game-card card-target">
+                  <div class="game-header">
+                    <span class="game-serial">2</span>
+                    <span class="game-league"
+                      >English Premier League <i class="bi bi-dribbble"></i
+                    ></span>
+                    <span class="bookie-badge bookie-target">Bet9ja</span>
+                  </div>
+                  <div class="game-info-row">
+                    <div class="game-main-info">
+                      <div class="game-title">
+                        Manchester United vs Liverpool
+                      </div>
+                      <div class="game-market">Full Time Result</div>
+                      <div class="game-market"><strong>Home Win</strong></div>
+                    </div>
+                    <div class="game-side-info">
+                      <div class="game-odds">2.10</div>
+                      <div class="game-date">Sun 13/12/25</div>
+                      <div class="game-date">15:00</div>
+                    </div>
+                  </div>
+                  <div class="game-status-indicator">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"
+                      />
+                      <path d="m9 12 2 2 4-4" />
+                    </svg>
+                  </div>
+                </li>
+              </div>
+
+              <!-- Event 3: Converted -->
+              <div class="conversion-group" data-status="converted">
+                <li class="game-card card-origin">
+                  <div class="game-header">
+                    <span class="game-serial">3</span>
+                    <span class="game-league"
+                      >La Liga <i class="bi bi-dribbble"></i
+                    ></span>
+                    <span class="bookie-badge bookie-origin">1xBet</span>
+                  </div>
+                  <div class="game-info-row">
+                    <div class="game-main-info">
+                      <div class="game-title">Barcelona vs Real Madrid</div>
+                      <div class="game-market">Both Teams To Score</div>
+                      <div class="game-market"><strong>Yes</strong></div>
+                    </div>
+                    <div class="game-side-info">
+                      <div class="game-odds">1.72</div>
+                      <div class="game-date">Sun 13/12/25</div>
+                      <div class="game-date">20:00</div>
+                    </div>
+                  </div>
+                </li>
+
+                <div class="conversion-connector">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <polyline points="19 12 12 19 5 12" />
+                  </svg>
+                </div>
+
+                <li class="game-card card-target">
+                  <div class="game-header">
+                    <span class="game-serial">3</span>
+                    <span class="game-league"
+                      >La Liga <i class="bi bi-dribbble"></i
+                    ></span>
+                    <span class="bookie-badge bookie-target">Bet9ja</span>
+                  </div>
+                  <div class="game-info-row">
+                    <div class="game-main-info">
+                      <div class="game-title">Barcelona vs Real Madrid</div>
+                      <div class="game-market">Both Teams To Score</div>
+                      <div class="game-market"><strong>Yes</strong></div>
+                    </div>
+                    <div class="game-side-info">
+                      <div class="game-odds">1.68</div>
+                      <div class="game-date">Sun 13/12/25</div>
+                      <div class="game-date">20:00</div>
+                    </div>
+                  </div>
+                  <div class="game-status-indicator">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"
+                      />
+                      <path d="m9 12 2 2 4-4" />
+                    </svg>
+                  </div>
+                </li>
+              </div>
+
+              <!-- Event 4: Converted -->
+              <div class="conversion-group" data-status="converted">
+                <li class="game-card card-origin">
+                  <div class="game-header">
+                    <span class="game-serial">4</span>
+                    <span class="game-league"
+                      >Serie A <i class="bi bi-dribbble"></i
+                    ></span>
+                    <span class="bookie-badge bookie-origin">1xBet</span>
+                  </div>
+                  <div class="game-info-row">
+                    <div class="game-main-info">
+                      <div class="game-title">Juventus vs AC Milan</div>
+                      <div class="game-market">Double Chance</div>
+                      <div class="game-market">
+                        <strong>Home or Draw</strong>
+                      </div>
+                    </div>
+                    <div class="game-side-info">
+                      <div class="game-odds">1.28</div>
+                      <div class="game-date">Mon 14/12/25</div>
+                      <div class="game-date">19:45</div>
+                    </div>
+                  </div>
+                </li>
+
+                <div class="conversion-connector">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <polyline points="19 12 12 19 5 12" />
+                  </svg>
+                </div>
+
+                <li class="game-card card-target">
+                  <div class="game-header">
+                    <span class="game-serial">4</span>
+                    <span class="game-league"
+                      >Serie A <i class="bi bi-dribbble"></i
+                    ></span>
+                    <span class="bookie-badge bookie-target">Bet9ja</span>
+                  </div>
+                  <div class="game-info-row">
+                    <div class="game-main-info">
+                      <div class="game-title">Juventus vs AC Milan</div>
+                      <div class="game-market">Double Chance</div>
+                      <div class="game-market">
+                        <strong>Home or Draw</strong>
+                      </div>
+                    </div>
+                    <div class="game-side-info">
+                      <div class="game-odds">1.25</div>
+                      <div class="game-date">Mon 14/12/25</div>
+                      <div class="game-date">19:45</div>
+                    </div>
+                  </div>
+                  <div class="game-status-indicator">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"
+                      />
+                      <path d="m9 12 2 2 4-4" />
+                    </svg>
+                  </div>
+                </li>
+              </div>
+
+              <!-- Event 5: Failed -->
+              <div class="conversion-group" data-status="failed">
+                <li class="game-card card-origin">
+                  <div class="game-header">
+                    <span class="game-serial">5</span>
+                    <span class="game-league"
+                      >Bundesliga <i class="bi bi-dribbble"></i
+                    ></span>
+                    <span class="bookie-badge bookie-origin">1xBet</span>
+                  </div>
+                  <div class="game-info-row">
+                    <div class="game-main-info">
+                      <div class="game-title">Bayern Munich vs Dortmund</div>
+                      <div class="game-market">Over/Under</div>
+                      <div class="game-market"><strong>Over 3.5</strong></div>
+                    </div>
+                    <div class="game-side-info">
+                      <div class="game-odds">1.95</div>
+                      <div class="game-date">Sat 12/12/25</div>
+                      <div class="game-date">14:30</div>
+                    </div>
+                  </div>
+                </li>
+
+                <div class="conversion-connector">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <polyline points="19 12 12 19 5 12" />
+                  </svg>
+                </div>
+
+                <li class="game-card card-target game-failed">
+                  <div class="game-header">
+                    <span class="game-serial">5</span>
+                    <span class="game-league">Conversion Failed</span>
+                    <span class="bookie-badge bookie-target">Bet9ja</span>
+                  </div>
+                  <div class="game-info-row">
+                    <div class="game-main-info">
+                      <div class="game-title">Unable to convert this event</div>
+                      <div class="game-failed-reason">
+                        Event already started
+                      </div>
+                    </div>
+                  </div>
+                  <div class="game-status-indicator">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <line x1="15" y1="9" x2="9" y2="15" />
+                      <line x1="9" y1="9" x2="15" y2="15" />
+                    </svg>
+                  </div>
+                </li>
+              </div>
+
+              <!-- Event 6: Failed -->
+              <div class="conversion-group" data-status="failed">
+                <li class="game-card card-origin">
+                  <div class="game-header">
+                    <span class="game-serial">6</span>
+                    <span class="game-league"
+                      >Ligue 1 <i class="bi bi-dribbble"></i
+                    ></span>
+                    <span class="bookie-badge bookie-origin">1xBet</span>
+                  </div>
+                  <div class="game-info-row">
+                    <div class="game-main-info">
+                      <div class="game-title">PSG vs Marseille</div>
+                      <div class="game-market">First Half Corner Handicap</div>
+                      <div class="game-market"><strong>Home -2.5</strong></div>
+                    </div>
+                    <div class="game-side-info">
+                      <div class="game-odds">2.10</div>
+                      <div class="game-date">Sun 13/12/25</div>
+                      <div class="game-date">18:30</div>
+                    </div>
+                  </div>
+                </li>
+
+                <div class="conversion-connector">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <polyline points="19 12 12 19 5 12" />
+                  </svg>
+                </div>
+
+                <li class="game-card card-target game-failed">
+                  <div class="game-header">
+                    <span class="game-serial">6</span>
+                    <span class="game-league">Conversion Failed</span>
+                    <span class="bookie-badge bookie-target">Bet9ja</span>
+                  </div>
+                  <div class="game-info-row">
+                    <div class="game-main-info">
+                      <div class="game-title">Unable to convert this event</div>
+                      <div class="game-failed-reason">Market not available</div>
+                    </div>
+                  </div>
+                  <div class="game-status-indicator">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <line x1="15" y1="9" x2="9" y2="15" />
+                      <line x1="9" y1="9" x2="15" y2="15" />
+                    </svg>
+                  </div>
+                </li>
+              </div>
+            </ul>
+          </div>
+      </main>
+
+      <aside class="ad-sidebar-right">
+        <div class="ad-container large">
+          <div class="ad-placeholder">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <rect
+                x="3"
+                y="3"
+                width="18"
+                height="18"
+                rx="2"
+                stroke-width="2"
+              />
+            </svg>
+            <p>Ad Space<br />300 x 600</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- footer -->
+     <?php include("layouts/Footer.php") ?>
+
+    <!-- mobile nav -->
+    <?php include("layouts/MobileNav.php") ?>
+
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/conversion-summary.js"></script>
+  </body>
+</html>
