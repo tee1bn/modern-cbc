@@ -1,0 +1,974 @@
+
+.predictions-page {
+  font-family: var(--adminuiux-content-font, 'Open Sans', sans-serif);
+  background: #fff;
+  margin-top: 0;
+}
+
+/* New Sports tab */
+.sports-bar-wrapper {
+  position: sticky;
+  background: #fafafa;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  border-bottom: none;
+  top: 0;
+}
+
+.sports-selector {
+  position: relative;
+  background: #fff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.sports-selector input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.sports-selector-label {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+}
+
+.sports-selector-text {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  letter-spacing: 0.3px;
+}
+
+.sports-selector-icon {
+  font-size: 1.5rem;
+}
+
+.sports-dropdown-arrow {
+  font-size: 1.5rem;
+  color: #999;
+  transition: transform 0.3s ease;
+}
+
+.sports-selector input[type="checkbox"]:checked ~ .sports-selector-label .sports-dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+/* Sports Dropdown Menu  */
+.sports-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.sports-selector input[type="checkbox"]:checked ~ .sports-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.sports-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.938rem;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid #f0f0f0;
+  text-decoration: none;
+}
+
+.sports-dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.sports-dropdown-item.active {
+  background: #000;
+  color: #fff;
+}
+
+/* FILTER BUTTONS - IMPROVED DESIGN */
+.predictions-filters {
+  display: flex;
+  gap: 10px;
+  padding: 16px;
+  border-bottom: 1px solid #e0e0e0;
+  overflow-x: auto;
+  background: white;
+  flex-wrap: wrap;
+}
+
+.filter-btn,
+.market-filter-dropdown {
+  padding: 10px 16px;
+  background: #fff;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.filter-btn:hover,
+.market-filter-dropdown:hover {
+  background: #fafafa;
+  border-color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filter-btn.active,
+.market-filter-dropdown.active {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.filter-btn i,
+.market-filter-dropdown i {
+  font-size: 12px;
+  transition: transform 0.2s;
+}
+
+.filter-btn.active i,
+.market-filter-dropdown.active i {
+  color: #fff;
+  transform: rotate(180deg);
+}
+
+/* PAGE INFO */
+.predictions-page-info {
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #666;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* EMPTY STATE */
+.predictions-empty {
+  padding: 40px 16px;
+  text-align: center;
+}
+
+.predictions-empty-text {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* PREDICTIONS LIST */
+.predictions-list {
+  padding: 0;
+}
+
+/* LEAGUE GROUP */
+.league-group {
+  margin-bottom: 0;
+}
+
+.league-header {
+  padding: 14px 0;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.league-header:hover {
+  background: #f9fafb;
+}
+
+.league-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  padding: 0 16px;
+}
+
+.toggle-icon {
+  font-size: 14px;
+  color: #6b7280;
+  transition: transform 0.3s ease;
+}
+
+.league-header.collapsed .toggle-icon {
+  transform: rotate(-90deg);
+}
+
+.league-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1f2937;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+
+
+.event-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 10px;
+  background: #f0f0f0;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #666;
+  margin-left: 8px;
+}
+
+/* LEAGUE EVENTS CONTAINER */
+/* All league events start collapsed by default */
+.league-events {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+/* Only show events when header doesn't have collapsed class */
+.league-header:not(.collapsed) + .league-events {
+  max-height: 2000px;
+}
+
+/* Keep collapsed state */
+.league-header.collapsed + .league-events {
+  max-height: 0;
+}
+
+/* ==================== PREDICTION CARD - BETSLIP RAIL DESIGN ==================== */
+
+.prediction-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 16px;
+  margin-bottom: 0;
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+  transition: all 0.2s ease;
+}
+
+.prediction-card:hover {
+  background: #f9f9f9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.prediction-card:last-child {
+  border-bottom: none;
+}
+
+/* Main content area */
+.prediction-card-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Teams row */
+.prediction-teams-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.prediction-teams {
+  font-size: 13px;
+  font-weight: 600;
+  color: #000;
+  line-height: 1.3;
+  margin: 0;
+  flex: 1;
+}
+
+/* Market/selection info */
+.prediction-market {
+  font-size: 11px;
+  color: #666;
+  margin: 0;
+  margin-bottom: 4px;
+}
+
+/* Meta information (date, league, etc.) */
+.prediction-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-size: 10px;
+  color: #666;
+}
+
+.prediction-date {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.prediction-league-tag {
+  display: inline-block;
+  background: #f0f0f0;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #666;
+}
+
+/* Actions section - VERTICAL LAYOUT */
+.prediction-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.prediction-odd {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+  min-width: 50px;
+  text-align: right;
+  line-height: 1;
+}
+
+/* Action buttons container - HORIZONTAL */
+.prediction-action-icons {
+  display: flex;
+  gap: 4px;
+}
+
+.prediction-add-btn,
+.prediction-likes-btn {
+  width: 20px;
+  height: 20px;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  font-size: 13px;
+}
+
+.prediction-add-btn {
+  background: #000;
+}
+
+.prediction-add-btn:hover {
+  background: #333;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.prediction-likes-btn {
+  position: relative;
+  background: transparent;
+  color: #ff6b35;
+  cursor: default;
+}
+
+.prediction-likes-btn i {
+  font-size: 13px;
+}
+
+.prediction-likes-btn span {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  background: #000;
+  color: #fff;
+  font-size: 8px;
+  font-weight: 700;
+  padding: 1px 3px;
+  border-radius: 6px;
+  line-height: 1;
+  min-width: 14px;
+  text-align: center;
+}
+
+/* BOTTOM LINKS */
+.predictions-bottom-links {
+  display: flex;
+  padding: 16px;
+  border-top: 2px solid #e0e0e0;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.predictions-link-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.predictions-link {
+  font-size: 13px;
+  color: #666;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.predictions-link:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+/* PAGINATION */
+.predictions-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 20px 16px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.pagination-btn {
+  min-width: 40px;
+  height: 40px;
+  padding: 8px 12px;
+  background: #fff;
+  border: 1px solid #333;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: all 0.2s;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background: #fafafa;
+}
+
+.pagination-btn.active {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.pagination-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  background: #f5f5f5;
+}
+
+/* FILTER MODALS */
+.pred-filter-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 12000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.pred-filter-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.pred-filter-modal-content {
+  background: #fff;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  transform: scale(0.9);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.pred-filter-modal.active .pred-filter-modal-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.pred-filter-modal-header {
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.pred-filter-modal-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+}
+
+.pred-filter-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #666;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.pred-filter-close:hover {
+  background: #f0f0f0;
+  color: #000;
+}
+
+.pred-filter-modal-body {
+  padding: 0;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.pred-filter-item {
+  padding: 16px 20px;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.pred-filter-item:hover {
+  background: #fafafa;
+}
+
+.pred-filter-item.selected {
+  background: #f5f5f5;
+}
+
+.pred-filter-checkbox {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #333;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.pred-filter-item.selected .pred-filter-checkbox {
+  background: #000;
+  border-color: #000;
+}
+
+.pred-filter-checkbox i {
+  font-size: 14px;
+  color: #fff;
+}
+
+.pred-filter-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+  flex: 1;
+}
+
+.pred-filter-modal-footer {
+  padding: 16px 20px;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+  background: #fff;
+}
+
+.pred-filter-cancel,
+.pred-filter-apply {
+  flex: 1;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.pred-filter-cancel {
+  background: #f0f0f0;
+  color: #000;
+}
+
+.pred-filter-cancel:hover {
+  background: #e0e0e0;
+}
+
+.pred-filter-apply {
+  background: #000;
+  color: #fff;
+}
+
+.pred-filter-apply:hover {
+  background: #333;
+}
+
+/* ODDS FILTER SPECIFIC */
+.pred-odds-filter-content {
+  padding: 24px 20px;
+}
+
+.pred-odds-values {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.pred-odds-value-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.pred-odds-value-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pred-odds-value-number {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+}
+
+.pred-odds-slider-container {
+  position: relative;
+  height: 40px;
+  margin-top: 20px;
+}
+
+.pred-odds-slider-track {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  transform: translateY(-50%);
+}
+
+.pred-odds-slider-progress {
+  position: absolute;
+  height: 100%;
+  background: #000;
+  border-radius: 3px;
+  left: 0;
+  width: 100%;
+}
+
+.pred-odds-slider {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  top: 0;
+  left: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  pointer-events: none;
+}
+
+.pred-odds-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #000;
+  cursor: pointer;
+  pointer-events: auto;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.pred-odds-slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #000;
+  cursor: pointer;
+  pointer-events: auto;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Prevent body scroll when modal is open */
+body.pred-filter-open {
+  overflow: hidden;
+}
+
+/* MOBILE RESPONSIVE (< 768px) */
+@media (max-width: 767px) {
+  .predictions-sport-header {
+    padding: 12px;
+  }
+
+  .sport-selector i:first-child {
+    font-size: 20px;
+  }
+
+  .sport-name {
+    font-size: 16px;
+  }
+
+  .predictions-filters {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .filter-btn,
+  .market-filter-dropdown {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .predictions-page-info {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+
+  .league-header {
+    padding: 12px 0;
+  }
+
+  .league-info {
+    padding: 0 12px;
+  }
+
+  .league-name {
+    font-size: 12px;
+  }
+
+  .event-count {
+    font-size: 10px;
+    padding: 2px 8px;
+    margin-left: 6px;
+  }
+
+  .prediction-card {
+    padding: 12px;
+  }
+
+  .prediction-teams {
+    font-size: 12px;
+  }
+
+  .prediction-market {
+    font-size: 10px;
+  }
+
+  .prediction-meta {
+    font-size: 9px;
+  }
+
+  .prediction-odd {
+    min-width: 45px;
+    font-size: 15px;
+  }
+
+  .prediction-add-btn,
+  .prediction-likes-btn {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+  }
+
+  .predictions-pagination {
+    gap: 4px;
+    padding: 16px 12px;
+  }
+
+  .pagination-btn {
+    min-width: 36px;
+    height: 36px;
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .pagination-text {
+    display: none;
+  }
+
+  .pred-filter-modal-content {
+    width: 95%;
+    max-height: 80vh;
+  }
+
+  .pred-filter-modal-header {
+    padding: 16px;
+  }
+
+  .pred-filter-modal-title {
+    font-size: 16px;
+  }
+
+  .pred-filter-item {
+    padding: 14px 16px;
+  }
+
+  .pred-filter-label {
+    font-size: 14px;
+  }
+
+  .pred-filter-modal-footer {
+    padding: 12px 16px;
+  }
+
+  .pred-filter-cancel,
+  .pred-filter-apply {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .pred-odds-filter-content {
+    padding: 20px 16px;
+  }
+
+  .pred-odds-value-number {
+    font-size: 20px;
+  }
+}
+
+/* DESKTOP RESPONSIVE (>= 992px) */
+@media (min-width: 992px) {
+  .predictions-page .predictions-sport-header,
+  .predictions-page .predictions-filters,
+  .predictions-page .predictions-page-info,
+  .predictions-page .predictions-list,
+  .predictions-page .predictions-bottom-links,
+  .predictions-page .predictions-pagination {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .predictions-sport-header {
+    padding: 20px 32px;
+  }
+
+  .predictions-filters {
+    padding: 16px 32px;
+  }
+
+  .predictions-page-info {
+    padding: 16px 32px;
+  }
+
+  .predictions-bottom-links,
+  .predictions-pagination {
+    padding: 20px 32px;
+  }
+
+  .prediction-card {
+    padding: 14px 32px;
+  }
+
+  .league-header {
+    padding: 16px 0;
+  }
+
+  .league-info {
+    padding: 0 32px;
+  }
+}
+
+/* LARGE DESKTOP (>= 1200px) */
+@media (min-width: 1200px) {
+  .predictions-page .predictions-sport-header,
+  .predictions-page .predictions-filters,
+  .predictions-page .predictions-page-info,
+  .predictions-page .predictions-list,
+  .predictions-page .predictions-bottom-links,
+  .predictions-page .predictions-pagination {
+    max-width: 1400px;
+  }
+}
+
+/* EXTRA LARGE DESKTOP (>= 1400px) */
+@media (min-width: 1400px) {
+  .predictions-page .predictions-sport-header,
+  .predictions-page .predictions-filters,
+  .predictions-page .predictions-page-info,
+  .predictions-page .predictions-list,
+  .predictions-page .predictions-bottom-links,
+  .predictions-page .predictions-pagination {
+    max-width: 1600px;
+  }
+}

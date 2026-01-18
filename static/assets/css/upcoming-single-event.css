@@ -1,0 +1,863 @@
+/* ==========================================
+   MARKETS CONTAINER
+   ========================================== */
+.markets-container {
+  width: 100%;
+  max-width: 100%;
+  overflow: visible;
+  position: relative;
+}
+
+/* ==========================================
+   EVENT HEADER
+   ========================================== */
+.event-header {
+  position: sticky;
+  top: 105px;
+  z-index: 997;
+  background: #fff;
+  width: 100%;
+  max-width: 100%;
+  left: 0;
+  right: 0;
+  margin: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: inherit;
+}
+
+.header-back {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #1f2937;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-logo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.header-title {
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.header-match-name {
+  font-size: 0.938rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.header-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  color: #1f2937;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hidden state */
+.event-header.collapsed .match-info {
+  max-height: 0;
+  opacity: 0;
+}
+
+
+/* ==========================================
+   MATCH INFO
+   ========================================== */
+.match-info {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+    overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.25s ease;
+  max-height: 200px;
+  opacity: 1;
+}
+
+.match-league {
+  padding: 0.75rem 1rem;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.league-name {
+  font-size: 0.813rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.match-teams {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.event-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.team {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.team-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #6b7280;
+}
+
+.team-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1f2937;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  text-align: center;
+}
+
+.match-vs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.5rem;
+  flex-shrink: 0;
+}
+
+.match-time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.match-time span {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+/* ==========================================
+   ACTION TABS
+   ========================================== */
+.action-tabs {
+  display: flex;
+  border-bottom: 2px solid #e5e7eb;
+  background: #fff;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  transition: margin-top 0.3s ease;
+}
+
+.action-tab {
+  flex: 1;
+  padding: 0.875rem 1rem;
+  border: none;
+  background: transparent;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-bottom: 3px solid transparent;
+  position: relative;
+  bottom: -2px;
+}
+
+.action-tab.active {
+  color: #000;
+  border-bottom-color: #000;
+}
+
+.action-tab i {
+  font-size: 1rem;
+}
+
+/* ==========================================
+   MARKET FILTER BAR
+   ========================================== */
+.market-filter-bar {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  background: #fafafa;
+  border-bottom: 1px solid #e5e7eb;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+    position: sticky;
+  top: 56px; /* height of header-top */
+  z-index: 55;
+  background: inherit;
+  padding-top: 6px;
+}
+
+.market-filter-bar::-webkit-scrollbar {
+  height: 4px;
+}
+
+.market-filter-bar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.market-filter-bar::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.market-filter-bar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255,255,255,0.06);
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  flex-shrink: 0;
+}
+
+.filter i {
+  font-size: 1.125rem;
+  color: #6b7280;
+}
+
+.filter .border {
+  width: 1px;
+  height: 24px;
+  background: #d1d5db;
+}
+
+.market-tab {
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: transparent;
+  font-size: 0.813rem;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+}
+
+.market-tab.active {
+  background: #000;
+  color: #fff;
+}
+
+.market-tab.favorite {
+  color: #fbbf24;
+}
+
+.market-tab i {
+  font-size: 1rem;
+}
+
+/* ==========================================
+   MARKET GROUPS
+   ========================================== */
+.market-group {
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.market-group.collapsed .market-options,
+.market-group.collapsed .bookie-list {
+  display: none;
+}
+
+.market-group.collapsed .expand-icon {
+  transform: rotate(-90deg);
+}
+
+.market-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.market-header:hover {
+  background: #f9fafb;
+}
+
+.market-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.expand-icon {
+  font-size: 1rem;
+  color: #6b7280;
+  transition: transform 0.3s ease;
+}
+
+.market-title {
+  font-size: 0.938rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  color: #9ca3af;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.info-icon:hover {
+  color: #6b7280;
+}
+
+.market-expand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.favourite-icon {
+  font-size: 1.125rem;
+  color: #d1d5db;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.favourite-icon:hover,
+.favourite-icon.active {
+  color: #fbbf24;
+}
+
+/* ==========================================
+   MARKET OPTIONS
+   ========================================== */
+.market-options {
+  padding: 0 1rem 0.5rem 1rem;
+  background: #f9fafb;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.option-label {
+  font-size: 0.813rem;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.option-headers {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.option-header {
+  min-width: 60px;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 0.813rem;
+  font-weight: 700;
+  color: #374151;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.option-header i {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+/* ==========================================
+   BOOKIE LIST
+   ========================================== */
+.bookie-list {
+  background: #fff;
+}
+
+.bookie-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.875rem 1rem;
+  border-top: 1px solid #f3f4f6;
+  transition: background 0.2s ease;
+}
+
+.bookie-row:hover {
+  background: #f9fafb;
+}
+
+.bookie-name {
+  display: flex;
+  align-items: center;
+}
+
+.bookie-logo {
+  font-size: 0.813rem;
+  font-weight: 700;
+  color: #1f2937;
+  padding: 0.5rem 0.75rem;
+  background: #000;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.bookie-odds {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.odd-value {
+  min-width: 60px;
+  padding: 0.625rem 0.75rem;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #1f2937;
+  background: #f9fafb;
+  border: 2px solid #e5e7eb;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.odd-value:hover {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.odd-value.best {
+  border-color: #10b981;
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.odd-dash {
+  min-width: 60px;
+  padding: 0.625rem 0.75rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #d1d5db;
+}
+
+/* ==========================================
+   MARKET INFO MODAL
+   ========================================== */
+.market-info-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.market-info-modal.active {
+  display: flex;
+}
+
+.market-info-modal-content {
+  background: #fff;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow: auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.market-info-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.market-info-modal-header h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.market-info-close {
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #9ca3af;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.market-info-modal-body {
+  padding: 1.5rem;
+}
+
+.market-info-modal-body p {
+  font-size: 0.938rem;
+  line-height: 1.6;
+  color: #4b5563;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+@media (max-width: 992px) {
+  .header-match-name {
+    font-size: 0.875rem;
+  }
+
+  .team-logo {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+
+  .options-grid {
+    grid-template-columns: 100px 1fr;
+  }
+
+  .bookie-row {
+    grid-template-columns: 100px 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-top {
+    padding: 0.75rem;
+  }
+
+  .header-match-name {
+    font-size: 0.813rem;
+  }
+
+  .match-teams {
+    padding: 0.5rem;
+  }
+
+  .team-name {
+    font-size: 0.75rem;
+    max-width: 80px;
+  }
+
+  .team-logo {
+    width: 36px;
+    height: 36px;
+    font-size: 1.125rem;
+  }
+
+  .market-filter-bar {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .action-tab {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.813rem;
+  }
+
+  .market-header {
+    padding: 0.875rem;
+  }
+
+  .market-title {
+    font-size: 0.875rem;
+  }
+
+  .options-grid {
+    grid-template-columns: 90px 1fr;
+  }
+
+  .bookie-row {
+    grid-template-columns: 90px 1fr;
+    padding: 0.75rem 0.875rem;
+  }
+
+  .odd-value {
+    min-width: 50px;
+    padding: 0.5rem 0.5rem;
+    font-size: 0.813rem;
+  }
+
+  .odd-dash {
+    min-width: 50px;
+  }
+
+  .event-header {
+    top: 80px;
+  }
+
+  .action-tabs {
+    position: sticky;
+    top: 55px; 
+    z-index: 54;
+    background: #fff;
+  }
+
+  .market-filter-bar {
+    top: 100px; /* event-header + action-tabs */
+    z-index: 53;
+  }
+}
+
+@media (max-width: 480px) {
+    .action-tabs {
+    top: 50px;
+  }
+
+  .market-filter-bar {
+    top: 100px;
+  }
+
+  .header-match-name {
+    font-size: 0.75rem;
+  }
+
+  .team-name {
+    font-size: 0.688rem;
+    max-width: 60px;
+  }
+
+  .team-logo {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+
+  .match-vs {
+    padding: 0 0.25rem;
+  }
+
+  .action-tab {
+    font-size: 0.75rem;
+    padding: 0.625rem 0.375rem;
+  }
+
+  .action-tab i {
+    font-size: 0.875rem;
+  }
+
+  .market-title {
+    font-size: 0.813rem;
+  }
+
+  .options-grid {
+    grid-template-columns: 80px 1fr;
+    gap: 0.5rem;
+  }
+
+  .bookie-row {
+    grid-template-columns: 80px 1fr;
+    gap: 0.5rem;
+    padding: 0.625rem 0.75rem;
+  }
+
+  .bookie-logo {
+    padding: 0.375rem 0.5rem;
+  }
+
+  .odd-value {
+    min-width: 44px;
+    padding: 0.5rem 0.375rem;
+    font-size: 0.75rem;
+  }
+
+  .odd-dash {
+    min-width: 44px;
+  }
+
+  .option-header {
+    min-width: 44px;
+    font-size: 0.75rem;
+  }
+
+    .event-header {
+    top: 90px;
+  }
+}
+
+/* Desktop enhancements */
+@media (min-width: 1200px) {
+  .header-match-name {
+    font-size: 1.125rem;
+  }
+
+  .team-logo {
+    width: 56px;
+    height: 56px;
+    font-size: 1.75rem;
+  }
+
+  .team-name {
+    font-size: 1rem;
+    max-width: 200px;
+  }
+
+  .market-title {
+    font-size: 1rem;
+  }
+
+  .odd-value {
+    min-width: 70px;
+    padding: 0.75rem 0.875rem;
+    font-size: 0.938rem;
+  }
+
+  .odd-dash {
+    min-width: 70px;
+  }
+
+  .option-header {
+    min-width: 70px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .team-name {
+    max-width: 250px;
+  }
+
+  .odd-value {
+    min-width: 80px;
+    padding: 0.875rem 1rem;
+  }
+
+  .odd-dash {
+    min-width: 80px;
+  }
+
+  .option-header {
+    min-width: 80px;
+  }
+}
+
+/* Smooth transitions */
+* {
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.market-group {
+  animation: fadeIn 0.3s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
