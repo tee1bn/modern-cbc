@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Event Details - ConvertBetCodes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&amp;family=SUSE:wght@100..800&amp;display=swap" rel="stylesheet"/>
+
+    <script defer src="assets/js/app8051.js?bd1e16b080f637e63a80"></script>
+    <link href="assets/css/app8051.css?bd1e16b080f637e63a80" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/layouts.css">
+    <link rel="stylesheet" href="assets/css/betslip-editor.css" />
+    <link rel="stylesheet" href="assets/css/upcoming-single-event.css" />
+
+  </head>
+
+  <body>
+    <?php include("layouts/Header.php") ?>
+
+  <!-- tabs nav -->
+  <?php include("layouts/TabNabvs.php") ?>
+
+  <!-- side menu -->
+  <?php include("layouts/SideMenu.php")  ?>
+
+    <div class="adminuiux-wrap">
+      <aside class="ad-sidebar-left">
+        <div class="ad-container large">
+          <div class="ad-placeholder">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <rect
+                x="3"
+                y="3"
+                width="18"
+                height="18"
+                rx="2"
+                stroke-width="2"
+              />
+            </svg>
+            <p>Ad Space<br />300 x 600</p>
+          </div>
+        </div>
+      </aside>
+
+      <main class="adminuiux-content">
+        <div class="markets-container">
+
+        <div class="event-header" id="eventHeader">
+          <div class="header-top">
+            <button class="header-back" onclick="history.back()">
+              <i class="bi bi-chevron-left"></i>
+            </button>
+
+            <div class="header-logo">
+              <span class="header-title">Details</span>
+              <span class="header-match-name">Leeds United vs Man Utd</span>
+            </div>
+          </div>
+
+          <div class="match-info">
+
+
+            <div class="match-teams">
+              <button class="event-btn">
+                <i class="bi bi-chevron-left"></i>
+              </button>
+
+              <div class="team home">
+                <div class="team-logo"><i class="bi bi-shield"></i></div>
+                <div class="team-name">Leeds United</div>
+              </div>
+
+              <div class="match-vs">
+                <div class="match-time">
+                  <span>04/01</span>
+                  <span>Sunday</span>
+                  <span  style="background: #4444; font-weight: 700">13:30</span>
+                </div>
+              </div>
+
+              <div class="team away">
+                <div class="team-logo"><i class="bi bi-shield"></i></div>
+                <div class="team-name">Man Utd</div>
+              </div>
+
+              <button class="event-btn">
+                <i class="bi bi-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="action-tabs">
+            <button class="action-tab active">
+              <i class="bi bi-list-ul"></i>
+              Markets
+            </button>
+            <button class="action-tab">
+              <i class="bi bi-graph-up"></i>
+              Stats
+            </button>
+            <button class="action-tab">
+              <i class="bi bi-chat-dots"></i>
+              Comments
+            </button>
+          </div>
+
+          <div class="market-filter-bar" id="marketFilterBar">
+            <div class="filter">
+              <i class="bi bi-search"></i>
+              <div class="border"></div>
+            </div>
+            <button class="market-tab favorite">
+              <i class="bi bi-star"></i>
+            </button>
+            <button class="market-tab active">All</button>
+            <button class="market-tab">Main</button>
+            <button class="market-tab">Goals</button>
+            <button class="market-tab">Corners</button>
+            <button class="market-tab">Half</button>
+            <button class="market-tab">Cards</button>
+            <button class="market-tab">Players</button>
+            <button class="market-tab">Specials</button>
+          </div>
+        </div>
+          <!-- 1X2 Market -->
+          <div class="market-group" data-market="1x2">
+            <div class="market-header" onclick="toggleMarket(this)">
+              <div class="market-header-left">
+                <i class="bi bi-chevron-down expand-icon"></i>
+                <span class="market-title">1X2</span>
+                <span class="info-icon" onclick="showMarketInfo(event, '1x2')">
+                  <i class="bi bi-info-circle-fill"></i>
+                </span>
+              </div>
+              <div class="market-expand">
+                <span class="favourite-icon"><i class="bi bi-star"></i></span>
+              </div>
+            </div>
+
+            <div class="market-options">
+              <div class="options-grid">
+                <div class="option-label">Bookmaker</div>
+                <div class="option-headers">
+                  <div
+                    class="option-header"
+                    
+                  >
+                    1
+                    <i class="bi bi-caret-up-fill"></i>
+                  </div>
+                  <div
+                    class="option-header"
+                    
+                  >
+                    X
+                    <i class="bi bi-caret-up-fill"></i>
+                  </div>
+                  <div
+                    class="option-header"
+                    
+                  >
+                    2
+                    <i class="bi bi-caret-up-fill"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bookie-list">
+              <div
+                class="bookie-row"
+                data-home="2.69"
+                data-draw="3.48"
+                data-away="2.63"
+              >
+                <div class="bookie-name">
+                  <div class="bookie-logo">1XBET</div>
+                </div>
+                <div class="bookie-odds">
+                  <div class="odd-value">2.69</div>
+                  <div class="odd-value">3.48</div>
+                  <div class="odd-value">2.63</div>
+                </div>
+              </div>
+
+              <div
+                class="bookie-row"
+                data-home="1.73"
+                data-draw="3.48"
+                data-away="1.71"
+              >
+                <div class="bookie-name">
+                  <div class="bookie-logo">BET9JA</div>
+                </div>
+                <div class="bookie-odds">
+                  <div class="odd-value">1.73</div>
+                  <div class="odd-value">3.48</div>
+                  <div class="odd-value">1.71</div>
+                </div>
+              </div>
+
+              <div class="bookie-row" data-home="2.48" data-away="3.48">
+                <div class="bookie-name">
+                  <div class="bookie-logo">BETKING</div>
+                </div>
+                <div class="bookie-odds">
+                  <div class="odd-value">2.48</div>
+                  <div class="odd-dash">—</div>
+                  <div class="odd-value">3.48</div>
+                </div>
+              </div>
+
+              <div
+                class="bookie-row"
+                data-home="2.65"
+                data-draw="3.48"
+                data-away="2.55"
+              >
+                <div class="bookie-name">
+                  <div class="bookie-logo">SPORTY</div>
+                </div>
+                <div class="bookie-odds">
+                  <div class="odd-value">2.65</div>
+                  <div class="odd-value">3.48</div>
+                  <div class="odd-value">2.55</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 1X2 - 1UP Market -->
+          <div class="market-group collapsed" data-market="1x2-1up">
+            <div class="market-header" onclick="toggleMarket(this)">
+              <div class="market-header-left">
+                <i class="bi bi-chevron-down expand-icon"></i>
+                <span class="market-title">1X2 - 1UP</span>
+                <span
+                  class="info-icon"
+                  onclick="showMarketInfo(event, '1x2-1up')"
+                >
+                  <i class="bi bi-info-circle-fill"></i>
+                </span>
+              </div>
+              <div class="market-expand">
+                <span class="favourite-icon"><i class="bi bi-star"></i></span>
+              </div>
+            </div>
+
+            <div class="market-options">
+              <div class="options-grid">
+                <div class="option-label">Bookmaker</div>
+                <div class="option-headers">
+                  <div
+                    class="option-header"
+                    
+                  >
+                    1
+                    <i class="bi bi-caret-up-fill"></i>
+                  </div>
+                  <div
+                    class="option-header"
+                    
+                  >
+                    X
+                    <i class="bi bi-caret-up-fill"></i>
+                  </div>
+                  <div
+                    class="option-header"
+                    
+                  >
+                    2
+                    <i class="bi bi-caret-up-fill"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bookie-list">
+              <div
+                class="bookie-row"
+                data-home="1.73"
+                data-draw="3.48"
+                data-away="1.71"
+              >
+                <div class="bookie-name">
+                  <div class="bookie-logo">1XBET</div>
+                </div>
+                <div class="bookie-odds">
+                  <div class="odd-value">1.73</div>
+                  <div class="odd-value">3.48</div>
+                  <div class="odd-value">1.71</div>
+                </div>
+              </div>
+
+              <div
+                class="bookie-row"
+                data-home="1.73"
+                data-draw="3.48"
+                data-away="1.71"
+              >
+                <div class="bookie-name">
+                  <div class="bookie-logo">BET9JA</div>
+                </div>
+                <div class="bookie-odds">
+                  <div class="odd-value">1.73</div>
+                  <div class="odd-value">3.48</div>
+                  <div class="odd-value">1.71</div>
+                </div>
+              </div>
+
+              <div class="bookie-row" data-home="2.48">
+                <div class="bookie-name">
+                  <div class="bookie-logo">SPORTY</div>
+                </div>
+                <div class="bookie-odds">
+                  <div class="odd-value">2.48</div>
+                  <div class="odd-dash">—</div>
+                  <div class="odd-dash">—</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Over/Under Market -->
+          <div class="market-group collapsed" data-market="over-under">
+            <div class="market-header" onclick="toggleMarket(this)">
+              <div class="market-header-left">
+                <i class="bi bi-chevron-down expand-icon"></i>
+                <span class="market-title">Over/Under - Early Goals</span>
+                <span
+                  class="info-icon"
+                  onclick="showMarketInfo(event, 'over-under')"
+                >
+                  <i class="bi bi-info-circle-fill"></i>
+                </span>
+              </div>
+              <div class="market-expand">
+                <span class="favourite-icon"><i class="bi bi-star"></i></span>
+              </div>
+            </div>
+
+            <div class="market-options">
+              <div class="options-grid">
+                <div class="option-label">Bookmaker</div>
+                <div class="option-headers">
+                  <div
+                    class="option-header"
+                    
+                  >
+                    Over
+                    <i class="bi bi-caret-up-fill"></i>
+                  </div>
+                  <div
+                    class="option-header"
+                    "
+                  >
+                    Under
+                    <i class="bi bi-caret-up-fill"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bookie-list">
+              <div class="bookie-row" data-over="1.23">
+                <div class="bookie-name">
+                  <div class="bookie-logo">1XBET</div>
+                </div>
+                <div class="bookie-odds">
+                  <div class="odd-value">1.23</div>
+                  <div class="odd-dash">—</div>
+                </div>
+              </div>
+
+              <div class="bookie-row" data-over="1.75">
+                <div class="bookie-name">
+                  <div class="bookie-logo">BET9JA</div>
+                </div>
+                <div class="bookie-odds">
+                  <div class="odd-value">1.75</div>
+                  <div class="odd-dash">—</div>
+                </div>
+              </div>
+
+              <div class="bookie-row" data-over="2.75">
+                <div class="bookie-name">
+                  <div class="bookie-logo">SPORTY</div>
+                </div>
+                <div class="bookie-odds">
+                  <div class="odd-value">2.75</div>
+                  <div class="odd-dash">—</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Double Chance Market -->
+          <div class="market-group collapsed" data-market="double-chance">
+            <div class="market-header" onclick="toggleMarket(this)">
+              <div class="market-header-left">
+                <i class="bi bi-chevron-down expand-icon"></i>
+                <span class="market-title">Double Chance</span>
+                <span
+                  class="info-icon"
+                  onclick="showMarketInfo(event, 'double-chance')"
+                >
+                  <i class="bi bi-info-circle-fill"></i>
+                </span>
+              </div>
+              <div class="market-expand">
+                <span class="favourite-icon"><i class="bi bi-star"></i></span>
+              </div>
+            </div>
+
+            <div class="market-options">
+              <div class="options-grid">
+                <div class="option-label">Bookmaker</div>
+                <div class="option-headers">
+                  <div
+                    class="option-header"
+                    aw')"
+                  >
+                    1X
+                    <i class="bi bi-caret-up-fill"></i>
+                  </div>
+                  <div
+                    class="option-header"
+                    ay')"
+                  >
+                    12
+                    <i class="bi bi-caret-up-fill"></i>
+                  </div>
+                  <div
+                    class="option-header"
+                    ay')"
+                  >
+                    X2
+                    <i class="bi bi-caret-up-fill"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bookie-list">
+              <div
+                class="bookie-row"
+                data-home-draw="1.48"
+                data-home-away="1.32"
+                data-draw-away="1.46"
+              >
+                <div class="bookie-name">
+                  <div class="bookie-logo">1XBET</div>
+                </div>
+                <div class="bookie-odds">
+                  <div class="odd-value">1.48</div>
+                  <div class="odd-value">1.32</div>
+                  <div class="odd-value">1.46</div>
+                </div>
+              </div>
+
+              <div
+                class="bookie-row"
+                data-home-draw="1.48"
+                data-home-away="1.32"
+                data-draw-away="1.46"
+              >
+                <div class="bookie-name">
+                  <div class="bookie-logo">BET9JA</div>
+                </div>
+                <div class="bookie-odds">
+                  <div class="odd-value">1.48</div>
+                  <div class="odd-value">1.32</div>
+                  <div class="odd-value">1.46</div>
+                </div>
+              </div>
+
+              <div
+                class="bookie-row"
+                data-home-draw="1.48"
+                data-home-away="1.32"
+                data-draw-away="1.46"
+              >
+                <div class="bookie-name">
+                  <div class="bookie-logo">SPORTY</div>
+                </div>
+                <div class="bookie-odds">
+                  <div class="odd-value">1.48</div>
+                  <div class="odd-value">1.32</div>
+                  <div class="odd-value">1.46</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+                    <!-- Double Chance Market -->
+          <div class="market-group collapsed" data-market="double-chance">
+            <div class="market-header" onclick="toggleMarket(this)">
+              <div class="market-header-left">
+                <i class="bi bi-chevron-down expand-icon"></i>
+                <span class="market-title">Double Chance</span>
+                <span
+                  class="info-icon"
+                  onclick="showMarketInfo(event, 'double-chance')"
+                >
+                  <i class="bi bi-info-circle-fill"></i>
+                </span>
+              </div>
+              <div class="market-expand">
+                <span class="favourite-icon"><i class="bi bi-star"></i></span>
+              </div>
+            </div>
+
+            <div class="market-options">
+              <div class="options-grid">
+                <div class="option-label">Bookmaker</div>
+                <div class="option-headers">
+                  <div
+                    class="option-header"
+                    aw')"
+                  >
+                    1X
+                    <i class="bi bi-caret-up-fill"></i>
+                  </div>
+                  <div
+                    class="option-header"
+                    ay')"
+                  >
+                    12
+                    <i class="bi bi-caret-up-fill"></i>
+                  </div>
+                  <div
+                    class="option-header"
+                    ay')"
+                  >
+                    X2
+                    <i class="bi bi-caret-up-fill"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bookie-list">
+              <div
+                class="bookie-row"
+                data-home-draw="1.48"
+                data-home-away="1.32"
+                data-draw-away="1.46"
+              >
+                <div class="bookie-name">
+                  <div class="bookie-logo">1XBET</div>
+                </div>
+                <div class="bookie-odds">
+                  <div class="odd-value">1.48</div>
+                  <div class="odd-value">1.32</div>
+                  <div class="odd-value">1.46</div>
+                </div>
+              </div>
+
+              <div
+                class="bookie-row"
+                data-home-draw="1.48"
+                data-home-away="1.32"
+                data-draw-away="1.46"
+              >
+                <div class="bookie-name">
+                  <div class="bookie-logo">BET9JA</div>
+                </div>
+                <div class="bookie-odds">
+                  <div class="odd-value">1.48</div>
+                  <div class="odd-value">1.32</div>
+                  <div class="odd-value">1.46</div>
+                </div>
+              </div>
+
+              <div
+                class="bookie-row"
+                data-home-draw="1.48"
+                data-home-away="1.32"
+                data-draw-away="1.46"
+              >
+                <div class="bookie-name">
+                  <div class="bookie-logo">SPORTY</div>
+                </div>
+                <div class="bookie-odds">
+                  <div class="odd-value">1.48</div>
+                  <div class="odd-value">1.32</div>
+                  <div class="odd-value">1.46</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+                    <!-- Double Chance Market -->
+          <div class="market-group collapsed" data-market="double-chance">
+            <div class="market-header" onclick="toggleMarket(this)">
+              <div class="market-header-left">
+                <i class="bi bi-chevron-down expand-icon"></i>
+                <span class="market-title">Double Chance</span>
+                <span
+                  class="info-icon"
+                  onclick="showMarketInfo(event, 'double-chance')"
+                >
+                  <i class="bi bi-info-circle-fill"></i>
+                </span>
+              </div>
+              <div class="market-expand">
+                <span class="favourite-icon"><i class="bi bi-star"></i></span>
+              </div>
+            </div>
+
+            <div class="market-options">
+              <div class="options-grid">
+                <div class="option-label">Bookmaker</div>
+                <div class="option-headers">
+                  <div
+                    class="option-header"
+                    aw')"
+                  >
+                    1X
+                    <i class="bi bi-caret-up-fill"></i>
+                  </div>
+                  <div
+                    class="option-header"
+                    ay')"
+                  >
+                    12
+                    <i class="bi bi-caret-up-fill"></i>
+                  </div>
+                  <div
+                    class="option-header"
+                    ay')"
+                  >
+                    X2
+                    <i class="bi bi-caret-up-fill"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bookie-list">
+              <div
+                class="bookie-row"
+                data-home-draw="1.48"
+                data-home-away="1.32"
+                data-draw-away="1.46"
+              >
+                <div class="bookie-name">
+                  <div class="bookie-logo">1XBET</div>
+                </div>
+                <div class="bookie-odds">
+                  <div class="odd-value">1.48</div>
+                  <div class="odd-value">1.32</div>
+                  <div class="odd-value">1.46</div>
+                </div>
+              </div>
+
+              <div
+                class="bookie-row"
+                data-home-draw="1.48"
+                data-home-away="1.32"
+                data-draw-away="1.46"
+              >
+                <div class="bookie-name">
+                  <div class="bookie-logo">BET9JA</div>
+                </div>
+                <div class="bookie-odds">
+                  <div class="odd-value">1.48</div>
+                  <div class="odd-value">1.32</div>
+                  <div class="odd-value">1.46</div>
+                </div>
+              </div>
+
+              <div
+                class="bookie-row"
+                data-home-draw="1.48"
+                data-home-away="1.32"
+                data-draw-away="1.46"
+              >
+                <div class="bookie-name">
+                  <div class="bookie-logo">SPORTY</div>
+                </div>
+                <div class="bookie-odds">
+                  <div class="odd-value">1.48</div>
+                  <div class="odd-value">1.32</div>
+                  <div class="odd-value">1.46</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <aside class="sidebar-right">
+      <?php include("layouts/SideBarRight.php")  ?>
+     </aside>
+
+      <aside class="ad-sidebar-right">
+        <div class="ad-container large">
+          <div class="ad-placeholder">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <rect
+                x="3"
+                y="3"
+                width="18"
+                height="18"
+                rx="2"
+                stroke-width="2"
+              />
+            </svg>
+            <p>Ad Space<br />300 x 600</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+
+    <!-- footer -->
+
+    <?php include("layouts/Footer.php") ?>
+
+    <!-- mobile nav -->
+    <?php include("layouts/MobileNav.php") ?>
+
+    
+    <script src="assets/js/betslip-editor.js"></script>
+    <script src="assets/js/upcoming-single-event.js"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
