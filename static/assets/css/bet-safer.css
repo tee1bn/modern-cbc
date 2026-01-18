@@ -1,6 +1,4 @@
-/* ==========================================
-   BET SAFER PAGE - MAIN CONTAINER
-   ========================================== */
+
 .bet-safer-page {
   font-family: var(--adminuiux-content-font, 'Open Sans', sans-serif);
   background: #fff;
@@ -8,9 +6,6 @@
   min-height: 100vh;
 }
 
-/* ==========================================
-   1. INPUT SECTION
-   ========================================== */
 .safer-input-section {
   max-width: 800px;
   margin: 0 auto 16px;
