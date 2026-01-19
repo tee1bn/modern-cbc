@@ -1,0 +1,864 @@
+.convert-result-page {
+  font-family: var(--adminuiux-content-font, "Open Sans", sans-serif);
+  background: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Page Header Styles */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.page-header .back-btn,
+.page-header .home-btn {
+  background: none;
+  border: none;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.page-header .back-btn svg,
+.page-header .home-btn svg {
+  width: 24px;
+  height: 24px;
+  stroke: #000;
+}
+
+.page-header .page-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+  flex-grow: 1;
+}
+
+/* Result Container */
+.result-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  background: #fff;
+  border: none;
+  border-radius: 0;
+}
+
+
+/* Hide unnecessary elements */
+
+
+/* Responsive design for desktop */
+@media (min-width: 992px) {
+  .result-container {
+    max-width: 1000px;
+  }
+}
+
+/* Responsive design for large screens */
+@media (min-width: 1200px) {
+  .result-container {
+    max-width: 1200px;
+  }
+}
+
+/* ========================================
+   BACK LINK
+   ======================================== */
+.icon-back {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: #333;
+  font-size: 13px;
+  font-weight: 600;
+  transition: color 0.2s;
+  border-bottom: 1px solid #e0e0e0;
+  position: sticky;
+  top: 62px;
+  z-index: 200;
+  background: white;
+}
+
+.icon-back:hover {
+  color: #000;
+}
+
+.icon-back svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ========================================
+   RESULT CONTAINER
+   ======================================== */
+.result-container {
+  margin: 0 auto;
+  background: #fff;
+  border: 2px solid #e0e0e0;
+  border-radius: 0;
+}
+
+/* ========================================
+   CONVERSION SUMMARY
+   ======================================== */
+.conversion-summary {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #e0e0e0;
+  background: #fafafa;
+}
+
+.summary-left,
+.summary-right {
+  text-align: center;
+}
+
+/* PHASE 1: Align origin to LEFT */
+.summary-left {
+  text-align: left;
+}
+
+/* PHASE 1: Align target to RIGHT */
+.summary-right {
+  text-align: right;
+}
+
+.summary-count {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.summary-code {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* PHASE 1: Align code content properly */
+.summary-left .summary-code {
+  justify-content: flex-start;
+}
+
+.summary-right .summary-code {
+  justify-content: flex-end;
+}
+
+.summary-code .icon {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.summary-code .icon svg {
+  width: 18px;
+  height: 18px;
+  color: #333;
+}
+
+.summary-code .icon:hover svg {
+  color: #000;
+}
+
+.summary-bookie {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+}
+
+.summary-arrow {
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+}
+
+/* PHASE 1: Events left counter */
+.events-left-info {
+  font-size: 12px;
+  color: #666;
+  margin-top: 6px;
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .conversion-summary {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .summary-left,
+  .summary-right {
+    text-align: center;
+  }
+
+  .summary-left .summary-code,
+  .summary-right .summary-code {
+    justify-content: center;
+  }
+
+  .summary-arrow {
+    justify-self: center;
+    transform: rotate(90deg);
+  }
+
+}
+
+/* ========================================
+   VIEW TOGGLE
+   ======================================== */
+.view-toggle-section {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.view-toggle {
+  display: flex;
+  gap: 8px;
+}
+
+.toggle-btn {
+  padding: 6px 14px;
+  background: #fff;
+  color: #000;
+  border: 1px solid #333;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.toggle-btn:hover {
+  background: #fafafa;
+}
+
+.toggle-btn.active {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+/* PHASE 1: View badges showing counts */
+.toggle-btn .view-badge {
+  display: inline-block;
+  background: #666;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-size: 10px;
+  margin-left: 4px;
+  font-weight: 700;
+}
+
+.toggle-btn.active .view-badge {
+  background: #fff;
+  color: #000;
+}
+
+/* PHASE 1: Matches left counter */
+.matches-left-counter {
+  font-size: 12px;
+  color: #666;
+  font-weight: 600;
+}
+
+/* ========================================
+   FILTER BAR
+   ======================================== */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  background: #fff;
+}
+
+.game-filter {
+  padding: 8px 12px;
+  border: 1px solid #333;
+  border-radius: 0;
+  background: #fff;
+  color: #000;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.game-filter:focus {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
+.total-games {
+  font-size: 13px;
+  font-weight: 600;
+  color: #000;
+}
+
+/* ========================================
+   GAMES LIST
+   ======================================== */
+.games-list {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+}
+
+/* ========================================
+   GAME CARDS - PHASE 1 REDESIGN
+   ======================================== */
+.game-card {
+  position: relative;
+  padding: 10px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 0;
+  margin-bottom: 10px;
+  background: #fff;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.game-card:hover {
+  border-color: #333;
+  background: #fafafa;
+}
+
+.game-card:last-child {
+  margin-bottom: 0;
+}
+
+/* PHASE 1: Origin card - left alignment */
+.game-card.card-origin .game-info-row,
+.game-card.card-origin .game-meta-row {
+  text-align: left;
+}
+
+/* PHASE 1: Target card - right alignment */
+.game-card.card-target .game-info-row,
+.game-card.card-target .game-meta-row {
+  text-align: right;
+}
+
+/* PHASE 1: Card header with serial and league */
+.game-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.game-serial {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  background: #000;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.game-league {
+  font-size: 11px;
+  font-weight: 500;
+  color: #333;
+  letter-spacing: 0.3px;
+  flex: 1;
+}
+
+/* PHASE 1: Bookie badge in header */
+.bookie-badge {
+  display: inline-block;
+  padding: 2px 6px;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 0;
+}
+
+.bookie-origin {
+  background: #f0f0f0;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.bookie-target {
+  background: #000;
+  color: #fff;
+  border: 1px solid #000;
+}
+
+/* PHASE 1: Main info row - team names and market */
+.game-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.game-main-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.game-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 3px;
+  line-height: 1.3;
+}
+
+.game-market {
+  font-size: 12px;
+  color: #666;
+}
+
+.game-market strong {
+  color: #000;
+  font-weight: 600;
+}
+
+/* PHASE 1: Right side info - odds, date, booking name */
+.game-side-info {
+  flex-shrink: 0;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.game-odds {
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+}
+
+.game-date {
+  font-size: 10px;
+  color: #666;
+  white-space: nowrap;
+}
+
+.game-booking {
+  font-size: 10px;
+  color: #666;
+  font-weight: 600;
+}
+
+/* PHASE 1: Origin cards align side info to right */
+.game-card.card-origin .game-side-info {
+  text-align: right;
+}
+
+/* PHASE 1: Target cards align side info to left */
+.game-card.card-target .game-side-info {
+  text-align: left;
+}
+
+.game-card.card-target .game-info-row {
+  flex-direction: row-reverse;
+}
+
+
+/* ========================================
+   CSS FIXES - Add to convert-result.css
+   ======================================== */
+
+/* FIX 1: Make both origin and target cards align the SAME way (left-aligned) */
+.game-card.card-origin .game-info-row,
+.game-card.card-origin .game-meta-row,
+.game-card.card-target .game-info-row,
+.game-card.card-target .game-meta-row {
+  text-align: left; /* Both align left */
+}
+
+.game-card.card-origin .game-header,
+.game-card.card-target .game-header {
+  text-align: left;
+  justify-content: flex-start;
+}
+
+/* FIX 2: Remove different alignment behaviors */
+.game-card.card-origin .game-side-info,
+.game-card.card-target .game-side-info {
+  text-align: right; /* Side info always right */
+}
+
+/* Don't reverse the flex direction on target cards */
+.game-card.card-target .game-info-row {
+  flex-direction: row; /* Keep same as origin */
+}
+
+/* FIX 3: Hide serial number on TARGET cards only */
+.game-card.card-target .game-serial {
+  display: none;
+}
+
+/* FIX 4: Hide status indicator on TARGET cards (since we only show failure on origin) */
+.game-card.card-target .game-status-indicator {
+  display: none;
+}
+
+.game-card.card-origin.game-failed {
+  border-left: 3px solid #dc3545;
+  background: #fff5f5;
+}
+
+
+.game-card.card-target.game-failed {
+  border-left: none;
+  border-right: none;
+  background: #fff; /* Keep normal background */
+}
+
+/* FIX 6: Adjust origin card with serial number spacing */
+.game-card.card-origin .game-info {
+  margin-left: 0; /* Remove extra margin since serial is in header */
+}
+
+
+
+/* PHASE 1: Status indicator */
+.game-status-indicator {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #000;
+  border-radius: 50%;
+}
+
+.game-card.card-target .game-status-indicator {
+  right: auto;
+  left: 10px;
+}
+
+.game-status-indicator svg {
+  width: 14px;
+  height: 14px;
+  stroke: #000;
+}
+
+/* PHASE 1: Failed conversion styling */
+.game-card.game-failed {
+  border-left: 3px solid #dc3545;
+  background: #fff5f5;
+}
+
+.game-card.card-target.game-failed {
+  border-left: none;
+  border-right: 3px solid #dc3545;
+}
+
+.game-failed .game-status-indicator {
+  border-color: #dc3545;
+}
+
+.game-failed .game-status-indicator svg {
+  stroke: #dc3545;
+}
+
+.game-failed-reason {
+  display: inline-block;
+  background: #dc3545;
+  color: #fff;
+  padding: 3px 8px;
+  border-radius: 0;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-top: 4px;
+}
+
+/* ========================================
+   CONVERSION GROUP - PHASE 1 IMPROVED
+   ======================================== */
+.conversion-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.conversion-group .game-card {
+  margin: 0;
+}
+
+/* PHASE 1: Improved conversion connector */
+.conversion-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  height: 30px;
+  position: relative;
+}
+
+.conversion-connector::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #e0e0e0 0%, #333 50%, #e0e0e0 100%);
+  transform: translateX(-50%);
+}
+
+.conversion-connector svg {
+  width: 20px;
+  height: 20px;
+  color: #333;
+  background: #fff;
+  border: 2px solid #e0e0e0;
+  border-radius: 50%;
+  padding: 2px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Desktop: horizontal layout */
+@media (min-width: 768px) {
+  .conversion-group {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0;
+    margin-bottom: 16px;
+  }
+
+  .conversion-group .game-card {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .conversion-connector {
+    flex-shrink: 0;
+    width: 50px;
+    height: auto;
+    padding: 0;
+    margin: 0;
+  }
+
+  .conversion-connector::before {
+    left: 0;
+    right: 0;
+    top: 50%;
+    bottom: auto;
+    width: auto;
+    height: 2px;
+    background: linear-gradient(to right, #e0e0e0 0%, #333 50%, #e0e0e0 100%);
+    transform: translateY(-50%);
+  }
+
+  .conversion-connector svg {
+    transform: rotate(-90deg);
+  }
+
+  /* Non-grouped views use grid */
+  .games-list:not(.view-grouped) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .games-list:not(.view-grouped) .game-card {
+    margin: 0;
+  }
+  
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+.game-card {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   LOADING & EMPTY STATES
+   ======================================== */
+.games-list.loading {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.games-list:empty::after {
+  content: "No games to display";
+  display: block;
+  text-align: center;
+  padding: 40px 20px;
+  color: #999;
+  font-size: 14px;
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+.hidden {
+  display: none !important;
+}
+
+.visible {
+  display: block;
+}
+
+
+@media (min-width: 992px) {
+  .conversion-summary {
+    padding: 20px;
+  }
+
+  .filter-bar {
+    padding: 14px 20px;
+  }
+
+  .games-list {
+    padding: 20px;
+  }
+
+  .game-card {
+    padding: 12px 14px;
+  }
+
+  .result-container {
+    max-width: 1000px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .conversion-group {
+    gap: 0;
+  }
+
+  .conversion-connector {
+    width: 60px;
+  }
+}
+
+@media (min-width: 1400px) {
+
+  .conversion-group {
+    gap: 0;
+  }
+
+  .conversion-connector {
+    width: 60px;
+  }
+  .page-header {
+    display: none !important;
+  }
+
+  .icon-back {
+    position: static;
+    top: 0;
+  }
+
+   .convert-result-page {
+    margin-top: 61.5px;
+    /* max-width: 100%; */
+    overflow-x: hidden;
+    z-index: 1000;
+  }
+
+  .sidebar-right {
+    display: none !important;
+  }
+
+  .adminuiux-content {
+    width: calc(100% - 600px) !important; 
+    margin-right: 300px !important; 
+  }
+
+  .footer-main {
+     width: calc(100% - 600px) !important; 
+  }
+
+
+  .result-container {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+  } 
+
+  /* Adjust conversion summary for desktop */
+  .conversion-summary {
+    padding: 24px;
+  }
+
+  /* Better spacing for view toggle section */
+  .view-toggle-section {
+    padding: 16px 24px;
+  }
+
+  /* Adjust games list padding */
+  .games-list {
+    padding: 24px;
+  }
+
+  /* Remove extra padding that's causing the space */
+  /* .adminuiux-content {
+    padding: 20px;
+    padding-right: 20px;
+  } */
+}

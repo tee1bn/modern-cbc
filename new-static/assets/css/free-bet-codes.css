@@ -1,0 +1,878 @@
+.free-codes-page {
+  font-family: var(--adminuiux-content-font, "Open Sans", sans-serif);
+  background: #fff;
+}
+
+.codes-header {
+  padding: 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.codes-date {
+  font-size: 11px;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.codes-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: #000;
+}
+
+.codes-subtitle {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+}
+
+.codes-subtitle a {
+  color: #444;
+  text-decoration: none;
+}
+
+.codes-subtitle a:hover {
+  text-decoration: underline;
+}
+
+.hub-filters {
+  background: white;
+  padding: 12px 16px;
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid #e0e0e0;
+  overflow-x: auto;
+}
+
+.hub-filters::-webkit-scrollbar {
+  display: none;
+}
+
+.hub-filter-btn {
+  flex: 1;
+  padding: 12px 16px;
+  background: white;
+  border: 1px solid #ddd;
+  color: #333;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.hub-filter-btn:hover {
+  background: #f5f5f5;
+  border-color: #ccc;
+}
+
+.hub-filter-btn i {
+  font-size: 11px;
+}
+
+/* ==================== AD BANNER ==================== */
+.codes-ad-banner {
+  padding: 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* ==================== CODES LIST ==================== */
+.codes-list {
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ==================== CODE CARD ==================== */
+.code-card {
+  background: white;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+}
+
+/* ==================== IMPROVED CODE HEADER ==================== */
+.code-header {
+  background: #f5f5f5;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e0e0e0;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.code-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.code-id-section {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.code-id {
+  font-size: 15px;
+  font-weight: 700;
+  color: #000;
+}
+
+.code-flag {
+  font-size: 16px;
+}
+
+.code-bookie {
+  font-size: 11px;
+  font-weight: 600;
+  color: #666;
+  padding: 4px 8px;
+  background: white;
+  border: 1px solid #e0e0e0;
+}
+
+.code-stats {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+}
+
+.code-stat {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  white-space: nowrap;
+}
+
+.code-stat .label {
+  color: #999;
+  font-weight: 400;
+}
+
+.code-stat .value {
+  font-weight: 700;
+  color: #000;
+}
+
+.code-badges {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.code-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background: #fff;
+  border: 1px solid #333;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.code-badge.guest {
+  background: #f5f5f5;
+  color: #666;
+  border-color: #ddd;
+}
+
+.code-badge i {
+  font-size: 12px;
+}
+
+.badge-fire {
+  color: #ff6b35;
+}
+
+/* ==================== IMPROVED CONVERTED CODE HEADER ==================== */
+.converted-header {
+  background: #f5f5f5;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e0e0e0;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.converted-code-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.converted-origin,
+.converted-target {
+  display: none; /* Hide target, simplify origin */
+}
+
+.converted-origin {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.converted-label {
+  font-size: 9px;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.converted-code-display {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.converted-code-id {
+  font-size: 15px;
+  font-weight: 700;
+  color: #000;
+}
+
+.converted-bookie-name {
+  font-size: 11px;
+  font-weight: 600;
+  color: #666;
+  padding: 4px 8px;
+  background: white;
+  border: 1px solid #e0e0e0;
+}
+
+.converted-arrow-icon {
+  display: none; /* Hide arrow */
+}
+
+.converted-meta {
+  font-size: 10px;
+  color: #999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #fafafa;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.converted-time {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.converted-time i {
+  font-size: 11px;
+}
+
+/* ==================== CODE EVENTS (SCROLLABLE) ==================== */
+.code-events {
+  max-height: 0;
+  overflow: hidden;
+  background: white;
+  transition: max-height 0.3s ease;
+}
+
+.code-events.expanded {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.code-events::-webkit-scrollbar {
+  width: 4px;
+}
+
+.code-events::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+
+.code-events::-webkit-scrollbar-thumb {
+  background: #ccc;
+}
+
+.code-event {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: white;
+}
+
+.code-event:last-child {
+  border-bottom: none;
+}
+
+.event-icon {
+  margin-top: 2px;
+  font-size: 14px;
+  color: #666;
+}
+
+.event-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.event-outcome {
+  font-size: 12px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.event-teams {
+  font-size: 13px;
+  color: #000;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.event-time {
+  font-size: 11px;
+  color: #999;
+}
+
+.event-chart {
+  color: #999;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 2px;
+}
+
+.event-chart:hover {
+  color: #666;
+}
+
+/* ==================== CODE ACTIONS ==================== */
+.code-actions {
+  padding: 10px 12px;
+  display: flex;
+  gap: 8px;
+  border-top: 1px solid #f0f0f0;
+  background: white;
+}
+
+.code-action-btn {
+  flex: 1;
+  padding: 9px;
+  border: none;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.code-action-btn.share {
+  background: white;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.code-action-btn.share:hover {
+  background: #f5f5f5;
+}
+
+.code-action-btn.add {
+  background: #333;
+  color: white;
+  border: 1px solid #333;
+}
+
+.code-action-btn.add:hover {
+  background: #1b1b1b;
+}
+
+.code-action-btn.primary {
+  background: #000;
+  color: #fff;
+}
+
+.code-action-btn.primary:hover {
+  background: #333;
+}
+
+.code-action-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ==================== LOADING/SUCCESS STATES ==================== */
+.code-action-btn.loading {
+  pointer-events: none;
+  position: relative;
+  opacity: 0.7;
+}
+
+.code-action-btn.loading::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.code-action-btn.success {
+  background: #2e7d32 !important;
+  color: white !important;
+}
+
+/* ==================== EXPAND/COLLAPSE TOGGLE ==================== */
+.code-expand-toggle {
+  padding: 8px 12px;
+  background: #fafafa;
+  border: none;
+  border-top: 1px solid #f0f0f0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.code-expand-toggle:hover {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.code-expand-toggle i {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.code-expand-toggle.expanded i {
+  transform: rotate(180deg);
+}
+
+/* ==================== PAGINATION ==================== */
+.codes-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 20px 16px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.codes-page-btn {
+  min-width: 40px;
+  height: 40px;
+  padding: 8px 12px;
+  background: #fff;
+  border: 1px solid #333;
+  font-size: 13px;
+  font-weight: 600;
+  color: #000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.codes-page-btn:hover:not(:disabled) {
+  background: #fafafa;
+  border-color: #000;
+}
+
+.codes-page-btn.active {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.codes-page-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  background: #f5f5f5;
+  border-color: #ccc;
+}
+
+.codes-page-btn i {
+  font-size: 14px;
+}
+
+/* ==================== FILTER MODALS ==================== */
+.filter-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter-modal.active {
+  display: flex;
+}
+
+.filter-modal-content {
+  background: white;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.filter-modal-header {
+  padding: 16px;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filter-modal-header h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.filter-close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #666;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.filter-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 0;
+}
+
+.filter-item {
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: background 0.2s;
+  color: #333;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.filter-item:hover {
+  background: #f5f5f5;
+}
+
+.filter-item.selected {
+  color: #333;
+}
+
+.filter-item .check-icon {
+  color: #333;
+  font-size: 18px;
+  display: none;
+}
+
+.filter-item.selected .check-icon {
+  display: block;
+}
+
+/* Custom Range */
+.filter-custom-range {
+  padding: 16px;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.filter-custom-range label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.custom-range-inputs {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.custom-range-inputs input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 14px;
+}
+
+.custom-range-inputs span {
+  color: #999;
+  font-size: 14px;
+}
+
+.range-slider {
+  margin-top: 12px;
+}
+
+.range-slider input[type="range"] {
+  width: 100%;
+  height: 4px;
+  background: #e0e0e0;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.range-slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #2e7d32;
+  cursor: pointer;
+}
+
+.range-slider input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #2e7d32;
+  cursor: pointer;
+  border: none;
+}
+
+.range-label {
+  text-align: right;
+  font-size: 12px;
+  color: #999;
+  margin-top: 8px;
+}
+
+.filter-modal-footer {
+  padding: 12px 16px;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  gap: 12px;
+}
+
+.filter-reset-btn,
+.filter-apply-btn {
+  flex: 1;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-reset-btn {
+  background: white;
+  border: 1px solid #ddd;
+  color: #666;
+}
+
+.filter-reset-btn:hover {
+  background: #f5f5f5;
+}
+
+.filter-apply-btn {
+  background: #333;
+  border: none;
+  color: white;
+}
+
+.filter-apply-btn:hover {
+  background: #1b1b1b;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 640px) {
+  .codes-title {
+    font-size: 24px;
+  }
+
+  /* Regular Header Mobile */
+  .code-header {
+    padding: 8px 10px;
+    gap: 8px;
+  }
+
+  .code-info {
+    gap: 8px;
+  }
+
+  .code-id {
+    font-size: 14px;
+  }
+
+  .code-flag {
+    font-size: 15px;
+  }
+
+  .code-bookie {
+    font-size: 10px;
+    padding: 3px 6px;
+  }
+
+  .code-stats {
+    font-size: 10px;
+    gap: 8px;
+    width: 100%;
+    order: 3;
+  }
+
+  .code-badges {
+    width: 100%;
+    order: 4;
+  }
+
+  .code-badge {
+    font-size: 10px;
+    padding: 3px 6px;
+  }
+
+  /* Converted Header Mobile */
+  .converted-header {
+    padding: 8px 10px;
+    gap: 8px;
+  }
+
+  .converted-code-info {
+    gap: 8px;
+  }
+
+  .converted-code-id {
+    font-size: 14px;
+  }
+
+  .converted-bookie-name {
+    font-size: 10px;
+    padding: 3px 6px;
+  }
+
+  .code-stats {
+    flex-wrap: wrap;
+  }
+
+  .converted-meta {
+    padding: 6px 10px;
+    font-size: 9px;
+    gap: 6px;
+  }
+
+  /* Actions Mobile */
+  .code-actions {
+    padding: 8px 10px;
+  }
+
+  .code-action-btn {
+    font-size: 11px;
+    padding: 8px;
+  }
+
+  .search-filter-modal {
+    padding: 0;
+  }
+
+  .search-filter-content {
+    max-height: 100vh;
+  }
+
+  .codes-pagination {
+    gap: 4px;
+    padding: 16px 12px;
+  }
+
+  .codes-page-btn {
+    min-width: 36px;
+    height: 36px;
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 992px) {
+  
+  .free-codes-page .codes-header,
+  .free-codes-page .hub-filters,
+  .free-codes-page .codes-ad-banner,
+  .free-codes-page .codes-list,
+  .free-codes-page .codes-pagination {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .free-codes-page .codes-header {
+    padding: 24px 32px;
+    z-index: 1000;
+  }
+
+  .free-codes-page .hub-filters {
+    padding: 16px 32px;
+    z-index: 1000;
+  }
+
+  .free-codes-page .codes-list {
+    padding: 8px 12px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .free-codes-page .codes-header,
+  .free-codes-page .hub-filters,
+  .free-codes-page .codes-list,
+  .free-codes-page .codes-pagination {
+    max-width: 1400px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .free-codes-page .codes-header,
+  .free-codes-page .hub-filters,
+  .free-codes-page .codes-list,
+  .free-codes-page .codes-pagination {
+    max-width: 1600px;
+  }
+}

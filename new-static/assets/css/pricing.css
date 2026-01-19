@@ -1,0 +1,476 @@
+
+:root {
+  --adminuiux-content-font: "Open Sans", sans-serif;
+  --adminuiux-title-font: "SUSE", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--adminuiux-content-font);
+  background: #f8f8f8;
+  color: #000;
+  line-height: 1.6;
+}
+
+/* ========================================
+   MAIN CONTAINER
+   ======================================== */
+.pricing-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px 16px 80px;
+  background: #fff;
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+.pricing-hero {
+  text-align: center;
+  padding: 32px 20px;
+  margin-bottom: 32px;
+}
+
+.hero-title {
+  font-family: var(--adminuiux-title-font);
+  font-size: 28px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.hero-subtitle {
+  color: #333;
+  font-size: 13px;
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+/* Billing Toggle */
+.billing-toggle {
+  display: inline-flex;
+  background: #fff;
+  border: 1px solid #000;
+  overflow: hidden;
+}
+
+.toggle-btn {
+  padding: 10px 32px;
+  background: #fff;
+  border: none;
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.toggle-btn.active {
+  background: #000;
+  color: #fff;
+}
+
+.toggle-btn:hover:not(.active) {
+  background: #f5f5f5;
+}
+
+/* ========================================
+   SECTION HEADERS
+   ======================================== */
+.section-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.section-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.section-title {
+  font-family: var(--adminuiux-title-font);
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+}
+
+/* ========================================
+   PRICING GRID - DESKTOP LAYOUT
+   ======================================== */
+.pricing-plans {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-bottom: 48px;
+}
+
+/* ========================================
+   PLAN CARD
+   ======================================== */
+.plan-card {
+  background: #fff;
+  border: 2px solid #e0e0e0;
+  padding: 24px;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.plan-card:hover {
+  border-color: #000;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.plan-card.featured {
+  border: 2px solid #333;
+  background: #f8fbff;
+}
+
+.plan-card.featured:hover {
+  box-shadow: 0 8px 24px rgba(0, 123, 255, 0.15);
+}
+
+/* Plan Header */
+.plan-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.plan-name {
+  font-family: var(--adminuiux-title-font);
+  font-size: 22px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+}
+
+.plan-badge {
+  background: #333;
+  color: #fff;
+  padding: 4px 10px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 3px;
+}
+
+/* Plan Pricing */
+.plan-pricing {
+  margin-bottom: 24px;
+}
+
+.plan-price {
+  display: block;
+  font-family: var(--adminuiux-title-font);
+  font-size: 42px;
+  font-weight: 700;
+  color: #000;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.plan-validity {
+  display: block;
+  color: #666;
+  font-size: 13px;
+}
+
+.monthly-badge {
+  display: inline-block;
+  background: #f0f0f0;
+  color: #000;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: lowercase;
+  border-radius: 3px;
+  margin-top: 4px;
+}
+
+/* Plan Features */
+.plan-features {
+  margin-bottom: 24px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.feature-item:last-child {
+  border-bottom: none;
+}
+
+.feature-label {
+  color: #333;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.feature-value {
+  color: #000;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.feature-value.unlimited {
+  font-style: italic;
+  color: #333;
+  font-weight: 600;
+}
+
+.feature-item.checked {
+  gap: 12px;
+}
+
+.check-icon {
+  flex-shrink: 0;
+  color: #28a745;
+}
+
+/* Plan CTA */
+.plan-cta {
+  width: 100%;
+  padding: 14px;
+  background: #fff;
+  border: 2px solid #000;
+  color: #000;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.plan-cta:hover {
+  background: #000;
+  color: #fff;
+}
+
+.plan-cta.primary {
+  background: #333;
+  color: #fff;
+  border: 2px solid #333;
+}
+
+.plan-cta.primary:hover {
+  background: #0056b3;
+  border-color: #0056b3;
+}
+
+/* ========================================
+   FAQ SECTION
+   ======================================== */
+.faq-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding-top: 32px;
+}
+
+/* Accordion */
+.accordion-item {
+  border: 1px solid #e0e0e0;
+  margin-bottom: 12px;
+  background: #fff;
+}
+
+.accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 18px 20px;
+  background: #fff;
+  border: none;
+  color: #000;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+}
+
+.accordion-header:hover {
+  background: #f8f8f8;
+}
+
+.accordion-header svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+.accordion-header.expanded {
+  background: #f8f8f8;
+}
+
+.accordion-header.expanded svg {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  padding: 0 20px;
+  max-height: 500px;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+  background: #fff;
+}
+
+.accordion-content.collapsed {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.accordion-content p {
+  margin: 0 0 18px;
+  color: #555;
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* Tablet */
+@media (min-width: 640px) {
+  .pricing-plans {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+}
+
+/* Desktop - Main Layout (5 columns like image) */
+@media (min-width: 992px) {
+  .pricing-container {
+    padding: 48px 32px 100px;
+    max-width: 1600px;
+  }
+
+  .pricing-hero {
+    padding: 48px 32px;
+    margin-bottom: 48px;
+  }
+
+  .hero-title {
+    font-size: 36px;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+  }
+
+  .section-label {
+    font-size: 13px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .pricing-plans {
+    grid-template-columns: repeat(4, 1fr);
+    /* gap: 20px; */
+  }
+
+  .plan-card {
+    padding: 28px 20px;
+  }
+
+  .plan-card.featured {
+    transform: scale(1.02);
+  }
+
+  .plan-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .plan-card.featured:hover {
+    transform: scale(1.02) translateY(-4px);
+  }
+
+  .plan-price {
+    font-size: 48px;
+  }
+
+  .faq-section {
+    max-width: 1000px;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1400px) {
+
+  .pricing-container {
+    max-width: 1800px;
+  }
+
+  .pricing-plans {
+    gap: 24px;
+  }
+
+  .plan-card {
+    padding: 32px 24px;
+  }
+
+    .adminuiux-content {
+    width: calc(100% - 600px) !important; 
+    margin-right: 300px !important; 
+  }
+
+  .footer-main {
+     width: calc(100% - 600px) !important; 
+  }
+}
+
+/* Mobile Optimization */
+@media (max-width: 639px) {
+  .page-title {
+    font-size: 18px;
+  }
+
+  .hero-title {
+    font-size: 24px;
+  }
+
+  .billing-toggle {
+    width: 100%;
+  }
+
+  .toggle-btn {
+    flex: 1;
+    padding: 10px 16px;
+  }
+
+  .plan-price {
+    font-size: 36px;
+  }
+
+  .plan-card {
+    padding: 20px;
+  }
+}
+
+@media print {
+  .billing-toggle {
+    display: none;
+  }
+}

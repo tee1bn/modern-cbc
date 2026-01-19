@@ -1,0 +1,21 @@
+HTTrack3.49-2+htsswf+htsjava launched on Sat, 17 Jan 2026 15:46:19 at http://localhost/modern-cbc/upcoming-events.html +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" http://localhost/modern-cbc/upcoming-events.html -O1 "C:\My Web Sites\static-bet" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+15:49:50	Error: 	"Not Found" (404) at link localhost/modern-cbc/login.html (from localhost/modern-cbc/upcoming-events.html)
+15:49:50	Error: 	"Not Found" (404) at link localhost/modern-cbc/register.html (from localhost/modern-cbc/upcoming-events.html)
+15:50:03	Error: 	"Not Found" (404) at link localhost/modern-cbc/about.html (from localhost/modern-cbc/upcoming-events.html)
+15:50:03	Error: 	"Not Found" (404) at link localhost/modern-cbc/terms.html (from localhost/modern-cbc/upcoming-events.html)
+15:50:03	Error: 	"Not Found" (404) at link localhost/modern-cbc/privacy.html (from localhost/modern-cbc/upcoming-events.html)
+15:50:03	Error: 	"Not Found" (404) at link localhost/modern-cbc/cookies.html (from localhost/modern-cbc/upcoming-events.html)
+15:50:03	Error: 	"Not Found" (404) at link localhost/modern-cbc/pools-bet-codes.html (from localhost/modern-cbc/upcoming-events.html)
+15:50:03	Error: 	"Not Found" (404) at link localhost/ibaslogic.github.io/hosted-assets/smile.png (from localhost/modern-cbc/assets/css/app8051.css?bd1e16b080f637e63a80)
+15:50:07	Error: 	"Not Found" (404) at link localhost/modern-cbc/predictions.html (from localhost/modern-cbc/free-bet-codes.html)
+15:50:07	Error: 	"Not Found" (404) at link localhost/modern-cbc/change-password.html (from localhost/modern-cbc/settings.html)
+
+HTTrack Website Copier/3.49-2 mirror complete in 3 minutes 49 seconds : 79 links scanned, 67 files written (7372433 bytes overall) [7329089 bytes received at 32004 bytes/sec], 85875 bytes transferred using HTTP compression in 1 files, ratio 15%, 9.8 requests per connection
+(10 errors, 0 warnings, 0 messages)
